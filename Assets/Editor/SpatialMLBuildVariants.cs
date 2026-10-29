@@ -38,7 +38,9 @@ namespace SpatialML.Samples.Editor
         private const string DefaultOutputRoot = "Builds";
         private const string DefaultProductName = "SpatialML_Samples";
         private const string XrApplicationIdentifier = "com.pico.spatialml.samples";
-        private const string SpatialApplicationIdentifier = "com.pico.spatialml.samples.spatial";
+        // Word World ships as its own app so it never overwrites the PICO samples on the headset.
+        private const string SpatialApplicationIdentifier = "com.wordworld.app";
+        private const string SpatialProductName = "WordWorld";
 
         [MenuItem("PICO/SpatialML/Build Variants/Configure XR", priority = 20)]
         public static void ConfigureXR()
@@ -333,7 +335,7 @@ namespace SpatialML.Samples.Editor
         private static void ApplyModeIdentity(SpatialMLBuildMode mode)
         {
             bool spatial = mode == SpatialMLBuildMode.Spatial;
-            PlayerSettings.productName = spatial ? $"{DefaultProductName}_Spatial" : DefaultProductName;
+            PlayerSettings.productName = spatial ? SpatialProductName : DefaultProductName;
             PlayerSettings.SetApplicationIdentifier(
                 NamedBuildTarget.Android,
                 spatial ? SpatialApplicationIdentifier : XrApplicationIdentifier);
@@ -464,7 +466,7 @@ namespace SpatialML.Samples.Editor
         private static string GetDefaultApkName(SpatialMLBuildMode mode)
         {
             return mode == SpatialMLBuildMode.Spatial
-                ? "SpatialML-Samples-Spatial.apk"
+                ? "WordWorld.apk"
                 : "SpatialML-Samples-XR.apk";
         }
 

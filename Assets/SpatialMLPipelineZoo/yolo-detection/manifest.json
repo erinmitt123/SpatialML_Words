@@ -1,0 +1,15 @@
+{
+  "schema_version": "2",
+  "id": "yolo-detection",
+  "pipelines": [
+    {
+      "id": "inference",
+      "path": "pipeline/inference.json"
+    }
+  ],
+  "runtime": {
+    "supported_modes": [
+      "spatial"
+    ]
+  }
+}

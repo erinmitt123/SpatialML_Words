@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d64035b37a4a9499d25ba949e23c5d, type: 3}
+  m_Name: yolo-detection
+  m_EditorClassIdentifier: ByteDance.PICO.XR::ByteDance.PICO.SecureMR.SpatialMLPipelineZooAsset
+  packageId: yolo-detection
+  manifestJson: {fileID: 4900000, guid: 38754b0525d95e84792758d44ebb37ae, type: 3}
+  pipelineJsonAssets:
+  - id: inference
+    packagePath: pipeline/inference.json
+    json: {fileID: 4900000, guid: 605e112bbdcf8c246b9341e602ad818b, type: 3}
+  binaryAssets:
+  - packagePath: model/yolox_m.tflite
+    asset: {fileID: 4900000, guid: 21bb1b9251edc9c42a343951d7d065f0, type: 3}
+  - packagePath: model/yolox_postprocess.tflite
+    asset: {fileID: 4900000, guid: 767eac4c24e5dde48a4142da80634cab, type: 3}

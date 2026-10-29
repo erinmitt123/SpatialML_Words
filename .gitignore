@@ -79,3 +79,6 @@ Assets/StreamingAssets/SpatialAdapterExport.meta
 # Vendored SDK payloads include native binaries and debug metadata.
 !/SDKPackages/
 !/SDKPackages/**
+
+# PICO yolo-mesh models: regenerate with tools/spatialml (licence not yet in writing; see docs/porting-notes.md)
+/Assets/SpatialMLPipelineZoo/yolo-detection/model/*.tflite.bytes

@@ -5,7 +5,7 @@
 | Source | Repo / origin | Version | Local path | License |
 |---|---|---|---|---|
 | A. PICO SpatialML Unity samples (base project) | Provided by PICO's SpatialML team (private repo; older public mirror: github.com/Pico-Developer/SpatialML-Unity-Samples, `prerelease`) | Snapshot received 2026-10-28; baseline commit `b1b6fc3` | `C:\Users\Erin Mitt\Documents\GitHub\SpatialML_Words` | Apache-2.0 (`LICENSE`) |
-| B. YOLO + room mesh sample (Android Studio, reference only) | Provided by PICO, `yolo-mesh-sample-buildable-2026-10-28.zip` | Spatial SDK `0.99.99-SNAPSHOT` | `C:\Users\Erin Mitt\Downloads\yolo-mesh-sample-buildable-2026-10-28` | **Proprietary PICO notice on Kotlin sources: do not copy code without PICO's written permission** |
+| B. YOLO + room mesh sample (Android Studio, reference only) | Provided by PICO, `yolo-mesh-sample-buildable-2026-10-28.zip` | Spatial SDK `0.99.99-SNAPSHOT` | `C:\Users\Erin Mitt\Downloads\yolo-mesh-sample-buildable-2026-10-28` | Proprietary PICO notice on Kotlin sources. **PICO gave verbal permission to port it into Word World (2026-10-29); get it in writing before release.** |
 
 ## Unity packages (`SDKPackages/`, verified against `SHA256SUMS`)
 

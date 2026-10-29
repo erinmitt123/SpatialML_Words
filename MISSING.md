@@ -6,6 +6,8 @@
 | 2026-10-28 | pico.xr SpatialAudio: 8 files were git LFS pointers | 6 copied from PICO SDK 6.1.1 (identical hashes) | ⚠️ `libPicoSpatializer.so`, `libPicoAmbisonicDecoder.so` still pointers (unused) |
 | 2026-10-28 | Opened on Windows target; Standalone defines XR+MS SDK together → CS0122 in PXR_Loader.cs | Switch to Android, then Configure Spatial | ✅ compiles clean |
 | 2026-10-28 | `Assets/Settings/Build Profiles/Android™.asset` overrides scene list with empty list → "No Spatial scenes" build error | Set `m_OverrideGlobalSceneList: 0` | ✅ |
-| 2026-10-28 | No room mesh code | Port from source B | ⏳ |
+| 2026-10-28 | No room mesh code | Ported from B (`Assets/WordWorld/Spatial`) | ✅ |
 | 2026-10-28 | No `docs/` folder (README links `docs/samples/...`) | n/a | ⏳ |
 | 2026-10-28 | No Noto Sans SC font | Add for P1 | ⏳ |
+| 2026-10-29 | Room mesh in Spatial mode: PXR_Loader only makes "PICO Mesh" with AR Foundation 6 (not installed); manual `Create()` returns null | Ask PICO | ⏳ |
+| 2026-10-29 | YOLOX-M fails on Swan GPU ("LiteRt create input buffer failed"); NPU broken | CPU test build; ask PICO | ⏳ |
