@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using SpatialMLPipelineZooAsset = ByteDance.PICO.SecureMR.SpatialMLPipelineZooAsset;
+using ByteDance.PICO.SpatialAdapter.Component;
 using ByteDance.PICO.XR;
-using TMPro;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.UI;
 using WordWorld.DebugTools;
 using WordWorld.Detection;
 using WordWorld.Labels;
@@ -27,7 +26,6 @@ namespace WordWorld.Editor
         private const string TemplateScenePath = "Assets/Scenes/Spatial/FaceDetectionFullSpaceSpatial.unity";
         private const string TemplateSampleObject = "Full Space Face Tracking";
         private const string PackagePath = "Assets/SpatialMLPipelineZoo/yolo-detection/yolo-detection.asset";
-        private const string FontPath = "Assets/Fonts/SpatialUI/LiberationSans Spatial SDF.asset";
         private const int LabelPoolSize = 24;
 
         [MenuItem("Word World/Rebuild Word World Scene")]
@@ -36,9 +34,7 @@ namespace WordWorld.Editor
             EnsureProjectSettings();
 
             var package = AssetDatabase.LoadAssetAtPath<SpatialMLPipelineZooAsset>(PackagePath);
-            var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(FontPath);
             if (package == null) throw new System.InvalidOperationException($"Missing {PackagePath}; run tools/spatialml import first.");
-            if (font == null) throw new System.InvalidOperationException($"Missing {FontPath}.");
 
             if (AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath) != null) AssetDatabase.DeleteAsset(ScenePath);
             if (!AssetDatabase.CopyAsset(TemplateScenePath, ScenePath))
@@ -63,13 +59,13 @@ namespace WordWorld.Editor
             var labels = new GameObject("Labels").AddComponent<DebugLabels>();
             labels.transform.SetParent(app.transform, false);
             var pool = new List<LabelView>(LabelPoolSize);
-            for (int i = 0; i < LabelPoolSize; i++) pool.Add(CreateLabel(labels.transform, i, font));
+            for (int i = 0; i < LabelPoolSize; i++) pool.Add(CreateLabel(labels.transform, i));
             Set(labels, "m_tracking", tracking);
             SetArray(labels, "m_pool", pool.Cast<Object>().ToArray());
 
             var panel = new GameObject("Debug").AddComponent<DetectionDebugPanel>();
             panel.transform.SetParent(app.transform, false);
-            CreatePanel(panel.transform, font, out GameObject panelRoot, out TextMeshProUGUI panelText);
+            CreatePanel(panel.transform, out GameObject panelRoot, out SpatialAdapterNativeText panelText);
             Set(panel, "m_panelRoot", panelRoot);
             Set(panel, "m_text", panelText);
             Set(panel, "m_detector", detector);
@@ -85,83 +81,58 @@ namespace WordWorld.Editor
             Debug.Log($"[WordWorld] built {ScenePath}");
         }
 
-        private static LabelView CreateLabel(Transform parent, int index, TMP_FontAsset font)
+        // Text is drawn natively by the Spatial Engine (see LabelView): TextMeshPro rendered as blocks.
+        private static LabelView CreateLabel(Transform parent, int index)
         {
-            GameObject canvasGo = CreateCanvas($"Label {index:00}", parent, new Vector2(420, 72));
-            Image background = CreateImage(canvasGo.transform, new Color(0.08f, 0.1f, 0.16f, 0.82f));
-            TextMeshProUGUI text = CreateText(background.transform, "label", font, 44, TextAlignmentOptions.Center);
-            text.enableAutoSizing = true;
-            text.fontSizeMin = 20;
-            text.fontSizeMax = 44;
-            var view = canvasGo.AddComponent<LabelView>();
-            view.Bind(text, background);
-            canvasGo.SetActive(false);
+            var go = new GameObject($"Label {index:00}");
+            go.transform.SetParent(parent, false);
+            SpatialAdapterNativeText text = CreateNativeText(go, "label", 125, TextJustification.Center,
+                new Color(0.08f, 0.1f, 0.16f, 0.82f), new Vector2(0.3f, 0.07f));
+            var view = go.AddComponent<LabelView>();
+            view.Bind(text);
+            AddSyncCollider(go, new Vector3(0.3f, 0.07f, 0.01f));
+            go.SetActive(false);
             return view;
         }
 
-        private static void CreatePanel(Transform parent, TMP_FontAsset font, out GameObject root, out TextMeshProUGUI text)
+        private static void CreatePanel(Transform parent, out GameObject root, out SpatialAdapterNativeText text)
         {
-            root = CreateCanvas("Debug Panel", parent, new Vector2(620, 520));
+            root = new GameObject("Debug Panel");
+            root.transform.SetParent(parent, false);
             root.transform.localPosition = new Vector3(-0.45f, 1.3f, 1.1f);
-            Image background = CreateImage(root.transform, new Color(0.04f, 0.06f, 0.12f, 0.9f));
-            text = CreateText(background.transform, "Starting...", font, 22, TextAlignmentOptions.TopLeft);
-            var rect = text.rectTransform;
-            rect.offsetMin = new Vector2(20, 20);
-            rect.offsetMax = new Vector2(-20, -20);
+            // 42 pt is about 15 mm tall: comfortable at the panel's 1.1 m, and the longest status
+            // line still fits the card.
+            text = CreateNativeText(root, "Starting...", 42, TextJustification.Left,
+                new Color(0.04f, 0.06f, 0.12f, 0.9f), new Vector2(0.8f, 0.8f));
+            AddSyncCollider(root, new Vector3(0.8f, 0.8f, 0.01f));
         }
 
-        // Same setup as the sample's authored scene selector: world-space, 1 px = 1 mm.
-        private static GameObject CreateCanvas(string name, Transform parent, Vector2 size)
+        // Spatial Adapter only syncs runtime transform changes for objects that had a renderer,
+        // canvas, text or collider when the scene was registered; native text does not count, so
+        // without this the object stays at its build-time pose. The trigger also serves later taps.
+        private static void AddSyncCollider(GameObject go, Vector3 size)
         {
-            var go = new GameObject(name, typeof(RectTransform));
-            go.transform.SetParent(parent, false);
-            var canvas = go.AddComponent<Canvas>();
-            canvas.renderMode = RenderMode.WorldSpace;
-            go.AddComponent<CanvasScaler>();
-            go.AddComponent<GraphicRaycaster>();
-            var rect = (RectTransform)go.transform;
-            rect.sizeDelta = size;
-            rect.localScale = Vector3.one * 0.001f;
-            return go;
+            var box = go.AddComponent<BoxCollider>();
+            box.isTrigger = true;
+            box.size = size;
         }
 
-        private static Image CreateImage(Transform parent, Color color)
+        // Sizes are physical: text in points, background in metres, corner radius in metres. The
+        // component's runtime corner-radius setter takes an int, so the radius is authored here.
+        private static SpatialAdapterNativeText CreateNativeText(GameObject go, string value, int points,
+            TextJustification justification, Color background, Vector2 backgroundSize)
         {
-            var go = new GameObject("Background", typeof(RectTransform));
-            go.transform.SetParent(parent, false);
-            Stretch((RectTransform)go.transform);
-            var image = go.AddComponent<Image>();
-            image.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
-            image.type = Image.Type.Sliced;
-            image.color = color;
-            image.raycastTarget = false;
-            return image;
-        }
-
-        private static TextMeshProUGUI CreateText(Transform parent, string value, TMP_FontAsset font, float size,
-            TextAlignmentOptions alignment)
-        {
-            var go = new GameObject("Text", typeof(RectTransform));
-            go.transform.SetParent(parent, false);
-            Stretch((RectTransform)go.transform);
-            var text = go.AddComponent<TextMeshProUGUI>();
-            text.font = font;
-            text.fontSharedMaterial = font.material;
-            text.text = value;
-            text.fontSize = size;
-            text.alignment = alignment;
-            text.color = Color.white;
-            text.raycastTarget = false;
-            text.richText = true;
+            var text = go.AddComponent<SpatialAdapterNativeText>();
+            var so = new SerializedObject(text);
+            so.FindProperty("_text").stringValue = value;
+            so.FindProperty("_textColor").colorValue = Color.white;
+            so.FindProperty("_textSize").intValue = points;
+            so.FindProperty("_justification").enumValueIndex = (int)justification;
+            so.FindProperty("_backgroundColor").colorValue = background;
+            so.FindProperty("_backgroundSize").vector2Value = backgroundSize;
+            so.FindProperty("_backgroundCornerRadius").floatValue = 0.012f;
+            so.ApplyModifiedPropertiesWithoutUndo();
             return text;
-        }
-
-        private static void Stretch(RectTransform rect)
-        {
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
         }
 
         private static void Set(Object target, string field, Object value)

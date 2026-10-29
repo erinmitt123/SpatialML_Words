@@ -65,6 +65,7 @@ namespace WordWorld.Detection
         private double m_previousCameraTime;
         private bool m_hasPreviousCamera;
         private int m_rateFrames;
+        private float m_nextRawLogTime;
         private float m_rateWindowStart;
 
         private IEnumerator Start()
@@ -248,7 +249,28 @@ namespace WordWorld.Detection
                     StereoDepth = ReadStereoDepth(row),
                 });
             }
+            LogRawSlots();
             FrameReady?.Invoke(m_frame);
+        }
+
+        // Lanes 17-18 hold the candidate index and the score NMS reported (live-hybrid-output.js).
+        // Logged so suspicious scores can be traced on an unattended headset.
+        [System.Diagnostics.Conditional("DEVELOPMENT_BUILD")]
+        private void LogRawSlots()
+        {
+            if (Time.unscaledTime < m_nextRawLogTime) return;
+            m_nextRawLogTime = Time.unscaledTime + 5f;
+            var b = new System.Text.StringBuilder(LogTag).Append(" raw slots (slot:index class model/nms depth):");
+            for (int slot = 0; slot < MaxDetections; slot++)
+            {
+                int row = slot * RowSize;
+                if (!(m_values[row] > 0)) continue;
+                b.Append(' ').Append(slot).Append(':').Append((int)m_values[row + 17]).Append(' ')
+                    .Append(CocoClasses.NameOf(Mathf.RoundToInt(m_values[row + 1]))).Append(' ')
+                    .Append(m_values[row].ToString("0.000")).Append('/').Append(m_values[row + 18].ToString("0.000"))
+                    .Append(' ').Append(m_values[row + 16].ToString("0.00")).Append('m');
+            }
+            Debug.Log(b.ToString());
         }
 
         /// <summary>Source B's YoloMotionGate: boxes smear when the camera moves or turns quickly.</summary>

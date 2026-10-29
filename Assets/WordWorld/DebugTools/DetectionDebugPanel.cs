@@ -1,5 +1,5 @@
 using System.Text;
-using TMPro;
+using ByteDance.PICO.SpatialAdapter.Component;
 using UnityEngine;
 using UnityEngine.XR;
 using WordWorld.Detection;
@@ -16,7 +16,8 @@ namespace WordWorld.DebugTools
     public sealed class DetectionDebugPanel : MonoBehaviour
     {
         [SerializeField] private GameObject m_panelRoot;
-        [SerializeField] private TextMeshProUGUI m_text;
+        [Tooltip("Native Spatial Engine text (TextMeshPro rendered as blocks on Swan); plain text only.")]
+        [SerializeField] private SpatialAdapterNativeText m_text;
         [SerializeField] private MonoBehaviour m_detector;
         [SerializeField] private TrackingManager m_tracking;
         [SerializeField] private RoomMesh m_roomMesh;
@@ -33,6 +34,7 @@ namespace WordWorld.DebugTools
         private float m_fps;
         private bool m_placed;
         private bool m_toggleWasDown;
+        private string m_lastText;
 
         private void Awake()
         {
@@ -88,7 +90,7 @@ namespace WordWorld.DebugTools
             if (m_text == null) return;
             StringBuilder b = m_builder;
             b.Clear();
-            b.Append("<b>Word World debug</b>   FPS ").Append(m_fps.ToString("0")).Append('\n');
+            b.Append("Word World debug   FPS ").Append(m_fps.ToString("0")).Append('\n');
             if (m_source != null)
                 b.Append("Detector: ").Append(m_source.Status)
                     .Append("  (").Append(m_source.InferenceRate.ToString("0.0")).Append(" Hz)\n");
@@ -100,26 +102,28 @@ namespace WordWorld.DebugTools
                     .Append(" (stereo ").Append(m_tracking.LastStereoCount).Append(')')
                     .Append("  candidates ").Append(m_tracking.CandidateCount)
                     .Append("  confirmed ").Append(m_tracking.Confirmed.Count)
-                    .Append(m_tracking.LastFrameReliable ? "" : "  <color=#ffb000>(moving)</color>").Append('\n');
+                    .Append(m_tracking.LastFrameReliable ? "" : "  (moving)").Append('\n');
 
-                b.Append("<size=80%>Raw:");
+                b.Append("Raw (- = ignored):");
                 int rows = Mathf.Min(m_maxRawRows, m_tracking.LastRays.Count);
                 for (int i = 0; i < rows; i++)
                 {
                     DetectionRay ray = m_tracking.LastRays[i];
                     bool usable = ray.Confidence >= m_tracking.ConfidenceThreshold && CocoClasses.IsHousehold(ray.ClassId);
                     b.Append(i % 2 == 0 ? "\n  " : "   ")
-                        .Append(usable ? "" : "<color=#888888>")
-                        .Append(CocoClasses.NameOf(ray.ClassId)).Append(' ').Append(ray.Confidence.ToString("0.00"))
-                        .Append(usable ? "" : "</color>");
+                        .Append(usable ? "" : "-")
+                        .Append(CocoClasses.NameOf(ray.ClassId)).Append(' ').Append(Mathf.RoundToInt(ray.Confidence * 100f)).Append('%');
                 }
                 b.Append("\nConfirmed:");
                 foreach (TrackedObject track in m_tracking.Confirmed)
                     b.Append("\n  ").Append(track.ClassName).Append(" #").Append(track.Id)
-                        .Append(' ').Append(track.Confidence.ToString("0.00"));
-                b.Append("</size>");
+                        .Append(' ').Append(Mathf.RoundToInt(track.Confidence * 100f)).Append('%');
             }
-            m_text.SetText(b);
+            // Each assignment is a native update, so skip unchanged text.
+            string text = b.ToString();
+            if (text == m_lastText) return;
+            m_lastText = text;
+            m_text.Text = text;
         }
     }
 }

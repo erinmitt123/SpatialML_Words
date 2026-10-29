@@ -24,6 +24,9 @@ namespace WordWorld.Tracking
         [SerializeField, Range(1, 32)] private int m_windowFrames = 8;
         [SerializeField, Range(1, 32)] private int m_requiredHits = 5;
         [SerializeField] private float m_matchRadius = 0.25f;
+        [Tooltip("Depth tolerance along the view ray, as a fraction of distance. Mesh and stereo depth " +
+                 "disagree by 15-25% up close on Swan, so 0.25 m along the ray split one object into several.")]
+        [SerializeField, Range(0.05f, 1f)] private float m_depthTolerance = 0.35f;
         [SerializeField] private float m_dropAfterUnseenSeconds = 10f;
         [Tooltip("Exponential smoothing weight for each new observation.")]
         [SerializeField, Range(0.05f, 1f)] private float m_smoothing = 0.3f;
@@ -107,7 +110,10 @@ namespace WordWorld.Tracking
             {
                 if (ray.Confidence < m_confidenceThreshold || !CocoClasses.IsHousehold(ray.ClassId)) continue;
                 // The mesh fit is more precise; stereo covers surfaces the mesh lacks (or no mesh at all).
-                if (MeshRayPlacer.TryPlace(ray, mask, out PlacedDetection placed) || TryPlaceStereo(ray, out placed))
+                // When both measure and disagree, one of them is on something else: skip, never guess.
+                bool onMesh = MeshRayPlacer.TryPlace(ray, mask, out PlacedDetection placed);
+                if (onMesh && SourcesDisagree(ray, placed)) continue;
+                if (onMesh || TryPlaceStereo(ray, out placed))
                 {
                     m_placed.Add(placed);
                     if (placed.FromStereo) stereo++;
@@ -120,7 +126,34 @@ namespace WordWorld.Tracking
             foreach (TrackedObject track in m_tracks) track.HitThisFrame = false;
             AssignDetections(frame.Camera);
             AgeTracks(frame.Camera, dt);
-            MergeDuplicates();
+            MergeDuplicates(frame.Camera);
+        }
+
+        private bool SourcesDisagree(in DetectionRay ray, in PlacedDetection onMesh)
+        {
+            float stereo = ray.StereoDepth;
+            if (!(stereo >= MeshRayPlacer.MinDepth && stereo <= MeshRayPlacer.MaxDepth)) return false;
+            float mesh = Vector3.Dot(onMesh.Position - ray.Origin, ray.PlaneDirection) / ray.PlaneDirection.sqrMagnitude;
+            return Mathf.Abs(mesh - stereo) > m_depthTolerance * Mathf.Min(mesh, stereo);
+        }
+
+        /// <summary>
+        /// Whether two points can be the same object seen from <paramref name="camera"/>: within the
+        /// 0.25 m match radius across the view, but within m_depthTolerance of the distance along it,
+        /// because depth (not direction) is what the sensors get wrong. Returns a normalised cost, or
+        /// -1 when they cannot match.
+        /// </summary>
+        private float ViewCost(Vector3 a, Vector3 b, Pose camera)
+        {
+            Vector3 da = a - camera.position, db = b - camera.position;
+            float ra = da.magnitude, rb = db.magnitude;
+            if (ra < 1e-3f || rb < 1e-3f) return -1f;
+            float near = Mathf.Min(ra, rb);
+            float lateral = Vector3.Angle(da, db) * Mathf.Deg2Rad * near;
+            float along = Mathf.Abs(ra - rb);
+            float depthLimit = Mathf.Max(m_matchRadius, m_depthTolerance * near);
+            if (lateral > m_matchRadius || along > depthLimit) return -1f;
+            return 0.5f * (lateral * lateral / (m_matchRadius * m_matchRadius) + along * along / (depthLimit * depthLimit));
         }
 
         // Headset tests often run unattended; logcat is the only way to see the pipeline then.
@@ -134,8 +167,14 @@ namespace WordWorld.Tracking
             {
                 if (ray.StereoDepth > 0) m_summaryWithDepth++;
                 if (ray.Confidence >= m_confidenceThreshold && CocoClasses.IsHousehold(ray.ClassId)) m_summaryEligible++;
-                if (m_summarySample.Length < 160)
-                    m_summarySample += $" {CocoClasses.NameOf(ray.ClassId)}:{ray.Confidence:0.00}@{ray.StereoDepth:0.00}m";
+                if (m_summarySample.Length < 400)
+                {
+                    // Mesh vs stereo depth for the same ray shows whether the two sources agree.
+                    float meshDepth = MeshRayPlacer.TryPlace(ray, RoomMesh.LayerMask, out PlacedDetection onMesh)
+                        ? Vector3.Dot(onMesh.Position - ray.Origin, ray.PlaneDirection) / ray.PlaneDirection.sqrMagnitude
+                        : 0f;
+                    m_summarySample += $" {CocoClasses.NameOf(ray.ClassId)}:{ray.Confidence:0.00} st{ray.StereoDepth:0.00}/mesh{meshDepth:0.00}";
+                }
             }
             if (Time.unscaledTime < m_nextSummaryTime) return;
             m_nextSummaryTime = Time.unscaledTime + 5f;
@@ -198,7 +237,7 @@ namespace WordWorld.Tracking
                 {
                     float cost = confirmed
                         ? ObjectGeometry.ConfirmedCost(m_stageTracks[c], detection, camera)
-                        : CandidateCost(m_stageTracks[c], detection);
+                        : CandidateCost(m_stageTracks[c], detection, camera);
                     m_assignment.Set(r, c, cost >= 0f ? cost : ObjectAssignment.Invalid);
                 }
                 for (int c = tracks; c < tracks + rows; c++) m_assignment.Set(r, c, ObjectAssignment.Unmatched);
@@ -212,19 +251,19 @@ namespace WordWorld.Tracking
                 PlacedDetection detection = m_placed[m_unassigned[r]];
                 TrackedObject track = m_stageTracks[c];
                 // Re-check: the solver only falls back to an invalid pair when nothing else fits.
-                float cost = confirmed ? ObjectGeometry.ConfirmedCost(track, detection, camera) : CandidateCost(track, detection);
+                float cost = confirmed ? ObjectGeometry.ConfirmedCost(track, detection, camera) : CandidateCost(track, detection, camera);
                 if (cost < 0f) continue;
                 Observe(track, detection);
                 m_unassigned.RemoveAt(r);
             }
         }
 
-        // CLAUDE.md section 2: a candidate only gathers evidence within 0.25 m of where it was seen.
-        private float CandidateCost(TrackedObject track, in PlacedDetection detection)
+        // CLAUDE.md section 2: a candidate only gathers evidence within 0.25 m of where it was seen,
+        // measured across the view; along the view the sensors' depth noise needs more room (ViewCost).
+        private float CandidateCost(TrackedObject track, in PlacedDetection detection, Pose camera)
         {
             if (track.ClassId != detection.ClassId) return -1f;
-            float distance = Vector3.Distance(track.Position, detection.Position);
-            return distance <= m_matchRadius ? distance * distance / (m_matchRadius * m_matchRadius) : -1f;
+            return ViewCost(track.Position, detection.Position, camera);
         }
 
         private void StartTrack(in PlacedDetection detection)
@@ -285,7 +324,7 @@ namespace WordWorld.Tracking
             }
         }
 
-        private void MergeDuplicates()
+        private void MergeDuplicates(Pose camera)
         {
             for (int i = m_tracks.Count - 1; i >= 0; i--)
             {
@@ -293,11 +332,13 @@ namespace WordWorld.Tracking
                 for (int j = 0; j < i; j++)
                 {
                     TrackedObject b = m_tracks[j];
-                    if (a.ClassId != b.ClassId || Vector3.Distance(a.Position, b.Position) > m_matchRadius) continue;
+                    if (a.ClassId != b.ClassId) continue;
+                    if (Vector3.Distance(a.Position, b.Position) > m_matchRadius && ViewCost(a.Position, b.Position, camera) < 0f) continue;
                     // Keep the confirmed (or older) one; fold the other's evidence into it.
                     TrackedObject keep = b.Confirmed || !a.Confirmed ? b : a;
                     TrackedObject drop = keep == b ? a : b;
-                    keep.Position = Vector3.Lerp(keep.Position, drop.Position, 0.5f);
+                    // A confirmed object is the persistent one; a stray copy must not drag it around.
+                    keep.Position = Vector3.Lerp(keep.Position, drop.Position, keep.Confirmed && !drop.Confirmed ? 0.1f : 0.5f);
                     keep.HitHistory |= drop.HitHistory;
                     keep.LastSeenTime = Mathf.Max(keep.LastSeenTime, drop.LastSeenTime);
                     RemoveAt(m_tracks.IndexOf(drop));

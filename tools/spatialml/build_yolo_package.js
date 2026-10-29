@@ -56,8 +56,12 @@ if (raysOnly) {
     !isType(op, 'UV_TO_3D_IN_CAM_SPACE') && !outputsOf(op).some(t => unused.has(t)));
   for (const name of unused) delete graph.tensors[name];
   pack.inputs = pack.inputs.filter(i => i.tensor !== 'point_xyz');
-} else if (!pack.inputs.some(i => i.tensor === 'point_xyz')) {
-  throw new Error('source pack operator no longer takes point_xyz; check the hybrid script');
+} else {
+  if (!pack.inputs.some(i => i.tensor === 'point_xyz')) {
+    throw new Error('source pack operator no longer takes point_xyz; check the hybrid script');
+  }
+  // The hybrid script scores rows with the model's own candidate score (see its header).
+  pack.inputs.push({ name: 'candidate_scores', tensor: 'candidate_scores' });
 }
 pack.attrs = [liveScript];
 

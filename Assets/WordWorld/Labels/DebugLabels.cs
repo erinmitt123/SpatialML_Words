@@ -6,8 +6,9 @@ using WordWorld.Tracking;
 namespace WordWorld.Labels
 {
     /// <summary>
-    /// P0 labels: plain English class names above confirmed objects. Billboarded toward the user,
-    /// scaled with distance within limits, and pushed apart vertically when crowded.
+    /// P0 labels: plain English class names and the detector's confidence above confirmed objects.
+    /// Billboarded toward the user, sized with distance within limits, and pushed apart vertically
+    /// when crowded.
     /// </summary>
     [AddComponentMenu("Word World/Debug Labels")]
     public sealed class DebugLabels : MonoBehaviour
@@ -17,12 +18,11 @@ namespace WordWorld.Labels
 
         [Header("Placement")]
         [SerializeField] private float m_gapAboveObject = 0.06f;
-        [Tooltip("Canvas scale at 1 m. Canvases are authored at 0.001 (1 px = 1 mm).")]
-        [SerializeField] private float m_scaleAtOneMetre = 0.001f;
-        [SerializeField] private float m_minScale = 0.0008f;
-        [SerializeField] private float m_maxScale = 0.0025f;
-        [Tooltip("Label height in canvas pixels, used for de-overlap.")]
-        [SerializeField] private float m_labelHeightPixels = 72f;
+        [Tooltip("Font size in points for a label 1 m away (125 pt is about 44 mm tall).")]
+        [SerializeField] private float m_pointsAtOneMetre = 125f;
+        [Tooltip("Labels keep a constant angular size between these distances (readable at 3 m).")]
+        [SerializeField] private float m_minSizeDistance = 0.8f;
+        [SerializeField] private float m_maxSizeDistance = 2.5f;
 
         private readonly Dictionary<TrackedObject, LabelView> m_active = new Dictionary<TrackedObject, LabelView>();
         private readonly Stack<LabelView> m_free = new Stack<LabelView>();
@@ -32,7 +32,7 @@ namespace WordWorld.Labels
         {
             public LabelView View;
             public Vector3 Position;
-            public float Scale;
+            public float Height;
             public float Distance;
         }
 
@@ -69,7 +69,7 @@ namespace WordWorld.Labels
                 return;
             }
             LabelView view = m_free.Pop();
-            view.SetText(track.ClassName);
+            view.SetWord(track.ClassName, track.Confidence);
             m_active.Add(track, view);
             view.gameObject.SetActive(true);
         }
@@ -93,8 +93,12 @@ namespace WordWorld.Labels
                 Vector3 anchor = track.Position + Vector3.up * (track.Height * 0.5f + m_gapAboveObject);
                 float distance = Vector3.Distance(head.position, anchor);
                 // Constant angular size keeps far labels readable (3 m target) without near ones looming.
-                float scale = Mathf.Clamp(m_scaleAtOneMetre * distance, m_minScale, m_maxScale);
-                m_placements.Add(new Placement { View = pair.Value, Position = anchor, Scale = scale, Distance = distance });
+                // Rounded to 0.1 m steps: every size change is a native text update.
+                float sizeDistance = Mathf.Round(Mathf.Clamp(distance, m_minSizeDistance, m_maxSizeDistance) * 10f) / 10f;
+                LabelView view = pair.Value;
+                view.SetPoints(Mathf.RoundToInt(m_pointsAtOneMetre * sizeDistance));
+                view.SetWord(track.ClassName, track.Confidence);
+                m_placements.Add(new Placement { View = view, Position = anchor, Height = view.HeightMetres, Distance = distance });
             }
 
             // Nearest first so the closest label keeps its true spot and farther ones step up.
@@ -105,7 +109,7 @@ namespace WordWorld.Labels
                 for (int j = 0; j < i; j++)
                 {
                     Placement q = m_placements[j];
-                    float minGap = m_labelHeightPixels * Mathf.Max(p.Scale, q.Scale);
+                    float minGap = Mathf.Max(p.Height, q.Height);
                     if (Overlaps(head.position, p.Position, q.Position, minGap) && p.Position.y < q.Position.y + minGap)
                         p.Position.y = q.Position.y + minGap;
                 }
@@ -114,12 +118,30 @@ namespace WordWorld.Labels
                 Vector3 toUser = head.position - p.Position;
                 toUser.y = 0f; // stay upright; tilting text is harder to read
                 if (toUser.sqrMagnitude < 1e-4f) toUser = -(head.rotation * Vector3.forward);
-                // Canvas text faces -Z, so look away from the user.
+                // Like Unity UI, the text faces -Z, so look away from the user.
                 Quaternion rotation = Quaternion.LookRotation(-toUser.normalized, Vector3.up);
-                Transform t = p.View.transform;
-                t.SetPositionAndRotation(p.Position, rotation);
-                t.localScale = new Vector3(p.Scale, p.Scale, p.Scale);
+                p.View.transform.SetPositionAndRotation(p.Position, rotation);
             }
+            LogPlacements(head);
+        }
+
+        // Spatial mode cannot be screen-captured, so placement is checked from logcat.
+        private float m_nextLogTime;
+
+        [System.Diagnostics.Conditional("DEVELOPMENT_BUILD")]
+        private void LogPlacements(Pose head)
+        {
+            if (Time.unscaledTime < m_nextLogTime) return;
+            m_nextLogTime = Time.unscaledTime + 5f;
+            var b = new System.Text.StringBuilder("[WordWorld.Labels] head ");
+            b.Append(head.position.ToString("F2")).Append(" fwd ").Append((head.rotation * Vector3.forward).ToString("F2"));
+            Transform root = transform;
+            b.Append(" root ").Append(root.position.ToString("F2")).Append(root.lossyScale.ToString("F2"));
+            foreach (KeyValuePair<TrackedObject, LabelView> pair in m_active)
+                b.Append(" | ").Append(pair.Key.ClassName).Append(" obj ").Append(pair.Key.Position.ToString("F2"))
+                    .Append(" label ").Append(pair.Value.transform.position.ToString("F2"))
+                    .Append(" local ").Append(pair.Value.transform.localPosition.ToString("F2"));
+            Debug.Log(b.ToString());
         }
 
         // Two labels collide when they are roughly in the same viewing direction from the user.

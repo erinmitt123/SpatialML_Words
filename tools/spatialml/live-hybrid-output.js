@@ -2,13 +2,19 @@
 // original packing script (both from source B; see docs/porting-notes.md).
 // Row layout (20 floats): score, class, box width and height on the LEFT camera's one-metre plane,
 // then a row-major 4x4 HEAD-local pose whose translation is the box centre on that plane.
-// Lane 16 (the pose's bottom-left cell, always 0 in a rigid transform) carries the stereo axial
-// depth in metres, or 0 when the five central samples do not agree. The app prefers the room mesh
-// and falls back to this depth when the mesh has no surface there.
+// Lanes 16-18 (the pose's bottom row, always 0 in a rigid transform) carry extras:
+//   16: stereo axial depth in metres, or 0 when the five central samples do not agree. The app
+//       prefers the room mesh and falls back to this depth when the mesh has no surface there.
+//   17: candidate index, 18: the score NMS reported for the slot (diagnostics).
+// NMS output is fixed-size: on Swan, the trailing slots are padding that points at suppressed
+// candidates (overlapping copies of real detections) with an NMS score of 1.0 or 0.0. A real NMS
+// slot reports its candidate's own score, so only slots whose scores agree are packed, and each
+// candidate at most once. Lanes 17-18 keep the evidence visible in the app's raw-slot log.
 var candidate_boxes;
 var candidate_classes;
 var nms_indices;
 var nms_scores;
+var candidate_scores;
 var point_xyz;
 var vst_camera_matrix;
 var left_eye_transform;
@@ -23,9 +29,13 @@ for (var k = 0; k < 16; k++) detections[641 + k] = left_eye_transform[k];
 detections[657] = vst_timestamp[1];
 detections[658] = Math.floor(vst_timestamp[3] / 1000000);
 detections[659] = vst_timestamp[3] % 1000000;
+var packed = [];
 for (var i = 0; i < 32; i++) {
-    var index = nms_indices[i], score = nms_scores[i];
-    if (index < 0 || index >= 128 || score < 0.5) continue;
+    var index = nms_indices[i];
+    if (index < 0 || index >= 128 || packed.indexOf(index) >= 0) continue;
+    var score = candidate_scores[index];
+    if (!(score >= 0.5) || score > 1 || Math.abs(nms_scores[i] - score) > 0.001) continue;
+    packed.push(index);
     var b = index * 4, out = i * 20;
     var x1 = Math.max(0, Math.min(639, candidate_boxes[b]));
     var y1 = Math.max(0, Math.min(639, candidate_boxes[b + 1]));
@@ -44,6 +54,9 @@ for (var i = 0; i < 32; i++) {
         detections[out + 7 + r * 4] = left_eye_transform[r * 4] * x +
             left_eye_transform[r * 4 + 1] * y - left_eye_transform[r * 4 + 2] + left_eye_transform[r * 4 + 3];
     }
+    // After the pose loop, which writes the bottom row.
+    detections[out + 17] = index;
+    detections[out + 18] = nms_scores[i];
     // Stereo depth: a hole or another object's edge must not own the depth, so require 3 of the
     // 5 central samples to agree with their median.
     var depths = [];

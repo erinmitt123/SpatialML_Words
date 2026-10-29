@@ -43,4 +43,4 @@ MonoBehaviour:
   - resource: {fileID: 2103686, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
     path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Sprite Assets\EmojiOne.asset.glb
   ShaderGraphLookUps: []
-  DefaultSpatialCameraConfiguration: {fileID: 11400000, guid: 3f0f12161122646a8bbc81d469b0eaeb, type: 2}
+  DefaultSpatialCameraConfiguration: {fileID: 11400000, guid: 7bf278742d7ab4f58aa7195695c41f38, type: 2}

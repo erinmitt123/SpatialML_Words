@@ -11,3 +11,6 @@
 | 2026-10-28 | No Noto Sans SC font | Add for P1 | ⏳ |
 | 2026-10-29 | Room mesh in Spatial mode: PXR_Loader only makes "PICO Mesh" with AR Foundation 6 (not installed); manual `Create()` returns null | Ask PICO | ⏳ |
 | 2026-10-29 | YOLOX-M fails on Swan GPU ("LiteRt create input buffer failed"); NPU broken | GPU works after a reboot (~7.4 Hz). A failed or earlier GPU session breaks it until reboot (tell PICO). NPU still broken | ✅ GPU / ⚠️ service bug |
+| 2026-10-29 | TextMeshPro renders as blocks in Spatial mode | Labels and panel use `SpatialAdapterNativeText`; Chinese rendering still to check for P1 | ⚠️ needs visual check |
+| 2026-10-29 | Spatial Adapter manifest used the Constrained camera config (2.5 m volume) while the runtime camera is Unconstrained, so content was boxed in a window instead of the room | `SpatialAdapterRuntimeSettings` now points at "Default Unconstrained Spatial Camera Configuration" (stage, like the Android sample) | ✅ stage on Swan; labels need a visual check |
+| 2026-10-29 | Room mesh: two "PICO Mesh" descriptors (PxrPlatform, not loaded in Spatial mode, and StagePlatform) | RoomMesh tries each; StagePlatform's creates and reaches RUNNING, but no mesh data arrives (no MESH_UPDATE events, TryGetMeshInfos false) | ⚠️ ask PICO |

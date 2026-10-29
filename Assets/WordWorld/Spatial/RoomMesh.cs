@@ -25,7 +25,7 @@ namespace WordWorld.Spatial
         public static int LayerMask => 1 << Layer;
         public static int Layer => Math.Max(0, UnityEngine.LayerMask.NameToLayer(LayerName));
 
-        public int ChunkCount => m_chunks.Count;
+        public int ChunkCount => m_chunks.Count + m_xrChunks.Count;
         public int TriangleCount { get; private set; }
         public string Status { get; private set; } = "Starting";
 
@@ -36,6 +36,12 @@ namespace WordWorld.Spatial
         private readonly List<int> m_triangleScratch = new List<int>(4096);
         private readonly List<XRMeshSubsystem> m_subsystems = new List<XRMeshSubsystem>();
         private XRMeshSubsystem m_subsystem;
+        // Unity's pull path: StagePlatform's provider serves meshes through TryGetMeshInfos.
+        private readonly List<MeshInfo> m_meshInfos = new List<MeshInfo>();
+        private readonly Dictionary<MeshId, Chunk> m_xrChunks = new Dictionary<MeshId, Chunk>();
+        private readonly HashSet<MeshId> m_generating = new HashSet<MeshId>();
+        private float m_nextPoll;
+        private int m_loggedInfoCount = -1;
         private bool m_subscribed;
         private bool m_ownsSubsystem;
 
@@ -73,17 +79,22 @@ namespace WordWorld.Spatial
 
         // In Spatial mode (PICO_MS_SDK) PXR_Loader only creates the mesh subsystem when AR Foundation 6
         // is installed. The subsystem itself is core Unity XR, so create it the way the XR path does.
+        // Two plugins declare "PICO Mesh": PxrPlatform (not loaded in Spatial mode, so Create returns
+        // null) and StagePlatform (the Spatial-mode one). Try each until one creates.
         private XRMeshSubsystem CreatePicoMeshSubsystem()
         {
             var descriptors = new List<XRMeshSubsystemDescriptor>();
             SubsystemManager.GetSubsystemDescriptors(descriptors);
+            int candidates = 0;
             foreach (XRMeshSubsystemDescriptor descriptor in descriptors)
             {
                 if (descriptor.id != "PICO Mesh") continue;
-                Debug.Log($"{LogTag} loader did not create the mesh subsystem; creating '{descriptor.id}'");
-                return descriptor.Create();
+                candidates++;
+                XRMeshSubsystem subsystem = descriptor.Create();
+                Debug.Log($"{LogTag} creating '{descriptor.id}' #{candidates}: {(subsystem != null ? "ok" : "null")}");
+                if (subsystem != null) return subsystem;
             }
-            Debug.LogError($"{LogTag} no 'PICO Mesh' descriptor ({descriptors.Count} mesh descriptors registered)");
+            Debug.LogError($"{LogTag} no usable 'PICO Mesh' ({candidates} of {descriptors.Count} mesh descriptors tried)");
             return null;
         }
 
@@ -102,15 +113,68 @@ namespace WordWorld.Spatial
 
         private void Update()
         {
+            PollMeshInfos();
             lock (m_lock)
             {
                 if (m_pending.Count == 0) return;
                 foreach (PxrSpatialMeshInfo info in m_pending.Values) Apply(info);
                 m_pending.Clear();
             }
+            UpdateStatus();
+        }
+
+        private void UpdateStatus()
+        {
             TriangleCount = 0;
             foreach (Chunk chunk in m_chunks.Values) TriangleCount += chunk.Triangles;
-            Status = $"{m_chunks.Count} chunks, {TriangleCount} triangles";
+            foreach (Chunk chunk in m_xrChunks.Values) TriangleCount += chunk.Triangles;
+            Status = $"{ChunkCount} chunks, {TriangleCount} triangles";
+        }
+
+        // Once a second is plenty: the system mesh updates every couple of seconds.
+        private void PollMeshInfos()
+        {
+            if (m_subsystem == null || !m_subsystem.running || Time.unscaledTime < m_nextPoll) return;
+            m_nextPoll = Time.unscaledTime + 1f;
+            if (!m_subsystem.TryGetMeshInfos(m_meshInfos)) return;
+            if (m_meshInfos.Count != m_loggedInfoCount)
+            {
+                m_loggedInfoCount = m_meshInfos.Count;
+                Debug.Log($"{LogTag} {m_meshInfos.Count} mesh infos");
+            }
+            foreach (MeshInfo info in m_meshInfos)
+            {
+                if (info.ChangeState == MeshChangeState.Removed)
+                {
+                    RemoveXr(info.MeshId);
+                    continue;
+                }
+                if (info.ChangeState == MeshChangeState.Unchanged || m_generating.Contains(info.MeshId)) continue;
+                if (!m_xrChunks.TryGetValue(info.MeshId, out Chunk chunk))
+                {
+                    chunk = CreateChunk(info.MeshId.ToString());
+                    m_xrChunks.Add(info.MeshId, chunk);
+                }
+                m_generating.Add(info.MeshId);
+                m_subsystem.GenerateMeshAsync(info.MeshId, chunk.Mesh, chunk.Collider, MeshVertexAttributes.None, OnMeshGenerated);
+            }
+        }
+
+        private void OnMeshGenerated(MeshGenerationResult result)
+        {
+            m_generating.Remove(result.MeshId);
+            if (result.Status != MeshGenerationStatus.Success || !m_xrChunks.TryGetValue(result.MeshId, out Chunk chunk)) return;
+            chunk.GameObject.transform.SetPositionAndRotation(result.Position, result.Rotation);
+            chunk.Triangles = (int)(chunk.Mesh.GetIndexCount(0) / 3);
+            UpdateStatus();
+        }
+
+        private void RemoveXr(MeshId id)
+        {
+            if (!m_xrChunks.TryGetValue(id, out Chunk chunk)) return;
+            Destroy(chunk.Mesh);
+            Destroy(chunk.GameObject);
+            m_xrChunks.Remove(id);
         }
 
         private void Apply(PxrSpatialMeshInfo info)
@@ -123,7 +187,7 @@ namespace WordWorld.Spatial
             }
             if (!m_chunks.TryGetValue(info.uuid, out Chunk chunk))
             {
-                chunk = CreateChunk(info.uuid);
+                chunk = CreateChunk(info.uuid.ToString("N"));
                 m_chunks.Add(info.uuid, chunk);
             }
             m_triangleScratch.Clear();
@@ -146,9 +210,9 @@ namespace WordWorld.Spatial
             chunk.Collider.sharedMesh = chunk.Mesh;
         }
 
-        private Chunk CreateChunk(Guid id)
+        private Chunk CreateChunk(string id)
         {
-            var go = new GameObject($"Room Mesh {id:N}") { layer = Layer };
+            var go = new GameObject($"Room Mesh {id}") { layer = Layer };
             go.transform.SetParent(transform, false);
             var chunk = new Chunk
             {
@@ -180,7 +244,9 @@ namespace WordWorld.Spatial
             if (m_subsystem != null && m_subsystem.running) m_subsystem.Stop();
             if (m_ownsSubsystem && m_subsystem != null) m_subsystem.Destroy();
             foreach (Chunk chunk in m_chunks.Values) Destroy(chunk.Mesh);
+            foreach (Chunk chunk in m_xrChunks.Values) Destroy(chunk.Mesh);
             m_chunks.Clear();
+            m_xrChunks.Clear();
         }
     }
 }
