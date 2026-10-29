@@ -1,0 +1,813 @@
+{
+  "tensors": {
+    "model_input": {
+      "dimensions": [
+        256,
+        256
+      ],
+      "channels": 3,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "box_coords_1": {
+      "dimensions": [
+        512,
+        16
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "box_coords_2": {
+      "dimensions": [
+        384,
+        16
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "box_scores_1": {
+      "dimensions": [
+        512,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "box_scores_2": {
+      "dimensions": [
+        384,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "post_det": {
+      "dimensions": [
+        1,
+        21
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "vst_left_image": {
+      "dimensions": [
+        256,
+        338
+      ],
+      "channels": 3,
+      "data_type": 1,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "vst_right_image": {
+      "dimensions": [
+        256,
+        338
+      ],
+      "channels": 3,
+      "data_type": 1,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "vst_timestamp": {
+      "tensor_type": "timestamp",
+      "is_placeholder": false,
+      "value": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "vst_camera_matrix": {
+      "dimensions": [
+        3,
+        3
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "zero_timestamp": {
+      "tensor_type": "timestamp",
+      "is_placeholder": false,
+      "value": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "x_min": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "y_min": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "x_max": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "y_max": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "center_x": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "center_y": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "center_uv_matrix": {
+      "dimensions": [
+        1,
+        2
+      ],
+      "channels": 1,
+      "data_type": 5,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "center_uv": {
+      "dimensions": [
+        1
+      ],
+      "channels": 2,
+      "data_type": 5,
+      "is_placeholder": false,
+      "usage": 1
+    },
+    "camera_point": {
+      "dimensions": [
+        1
+      ],
+      "channels": 3,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 1
+    },
+    "zero_camera_point": {
+      "dimensions": [
+        1
+      ],
+      "channels": 3,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 1,
+      "value": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "frame_packet": {
+      "dimensions": [
+        1,
+        32
+      ],
+      "channels": 1,
+      "data_type": 7,
+      "is_placeholder": false,
+      "usage": 6,
+      "value": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    "frame_sequence": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 5,
+      "is_placeholder": true,
+      "usage": 6
+    },
+    "frame_result": {
+      "dimensions": [
+        1,
+        32
+      ],
+      "channels": 1,
+      "data_type": 7,
+      "is_placeholder": true,
+      "usage": 6
+    }
+  },
+  "operators": [
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "zero_timestamp"
+      ],
+      "outputs": [
+        "vst_timestamp"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_RECTIFIED_VST_ACCESS_PICO",
+      "inputs": [],
+      "outputs": [
+        "vst_right_image",
+        "vst_left_image",
+        "vst_timestamp",
+        "vst_camera_matrix"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_RUN_MODEL_INFERENCE_PICO",
+      "inputs": [
+        {
+          "name": "image",
+          "tensor": "vst_left_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_input",
+          "tensor": "model_input"
+        }
+      ],
+      "model": {
+        "bin_path": "model/preprocess.tflite",
+        "model_name": "preprocess",
+        "model_type": "tflite",
+        "model_target": "gpu",
+        "input": [
+          {
+            "name": "image",
+            "shape": [
+              1,
+              256,
+              338,
+              3
+            ],
+            "encoding_type": "UINT8",
+            "alias_name": "image"
+          }
+        ],
+        "output": [
+          {
+            "name": "model_input",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "model_input"
+          }
+        ]
+      }
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_RUN_MODEL_INFERENCE_PICO",
+      "inputs": [
+        {
+          "name": "image",
+          "tensor": "model_input"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "box_coords_1",
+          "tensor": "box_coords_1"
+        },
+        {
+          "name": "box_coords_2",
+          "tensor": "box_coords_2"
+        },
+        {
+          "name": "box_scores_1",
+          "tensor": "box_scores_1"
+        },
+        {
+          "name": "box_scores_2",
+          "tensor": "box_scores_2"
+        }
+      ],
+      "model": {
+        "bin_path": "model/face_detector.tflite",
+        "model_name": "main",
+        "model_type": "tflite",
+        "model_target": "npu",
+        "input": [
+          {
+            "name": "image",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "image"
+          }
+        ],
+        "output": [
+          {
+            "name": "box_coords_1",
+            "shape": [
+              1,
+              512,
+              16
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "box_coords_1"
+          },
+          {
+            "name": "box_coords_2",
+            "shape": [
+              1,
+              384,
+              16
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "box_coords_2"
+          },
+          {
+            "name": "box_scores_1",
+            "shape": [
+              1,
+              512,
+              1
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "box_scores_1"
+          },
+          {
+            "name": "box_scores_2",
+            "shape": [
+              1,
+              384,
+              1
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "box_scores_2"
+          }
+        ]
+      }
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_RUN_MODEL_INFERENCE_PICO",
+      "inputs": [
+        {
+          "name": "args_0",
+          "tensor": "box_coords_1"
+        },
+        {
+          "name": "args_1",
+          "tensor": "box_coords_2"
+        },
+        {
+          "name": "args_2",
+          "tensor": "box_scores_1"
+        },
+        {
+          "name": "args_3",
+          "tensor": "box_scores_2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_0",
+          "tensor": "post_det"
+        }
+      ],
+      "model_type": "tflite",
+      "model_target": "cpu",
+      "cpu_target_num_threads": 1,
+      "model_name": "decoder",
+      "model": {
+        "bin_path": "model/face_decoder.tflite",
+        "model_name": "decoder",
+        "model_type": "tflite",
+        "model_target": "cpu",
+        "cpu_target_num_threads": 1,
+        "input": [
+          {
+            "name": "args_0",
+            "shape": [
+              1,
+              512,
+              16
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "box_coords_1"
+          },
+          {
+            "name": "args_1",
+            "shape": [
+              1,
+              384,
+              16
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "box_coords_2"
+          },
+          {
+            "name": "args_2",
+            "shape": [
+              1,
+              512,
+              1
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "box_scores_1"
+          },
+          {
+            "name": "args_3",
+            "shape": [
+              1,
+              384,
+              1
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "box_scores_2"
+          }
+        ],
+        "output": [
+          {
+            "name": "output_0",
+            "shape": [
+              21
+            ],
+            "encoding_type": "FP32",
+            "alias_name": "post_det"
+          }
+        ]
+      }
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "post_det"
+      ],
+      "outputs": [
+        "x_min"
+      ],
+      "src_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "post_det"
+      ],
+      "outputs": [
+        "y_min"
+      ],
+      "src_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "post_det"
+      ],
+      "outputs": [
+        "x_max"
+      ],
+      "src_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "post_det"
+      ],
+      "outputs": [
+        "y_max"
+      ],
+      "src_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ARITHMETIC_COMPOSE_PICO",
+      "inputs": [
+        "x_min",
+        "x_max"
+      ],
+      "outputs": [
+        "center_x"
+      ],
+      "expression": "({0} + {1}) * 0.5"
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ARITHMETIC_COMPOSE_PICO",
+      "inputs": [
+        "y_min",
+        "y_max"
+      ],
+      "outputs": [
+        "center_y"
+      ],
+      "expression": "({0} + {1}) * 0.5"
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "center_x"
+      ],
+      "outputs": [
+        "center_uv_matrix"
+      ],
+      "dst_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "center_y"
+      ],
+      "outputs": [
+        "center_uv_matrix"
+      ],
+      "dst_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "center_uv_matrix"
+      ],
+      "outputs": [
+        "center_uv"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "zero_camera_point"
+      ],
+      "outputs": [
+        "camera_point"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_UV_TO_3D_IN_CAM_SPACE_PICO",
+      "inputs": [
+        "center_uv",
+        "vst_timestamp",
+        "vst_camera_matrix",
+        "vst_left_image",
+        "vst_right_image"
+      ],
+      "outputs": [
+        "camera_point"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "camera_point"
+      ],
+      "outputs": [
+        "frame_packet"
+      ],
+      "dst_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "post_det"
+      ],
+      "outputs": [
+        "frame_packet"
+      ],
+      "dst_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          24
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "vst_camera_matrix"
+      ],
+      "outputs": [
+        "frame_packet"
+      ],
+      "src_slices": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dst_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          24,
+          25
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "vst_timestamp"
+      ],
+      "outputs": [
+        "frame_packet"
+      ],
+      "dst_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          25,
+          29
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "frame_sequence"
+      ],
+      "outputs": [
+        "frame_packet"
+      ],
+      "dst_slices": [
+        [
+          0,
+          1
+        ],
+        [
+          29,
+          30
+        ]
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        "frame_packet"
+      ],
+      "outputs": [
+        "frame_result"
+      ]
+    }
+  ],
+  "inputs": [
+    "frame_sequence"
+  ],
+  "outputs": [
+    "frame_result"
+  ]
+}

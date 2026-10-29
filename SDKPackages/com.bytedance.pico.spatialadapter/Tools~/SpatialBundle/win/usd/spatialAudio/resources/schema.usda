@@ -1,0 +1,77 @@
+#usda 1.0
+(
+    """ Spatial Audio schema    """
+    subLayers = [
+        @usd/schema.usda@
+    ]
+)
+over "GLOBAL" (
+    customData = {
+        string libraryName       = "spatialAudio"
+        string libraryPath       = "./"
+        string libraryPrefix     = "UsdSpatialAudio"
+    }
+) {
+}
+
+# This defines the AudioFile schema
+class SpatialAudioFile "SpatialAudioFile" (
+    doc = """ AudioFile type. Note that it does not specify a typeName"""
+    inherits = </Typed>
+    customData = {
+        string className = "File"
+    }
+)
+{
+    uniform asset file (
+        doc = "Original audio file path."
+    )
+    uniform token loadingStrategy = "preload" (
+        allowedTokens = ["preload","stream"]
+        doc = "Loading Strategy"
+    )
+    uniform token normalization = "none" (
+        allowedTokens = ["none","dynamic"]
+        doc = "Loading Strategy"
+    )
+    uniform token calibrationMode = "absolute" (
+        allowedTokens = ["none","absolute", "relative"]
+        doc = "Calibration Mode"
+    )
+    uniform token playMode = "random" (
+        allowedTokens = ["random","forward", "backward"]
+        doc = "Audio play mode"
+    )
+
+    uniform bool shouldLoop = false
+    uniform bool shouldRandomizeStartTime = false
+
+    rel mixerGroup (
+        doc = "Relationship to a audio mixer group."
+    )
+}
+
+# This defines the AudioFileGroup schema
+class SpatialAudioFileGroup "SpatialAudioFileGroup" (
+    doc = """AudioFileGroup type. Note that it does not specify a typeName"""
+    inherits = </Typed>
+    customData = {
+        string className = "FileGroup"
+    }
+)
+{
+}
+
+# This defines the AudioMixGroup schema
+class SpatialAudioMixerGroup "SpatialAudioMixerGroup" (
+    doc = """AudioMixerGroup type. Note that it does not specify a typeName"""
+    inherits = </Typed>
+    customData = {
+        string className = "MixerGroup"
+    }
+)
+{
+    float gain = 0
+    float speed = 1
+    bool mute = 0
+}

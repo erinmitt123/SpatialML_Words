@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<materialx version="1.38">
+  <!--
+    Copyright Contributors to the MaterialX Project
+    SPDX-License-Identifier: Apache-2.0
+
+    Declarations of standard data types and nodes included in the MaterialX specification.
+  -->
+
+  <!-- ======================================================================== -->
+  <!-- Data types                                                               -->
+  <!-- ======================================================================== -->
+
+  <typedef name="boolean" />
+  <typedef name="integer" />
+  <typedef name="float" />
+  <typedef name="color3" semantic="color" />
+  <typedef name="color4" semantic="color" />
+  <typedef name="vector2" />
+  <typedef name="vector3" />
+  <typedef name="vector4" />
+  <typedef name="matrix33" />
+  <typedef name="matrix44" />
+  <typedef name="string" />
+  <typedef name="filename" />
+  <typedef name="geomname" />
+  <typedef name="surfaceshader" semantic="shader" context="surface" />
+  <typedef name="displacementshader" semantic="shader" context="displacement" />
+  <typedef name="volumeshader" semantic="shader" context="volume" />
+  <typedef name="lightshader" semantic="shader" context="light" />
+  <typedef name="material" semantic="material" />
+  <typedef name="none" />
+
+  <typedef name="integerarray" />
+  <typedef name="floatarray" />
+  <typedef name="color3array" semantic="color" />
+  <typedef name="color4array" semantic="color" />
+  <typedef name="vector2array" />
+  <typedef name="vector3array" />
+  <typedef name="vector4array" />
+  <typedef name="stringarray" />
+  <typedef name="geomnamearray" />
+	
+  <typedef name="half" />
+  <typedef name="half2" />
+  <typedef name="half3" />
+  <typedef name="half4" />
+  
+  <typedef name="integer2" />
+  <typedef name="integer3" />
+  <typedef name="integer4" />
+ 
+
+	 
+
+</materialx>

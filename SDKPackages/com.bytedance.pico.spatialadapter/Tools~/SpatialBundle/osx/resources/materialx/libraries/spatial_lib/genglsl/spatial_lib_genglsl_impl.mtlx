@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<materialx version="1.38">
+  <!--
+    Copyright Contributors to the MaterialX Project
+    SPDX-License-Identifier: Apache-2.0
+
+    Declarations for glsl implementations of standard nodes included in the MaterialX specification.
+  -->
+
+  <!-- ======================================================================== -->
+  <!-- Shader nodes                                                             -->
+  <!-- ======================================================================== -->
+  <implementation name="IM_texturesize_genglsl" nodedef="ND_texturesize" file="mx_texturesize.glsl" function="mx_texturesize" target="genglsl" />
+  <implementation name="IM_twosidedsign_genglsl" nodedef="ND_twosidedsign" target="genglsl" sourcecode="(gl_FrontFacing ? 1.0 : -1.0)" />
+  <!-- <combinematerial> -->
+  <implementation name="IM_combinematerial_genglsl" nodedef="ND_combinematerial" target="genglsl" />
+  <implementation name="IM_realitykit_geometrymodifier_2_0_vertexshader_genglsl" nodedef="ND_realitykit_geometrymodifier_2_0_vertexshader" file="mx_geometrymodifier_vertexshader_rcp.glsl" function="mx_geometrymodifier" target="genglsl" />
+  <implementation name="IM_geometrymodifier_vertexshader_genglsl" nodedef="ND_geometrymodifier_vertexshader" file="mx_geometrymodifier_vertexshader.glsl" function="mx_geometrymodifier" target="genglsl" />
+
+  <!-- <round> -->
+  <implementation name="IM_round_float_genglsl" nodedef="ND_round_float" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_half_genglsl" nodedef="ND_round_half" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_color3_genglsl" nodedef="ND_round_color3" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_color4_genglsl" nodedef="ND_round_color4" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_vector2_genglsl" nodedef="ND_round_vector2" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_vector3_genglsl" nodedef="ND_round_vector3" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_vector4_genglsl" nodedef="ND_round_vector4" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_half2_genglsl" nodedef="ND_round_half2" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_half3_genglsl" nodedef="ND_round_half3" target="genglsl" sourcecode="round({{in}})" />
+  <implementation name="IM_round_half4_genglsl" nodedef="ND_round_half4" target="genglsl" sourcecode="round({{in}})" />
+  <!-- <safepower> -->
+  <implementation name="IM_safepower_float_genglsl" nodedef="ND_safepower_float" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), {{in2}})" />
+  <implementation name="IM_safepower_half_genglsl" nodedef="ND_safepower_half" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), {{in2}})" />
+  <implementation name="IM_safepower_color3_genglsl" nodedef="ND_safepower_color3" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), {{in2}})" />
+  <implementation name="IM_safepower_color4_genglsl" nodedef="ND_safepower_color4" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), {{in2}})" />
+  <implementation name="IM_safepower_color3FA_genglsl" nodedef="ND_safepower_color3FA" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), vec3({{in2}}))" />
+  <implementation name="IM_safepower_color4FA_genglsl" nodedef="ND_safepower_color4FA" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), vec4({{in2}}))" />
+  <implementation name="IM_safepower_vector2_genglsl" nodedef="ND_safepower_vector2" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), {{in2}})" />
+  <implementation name="IM_safepower_vector3_genglsl" nodedef="ND_safepower_vector3" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), {{in2}})" />
+  <implementation name="IM_safepower_vector4_genglsl" nodedef="ND_safepower_vector4" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), {{in2}})" />
+  <implementation name="IM_safepower_vector2FA_genglsl" nodedef="ND_safepower_vector2FA" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), vec2({{in2}}))" />
+  <implementation name="IM_safepower_vector3FA_genglsl" nodedef="ND_safepower_vector3FA" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), vec3({{in2}}))" />
+  <implementation name="IM_safepower_vector4FA_genglsl" nodedef="ND_safepower_vector4FA" target="genglsl" sourcecode="sign({{in1}}) * pow(abs({{in1}}), vec4({{in2}}))" />
+	
+	<!-- <step> -->
+  <implementation name="IM_realitykit_step_float_genglsl" nodedef="ND_realitykit_step_float" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_half_genglsl" nodedef="ND_realitykit_step_half" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_color3_genglsl" nodedef="ND_realitykit_step_color3" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_color4_genglsl" nodedef="ND_realitykit_step_color4" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_vector2_genglsl" nodedef="ND_realitykit_step_vector2" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_vector3_genglsl" nodedef="ND_realitykit_step_vector3" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_vector4_genglsl" nodedef="ND_realitykit_step_vector4" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_half2_genglsl" nodedef="ND_realitykit_step_half2" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_half3_genglsl" nodedef="ND_realitykit_step_half3" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+  <implementation name="IM_realitykit_step_half4_genglsl" nodedef="ND_realitykit_step_half4" target="genglsl" sourcecode="step({{edge}}, {{in}})" />
+
+ 
+  <!-- <log2> -->
+  <implementation name="IM_log2_float_genglsl" nodedef="ND_log2_float" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_log2_half_genglsl" nodedef="ND_log2_half" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_log2_vector2_genglsl" nodedef="ND_log2_vector2" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_log2_vector3_genglsl" nodedef="ND_log2_vector3" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_log2_vector4_genglsl" nodedef="ND_log2_vector4" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_log2_half2_genglsl" nodedef="ND_log2_half2" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_log2_half3_genglsl" nodedef="ND_log2_half3" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_log2_half4_genglsl" nodedef="ND_log2_half4" target="genglsl" sourcecode="log2({{x}})" />
+
+   <!-- <log10> -->
+  <implementation name="IM_log10_float_genglsl" nodedef="ND_log10_float" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_log10_half_genglsl" nodedef="ND_log10_half" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_log10_vector2_genglsl" nodedef="ND_log10_vector2" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_log10_vector3_genglsl" nodedef="ND_log10_vector3" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_log10_vector4_genglsl" nodedef="ND_log10_vector4" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_log10_half2_genglsl" nodedef="ND_log10_half2" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_log10_half3_genglsl" nodedef="ND_log10_half3" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_log10_half4_genglsl" nodedef="ND_log10_half4" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+	
+  <!--// MTL Log2 Log10-->
+  <!-- <log2> -->
+  <implementation name="IM_MTL_log2_float_genglsl" nodedef="ND_MTL_log2_float" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_MTL_log2_half_genglsl" nodedef="ND_MTL_log2_half" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_MTL_log2_vector2_genglsl" nodedef="ND_MTL_log2_vector2" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_MTL_log2_vector3_genglsl" nodedef="ND_MTL_log2_vector3" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_MTL_log2_vector4_genglsl" nodedef="ND_MTL_log2_vector4" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_MTL_log2_half2_genglsl" nodedef="ND_MTL_log2_half2" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_MTL_log2_half3_genglsl" nodedef="ND_MTL_log2_half3" target="genglsl" sourcecode="log2({{x}})" />
+  <implementation name="IM_MTL_log2_half4_genglsl" nodedef="ND_MTL_log2_half4" target="genglsl" sourcecode="log2({{x}})" />
+  
+  <!-- <log10> -->
+  <implementation name="IM_MTL_log10_float_genglsl" nodedef="ND_MTL_log10_float" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_MTL_log10_half_genglsl" nodedef="ND_MTL_log10_half" target="genglsl" sourcecode="log({{x}})/log(10.0)" />
+  <implementation name="IM_MTL_log10_vector2_genglsl" nodedef="ND_MTL_log10_vector2" target="genglsl" sourcecode="log({{x}})/log(vec2(10.0))" />
+  <implementation name="IM_MTL_log10_vector3_genglsl" nodedef="ND_MTL_log10_vector3" target="genglsl" sourcecode="log({{x}})/log(vec3(10.0))" />
+  <implementation name="IM_MTL_log10_vector4_genglsl" nodedef="ND_MTL_log10_vector4" target="genglsl" sourcecode="log({{x}})/log(vec4(10.0))" />
+  <implementation name="IM_MTL_log10_half2_genglsl" nodedef="ND_MTL_log10_half2" target="genglsl" sourcecode="log({{x}})/log(vec2(10.0))" />
+  <implementation name="IM_MTL_log10_half3_genglsl" nodedef="ND_MTL_log10_half3" target="genglsl" sourcecode="log({{x}})/log(vec3(10.0))" />
+  <implementation name="IM_MTL_log10_half4_genglsl" nodedef="ND_MTL_log10_half4" target="genglsl" sourcecode="log({{x}})/log(vec4(10.0))" />
+
+  <!-- <exp2> -->
+  <implementation name="IM_exp2_float_genglsl" nodedef="ND_exp2_float" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_exp2_half_genglsl" nodedef="ND_exp2_half" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_exp2_vector2_genglsl" nodedef="ND_exp2_vector2" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_exp2_vector3_genglsl" nodedef="ND_exp2_vector3" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_exp2_vector4_genglsl" nodedef="ND_exp2_vector4" target="genglsl" sourcecode="exp2({{x}})" />
+ 
+  <implementation name="IM_exp2_half2_genglsl" nodedef="ND_exp2_half2" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_exp2_half3_genglsl" nodedef="ND_exp2_half3" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_exp2_half4_genglsl" nodedef="ND_exp2_half4" target="genglsl" sourcecode="exp2({{x}})" />
+
+  <!-- <exp10> -->
+  <implementation name="IM_exp10_float_genglsl" nodedef="ND_exp10_float" target="genglsl" sourcecode="pow(10.0, {{x}})" />
+  <implementation name="IM_exp10_half_genglsl" nodedef="ND_exp10_half" target="genglsl" sourcecode="pow(10.0, {{x}})" />
+  <implementation name="IM_exp10_vector2_genglsl" nodedef="ND_exp10_vector2" target="genglsl" sourcecode="pow(vec2(10.0), {{x}})" />
+  <implementation name="IM_exp10_vector3_genglsl" nodedef="ND_exp10_vector3" target="genglsl" sourcecode="pow(vec3(10.0), {{x}})" />
+  <implementation name="IM_exp10_vector4_genglsl" nodedef="ND_exp10_vector4" target="genglsl" sourcecode="pow(vec4(10.0), {{x}})" />
+  
+  <implementation name="IM_exp10_half2_genglsl" nodedef="ND_exp10_half2" target="genglsl" sourcecode="pow(vec2(10.0), {{x}})" />
+  <implementation name="IM_exp10_half3_genglsl" nodedef="ND_exp10_half3" target="genglsl" sourcecode="pow(vec3(10.0), {{x}})" />
+  <implementation name="IM_exp10_half4_genglsl" nodedef="ND_exp10_half4" target="genglsl" sourcecode="pow(vec4(10.0), {{x}})" />
+
+  <!-- <exp2> -->
+  <implementation name="IM_MTL_exp2_float_genglsl" nodedef="ND_MTL_exp2_float" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_MTL_exp2_half_genglsl" nodedef="ND_MTL_exp2_half" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_MTL_exp2_vector2_genglsl" nodedef="ND_MTL_exp2_vector2" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_MTL_exp2_vector3_genglsl" nodedef="ND_MTL_exp2_vector3" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_MTL_exp2_vector4_genglsl" nodedef="ND_MTL_exp2_vector4" target="genglsl" sourcecode="exp2({{x}})" />
+  
+  <implementation name="IM_MTL_exp2_half2_genglsl" nodedef="ND_MTL_exp2_half2" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_MTL_exp2_half3_genglsl" nodedef="ND_MTL_exp2_half3" target="genglsl" sourcecode="exp2({{x}})" />
+  <implementation name="IM_MTL_exp2_half4_genglsl" nodedef="ND_MTL_exp2_half4" target="genglsl" sourcecode="exp2({{x}})" />
+  
+  <!-- <exp10> -->
+  <implementation name="IM_MTL_exp10_float_genglsl" nodedef="ND_MTL_exp10_float" target="genglsl" sourcecode="pow(10.0, {{x}})" />
+  <implementation name="IM_MTL_exp10_half_genglsl" nodedef="ND_MTL_exp10_half" target="genglsl" sourcecode="pow(10.0, {{x}})" />
+  <implementation name="IM_MTL_exp10_vector2_genglsl" nodedef="ND_MTL_exp10_vector2" target="genglsl" sourcecode="pow(vec2(10.0), {{x}})" />
+  <implementation name="IM_MTL_exp10_vector3_genglsl" nodedef="ND_MTL_exp10_vector3" target="genglsl" sourcecode="pow(vec3(10.0), {{x}})" />
+  <implementation name="IM_MTL_exp10_vector4_genglsl" nodedef="ND_MTL_exp10_vector4" target="genglsl" sourcecode="pow(vec4(10.0), {{x}})" />
+  
+  <implementation name="IM_MTL_exp10_half2_genglsl" nodedef="ND_MTL_exp10_half2" target="genglsl" sourcecode="pow(vec2(10.0), {{x}})" />
+  <implementation name="IM_MTL_exp10_half3_genglsl" nodedef="ND_MTL_exp10_half3" target="genglsl" sourcecode="pow(vec3(10.0), {{x}})" />
+  <implementation name="IM_MTL_exp10_half4_genglsl" nodedef="ND_MTL_exp10_half4" target="genglsl" sourcecode="pow(vec4(10.0), {{x}})" />
+
+  <!-- <ddx> -->
+  <implementation name="IM_ddx_float_genglsl" nodedef="ND_ddx_float" target="genglsl" sourcecode="dFdx({{x}})" />
+  <implementation name="IM_ddx_half_genglsl" nodedef="ND_ddx_half" target="genglsl" sourcecode="dFdx({{x}})" />
+  <implementation name="IM_ddx_vector2_genglsl" nodedef="ND_ddx_vector2" target="genglsl" sourcecode="dFdx({{x}})" />
+  <implementation name="IM_ddx_vector3_genglsl" nodedef="ND_ddx_vector3" target="genglsl" sourcecode="dFdx({{x}})" />
+  <implementation name="IM_ddx_vector4_genglsl" nodedef="ND_ddx_vector4" target="genglsl" sourcecode="dFdx({{x}})" />
+  <implementation name="IM_ddx_half2_genglsl" nodedef="ND_ddx_half2" target="genglsl" sourcecode="dFdx({{x}})" />
+  <implementation name="IM_ddx_half3_genglsl" nodedef="ND_ddx_half3" target="genglsl" sourcecode="dFdx({{x}})" />
+  <implementation name="IM_ddx_half4_genglsl" nodedef="ND_ddx_half4" target="genglsl" sourcecode="dFdx({{x}})" />
+
+  <!-- <ddy> -->
+  <implementation name="IM_ddy_float_genglsl" nodedef="ND_ddy_float" target="genglsl" sourcecode="dFdy({{y}})" />
+  <implementation name="IM_ddy_half_genglsl" nodedef="ND_ddy_half" target="genglsl" sourcecode="dFdy({{y}})" />
+  <implementation name="IM_ddy_vector2_genglsl" nodedef="ND_ddy_vector2" target="genglsl" sourcecode="dFdy({{y}})" />
+  <implementation name="IM_ddy_vector3_genglsl" nodedef="ND_ddy_vector3" target="genglsl" sourcecode="dFdy({{y}})" />
+  <implementation name="IM_ddy_vector4_genglsl" nodedef="ND_ddy_vector4" target="genglsl" sourcecode="dFdy({{y}})" />
+  <implementation name="IM_ddy_half2_genglsl" nodedef="ND_ddy_half2" target="genglsl" sourcecode="dFdy({{y}})" />
+  <implementation name="IM_ddy_half3_genglsl" nodedef="ND_ddy_half3" target="genglsl" sourcecode="dFdy({{y}})" />
+  <implementation name="IM_ddy_half4_genglsl" nodedef="ND_ddy_half4" target="genglsl" sourcecode="dFdy({{y}})" />
+
+  <!-- <fract> -->
+  <implementation name="IM_fract_float_genglsl" nodedef="ND_fract_float" target="genglsl" sourcecode="fract({{x}})" />
+  <implementation name="IM_fract_half_genglsl" nodedef="ND_fract_half" target="genglsl" sourcecode="fract({{x}})" />
+  <implementation name="IM_fract_vector2_genglsl" nodedef="ND_fract_vector2" target="genglsl" sourcecode="fract({{x}})" />
+  <implementation name="IM_fract_vector3_genglsl" nodedef="ND_fract_vector3" target="genglsl" sourcecode="fract({{x}})" />
+  <implementation name="IM_fract_vector4_genglsl" nodedef="ND_fract_vector4" target="genglsl" sourcecode="fract({{x}})" />
+  <implementation name="IM_fract_half2_genglsl" nodedef="ND_fract_half2" target="genglsl" sourcecode="fract({{x}})" />
+  <implementation name="IM_fract_half3_genglsl" nodedef="ND_fract_half3" target="genglsl" sourcecode="fract({{x}})" />
+  <implementation name="IM_fract_half4_genglsl" nodedef="ND_fract_half4" target="genglsl" sourcecode="fract({{x}})" />
+
+  <!-- <oneminus> -->
+  <implementation name="IM_realitykit_onemiuns_float_genglsl" nodedef="ND_realitykit_onemiuns_float" target="genglsl" sourcecode="1.0 - {{in}}" />
+  <implementation name="IM_realitykit_onemiuns_color3_genglsl" nodedef="ND_realitykit_onemiuns_color3" target="genglsl" sourcecode="vec3(1.0) - {{in}}" />
+  <implementation name="IM_realitykit_onemiuns_color4_genglsl" nodedef="ND_realitykit_onemiuns_color4" target="genglsl" sourcecode="vec4(1.0) - {{in}}" />
+  <implementation name="IM_realitykit_onemiuns_vector2_genglsl" nodedef="ND_realitykit_onemiuns_color2" target="genglsl" sourcecode="vec2(1.0) - {{in}}" />
+  <implementation name="IM_realitykit_onemiuns_vector3_genglsl" nodedef="ND_realitykit_onemiuns_color3" target="genglsl" sourcecode="vec3(1.0) - {{in}}" />
+  <implementation name="IM_realitykit_onemiuns_vector4_genglsl" nodedef="ND_realitykit_onemiuns_color4" target="genglsl" sourcecode="vec4(1.0) - {{in}}" />
+	
+ 
+  <!-- <reflect> -->
+  <implementation name="IM_realitykit_reflect_vector3_genglsl" nodedef="ND_realitykit_reflect_vector3" target="genglsl" sourcecode="reflect({{in}},{{normal}})" />
+
+  <!-- <refract> -->
+  <implementation name="IM_realitykit_refract_vector3_genglsl" nodedef="ND_realitykit_refract_vector3" target="genglsl" sourcecode="refract({{in}},{{normal}},{{eta}})" />
+
+  <!-- <surface_model_to_view> -->
+  <implementation name="IM_realitykit_surface_model_to_view_genglsl" nodedef="ND_realitykit_surface_model_to_view" target="genglsl" sourcecode="getModelToView()" />
+  
+  <implementation name="IM_realitykit_surface_model_to_world_genglsl" nodedef="ND_realitykit_surface_model_to_world" target="genglsl" sourcecode="getModelToWorld()" />
+  <implementation name="IM_realitykit_surface_projection_to_view_genglsl" nodedef="ND_realitykit_surface_projection_to_view" target="genglsl" sourcecode="getProjectionToView()" />
+  <implementation name="IM_realitykit_surface_world_to_view_genglsl" nodedef="ND_realitykit_surface_world_to_view" target="genglsl" sourcecode="getWorldToView()" />
+  <implementation name="IM_realitykit_surface_view_to_projection_genglsl" nodedef="ND_realitykit_surface_view_to_projection" target="genglsl" sourcecode="getViewToProject()" />
+  
+  
+  <implementation name="IM_realitykit_surface_view_direction_genglsl" nodedef="ND_realitykit_surface_view_direction" target="genglsl" sourcecode="getViewDirectionWorldSpace()" />
+  <implementation name="IM_realitykit_viewdirection_vector3_genglsl" nodedef="ND_realitykit_viewdirection_vector3" target="genglsl" sourcecode="getViewDirectionPlaceholder({{space}})" />
+  <implementation name="IM_updirection_vector3_genglsl" nodedef="ND_updirection_vector3" target="genglsl" sourcecode="getUpDirectionPlaceholder({{space}})" />
+  <implementation name="IM_realitykit_surface_screen_position_genglsl" nodedef="ND_realitykit_surface_screen_position" target="genglsl" sourcecode="getScreenPosition()" />
+
+  <!-- <modifier matrix> -->
+  <implementation name="IM_realitykit_geometry_modifier_model_to_view_genglsl" nodedef="ND_realitykit_geometry_modifier_model_to_view" target="genglsl" sourcecode="getModelToView()" />
+  <implementation name="IM_realitykit_geometry_modifier_model_to_world_genglsl" nodedef="ND_realitykit_geometry_modifier_model_to_world" target="genglsl" sourcecode="getModelToWorld()" />
+
+  <implementation name="IM_realitykit_geometry_modifier_world_to_model_genglsl" nodedef="ND_realitykit_geometry_modifier_world_to_model" target="genglsl" sourcecode="inverse(getModelToWorld())" />
+  <implementation name="IM_realitykit_geometry_modifier_projection_to_view_genglsl" nodedef="ND_realitykit_geometry_modifier_projection_to_view" target="genglsl" sourcecode="getProjectionToView()" />
+  <implementation name="IM_realitykit_geometry_modifier_view_to_projection_genglsl" nodedef="ND_realitykit_geometry_modifier_view_to_projection" target="genglsl" sourcecode="getViewToProject()" />
+  <implementation name="IM_realitykit_geometry_modifier_normal_to_world_genglsl" nodedef="ND_realitykit_geometry_modifier_normal_to_world" target="genglsl" sourcecode="transpose(inverse(mat3(getModelToWorld())))" />
+
+
+  <!-- <multiply> -->
+  <implementation name="IM_multiply_matrix44_vector4_genglsl" nodedef="ND_multiply_matrix44_vector4" target="genglsl" sourcecode="{{in1}} * {{in2}}" />
+  <implementation name="IM_multiply_matrix33_vector3_genglsl" nodedef="ND_multiply_matrix33_vector3" target="genglsl" sourcecode="{{in1}} * {{in2}}" />
+
+  <!--  <atan> -->
+  <implementation name="IM_atan_float_genglsl" nodedef="ND_atan_float" target="genglsl" sourcecode="atan({{in1}}, {{in2}})" />
+  <implementation name="IM_atan_vector2_genglsl" nodedef="ND_atan_vector2" target="genglsl" sourcecode="atan({{in1}}, {{in2}})" />
+  <implementation name="IM_atan_vector3_genglsl" nodedef="ND_atan_vector3" target="genglsl" sourcecode="atan({{in1}}, {{in2}})" />
+  <implementation name="IM_atan_vector4_genglsl" nodedef="ND_atan_vector4" target="genglsl" sourcecode="atan({{in1}}, {{in2}})" />
+  
+  <implementation name="IM_atan_half_genglsl" nodedef="ND_atan_half" target="genglsl" sourcecode="atan({{in1}}, {{in2}})" />
+  <implementation name="IM_atan_half2_genglsl" nodedef="ND_atan_half2" target="genglsl" sourcecode="atan({{in1}}, {{in2}})" />
+  <implementation name="IM_atan_half3_genglsl" nodedef="ND_atan_half3" target="genglsl" sourcecode="atan({{in1}}, {{in2}})" />
+  <implementation name="IM_atan_half4_genglsl" nodedef="ND_atan_half4" target="genglsl" sourcecode="atan({{in1}}, {{in2}})" />
+
+  <!-- <max> -->
+  <implementation name="IM_fmax_float_genglsl" nodedef="ND_fmax_float" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_color3_genglsl" nodedef="ND_fmax_color3" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_color3FA_genglsl" nodedef="ND_fmax_color3FA" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_color4_genglsl" nodedef="ND_fmax_color4" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_color4FA_genglsl" nodedef="ND_fmax_color4FA" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_vector2_genglsl" nodedef="ND_fmax_vector2" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_vector2FA_genglsl" nodedef="ND_fmax_vector2FA" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_vector3_genglsl" nodedef="ND_fmax_vector3" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_vector3FA_genglsl" nodedef="ND_fmax_vector3FA" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_vector4_genglsl" nodedef="ND_fmax_vector4" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_vector4FA_genglsl" nodedef="ND_fmax_vector4FA" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+
+  <implementation name="IM_fmax_half_genglsl" nodedef="ND_fmax_half" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_half2_genglsl" nodedef="ND_fmax_half2" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_half2FA_genglsl" nodedef="ND_fmax_half2FA" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_half3_genglsl" nodedef="ND_fmax_half3" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_half3FA_genglsl" nodedef="ND_fmax_half3FA" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_half4_genglsl" nodedef="ND_fmax_half4" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+  <implementation name="IM_fmax_half4FA_genglsl" nodedef="ND_fmax_half4FA" target="genglsl" sourcecode="max({{in1}}, {{in2}})" />
+
+  <!-- <min> -->
+  <implementation name="IM_fmin_float_genglsl" nodedef="ND_fmin_float" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_color3_genglsl" nodedef="ND_fmin_color3" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_color3FA_genglsl" nodedef="ND_fmin_color3FA" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_color4_genglsl" nodedef="ND_fmin_color4" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_color4FA_genglsl" nodedef="ND_fmin_color4FA" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_vector2_genglsl" nodedef="ND_fmin_vector2" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_vector2FA_genglsl" nodedef="ND_fmin_vector2FA" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_vector3_genglsl" nodedef="ND_fmin_vector3" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_vector3FA_genglsl" nodedef="ND_fmin_vector3FA" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_vector4_genglsl" nodedef="ND_fmin_vector4" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_vector4FA_genglsl" nodedef="ND_fmin_vector4FA" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+
+  <implementation name="IM_fmin_half_genglsl" nodedef="ND_fmin_half" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_half2_genglsl" nodedef="ND_fmin_half2" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_half3_genglsl" nodedef="ND_fmin_half3" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_half4_genglsl" nodedef="ND_fmin_half4" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_half3FA_genglsl" nodedef="ND_fmin_half3FA" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_half2FA_genglsl" nodedef="ND_fmin_half2FA" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+  <implementation name="IM_fmin_half4FA_genglsl" nodedef="ND_fmin_half4FA" target="genglsl" sourcecode="min({{in1}}, {{in2}})" />
+
+  <!-- <modulo> -->
+  <implementation name="IM_fmod_float_genglsl" nodedef="ND_fmod_float" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_color3_genglsl" nodedef="ND_fmod_color3" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_color3FA_genglsl" nodedef="ND_fmod_color3FA" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_color4_genglsl" nodedef="ND_fmod_color4" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_color4FA_genglsl" nodedef="ND_fmod_color4FA" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_vector2_genglsl" nodedef="ND_fmod_vector2" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_vector2FA_genglsl" nodedef="ND_fmod_vector2FA" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_vector3_genglsl" nodedef="ND_fmod_vector3" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_vector3FA_genglsl" nodedef="ND_fmod_vector3FA" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_vector4_genglsl" nodedef="ND_fmod_vector4" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_vector4FA_genglsl" nodedef="ND_fmod_vector4FA" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+
+  <implementation name="IM_fmod_half_genglsl" nodedef="ND_fmod_half" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_half2_genglsl" nodedef="ND_fmod_half2" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_half3_genglsl" nodedef="ND_fmod_half3" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_half4_genglsl" nodedef="ND_fmod_half4" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_half2FA_genglsl" nodedef="ND_fmod_half2FA" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_half3FA_genglsl" nodedef="ND_fmod_half3FA" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+  <implementation name="IM_fmod_half4FA_genglsl" nodedef="ND_fmod_half4FA" target="genglsl" sourcecode="mod({{in1}}, {{in2}})" />
+	
+  <implementation name="IM_rcp_VideoTexture_color4_genglsl" nodedef="ND_rcp_VideoTexture_color4" target="genglsl" sourcecode="GET_VIDEO_TEXTURE({{wrapS}}, {{st}},{{fallback}}.x,{{fallback}}.y)" />
+  <implementation name="IM_videoreflectiontexture_color4_genglsl" nodedef="ND_videoreflectiontexture_color4" target="genglsl"   file="mx_videoreflectiontexture.glsl" function="mx_videoreflectiontexture" />
+  <implementation name="IM_videotexture_color4_genglsl" nodedef="ND_videotexture_color4" target="genglsl" sourcecode="GET_VIDEO_TEXTURE({{texcoord}})" />
+
+  <!-- <combine> -->
+  <implementation name="IM_realitykit_combine4_matrix44_genglsl" nodedef="ND_realitykit_combine4_matrix44" target="genglsl" />
+  <implementation name="IM_realitykit_combine3_matrix33_genglsl" nodedef="ND_realitykit_combine3_matrix33" target="genglsl" />
+
+  <!-- <colorspace> -->
+  <implementation name="IM_srgb_texture_to_workingspace_color3_genglsl" nodedef="ND_srgb_texture_to_workingspace_color3" target="genglsl" sourcecode="SRGB_TO_WORKING_SPACE({{in}})" />
+  <implementation name="IM_srgb_texture_to_workingspace_color4_genglsl" nodedef="ND_srgb_texture_to_workingspace_color4" target="genglsl" sourcecode="SRGB_TO_WORKING_SPACE({{in}})" />
+
+  <implementation name="IM_lin_displayp3_to_workingspace_color3_genglsl" nodedef="ND_lin_displayp3_to_workingspace_color3" target="genglsl" sourcecode="DISPLAY_P3_TO_WORKING_SPACE({{in}})" />
+  <implementation name="IM_lin_displayp3_to_workingspace_color4_genglsl" nodedef="ND_lin_displayp3_to_workingspace_color4" target="genglsl" sourcecode="DISPLAY_P3_TO_WORKING_SPACE({{in}})" />
+
+  <implementation name="IM_lin_rec2020_to_workingspace_color3_genglsl" nodedef="ND_lin_rec2020_to_workingspace_color3" target="genglsl" sourcecode="REC2020_TO_WORKING_SPACE({{in}})" />
+  <implementation name="IM_lin_rec2020_to_workingspace_color4_genglsl" nodedef="ND_lin_rec2020_to_workingspace_color4" target="genglsl" sourcecode="REC2020_TO_WORKING_SPACE({{in}})" />
+
+  <implementation name="IM_lin_srgb_to_workingspace_color3_genglsl" nodedef="ND_lin_srgb_to_workingspace_color3" target="genglsl" sourcecode="SRGB_TO_WORKING_SPACE({{in}})" />
+  <implementation name="IM_lin_srgb_to_workingspace_color4_genglsl" nodedef="ND_lin_srgb_to_workingspace_color4" target="genglsl" sourcecode="SRGB_TO_WORKING_SPACE({{in}})" />
+
+  <implementation name="IM_srgb_displayp3_to_workingspace_color3_genglsl" nodedef="ND_srgb_displayp3_to_workingspace_color3" target="genglsl" sourcecode="DISPLAY_P3_TO_WORKING_SPACE({{in}})" />
+  <implementation name="IM_srgb_displayp3_to_workingspace_color4_genglsl" nodedef="ND_srgb_displayp3_to_workingspace_color4" target="genglsl" sourcecode="DISPLAY_P3_TO_WORKING_SPACE({{in}})" />
+
+  <implementation name="IM_srgb_rec2020_to_workingspace_color3_genglsl" nodedef="ND_srgb_rec2020_to_workingspace_color3" target="genglsl" sourcecode="REC2020_TO_WORKING_SPACE({{in}})" />
+  <implementation name="IM_srgb_rec2020_to_workingspace_color4_genglsl" nodedef="ND_srgb_rec2020_to_workingspace_color4" target="genglsl" sourcecode="REC2020_TO_WORKING_SPACE({{in}})" />
+
+  <implementation name="IM_lin_ACEScg_to_workingspace_color3_genglsl" nodedef="ND_lin_ACEScg_to_workingspace_color3" target="genglsl" sourcecode="ACES_CG_TO_WORKING_SPACE({{in}})" />
+  <implementation name="IM_lin_ACEScg_to_workingspace_color4_genglsl" nodedef="ND_lin_ACEScg_to_workingspace_color4" target="genglsl" sourcecode="ACES_CG_TO_WORKING_SPACE({{in}})" />
+
+  <implementation name="IM_environment_radiance_genglsl" nodedef="ND_environment_radiance" target="genglsl" file="mx_environment_radiance.glsl" function="mx_environment_radiance" />
+  <implementation name="IM_realitykit_environment_radiance_genglsl" nodedef="ND_realitykit_environment_radiance" target="genglsl" file="mx_environment_radiance.glsl" function="mx_environment_radiance" />
+
+<!--
+  <implementation name="IM_ACES - ACEScg_to_workingspace_color3_genglsl" nodedef="ND_ACES - ACEScg_to_workingspace_color3" target="genglsl" sourcecode="ACES_CG_TO_WORKING_SPACE({{in}})" />
+  <implementation name="IM_ACES - ACEScg_to_workingspace_color4_genglsl" nodedef="ND_ACES - ACEScg_to_workingspace_color4" target="genglsl" sourcecode="ACES_CG_TO_WORKING_SPACE({{in}})" />
+-->
+  <implementation name="IM_distancesquared_vector2_genglsl" nodedef="ND_distancesquared_vector2" target="genglsl" sourcecode="dot({{in1}}-{{in2}},{{in1}}-{{in2}})" />
+  <implementation name="IM_distancesquared_vector3_genglsl" nodedef="ND_distancesquared_vector3" target="genglsl" sourcecode="dot({{in1}}-{{in2}},{{in1}}-{{in2}})" />
+  <implementation name="IM_distancesquared_vector4_genglsl" nodedef="ND_distancesquared_vector4" target="genglsl" sourcecode="dot({{in1}}-{{in2}},{{in1}}-{{in2}})" />
+  <implementation name="IM_instancecustomdata_genglsl" nodedef="ND_instancecustomdata" target="genglsl" sourcecode="getInstanceCustomData({{in1}} / 4)[{{in1}} % 4]" />
+
+<!-- <separate> -->
+  <implementation name="IM_separate3_matrix33_genglsl" nodedef="ND_separate3_matrix33" file="mx_separate3_matrix33.glsl" function="mx_separate3_matrix33" target="genglsl" />
+  <implementation name="IM_separate4_matrix44_genglsl" nodedef="ND_separate4_matrix44" file="mx_separate4_matrix44.glsl" function="mx_separate4_matrix44" target="genglsl" />
+
+<!-- <cubemap> -->
+  <implementation name="IM_RealityKitTextureCube_vector4_genglsl" nodedef="ND_RealityKitTextureCube_vector4" file="mx_texturecube_vector4.glsl" function="mx_texturecube_vector4" target="genglsl" />
+  <implementation name="IM_RealityKitTextureCube_color4_genglsl" nodedef="ND_RealityKitTextureCube_color4" file="mx_texturecube_vector4.glsl" function="mx_texturecube_vector4" target="genglsl" />
+
+  <implementation name="IM_RealityKitTextureCubeLOD_vector4_genglsl" nodedef="ND_RealityKitTextureCubeLOD_vector4" file="mx_texturecubelod_vector4.glsl" function="mx_texturecubelod_vector4" target="genglsl" />
+  <implementation name="IM_RealityKitTextureCubeLOD_color4_genglsl" nodedef="ND_RealityKitTextureCubeLOD_color4" file="mx_texturecubelod_vector4.glsl" function="mx_texturecubelod_vector4" target="genglsl" />
+
+  <implementation name="IM_RealityKitTextureCubeGradient_vector4_genglsl" nodedef="ND_RealityKitTextureCubeGradient_vector4" file="mx_texturecubegradient_vector4.glsl" function="mx_texturecubegradient_vector4" target="genglsl" />
+  <implementation name="IM_RealityKitTextureCubeGradient_color4_genglsl" nodedef="ND_RealityKitTextureCubeGradient_color4" file="mx_texturecubegradient_vector4.glsl" function="mx_texturecubegradient_vector4" target="genglsl" />
+
+  <implementation name="IM_pi_float_genglsl" nodedef="ND_pi_float"  target="genglsl" sourcecode="PI" />
+  <implementation name="IM_realitykit_geometry_modifier_vertex_id_genglsl" nodedef="ND_realitykit_geometry_modifier_vertex_id"  target="genglsl" sourcecode="getVertexIndex()" />
+  <implementation name="IM_geometry_modifier_vertex_index_genglsl" nodedef="ND_geometry_modifier_vertex_index"  target="genglsl" sourcecode="getVertexIndex()" />
+
+  <implementation name="IM_pbr_surfaceshader_genglsl" nodedef="ND_pbr_surfaceshader" file="mx_pbr_surfaceshader.glsl" function="mx_pbr_surfaceshader" target="genglsl" />
+
+</materialx>

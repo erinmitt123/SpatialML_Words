@@ -1,0 +1,56 @@
+{
+  "packages": [
+    {
+      "name": "com.bytedance.pico.spatialadapter",
+      "version": "6.2.0",
+      "folder": "com.bytedance.pico.spatialadapter",
+      "files": 9204,
+      "bytes": 1109242790,
+      "dependencies": {
+        "com.unity.formats.usd": "3.0.0-exp.4",
+        "com.plattar.unitygltf": "1.142.0",
+        "com.unity.inputsystem": "1.7.0",
+        "com.unity.shadergraph": "14.0.0",
+        "com.unity.xr.core-utils": "2.5.1",
+        "com.unity.collections": "1.4.0",
+        "com.unity.burst": "1.8.12"
+      }
+    },
+    {
+      "name": "com.bytedance.pico.xr",
+      "version": "6.2.0",
+      "folder": "com.bytedance.pico.xr",
+      "files": 1914,
+      "bytes": 287007746,
+      "dependencies": {
+        "com.unity.xr.management": "4.0.0",
+        "com.unity.xr.interaction.toolkit": "2.0.0",
+        "com.unity.xr.core-utils": "2.3.0",
+        "com.unity.ugui": "1.0.0",
+        "com.unity.textmeshpro": "3.0.6"
+      }
+    },
+    {
+      "name": "com.plattar.unitygltf",
+      "version": "1.142.0",
+      "folder": "com.plattar.unitygltf",
+      "files": 122,
+      "bytes": 2267363,
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.7"
+      }
+    },
+    {
+      "name": "com.unity.formats.usd",
+      "version": "3.0.0-exp.5",
+      "folder": "com.unity.formats.usd",
+      "files": 2090,
+      "bytes": 160189184,
+      "dependencies": {
+        "com.unity.timeline": "1.0.0",
+        "com.unity.modules.screencapture": "1.0.0",
+        "com.unity.modules.physics": "1.0.0"
+      }
+    }
+  ]
+}

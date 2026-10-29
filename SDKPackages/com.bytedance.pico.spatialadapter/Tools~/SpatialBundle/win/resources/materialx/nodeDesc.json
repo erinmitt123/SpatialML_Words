@@ -1,0 +1,1724 @@
+{
+    "Groups": {
+        "adjustment": {
+            "Nodes": {
+                "contrast": {
+                    "Inputs": [
+                        {
+                            "InputName": "amount",
+                            "UiName": "Amount"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "pivot",
+                            "UiName": "Pivot"
+                        }
+                    ]
+                },
+                "hsvadjust": {
+                    "Inputs": [
+                        {
+                            "InputName": "amount",
+                            "UiName": "Amount"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "hsvtorgb": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "luminance": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "lumacoeffs",
+                            "UiName": "Luma Coefficients"
+                        }
+                    ]
+                },
+                "range": {
+                    "Inputs": [
+                        {
+                            "InputName": "doclamp",
+                            "UiName": "Do Clamp"
+                        },
+                        {
+                            "InputName": "gamma",
+                            "UiName": "Gamma"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "inhigh",
+                            "UiName": "In High"
+                        },
+                        {
+                            "InputName": "inlow",
+                            "UiName": "In Low"
+                        },
+                        {
+                            "InputName": "outhigh",
+                            "UiName": "Out High"
+                        },
+                        {
+                            "InputName": "outlow",
+                            "UiName": "Out Low"
+                        }
+                    ]
+                },
+                "remap": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "inhigh",
+                            "UiName": "In High"
+                        },
+                        {
+                            "InputName": "inlow",
+                            "UiName": "In Low"
+                        },
+                        {
+                            "InputName": "outhigh",
+                            "UiName": "Out High"
+                        },
+                        {
+                            "InputName": "outlow",
+                            "UiName": "Out Low"
+                        }
+                    ]
+                },
+                "rgbtohsv": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "saturate": {
+                    "Inputs": [
+                        {
+                            "InputName": "amount",
+                            "UiName": "Amount"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "lumacoeffs",
+                            "UiName": "Luma Coefficients"
+                        }
+                    ]
+                },
+                "smoothstep": {
+                    "Inputs": [
+                        {
+                            "InputName": "high",
+                            "UiName": "High"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "low",
+                            "UiName": "Low"
+                        }
+                    ]
+                }
+            }
+        },
+        "application": {
+            "Nodes": {
+                "time": {
+                    "Inputs": [
+                        {
+                            "InputName": "fps",
+                            "UiName": "Fps"
+                        }
+                    ]
+                }
+            }
+        },
+        "channel": {
+            "Nodes": {
+                "combine2": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "combine3": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        },
+                        {
+                            "InputName": "in3",
+                            "UiName": "In 3"
+                        }
+                    ]
+                },
+                "combine4": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        },
+                        {
+                            "InputName": "in3",
+                            "UiName": "In 3"
+                        },
+                        {
+                            "InputName": "in4",
+                            "UiName": "In 4"
+                        }
+                    ]
+                },
+                "convert": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "extract": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "index",
+                            "UiName": "Index"
+                        }
+                    ]
+                },
+                "separate2": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "separate3": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "separate4": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "swizzle": {
+                    "Inputs": [
+                        {
+                            "InputName": "channels",
+                            "UiName": "Channels"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                }
+            }
+        },
+        "compositing": {
+            "Nodes": {
+                "burn": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "difference": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "disjointover": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "dodge": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "in": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "inside": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "mask",
+                            "UiName": "Mask"
+                        }
+                    ]
+                },
+                "mask": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "matte": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "minus": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "mix": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "out": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "outside": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "mask",
+                            "UiName": "Mask"
+                        }
+                    ]
+                },
+                "over": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "overlay": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "plus": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "premult": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "screen": {
+                    "Inputs": [
+                        {
+                            "InputName": "bg",
+                            "UiName": "Background"
+                        },
+                        {
+                            "InputName": "fg",
+                            "UiName": "Foreground"
+                        },
+                        {
+                            "InputName": "mix",
+                            "UiName": "Mix"
+                        }
+                    ]
+                },
+                "unpremult": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                }
+            }
+        },
+        "conditional": {
+            "Nodes": {
+                "and": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "ifequal": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "True Result"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "False Result"
+                        },
+                        {
+                            "InputName": "value1",
+                            "UiName": "Value1"
+                        },
+                        {
+                            "InputName": "value2",
+                            "UiName": "Value2"
+                        }
+                    ]
+                },
+                "ifgreater": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "True Result"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "False Result"
+                        },
+                        {
+                            "InputName": "value1",
+                            "UiName": "Value1"
+                        },
+                        {
+                            "InputName": "value2",
+                            "UiName": "Value2"
+                        }
+                    ]
+                },
+                "ifgreatereq": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "True Result"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "False Result"
+                        },
+                        {
+                            "InputName": "value1",
+                            "UiName": "Value1"
+                        },
+                        {
+                            "InputName": "value2",
+                            "UiName": "Value2"
+                        }
+                    ]
+                },
+                "not": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "or": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "switch": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        },
+                        {
+                            "InputName": "in3",
+                            "UiName": "In 3"
+                        },
+                        {
+                            "InputName": "in4",
+                            "UiName": "In 4"
+                        },
+                        {
+                            "InputName": "in5",
+                            "UiName": "In 5"
+                        },
+                        {
+                            "InputName": "which",
+                            "UiName": "Which"
+                        }
+                    ]
+                },
+                "xor": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                }
+            }
+        },
+        "geometric": {
+            "Nodes": {
+                "bitangent": {
+                    "Inputs": [
+                        {
+                            "InputName": "index",
+                            "UiName": "Index"
+                        },
+                        {
+                            "InputName": "space",
+                            "UiName": "Space"
+                        }
+                    ]
+                },
+                "geomcolor": {
+                    "Inputs": [
+                        {
+                            "InputName": "index",
+                            "UiName": "Index"
+                        }
+                    ]
+                },
+                "geompropvalue": {
+                    "Inputs": [
+                        {
+                            "InputName": "default",
+                            "UiName": "Default"
+                        },
+                        {
+                            "InputName": "geomprop",
+                            "UiName": "Geomprop"
+                        }
+                    ]
+                },
+                "normal": {
+                    "Inputs": [
+                        {
+                            "InputName": "space",
+                            "UiName": "Space"
+                        }
+                    ]
+                },
+                "position": {
+                    "Inputs": [
+                        {
+                            "InputName": "space",
+                            "UiName": "Space"
+                        }
+                    ]
+                },
+                "realitykit_reflect": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "realitykit_refract": {
+                    "Inputs": [
+                        {
+                            "InputName": "eta",
+                            "UiName": "Eta"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "tangent": {
+                    "Inputs": [
+                        {
+                            "InputName": "index",
+                            "UiName": "Index"
+                        },
+                        {
+                            "InputName": "space",
+                            "UiName": "Space"
+                        }
+                    ]
+                },
+                "texcoord": {
+                    "Inputs": [
+                        {
+                            "InputName": "index",
+                            "UiName": "Index"
+                        }
+                    ]
+                }
+            }
+        },
+        "math": {
+            "Nodes": {
+                "UsdTransform2d": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "rotation",
+                            "UiName": "Rotation"
+                        },
+                        {
+                            "InputName": "scale",
+                            "UiName": "Scale"
+                        },
+                        {
+                            "InputName": "translation",
+                            "UiName": "Translation"
+                        }
+                    ]
+                },
+                "absval": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "acos": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "add": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "asin": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "atan2": {
+                    "Inputs": [
+                        {
+                            "InputName": "inx",
+                            "UiName": "In X"
+                        },
+                        {
+                            "InputName": "iny",
+                            "UiName": "In Y"
+                        }
+                    ]
+                },
+                "ceil": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "clamp": {
+                    "Inputs": [
+                        {
+                            "InputName": "high",
+                            "UiName": "High"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "low",
+                            "UiName": "Low"
+                        }
+                    ]
+                },
+                "cos": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "crossproduct": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "determinant": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "divide": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "dotproduct": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "exp": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "exp10": {
+                    "Inputs": [
+                        {
+                            "InputName": "x",
+                            "UiName": "X"
+                        }
+                    ]
+                },
+                "exp2": {
+                    "Inputs": [
+                        {
+                            "InputName": "x",
+                            "UiName": "X"
+                        }
+                    ]
+                },
+                "floor": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "fractional": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "invertmatrix": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "ln": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "log10": {
+                    "Inputs": [
+                        {
+                            "InputName": "x",
+                            "UiName": "X"
+                        }
+                    ]
+                },
+                "log2": {
+                    "Inputs": [
+                        {
+                            "InputName": "x",
+                            "UiName": "X"
+                        }
+                    ]
+                },
+                "magnitude": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "max": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "min": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "modulo": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "multiply": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "normal_map_decode": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "normalize": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "normalmap": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "scale",
+                            "UiName": "Scale"
+                        },
+                        {
+                            "InputName": "space",
+                            "UiName": "Space"
+                        }
+                    ]
+                },
+                "oneminus": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "place2d": {
+                    "Inputs": [
+                        {
+                            "InputName": "offset",
+                            "UiName": "Offset"
+                        },
+                        {
+                            "InputName": "operationorder",
+                            "UiName": "Operation Order"
+                        },
+                        {
+                            "InputName": "pivot",
+                            "UiName": "Pivot"
+                        },
+                        {
+                            "InputName": "rotate",
+                            "UiName": "Rotate"
+                        },
+                        {
+                            "InputName": "scale",
+                            "UiName": "Scale"
+                        },
+                        {
+                            "InputName": "texcoord",
+                            "UiName": "Texture Coordinates"
+                        }
+                    ]
+                },
+                "power": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "rotate2d": {
+                    "Inputs": [
+                        {
+                            "InputName": "amount",
+                            "UiName": "Amount"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "rotate3d": {
+                    "Inputs": [
+                        {
+                            "InputName": "amount",
+                            "UiName": "Amount"
+                        },
+                        {
+                            "InputName": "axis",
+                            "UiName": "Axis"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "round": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "safepower": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "sign": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "sin": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "sqrt": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "step": {
+                    "Inputs": [
+                        {
+                            "InputName": "edge",
+                            "UiName": "Edge"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "subtract": {
+                    "Inputs": [
+                        {
+                            "InputName": "in1",
+                            "UiName": "In 1"
+                        },
+                        {
+                            "InputName": "in2",
+                            "UiName": "In 2"
+                        }
+                    ]
+                },
+                "tan": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                },
+                "transformmatrix": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "mat",
+                            "UiName": "Mat"
+                        }
+                    ]
+                },
+                "transformnormal": {
+                    "Inputs": [
+                        {
+                            "InputName": "fromspace",
+                            "UiName": "From Space"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "tospace",
+                            "UiName": "To Space"
+                        }
+                    ]
+                },
+                "transformpoint": {
+                    "Inputs": [
+                        {
+                            "InputName": "fromspace",
+                            "UiName": "From Space"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "tospace",
+                            "UiName": "To Space"
+                        }
+                    ]
+                },
+                "transformvector": {
+                    "Inputs": [
+                        {
+                            "InputName": "fromspace",
+                            "UiName": "From Space"
+                        },
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "tospace",
+                            "UiName": "To Space"
+                        }
+                    ]
+                },
+                "transpose": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        }
+                    ]
+                }
+            }
+        },
+        "organization": {
+            "Nodes": {
+                "dot": {
+                    "Inputs": [
+                        {
+                            "InputName": "in",
+                            "UiName": "In"
+                        },
+                        {
+                            "InputName": "note",
+                            "UiName": "Note"
+                        }
+                    ]
+                }
+            }
+        },
+        "other": {
+            "Nodes": {
+                "environment_radiance": {
+                    "Inputs": [
+                        {
+                            "InputName": "baseColor",
+                            "UiName": "Base Color"
+                        },
+                        {
+                            "InputName": "metallic",
+                            "UiName": "Metallic"
+                        },
+                        {
+                            "InputName": "roughness",
+                            "UiName": "Roughness"
+                        },
+                        {
+                            "InputName": "specular",
+                            "UiName": "Specular"
+                        }
+                    ]
+                }
+            }
+        },
+        "pbr": {
+            "Nodes": {
+                "UsdPreviewSurface": {
+                    "Inputs": [
+                        {
+                            "InputName": "clearcoat",
+                            "UiName": "Clearcoat"
+                        },
+                        {
+                            "InputName": "clearcoatRoughness",
+                            "UiName": "Clearcoat Roughness"
+                        },
+                        {
+                            "InputName": "diffuseColor",
+                            "UiName": "Diffuse Color"
+                        },
+                        {
+                            "InputName": "displacement",
+                            "UiName": "Displacement"
+                        },
+                        {
+                            "InputName": "emissiveColor",
+                            "UiName": "Emissive Color"
+                        },
+                        {
+                            "InputName": "ior",
+                            "UiName": "Ior"
+                        },
+                        {
+                            "InputName": "metallic",
+                            "UiName": "Metallic"
+                        },
+                        {
+                            "InputName": "normal",
+                            "UiName": "Normal"
+                        },
+                        {
+                            "InputName": "occlusion",
+                            "UiName": "Occlusion"
+                        },
+                        {
+                            "InputName": "opacity",
+                            "UiName": "Opacity"
+                        },
+                        {
+                            "InputName": "opacityThreshold",
+                            "UiName": "Opacity Threshold"
+                        },
+                        {
+                            "InputName": "roughness",
+                            "UiName": "Roughness"
+                        },
+                        {
+                            "InputName": "specularColor",
+                            "UiName": "Specular Color"
+                        },
+                        {
+                            "InputName": "useSpecularWorkflow",
+                            "UiName": "Use Specular Workflow"
+                        }
+                    ]
+                }
+            }
+        },
+        "procedural": {
+            "Nodes": {
+                "constant": {
+                    "Inputs": [
+                        {
+                            "InputName": "value",
+                            "UiName": "Value"
+                        }
+                    ]
+                }
+            }
+        },
+        "procedural2d": {
+            "Nodes": {
+                "noise2d": {
+                    "Inputs": [
+                        {
+                            "InputName": "amplitude",
+                            "UiName": "Amplitude"
+                        },
+                        {
+                            "InputName": "pivot",
+                            "UiName": "Pivot"
+                        }
+                    ]
+                },
+                "ramp4": {
+                    "Inputs": [
+                        {
+                            "InputName": "valuebl",
+                            "UiName": "Bottom Left"
+                        },
+                        {
+                            "InputName": "valuebr",
+                            "UiName": "Bottom Right"
+                        },
+                        {
+                            "InputName": "valuetl",
+                            "UiName": "Top Left"
+                        },
+                        {
+                            "InputName": "valuetr",
+                            "UiName": "Top Right"
+                        }
+                    ]
+                },
+                "ramplr": {
+                    "Inputs": [
+                        {
+                            "InputName": "valuel",
+                            "UiName": "Left"
+                        },
+                        {
+                            "InputName": "valuer",
+                            "UiName": "Right"
+                        }
+                    ]
+                },
+                "ramptb": {
+                    "Inputs": [
+                        {
+                            "InputName": "valueb",
+                            "UiName": "Bottom"
+                        },
+                        {
+                            "InputName": "valuet",
+                            "UiName": "Top"
+                        }
+                    ]
+                },
+                "worleynoise2d": {
+                    "Inputs": [
+                        {
+                            "InputName": "jitter",
+                            "UiName": "Jitter"
+                        }
+                    ]
+                }
+            }
+        },
+        "procedural3d": {
+            "Nodes": {
+                "fractal3d": {
+                    "Inputs": [
+                        {
+                            "InputName": "amplitude",
+                            "UiName": "Amplitude"
+                        },
+                        {
+                            "InputName": "diminish",
+                            "UiName": "Diminish"
+                        },
+                        {
+                            "InputName": "lacunarity",
+                            "UiName": "Lacunarity"
+                        },
+                        {
+                            "InputName": "octaves",
+                            "UiName": "Octaves"
+                        }
+                    ]
+                },
+                "noise3d": {
+                    "Inputs": [
+                        {
+                            "InputName": "amplitude",
+                            "UiName": "Amplitude"
+                        },
+                        {
+                            "InputName": "pivot",
+                            "UiName": "Pivot"
+                        }
+                    ]
+                },
+                "worleynoise3d": {
+                    "Inputs": [
+                        {
+                            "InputName": "jitter",
+                            "UiName": "Jitter"
+                        }
+                    ]
+                }
+            }
+        },
+        "realitykit": {
+            "Nodes": {
+                "realitykit_cameraposition": {
+                    "Inputs": [
+                        {
+                            "InputName": "space",
+                            "UiName": "Space"
+                        }
+                    ]
+                },
+                "realitykit_geometry_switch_cameraindex": {
+                    "Inputs": [
+                        {
+                            "InputName": "left",
+                            "UiName": "Left"
+                        },
+                        {
+                            "InputName": "mono",
+                            "UiName": "Mono"
+                        },
+                        {
+                            "InputName": "right",
+                            "UiName": "Right"
+                        }
+                    ]
+                },
+                "realitykit_pbr_surfaceshader": {
+                    "Inputs": [
+                        {
+                            "InputName": "ambientOcclusion",
+                            "UiName": "Ambient Occlusion"
+                        },
+                        {
+                            "InputName": "baseColor",
+                            "UiName": "Base Color"
+                        },
+                        {
+                            "InputName": "clearcoat",
+                            "UiName": "Clearcoat"
+                        },
+                        {
+                            "InputName": "clearcoatNormal",
+                            "UiName": "Clearcoat Normal"
+                        },
+                        {
+                            "InputName": "clearcoatRoughness",
+                            "UiName": "Clearcoat Roughness"
+                        },
+                        {
+                            "InputName": "emissiveColor",
+                            "UiName": "Emissive Color"
+                        },
+                        {
+                            "InputName": "hasPremultipliedAlpha",
+                            "UiName": "Has Premultiplied Alpha"
+                        },
+                        {
+                            "InputName": "metallic",
+                            "UiName": "Metallic"
+                        },
+                        {
+                            "InputName": "normal",
+                            "UiName": "Normal"
+                        },
+                        {
+                            "InputName": "opacity",
+                            "UiName": "Opacity"
+                        },
+                        {
+                            "InputName": "opacityThreshold",
+                            "UiName": "Opacity Threshold"
+                        },
+                        {
+                            "InputName": "roughness",
+                            "UiName": "Roughness"
+                        },
+                        {
+                            "InputName": "specular",
+                            "UiName": "Specular"
+                        }
+                    ]
+                },
+                "realitykit_unlit_surfaceshader": {
+                    "Inputs": [
+                        {
+                            "InputName": "applyPostProcessToneMap",
+                            "UiName": "Apply Post Process Tone Map"
+                        },
+                        {
+                            "InputName": "color",
+                            "UiName": "Color"
+                        },
+                        {
+                            "InputName": "hasPremultipliedAlpha",
+                            "UiName": "Has Premultiplied Alpha"
+                        },
+                        {
+                            "InputName": "opacity",
+                            "UiName": "Opacity"
+                        },
+                        {
+                            "InputName": "opacityThreshold",
+                            "UiName": "Opacity Threshold"
+                        }
+                    ]
+                },
+                "realitykit_viewdirection": {
+                    "Inputs": [
+                        {
+                            "InputName": "space",
+                            "UiName": "Space"
+                        }
+                    ]
+                },
+                "updirection": {
+                    "Inputs": [
+                        {
+                            "InputName": "space",
+                            "UiName": "Space"
+                        }
+                    ]
+                }
+            }
+        },
+        "texture2d": {
+            "Nodes": {
+                "UsdUVTexture": {
+                    "Inputs": [
+                        {
+                            "InputName": "bias",
+                            "UiName": "Bias"
+                        },
+                        {
+                            "InputName": "fallback",
+                            "UiName": "Fallback"
+                        },
+                        {
+                            "InputName": "file",
+                            "UiName": "File"
+                        },
+                        {
+                            "InputName": "scale",
+                            "UiName": "Scale"
+                        },
+                        {
+                            "InputName": "wrapS",
+                            "UiName": "Wrap S"
+                        },
+                        {
+                            "InputName": "wrapT",
+                            "UiName": "Wrap T"
+                        }
+                    ]
+                },
+                "tiledimage": {
+                    "Inputs": [
+                        {
+                            "InputName": "default",
+                            "UiName": "Default"
+                        },
+                        {
+                            "InputName": "file",
+                            "UiName": "File"
+                        },
+                        {
+                            "InputName": "filtertype",
+                            "UiName": "Filter Type"
+                        },
+                        {
+                            "InputName": "frameendaction",
+                            "UiName": "Frame End Action"
+                        },
+                        {
+                            "InputName": "frameoffset",
+                            "UiName": "Frame Offset"
+                        },
+                        {
+                            "InputName": "framerange",
+                            "UiName": "Frame Range"
+                        },
+                        {
+                            "InputName": "realworldimagesize",
+                            "UiName": "Real World Image Size"
+                        },
+                        {
+                            "InputName": "realworldtilesize",
+                            "UiName": "Real World Tile Size"
+                        },
+                        {
+                            "InputName": "uvoffset",
+                            "UiName": "Uv Offset"
+                        },
+                        {
+                            "InputName": "uvtiling",
+                            "UiName": "Uv Tiling"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

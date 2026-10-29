@@ -1,0 +1,1410 @@
+<?xml version="1.0"?>
+<materialx version="1.38">
+  <!--
+    Copyright Contributors to the MaterialX Project
+    SPDX-License-Identifier: Apache-2.0
+
+    Declarations of standard data types and nodes included in the MaterialX specification.
+  -->
+
+  <!-- ======================================================================== -->
+  <!-- Data types                                                               -->
+  <!-- ======================================================================== -->
+
+  <typedef name="boolean" />
+  <typedef name="integer" />
+  <typedef name="float" />
+  <typedef name="color3" semantic="color" />
+  <typedef name="color4" semantic="color" />
+  <typedef name="vector2" />
+  <typedef name="vector3" />
+  <typedef name="vector4" />
+  <typedef name="matrix33" />
+  <typedef name="matrix44" />
+  <typedef name="string" />
+  <typedef name="filename" />
+  <typedef name="geomname" />
+  <typedef name="surfaceshader" semantic="shader" context="surface" />
+  <typedef name="vertexshader" semantic="shader" context="vertex" />
+  <typedef name="displacementshader" semantic="shader" context="displacement" />
+  <typedef name="volumeshader" semantic="shader" context="volume" />
+  <typedef name="lightshader" semantic="shader" context="light" />
+  <typedef name="material" semantic="material" />
+  <typedef name="none" />
+
+  <typedef name="integerarray" />
+  <typedef name="floatarray" />
+  <typedef name="color3array" semantic="color" />
+  <typedef name="color4array" semantic="color" />
+  <typedef name="vector2array" />
+  <typedef name="vector3array" />
+  <typedef name="vector4array" />
+  <typedef name="stringarray" />
+  <typedef name="geomnamearray" />
+	
+  <typedef name="half" />
+  <typedef name="half2" />
+  <typedef name="half3" />
+  <typedef name="half4" />
+  
+  <typedef name="integer2" />
+  <typedef name="integer3" />
+  <typedef name="integer4" />
+
+  <!--
+    Node: <pbr_surfaceshader>
+  -->
+  <nodedef name="ND_pbr_surfaceshader" node="pbr_surfaceshader" nodegroup="surfaceshader" target="spatial">
+      <input name="baseColor" type="color3" value="0.18, 0.18, 0.18"  uiname="Base Color"/>
+      <input name="opacity" type="float" value="1"   uiname="Opacity" uimin="0.0" uimax="1.0" />
+      <input name="metallic" type="float" value="0"  uiname="Metallic" uimin="0.0" uimax="1.0" />
+      <input name="roughness" type="float" value="0.5"  uiname="Roughness" uimin="0.0" uimax="1.0" />
+      <input name="normal" type="vector3" defaultgeomprop="Ntangent"  value="0, 0, 1"  uiname="Normal"/>
+      <input name="clearCoat" type="float" value="0"   uiname="Clear Coat" uimin="0.0" uimax="1.0" />
+      <input name="clearCoatNormal" type="vector3" defaultgeomprop="Nworld" value="0, 0, 1"   uiname="Clear Coat Normal" />
+      <input name="clearCoatRoughness" type="float" value="0.01"   uiname="Clear Coat Roughness" uimin="0.0" uimax="1.0" />
+      <input name="emissive" type="color4" value="0, 0, 0, 1.0"  uiname="Emissive" />
+      <input name="ambientOcclusion" type="float" value="1"  uiname="Ambient Occlusion" uimin="0.0" uimax="1.0" />
+
+
+      <input name="reflectance" type="float" value="0.5"   uiname="Reflectance" uimin="0.0" uimax="1.0" />
+      <input name="anisotropy" type="float" value="0.0"   uiname="Anisotropy Level" uimin="-1.0" uimax="1.0" />
+      <input name="anisotropyDirection" type="vector3" value="1, 0, 0"   uiname="Anisotropy Direction" />
+      <input name="opacityThreshold" type="float" value="0"  uiname="Opacity Threshold" uimin="0.0" uimax="1.0" />
+
+      <output name="out" type="surfaceshader" />
+  </nodedef>
+
+  <nodedef name="ND_texturesize" node="texturesize" nodegroup="texture2d">
+    <input name="file" type="filename" value="" uiname="Filename" uniform="true" />
+    <output name="Width" type="float" default="1.0" />
+    <output name="Height" type="float" default="1.0" />
+    <output name="TexelWidth" type="float" default="1.0" />
+    <output name="TexelHeight" type="float" default="1.0" />
+  </nodedef>
+  <!-- Combine material -->
+  <nodedef name="ND_combinematerial" node="combinematerial" nodegroup="material">
+  	<input name="surfaceshader" type="surfaceshader" value="" />
+  	<input name="vertexshader" type="vertexshader" value="" />
+  	<output name="out" type="material" />
+  </nodedef>
+
+  <nodedef name="ND_twosidedsign" node="twosidedsign" nodegroup="geometric">
+	<output name="out" type="float" default="1.0" />
+  </nodedef>
+
+  <nodedef name="ND_realitykit_geometrymodifier_2_0_vertexshader" node="geometrymodifier" nodegroup="shader">
+    <input name="modelPositionOffset" type="vector3" value="0.0,0.0,0.0" uiname="Model Position Offset" />
+  	<input name="color" type="color4" value="0.0,0.0,0.0,0.0" uiname="Color" />
+  	<input name="normal" type="vector3" value="0.0,0.0,0.0" uiname="Normal" />
+  	<input name="bitangent" type="vector3" value="0.0,0.0,0.0" uiname="Bitangent" />
+  	<input name="uv0" type="vector2" value="0.0,0.0" uiname="Uv0" />
+  	<input name="uv1" type="vector2" value="0.0,0.0" uiname="Uv1" />
+  	<input name="uv2" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv2" />
+	<input name="uv3" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv3" />
+	<input name="uv4" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv4" />
+	<input name="uv5" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv5" />
+	<input name="uv6" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv6" />
+	<input name="uv7" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv7" />
+  	<output name="out" type="vertexshader" />
+  </nodedef>
+  <nodedef name="ND_geometrymodifier_vertexshader" node="geometrymodifier" nodegroup="shader">
+     <input name="modelPositionOffset" type="vector3" value="0.0,0.0,0.0" uiname="Model Position Offset" />
+   	<input name="color" type="color4" value="0.0,0.0,0.0,0.0" uiname="Color" />
+   	<input name="normal" type="vector3" value="0.0,0.0,0.0" uiname="Normal" />
+   	<input name="tangent" type="vector3" value="0.0,0.0,0.0" uiname="Tangent" />
+   	<input name="uv0" type="vector2" value="0.0,0.0" uiname="Uv0" />
+   	<input name="uv1" type="vector2" value="0.0,0.0" uiname="Uv1" />
+   	<input name="uv2" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv2" />
+   	<input name="uv3" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv3" />
+   	<input name="uv4" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv4" />
+   	<input name="uv5" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv5" />
+   	<input name="uv6" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv6" />
+   	<input name="uv7" type="vector4" value="0.0,0.0,0.0,0.0" uiname="Uv7" />
+   	<output name="out" type="vertexshader" />
+   </nodedef>
+	<!--
+    Node: <round>
+    returns a value equal to the nearest integer to x. The fraction 0.5 will round in a direction chosen by the implementation, usually in the direction that is fastest. This includes the possibility that round(x) returns the same value as roundEven(x) for all values of x.
+  -->
+  <nodedef name="ND_round_float" node="round" nodegroup="math">
+  	<input name="in" type="float" value="0.0" />
+  	<output name="out" type="float" defaultinput="in" />
+  </nodedef>
+  <nodedef name="ND_round_half" node="round" nodegroup="math">
+  	<input name="in" type="half" value="0.0" />
+  	<output name="out" type="half" defaultinput="in" />
+  </nodedef>
+  <nodedef name="ND_round_color3" node="round" nodegroup="math">
+  	<input name="in" type="color3" value="0.0,0.0,0.0" />
+  	<output name="out" type="color3" defaultinput="in" />
+  </nodedef>
+  <nodedef name="ND_round_color4" node="round" nodegroup="math">
+  	<input name="in" type="color4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="color4" defaultinput="in" />
+  </nodedef>
+  
+  <nodedef name="ND_round_vector2" node="round" nodegroup="math">
+  	<input name="in" type="vector2" value="0.0,0.0" />
+  	<output name="out" type="vector2" defaultinput="in" />
+  </nodedef>
+  <nodedef name="ND_round_vector3" node="round" nodegroup="math">
+  	<input name="in" type="vector3" value="0.0,0.0,0.0" />
+  	<output name="out" type="vector3" defaultinput="in" />
+  </nodedef>
+  <nodedef name="ND_round_vector4" node="round" nodegroup="math">
+  	<input name="in" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="vector4" defaultinput="in" />
+  </nodedef>
+  <nodedef name="ND_round_half2" node="round" nodegroup="math">
+  	<input name="in" type="half2" value="0.0,0.0" />
+  	<output name="out" type="half2" defaultinput="in" />
+  </nodedef>
+  <nodedef name="ND_round_half3" node="round" nodegroup="math">
+  	<input name="in" type="half3" value="0.0,0.0,0.0" />
+  	<output name="out" type="half3" defaultinput="in" />
+  </nodedef>
+  <nodedef name="ND_round_half4" node="round" nodegroup="math">
+  	<input name="in" type="half4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="half4" defaultinput="in" />
+  </nodedef>
+  <!--
+    Node: <safepower>
+    Raise incoming half/float values to the "in2" power.
+  -->
+  <nodedef name="ND_safepower_float" node="safepower" nodegroup="math">
+  	<input name="in1" type="float" value="0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="float" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_half" node="safepower" nodegroup="math">
+  	<input name="in1" type="half" value="0.0" />
+  	<input name="in2" type="half" value="1.0" />
+  	<output name="out" type="half" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_color3" node="safepower" nodegroup="math">
+  	<input name="in1" type="color3" value="0.0,0.0,0.0" />
+  	<input name="in2" type="color3" value="1.0,1.0,1.0" />
+  	<output name="out" type="color3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_color4" node="safepower" nodegroup="math">
+  	<input name="in1" type="color4" value="0.0,0.0,0.0,0.0" />
+  	<input name="in2" type="color4" value="1.0,1.0,1.0,1.0" />
+  	<output name="out" type="color4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_color3FA" node="safepower" nodegroup="math">
+  	<input name="in1" type="color3" value="0.0,0.0,0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="color3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_color4FA" node="safepower" nodegroup="math">
+  	<input name="in1" type="color4" value="0.0,0.0,0.0,0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="color4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_vector2" node="safepower" nodegroup="math">
+  	<input name="in1" type="vector2" value="0.0,0.0" />
+  	<input name="in2" type="vector2" value="1.0,1.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_vector3" node="safepower" nodegroup="math">
+  	<input name="in1" type="vector3" value="0.0,0.0,0.0" />
+  	<input name="in2" type="vector3" value="1.0,1.0,1.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_vector4" node="safepower" nodegroup="math">
+  	<input name="in1" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<input name="in2" type="vector4" value="1.0,1.0,1.0,1.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_vector2FA" node="safepower" nodegroup="math">
+  	<input name="in1" type="vector2" value="0.0,0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_vector3FA" node="safepower" nodegroup="math">
+  	<input name="in1" type="vector3" value="0.0,0.0,0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_safepower_vector4FA" node="safepower" nodegroup="math">
+  	<input name="in1" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>
+	<!--
+    Node: <realitykit step>
+    generates a step function by comparing x to edge.
+    For element i of the return value, 0.0 is returned if x[i] < edge[i], and 1.0 is returned otherwise.
+  -->
+	<nodedef name="ND_realitykit_step_float" node="step" nodegroup="math">
+		<input name="in" type="float" value="0.0" />
+		<input name="edge" type="float" value="1.0" />
+		<output name="out" type="float" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_half" node="step" nodegroup="math">
+		<input name="in" type="half" value="0.0" />
+		<input name="edge" type="half" value="1.0" />
+		<output name="out" type="half" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_color3" node="step" nodegroup="math">
+		<input name="in" type="color3" value="0.0,0.0,0.0" />
+		<input name="edge" type="color3" value="1.0,1.0,1.0" />
+		<output name="out" type="color3" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_color4" node="step" nodegroup="math">
+		<input name="in" type="color4" value="0.0,0.0,0.0,0.0" />
+		<input name="edge" type="color4" value="1.0,1.0,1.0,1.0" />
+		<output name="out" type="color4" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_vector2" node="step" nodegroup="math">
+		<input name="in" type="vector2" value="0.0,0.0" />
+		<input name="edge" type="vector2" value="1.0,1.0" />
+		<output name="out" type="vector2" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_vector3" node="step" nodegroup="math">
+		<input name="in" type="vector3" value="0.0,0.0,0.0" />
+		<input name="edge" type="vector3" value="1.0,1.0,1.0" />
+		<output name="out" type="vector3" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_vector4" node="step" nodegroup="math">
+		<input name="in" type="vector4" value="0.0,0.0,0.0,0.0" />
+		<input name="edge" type="vector4" value="1.0,1.0,1.0,1.0" />
+		<output name="out" type="vector4" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_half2" node="step" nodegroup="math">
+		<input name="in" type="half2" value="0.0,0.0" />
+		<input name="edge" type="half2" value="1.0,1.0" />
+		<output name="out" type="half2" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_half3" node="step" nodegroup="math">
+		<input name="in" type="half3" value="0.0,0.0,0.0" />
+		<input name="edge" type="half3" value="1.0,1.0,1.0" />
+		<output name="out" type="half3" defaultinput="in" />
+	</nodedef>
+	<nodedef name="ND_realitykit_step_half4" node="step" nodegroup="math">
+		<input name="in" type="half4" value="0.0,0.0,0.0,0.0" />
+		<input name="edge" type="half4" value="1.0,1.0,1.0,1.0" />
+		<output name="out" type="half4" defaultinput="in" />
+	</nodedef>
+   
+
+	<!--
+    Nodes: <log2>, <log10> 
+    Standard math functions.
+  -->
+  <nodedef name="ND_log2_float" node="log2" nodegroup="math">
+  	<input name="x" type="float" value="1.0" />
+  	<output name="out" type="float" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log2_half" node="log2" nodegroup="math">
+  	<input name="x" type="half" value="1.0" />
+  	<output name="out" type="half" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log2_vector2" node="log2" nodegroup="math">
+  	<input name="x" type="vector2" value="0.0,0.0" />
+  	<output name="out" type="vector2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log2_vector3" node="log2" nodegroup="math">
+  	<input name="x" type="vector3" value="0.0,0.0,0.0" />
+  	<output name="out" type="vector3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log2_vector4" node="log2" nodegroup="math">
+  	<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="vector4" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log2_half2" node="log2" nodegroup="math">
+  	<input name="x" type="half2" value="0.0,0.0" />
+  	<output name="out" type="half2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log2_half3" node="log2" nodegroup="math">
+  	<input name="x" type="half3" value="0.0,0.0,0.0" />
+  	<output name="out" type="half3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log2_half4" node="log2" nodegroup="math">
+  	<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="half4" defaultinput="x" />
+  </nodedef>
+	
+	
+  <nodedef name="ND_log10_float" node="log10" nodegroup="math">
+  	<input name="x" type="float" value="1.0" />
+  	<output name="out" type="float" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log10_half" node="log10" nodegroup="math">
+  	<input name="x" type="half" value="1.0" />
+  	<output name="out" type="half" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log10_vector2" node="log10" nodegroup="math">
+  	<input name="x" type="vector2" value="0.0,0.0" />
+  	<output name="out" type="vector2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log10_vector3" node="log10" nodegroup="math">
+  	<input name="x" type="vector3" value="0.0,0.0,0.0" />
+  	<output name="out" type="vector3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log10_vector4" node="log10" nodegroup="math">
+  	<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="vector4" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log10_half2" node="log10" nodegroup="math">
+  	<input name="x" type="half2" value="0.0,0.0" />
+  	<output name="out" type="half2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log10_half3" node="log10" nodegroup="math">
+  	<input name="x" type="half3" value="0.0,0.0,0.0" />
+  	<output name="out" type="half3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_log10_half4" node="log10" nodegroup="math">
+  	<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="half4" defaultinput="x" />
+  </nodedef>
+
+	<!--
+    Nodes: <MTL_log2>, <MTL_log10> 
+    Standard math functions.
+  -->
+	<nodedef name="ND_MTL_log2_float" node="log2" nodegroup="math">
+		<input name="x" type="float" value="1.0" />
+		<output name="out" type="float" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log2_half" node="log2" nodegroup="math">
+		<input name="x" type="half" value="1.0" />
+		<output name="out" type="half" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log2_vector2" node="log2" nodegroup="math">
+		<input name="x" type="vector2" value="0.0,0.0" />
+		<output name="out" type="vector2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log2_vector3" node="log2" nodegroup="math">
+		<input name="x" type="vector3" value="0.0,0.0,0.0" />
+		<output name="out" type="vector3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log2_vector4" node="log2" nodegroup="math">
+		<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="vector4" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log2_half2" node="log2" nodegroup="math">
+		<input name="x" type="half2" value="0.0,0.0" />
+		<output name="out" type="half2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log2_half3" node="log2" nodegroup="math">
+		<input name="x" type="half3" value="0.0,0.0,0.0" />
+		<output name="out" type="half3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log2_half4" node="log2" nodegroup="math">
+		<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="half4" defaultinput="x" />
+	</nodedef>
+
+
+	<nodedef name="ND_MTL_log10_float" node="log10" nodegroup="math">
+		<input name="x" type="float" value="1.0" />
+		<output name="out" type="float" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log10_half" node="log10" nodegroup="math">
+		<input name="x" type="half" value="1.0" />
+		<output name="out" type="half" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log10_vector2" node="log10" nodegroup="math">
+		<input name="x" type="vector2" value="0.0,0.0" />
+		<output name="out" type="vector2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log10_vector3" node="log10" nodegroup="math">
+		<input name="x" type="vector3" value="0.0,0.0,0.0" />
+		<output name="out" type="vector3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log10_vector4" node="log10" nodegroup="math">
+		<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="vector4" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log10_half2" node="log10" nodegroup="math">
+		<input name="x" type="half2" value="0.0,0.0" />
+		<output name="out" type="half2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log10_half3" node="log10" nodegroup="math">
+		<input name="x" type="half3" value="0.0,0.0,0.0" />
+		<output name="out" type="half3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_log10_half4" node="log10" nodegroup="math">
+		<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="half4" defaultinput="x" />
+	</nodedef>
+  <!--
+  Nodes: <exp2>, <exp10> 
+  Standard math functions.
+  -->
+  <nodedef name="ND_exp2_float" node="exp2" nodegroup="math">
+  	<input name="x" type="float" value="0.0" />
+  	<output name="out" type="float" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp2_half" node="exp2" nodegroup="math">
+  	<input name="x" type="half" value="0.0" />
+  	<output name="out" type="half" defaultinput="x" />
+  </nodedef>
+  
+  <nodedef name="ND_exp2_vector2" node="exp2" nodegroup="math">
+  	<input name="x" type="vector2" value="0.0,0.0" />
+  	<output name="out" type="vector2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp2_vector3" node="exp2" nodegroup="math">
+  	<input name="x" type="vector3" value="0.0,0.0,0.0" />
+  	<output name="out" type="vector3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp2_vector4" node="exp2" nodegroup="math">
+  	<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="vector4" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp2_half2" node="exp2" nodegroup="math">
+  	<input name="x" type="half2" value="0.0,0.0" />
+  	<output name="out" type="half2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp2_half3" node="exp2" nodegroup="math">
+  	<input name="x" type="half3" value="0.0,0.0,0.0" />
+  	<output name="out" type="half3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp2_half4" node="exp2" nodegroup="math">
+  	<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="half4" defaultinput="x" />
+  </nodedef>
+
+  <nodedef name="ND_exp10_float" node="exp10" nodegroup="math">
+  	<input name="x" type="float" value="0.0" />
+  	<output name="out" type="float" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp10_half" node="exp10" nodegroup="math">
+  	<input name="x" type="half" value="0.0" />
+  	<output name="out" type="half" defaultinput="x" />
+  </nodedef>
+  
+  <nodedef name="ND_exp10_vector2" node="exp10" nodegroup="math">
+  	<input name="x" type="vector2" value="0.0,0.0" />
+  	<output name="out" type="vector2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp10_vector3" node="exp10" nodegroup="math">
+  	<input name="x" type="vector3" value="0.0,0.0,0.0" />
+  	<output name="out" type="vector3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp10_vector4" node="exp10" nodegroup="math">
+  	<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="vector4" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp10_half2" node="exp10" nodegroup="math">
+  	<input name="x" type="half2" value="0.0,0.0" />
+  	<output name="out" type="half2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp10_half3" node="exp10" nodegroup="math">
+  	<input name="x" type="half3" value="0.0,0.0,0.0" />
+  	<output name="out" type="half3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_exp10_half4" node="exp10" nodegroup="math">
+  	<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="half4" defaultinput="x" />
+  </nodedef>
+
+	<nodedef name="ND_MTL_exp2_float" node="exp2" nodegroup="math">
+		<input name="x" type="float" value="0.0" />
+		<output name="out" type="float" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp2_half" node="exp2" nodegroup="math">
+		<input name="x" type="half" value="0.0" />
+		<output name="out" type="half" defaultinput="x" />
+	</nodedef>
+
+	<nodedef name="ND_MTL_exp2_vector2" node="exp2" nodegroup="math">
+		<input name="x" type="vector2" value="0.0,0.0" />
+		<output name="out" type="vector2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp2_vector3" node="exp2" nodegroup="math">
+		<input name="x" type="vector3" value="0.0,0.0,0.0" />
+		<output name="out" type="vector3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp2_vector4" node="exp2" nodegroup="math">
+		<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="vector4" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp2_half2" node="exp2" nodegroup="math">
+		<input name="x" type="half2" value="0.0,0.0" />
+		<output name="out" type="half2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp2_half3" node="exp2" nodegroup="math">
+		<input name="x" type="half3" value="0.0,0.0,0.0" />
+		<output name="out" type="half3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp2_half4" node="exp2" nodegroup="math">
+		<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="half4" defaultinput="x" />
+	</nodedef>
+
+	<nodedef name="ND_MTL_exp10_float" node="exp10" nodegroup="math">
+		<input name="x" type="float" value="0.0" />
+		<output name="out" type="float" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp10_half" node="exp10" nodegroup="math">
+		<input name="x" type="half" value="0.0" />
+		<output name="out" type="half" defaultinput="x" />
+	</nodedef>
+
+	<nodedef name="ND_MTL_exp10_vector2" node="exp10" nodegroup="math">
+		<input name="x" type="vector2" value="0.0,0.0" />
+		<output name="out" type="vector2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp10_vector3" node="exp10" nodegroup="math">
+		<input name="x" type="vector3" value="0.0,0.0,0.0" />
+		<output name="out" type="vector3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp10_vector4" node="exp10" nodegroup="math">
+		<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="vector4" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp10_half2" node="exp10" nodegroup="math">
+		<input name="x" type="half2" value="0.0,0.0" />
+		<output name="out" type="half2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp10_half3" node="exp10" nodegroup="math">
+		<input name="x" type="half3" value="0.0,0.0,0.0" />
+		<output name="out" type="half3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_MTL_exp10_half4" node="exp10" nodegroup="math">
+		<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="half4" defaultinput="x" />
+	</nodedef>
+	<!--
+	Nodes: <ddx>, <ddy>
+	Standard math functions.
+	-->
+	<nodedef name="ND_ddx_float" node="ddx" nodegroup="math">
+		<input name="x" type="float" value="0.0" />
+		<output name="out" type="float" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddx_half" node="ddx" nodegroup="math">
+		<input name="x" type="half" value="0.0" />
+		<output name="out" type="half" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddx_vector2" node="ddx" nodegroup="math">
+		<input name="x" type="vector2" value="0.0,0.0" />
+		<output name="out" type="vector2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddx_vector3" node="ddx" nodegroup="math">
+		<input name="x" type="vector3" value="0.0,0.0,0.0" />
+		<output name="out" type="vector3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddx_vector4" node="ddx" nodegroup="math">
+		<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="vector4" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddx_half2" node="ddx" nodegroup="math">
+		<input name="x" type="half2" value="0.0,0.0" />
+		<output name="out" type="half2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddx_half3" node="ddx" nodegroup="math">
+		<input name="x" type="half3" value="0.0,0.0,0.0" />
+		<output name="out" type="half3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddx_half4" node="ddx" nodegroup="math">
+		<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="half4" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddy_float" node="ddy" nodegroup="math">
+		<input name="y" type="float" value="0.0" />
+		<output name="out" type="float" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddy_half" node="ddy" nodegroup="math">
+		<input name="y" type="half" value="0.0" />
+		<output name="out" type="half" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddy_vector2" node="ddy" nodegroup="math">
+		<input name="y" type="vector2" value="0.0,0.0" />
+		<output name="out" type="vector2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddy_vector3" node="ddy" nodegroup="math">
+		<input name="y" type="vector3" value="0.0,0.0,0.0" />
+		<output name="out" type="vector3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddy_vector4" node="ddy" nodegroup="math">
+		<input name="y" type="vector4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="vector4" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddy_half2" node="ddy" nodegroup="math">
+		<input name="y" type="half2" value="0.0,0.0" />
+		<output name="out" type="half2" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddy_half3" node="ddy" nodegroup="math">
+		<input name="y" type="half3" value="0.0,0.0,0.0" />
+		<output name="out" type="half3" defaultinput="x" />
+	</nodedef>
+	<nodedef name="ND_ddy_half4" node="ddy" nodegroup="math">
+		<input name="y" type="half4" value="0.0,0.0,0.0,0.0" />
+		<output name="out" type="half4" defaultinput="x" />
+	</nodedef>
+  <!--
+    Node: <fractinal>
+    returns the fractional part of x. This is calculated as x - floor(x).
+  -->
+  <nodedef name="ND_fract_float" node="fract" nodegroup="math">
+  	<input name="x" type="float" value="0.0" />
+  	<output name="out" type="float" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_fract_half" node="fract" nodegroup="math">
+  	<input name="x" type="half" value="0.0" />
+  	<output name="out" type="half" defaultinput="x" />
+  </nodedef>
+  
+  <nodedef name="ND_fract_vector2" node="fract" nodegroup="math">
+  	<input name="x" type="vector2" value="0.0,0.0" />
+  	<output name="out" type="vector2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_fract_vector3" node="fract" nodegroup="math">
+  	<input name="x" type="vector3" value="0.0,0.0,0.0" />
+  	<output name="out" type="vector3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_fract_vector4" node="fract" nodegroup="math">
+  	<input name="x" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="vector4" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_fract_half2" node="fract" nodegroup="math">
+  	<input name="x" type="half2" value="0.0,0.0" />
+  	<output name="out" type="half2" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_fract_half3" node="fract" nodegroup="math">
+  	<input name="x" type="half3" value="0.0,0.0,0.0" />
+  	<output name="out" type="half3" defaultinput="x" />
+  </nodedef>
+  <nodedef name="ND_fract_half4" node="fract" nodegroup="math">
+  	<input name="x" type="half4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="half4" defaultinput="x" />
+  </nodedef>
+
+
+  <!--
+  Node: <matrix>
+   .
+  -->
+  <nodedef name="ND_realitykit_surface_model_to_view" node="realitykit_surface_model_to_view" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_surface_model_to_world" node="realitykit_surface_model_to_world" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_surface_projection_to_view" node="realitykit_surface_projection_to_view" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_surface_world_to_view" node="realitykit_surface_world_to_view" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_surface_view_to_projection" node="realitykit_surface_view_to_projection" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_surface_view_direction" node="realitykit_surface_view_direction" nodegroup="realitykit">
+  	<output name="out" type="vector3"  />
+  </nodedef>
+  <nodedef name="ND_updirection_vector3" node="updirection" nodegroup="realitykit">
+    <input name="space" type="string" enum="model,object,tangent,world" value="world" uniform="true" />
+  	<output name="out" type="vector3"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_surface_screen_position" node="realitykit_surface_screen_position" nodegroup="realitykit">
+  	<output name="out" type="vector4"  />
+  </nodedef>
+
+  <nodedef name="ND_realitykit_geometry_modifier_model_to_view" node="realitykit_geometry_modifier_model_to_view" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_geometry_modifier_model_to_world" node="realitykit_geometry_modifier_model_to_world" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_geometry_modifier_world_to_model" node="realitykit_geometry_modifier_world_to_model" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_geometry_modifier_projection_to_view" node="realitykit_geometry_modifier_projection_to_view" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_geometry_modifier_view_to_projection" node="realitykit_geometry_modifier_view_to_projection" nodegroup="realitykit">
+  	<output name="out" type="matrix44"  />
+  </nodedef>
+  <nodedef name="ND_realitykit_geometry_modifier_normal_to_world" node="realitykit_geometry_modifier_normal_to_world" nodegroup="realitykit">
+  	<output name="out" type="matrix33"  />
+  </nodedef>
+
+  <!--
+    Node: <multiply>
+    1 -  input
+  -->
+	
+  <!--<nodedef name="ND_multiply_matrix22" node="multiply" nodegroup="math">
+  	<input name="in1" type="matrix22" value="1.0,0.0, 0.0,1.0, 0.0,1.0" />
+  	<input name="in2" type="matrix22" value="1.0,0.0, 0.0,1.0, 0.0,1.0" />
+  	<output name="out" type="matrix22" defaultinput="in1" />
+  </nodedef>-->
+	
+  <nodedef name="ND_multiply_matrix44_vector4" node="multiply" nodegroup="math">
+  	<input name="in1" type="matrix44" value="1.0,0.0,0.0,0.0, 0.0,1.0,0.0,0.0, 0.0,0.0,1.0,0.0, 0.0,0.0,0.0,1.0" />
+  	<input name="in2" type="vector4" value="0.0, 0.0, 0.0, 1.0" />
+  	<output name="out" type="vector4" defaultinput="in2" />
+  </nodedef>
+  <nodedef name="ND_multiply_matrix33_vector3" node="multiply" nodegroup="math">
+  	<input name="in1" type="matrix33" value="1.0,0.0,0.0,0.0, 1.0,0.0,0.0,0.0, 1.0" />
+  	<input name="in2" type="vector3" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="vector3" defaultinput="in2" />
+  </nodedef>
+  <!--
+    Nodes:   <atan>
+    Standard trigonometric functions; angles are given in radians.
+  -->
+  <nodedef name="ND_atan_float" node="atan" nodegroup="math">
+  	<input name="y_over_x" type="float" value="0.0" />
+  	<output name="out" type="float" defaultinput="y_over_x" />
+  </nodedef>
+  <nodedef name="ND_atan_vector2" node="atan" nodegroup="math">
+  	<input name="y_over_x" type="vector2" value="1.0, 1.0" />
+  	<output name="out" type="vector2" defaultinput="y_over_x" />
+  </nodedef>
+  <nodedef name="ND_atan_vector3" node="atan" nodegroup="math">
+  	<input name="y_over_x" type="vector3" value="1.0, 1.0, 1.0" />
+  	<output name="out" type="vector3" defaultinput="y_over_x" />
+  </nodedef>
+  <nodedef name="ND_atan_vector4" node="atan" nodegroup="math">
+  	<input name="y_over_x" type="vector4" value="1.0, 1.0, 1.0, 1.0" />
+  	<output name="out" type="vector4" defaultinput="y_over_x" />
+  </nodedef>
+  <nodedef name="ND_atan_half" node="atan" nodegroup="math">
+  	<input name="y_over_x" type="half" value="0.0" />
+  	<output name="out" type="half" defaultinput="y_over_x" />
+  </nodedef>
+  <nodedef name="ND_atan_half2" node="atan" nodegroup="math">
+  	<input name="y_over_x" type="half2" value="1.0, 1.0" />
+  	<output name="out" type="half2" defaultinput="y_over_x" />
+  </nodedef>
+  <nodedef name="ND_atan_half3" node="atan" nodegroup="math">
+  	<input name="y_over_x" type="half3" value="1.0, 1.0, 1.0" />
+  	<output name="out" type="half3" defaultinput="y_over_x" />
+  </nodedef>
+  <nodedef name="ND_atan_half4" node="atan" nodegroup="math">
+  	<input name="y_over_x" type="half4" value="1.0, 1.0, 1.0, 1.0" />
+  	<output name="out" type="half4" defaultinput="y_over_x" />
+  </nodedef>
+
+  <!--
+    Node: <max>
+    Select the maximum among incoming values.
+  -->
+  <nodedef name="ND_fmax_half" node="fmax" nodegroup="math">
+  	<input name="in1" type="half" value="0.0" />
+  	<input name="in2" type="half" value="0.0" />
+  	<output name="out" type="half" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_half2" node="fmax" nodegroup="math">
+  	<input name="in1" type="half2" value="0.0, 0.0" />
+  	<input name="in2" type="half2" value="0.0, 0.0" />
+  	<output name="out" type="half2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_half3" node="fmax" nodegroup="math">
+  	<input name="in1" type="half3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="half3" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="half3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_half4" node="fmax" nodegroup="math">
+  	<input name="in1" type="half4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="half4" value="0.0, 0.0, 0.0, 0.0" />
+  	<output name="out" type="half4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_max_fhalf2FA" node="fmax" nodegroup="math">
+  	<input name="in1" type="half2" value="0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="half2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_half3FA" node="fmax" nodegroup="math">
+  	<input name="in1" type="half3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="half3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_half4FA" node="fmax" nodegroup="math">
+  	<input name="in1" type="half4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="half4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_float" node="fmax" nodegroup="math">
+  	<input name="in1" type="float" value="0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="float" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_color3" node="fmax" nodegroup="math">
+  	<input name="in1" type="color3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="color3" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="color3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_color4" node="fmax" nodegroup="math">
+  	<input name="in1" type="color4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="color4" value="0.0, 0.0, 0.0, 0.0" />
+  	<output name="out" type="color4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_vector2" node="fmax" nodegroup="math">
+  	<input name="in1" type="vector2" value="0.0, 0.0" />
+  	<input name="in2" type="vector2" value="0.0, 0.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_vector3" node="fmax" nodegroup="math">
+  	<input name="in1" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="vector3" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_vector4" node="fmax" nodegroup="math">
+  	<input name="in1" type="vector4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="vector4" value="0.0, 0.0, 0.0, 0.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_color3FA" node="fmax" nodegroup="math">
+  	<input name="in1" type="color3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="color3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_color4FA" node="fmax" nodegroup="math">
+  	<input name="in1" type="color4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="color4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_vector2FA" node="fmax" nodegroup="math">
+  	<input name="in1" type="vector2" value="0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_vector3FA" node="fmax" nodegroup="math">
+  	<input name="in1" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmax_vector4FA" node="fmax" nodegroup="math">
+  	<input name="in1" type="vector4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>
+
+  <!--
+    Node: <min>
+    Select the minimum among incoming values.
+  -->
+  <nodedef name="ND_fmin_half" node="fmin" nodegroup="math">
+  	<input name="in1" type="half" value="0.0" />
+  	<input name="in2" type="half" value="0.0" />
+  	<output name="out" type="half" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_half2" node="fmin" nodegroup="math">
+  	<input name="in1" type="half2" value="0.0, 0.0" />
+  	<input name="in2" type="half2" value="0.0, 0.0" />
+  	<output name="out" type="half2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_half3" node="fmin" nodegroup="math">
+  	<input name="in1" type="half3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="half3" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="half3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_half4" node="fmin" nodegroup="math">
+  	<input name="in1" type="half4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="half4" value="0.0, 0.0, 0.0, 0.0" />
+  	<output name="out" type="half4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_half2FA" node="fmin" nodegroup="math">
+  	<input name="in1" type="half2" value="0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="half2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_half3FA" node="fmin" nodegroup="math">
+  	<input name="in1" type="half3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="half3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_half4FA" node="fmin" nodegroup="math">
+  	<input name="in1" type="half4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="half4" defaultinput="in1" />
+  </nodedef>
+
+  <nodedef name="ND_fmin_float" node="fmin" nodegroup="math">
+  	<input name="in1" type="float" value="0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="float" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_color3" node="fmin" nodegroup="math">
+  	<input name="in1" type="color3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="color3" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="color3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_color4" node="fmin" nodegroup="math">
+  	<input name="in1" type="color4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="color4" value="0.0, 0.0, 0.0, 0.0" />
+  	<output name="out" type="color4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_vector2" node="fmin" nodegroup="math">
+  	<input name="in1" type="vector2" value="0.0, 0.0" />
+  	<input name="in2" type="vector2" value="0.0, 0.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_vector3" node="fmin" nodegroup="math">
+  	<input name="in1" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="vector3" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_vector4" node="fmin" nodegroup="math">
+  	<input name="in1" type="vector4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="vector4" value="0.0, 0.0, 0.0, 0.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_color3FA" node="fmin" nodegroup="math">
+  	<input name="in1" type="color3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="color3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_color4FA" node="fmin" nodegroup="math">
+  	<input name="in1" type="color4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="color4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_vector2FA" node="fmin" nodegroup="math">
+  	<input name="in1" type="vector2" value="0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_vector3FA" node="fmin" nodegroup="math">
+  	<input name="in1" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmin_vector4FA" node="fmin" nodegroup="math">
+  	<input name="in1" type="vector4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="0.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>
+
+  <!--
+    Node: <fmod>
+    The remaining fraction after dividing one float/color/vector by another and
+    subtracting the integer portion. The modula "in2" value cannot be 0.
+  -->
+  <nodedef name="ND_fmod_float" node="fmod" nodegroup="math">
+  	<input name="in1" type="float" value="0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="float" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_color3" node="fmod" nodegroup="math">
+  	<input name="in1" type="color3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="color3" value="1.0, 1.0, 1.0" />
+  	<output name="out" type="color3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_color4" node="fmod" nodegroup="math">
+  	<input name="in1" type="color4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="color4" value="1.0, 1.0, 1.0, 1.0" />
+  	<output name="out" type="color4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_vector2" node="fmod" nodegroup="math">
+  	<input name="in1" type="vector2" value="0.0, 0.0" />
+  	<input name="in2" type="vector2" value="1.0, 1.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_vector3" node="fmod" nodegroup="math">
+  	<input name="in1" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="vector3" value="1.0, 1.0, 1.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_vector4" node="fmod" nodegroup="math">
+  	<input name="in1" type="vector4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="vector4" value="1.0, 1.0, 1.0, 1.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_color3FA" node="fmod" nodegroup="math">
+  	<input name="in1" type="color3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="color3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_color4FA" node="fmod" nodegroup="math">
+  	<input name="in1" type="color4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="color4" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_vector2FA" node="fmod" nodegroup="math">
+  	<input name="in1" type="vector2" value="0.0, 0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_vector3FA" node="fmod" nodegroup="math">
+  	<input name="in1" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_vector4FA" node="fmod" nodegroup="math">
+  	<input name="in1" type="vector4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="float" value="1.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>
+
+  <nodedef name="ND_fmod_half" node="fmod" nodegroup="math">
+  	<input name="in1" type="half" value="0.0" />
+  	<input name="in2" type="half" value="1.0" />
+  	<output name="out" type="half" defaultinput="in1" />
+  </nodedef>
+ 
+  <nodedef name="ND_fmod_half2" node="fmod" nodegroup="math">
+  	<input name="in1" type="half2" value="0.0, 0.0" />
+  	<input name="in2" type="half2" value="1.0, 1.0" />
+  	<output name="out" type="half2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_half3" node="fmod" nodegroup="math">
+  	<input name="in1" type="half3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="half3" value="1.0, 1.0, 1.0" />
+  	<output name="out" type="half3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_half4" node="fmod" nodegroup="math">
+  	<input name="in1" type="half4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="half4" value="1.0, 1.0, 1.0, 1.0" />
+  	<output name="out" type="half4" defaultinput="in1" />
+  </nodedef>
+ 
+  <nodedef name="ND_fmod_half2FA" node="fmod" nodegroup="math">
+  	<input name="in1" type="half2" value="0.0, 0.0" />
+  	<input name="in2" type="half" value="1.0" />
+  	<output name="out" type="half2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_half3FA" node="fmod" nodegroup="math">
+  	<input name="in1" type="half3" value="0.0, 0.0, 0.0" />
+  	<input name="in2" type="half" value="1.0" />
+  	<output name="out" type="half3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_fmod_half4FA" node="fmod" nodegroup="math">
+  	<input name="in1" type="half4" value="0.0, 0.0, 0.0, 0.0" />
+  	<input name="in2" type="half" value="1.0" />
+  	<output name="out" type="half4" defaultinput="in1" />
+  </nodedef>
+
+  <nodedef name="ND_rcp_VideoTexture_color4" node="rcp_VideoTexture" nodegroup="texture2d">
+	  <input name="file" type="filename" value="" uniform="true" />
+	  <input name="st" type="vector2" defaultgeomprop="UV0" />
+	  <input name="wrapS" type="string" value="periodic" />
+	  <input name="wrapT" type="string" value="periodic" uniform="true" />
+	  <input name="fallback" type="color4" value="0, 0, 0, 1" />
+	  <input name="scale" type="color4" value="1, 1, 1, 1" uniform="true" />
+	  <input name="bias" type="color4" value="0, 0, 0, 0" uniform="true" />
+	  <!--<output name="rgba" type="color4" />-->
+	  <output name="out" type="color4" />
+  </nodedef>
+
+  <nodedef name="ND_videoreflectiontexture_color4" node="videoreflectiontexture" nodegroup="texture2d">
+	  <input name="VideoId" type="string" value="0" uniform="true"  uiname="Video Sample Name"/>
+	  <input name="VideoMode" type="integer" value="0" uniform="true" enum="Raw,Blurred" enumvalues="0,1" uiname="Sample Mode"/>
+	  <input name="texcoord" type="vector2" defaultgeomprop="UV0" uiname="Texture Coordinates" />
+	  <input name="eyeIndex" type="integer" value="0"  uniform="true" uiname="Eye Index"/>
+	  <input name="lod" type="float" value="0.0" uniform="true" uiname="Lod"/>
+	  <output name="out" type="color4" />
+	  <output name="texture_size" type="vector2"  uiname="Texture Size"/>
+  </nodedef>
+
+  <nodedef name="ND_videotexture_color4" node="videotexture" nodegroup="texture2d">
+	  <input name="texcoord" type="vector2" defaultgeomprop="UV0" uiname="Texture Coordinates" />
+	  <output name="out" type="color4" />
+  </nodedef>
+
+	<!--
+    Node: <combine3>
+    Combine the channels from four streams into the same number of channels of a
+    single output stream of a specified compatible type.
+  -->
+
+	<nodedef name="ND_realitykit_combine3_matrix33" node="combine3" nodegroup="channel">
+		<input name="in1" type="vector3" value="1, 0, 0" />
+		<input name="in2" type="vector3" value="0, 1, 0" />
+		<input name="in3" type="vector3" value="0, 0, 1" />
+		<output name="out" type="matrix33" default="1, 0, 0, 0, 1, 0, 0, 0, 1" />
+	</nodedef>
+
+	<!--
+    Node: <combine4>
+    Combine the channels from four streams into the same number of channels of a
+    single output stream of a specified compatible type.
+  -->
+	<nodedef name="ND_realitykit_combine4_matrix44" node="combine4" nodegroup="channel">
+		<input name="in1" type="vector4" value="1, 0, 0, 0" />
+		<input name="in2" type="vector4" value="0, 1, 0, 0" />
+		<input name="in3" type="vector4" value="0, 0, 1, 0" />
+		<input name="in4" type="vector4" value="0, 0, 0, 1" />
+		<output name="out" type="matrix44" default="1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1" />
+	</nodedef>
+
+	<!--
+    Node: <color space>
+ 
+  -->
+	<nodedef name="ND_srgb_texture_to_workingspace_color3" node="srgb_texture_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color3" value="0.0, 0.0, 0.0" />
+		<output name="out" type="color3" />
+	</nodedef>
+
+	<nodedef name="ND_srgb_texture_to_workingspace_color4" node="srgb_texture_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color4" value="0.0, 0.0, 0.0, 1.0" />
+		<output name="out" type="color4" />
+	</nodedef>
+
+	<nodedef name="ND_lin_displayp3_to_workingspace_color3" node="lin_displayp3_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color3" value="0.0, 0.0, 0.0" />
+		<output name="out" type="color3" />
+	</nodedef>
+
+	<nodedef name="ND_lin_displayp3_to_workingspace_color4" node="lin_displayp3_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color4" value="0.0, 0.0, 0.0, 1.0" />
+		<output name="out" type="color4" />
+	</nodedef>
+
+	<nodedef name="ND_lin_rec2020_to_workingspace_color3" node="lin_rec2020_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color3" value="0.0, 0.0, 0.0" />
+		<output name="out" type="color3" />
+	</nodedef>
+
+	<nodedef name="ND_lin_rec2020_to_workingspace_color4" node="lin_rec2020_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color4" value="0.0, 0.0, 0.0, 1.0" />
+		<output name="out" type="color4" />
+	</nodedef>
+
+	<nodedef name="ND_lin_srgb_to_workingspace_color3" node="lin_srgb_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color3" value="0.0, 0.0, 0.0" />
+		<output name="out" type="color3" />
+	</nodedef>
+
+	<nodedef name="ND_lin_srgb_to_workingspace_color4" node="lin_srgb_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color4" value="0.0, 0.0, 0.0, 1.0" />
+		<output name="out" type="color4" />
+	</nodedef>
+
+	<nodedef name="ND_srgb_displayp3_to_workingspace_color3" node="srgb_displayp3_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color3" value="0.0, 0.0, 0.0" />
+		<output name="out" type="color3" />
+	</nodedef>
+
+	<nodedef name="ND_srgb_displayp3_to_workingspace_color4" node="srgb_displayp3_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color4" value="0.0, 0.0, 0.0, 1.0" />
+		<output name="out" type="color4" />
+	</nodedef>
+
+	<nodedef name="ND_srgb_rec2020_to_workingspace_color3" node="srgb_rec2020_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color3" value="0.0, 0.0, 0.0" />
+		<output name="out" type="color3" />
+	</nodedef>
+
+	<nodedef name="ND_srgb_rec2020_to_workingspace_color4" node="srgb_rec2020_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color4" value="0.0, 0.0, 0.0, 1.0" />
+		<output name="out" type="color4" />
+	</nodedef>
+
+	<nodedef name="ND_lin_ACEScg_to_workingspace_color3" node="lin_ACEScg_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color3" value="0.0, 0.0, 0.0" />
+		<output name="out" type="color3" />
+	</nodedef>
+
+	<nodedef name="ND_lin_ACEScg_to_workingspace_color4" node="lin_ACEScg_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color4" value="0.0, 0.0, 0.0, 1.0" />
+		<output name="out" type="color4" />
+	</nodedef>
+<!--
+	<nodedef name="ND_ACES - ACEScg_to_workingspace_color3" node="ACES - ACEScg_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color3" value="0.0, 0.0, 0.0" />
+		<output name="out" type="color3" />
+	</nodedef>
+
+	<nodedef name="ND_ACES - ACEScg_to_workingspace_color4" node="ACES - ACEScg_to_workingspace" nodegroup="colortransform">
+		<input name="in" type="color4" value="0.0, 0.0, 0.0, 1.0" />
+		<output name="out" type="color4" />
+	</nodedef>
+ -->
+	<!--
+    Node: <onemiuns>
+    1 -  input
+  -->
+	<!--
+  <nodedef name="ND_realitykit_onemiuns_float" node="onemiuns" nodegroup="math">
+  	<input name="in" type="float" value="0.0" />
+  	<output name="out" type="float" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_realitykit_onemiuns_vector2" node="onemiuns" nodegroup="math">
+  	<input name="in" type="vector2" value="0.0,0.0" />
+  	<output name="out" type="vector2" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_realitykit_onemiuns_vector3" node="onemiuns" nodegroup="math">
+  	<input name="in" type="vector3" value="0.0,0.0,0.0" />
+  	<output name="out" type="vector3" defaultinput="in1" />
+  </nodedef>
+  <nodedef name="ND_realitykit_onemiuns_vector4" node="onemiuns" nodegroup="math">
+  	<input name="in" type="vector4" value="0.0,0.0,0.0,0.0" />
+  	<output name="out" type="vector4" defaultinput="in1" />
+  </nodedef>-->
+  
+
+  <!--
+    Node: <reflect>
+    For a given incident vector I and surface normal N reflect returns the reflection direction calculated as I - 2.0 * dot(N, I) * N.
+  -->
+  <!--<nodedef name="ND_realitykit_reflect_vector3" node="reflect" nodegroup="math">
+  	<input name="in" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="normal" type="vector3" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="vector3" defaultinput="in" />
+  </nodedef>-->
+
+  <!--
+    Node: <refract>
+    For a given incident vector I, surface normal N and ratio of indices of refraction, eta, refract returns the refraction vector, R.
+  -->
+  <!--<nodedef name="ND_realitykit_refract_vector3" node="refract" nodegroup="math">
+  	<input name="in" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="normal" type="vector3" value="0.0, 0.0, 0.0" />
+  	<input name="eta" type="float" value="0.0, 0.0, 0.0" />
+  	<output name="out" type="vector3" defaultinput="in" />
+  </nodedef>-->
+	<!-- RealityKit Math functions -->
+	
+  <!--
+    Node: <fractional>
+    switch_cameraindex.
+  -->
+
+
+    <nodedef name="ND_environment_radiance" node="environment_radiance" nodegroup="other" >
+        <input name="baseColor" type="color3" value="1.0,1.0,1.0" />
+        <input name="roughness" type="float" value="0" />
+        <input name="specular" type="float" value="0" />
+        <input name="metallic" type="float" value="0" />
+        <input name="normal" type="vector3" defaultgeomprop="Nworld" />
+        <output name="diffuseRadiance" type="color3" default="0.5, 0.5, 0.5" />
+        <output name="specularRadiance" type="color3" default="0.1, 0.1, 0.1"/>
+    </nodedef>
+
+  <!--
+    Node: <distance squared>
+    Measures the distance between two points in 2D, 3D, or 4D.
+  -->
+  <nodedef name="ND_distancesquared_vector2" node="distancesquared" nodegroup="math">
+    <input name="in1" type="vector2" uiname="in1" value="0.0, 0.0" />
+    <input name="in2" type="vector2" uiname="in2" value="0.0, 0.0" />
+    <output name="out" type="float" />
+  </nodedef>
+  <nodedef name="ND_distancesquared_vector3" node="distancesquared" nodegroup="math">
+    <input name="in1" type="vector3" uiname="in1" value="0.0, 0.0, 0.0" />
+    <input name="in2" type="vector3" uiname="in2" value="0.0, 0.0, 0.0" />
+    <output name="out" type="float" />
+  </nodedef>
+  <nodedef name="ND_distancesquared_vector4" node="distancesquared" nodegroup="math">
+    <input name="in1" type="vector4" uiname="in1" value="0.0, 0.0, 0.0, 0.0" />
+    <input name="in2" type="vector4" uiname="in2" value="0.0, 0.0, 0.0, 0.0" />
+    <output name="out" type="float" />
+  </nodedef>
+
+  <nodedef name="ND_instancecustomdata" node="instancecustomdata" nodegroup="other">
+    <input name="in1" type="integer" uiname="Index" value="0" uimin="0" uimax="15" />
+    <output name="out" type="float" />
+  </nodedef>
+
+  <!--
+    Node: <cube image>
+    .
+  -->
+  <nodedef name="ND_RealityKitTextureCube_vector4" node="RealityKitTextureCube" nodegroup="cubemap">
+     <input name="file" uiname="File" type="filename" />
+     <input name="u_wrap_mode" type="string" uniform="true" uiname="U Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+     <input name="v_wrap_mode" type="string" uniform="true" uiname="V Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+     <input name="border_color" type="string" uniform="true"  uiname="Border Color" enum="transparent_black,opaque_black,opaque_white" value="transparent_black" />
+     <input name="mag_filter" type="string" uniform="true"  uiname="Mag Filter" enum="nearest,linear" value="linear" />
+     <input name="min_filter" type="string" uniform="true" uiname="Min Filter" enum="nearest,linear" value="linear" />
+     <input name="mip_filter" type="string" uniform="true" uiname="Mip Filter" enum="none,nearest,linear" value="linear" />
+     <input name="max_anisotropy" type="integer"  enum="1,2,4,8,16" uniform="true" uiname="Max Anisotropy" value="0" />
+     <input name="max_lod_clamp" type="float" uniform="true" uiname="Max LOD Clamp" value="65504.0" />
+     <input name="min_lod_clamp" type="float" uniform="true" uiname="Min LOD Clamp" value="0.0" />
+     <input name="texcoord" type="vector3" uiname="Texture Coordinates" defaultgeomprop="Pobject" />
+     <input name="bias" type="float" uiname="Bias" value="0.0" />
+     <input name="dynamic_min_lod_clamp" type="float" uiname="Dynamic Min LOD Clamp" value="0.0" />
+     <output name="out" type="vector4" />
+  </nodedef>
+  <nodedef name="ND_RealityKitTextureCube_color4" node="RealityKitTextureCube" nodegroup="cubemap">
+      <input name="file" uiname="File" type="filename" />
+      <input name="u_wrap_mode" type="string" uniform="true" uiname="U Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+      <input name="v_wrap_mode" type="string" uniform="true" uiname="V Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+      <input name="border_color" type="string" uniform="true" uiname="Border Color" enum="transparent_black,opaque_black,opaque_white" value="transparent_black" />
+      <input name="mag_filter" type="string" uniform="true" uiname="Mag Filter" enum="nearest,linear" value="linear" />
+      <input name="min_filter" type="string" uniform="true" uiname="Min Filter" enum="nearest,linear" value="linear" />
+      <input name="mip_filter" type="string" uniform="true" uiname="Mip Filter" enum="none,nearest,linear" value="linear" />
+      <input name="max_anisotropy" type="integer"  enum="1,2,4,8,16" uniform="true" uiname="Max Anisotropy" value="0" />
+      <input name="max_lod_clamp" type="float" uniform="true" uiname="Max LOD Clamp" value="65504.0" />
+      <input name="min_lod_clamp" type="float" uniform="true" uiname="Min LOD Clamp" value="0.0" />
+      <input name="texcoord" type="vector3" uiname="Texture Coordinates" defaultgeomprop="Pobject" />
+      <input name="bias" type="float" uiname="Bias" value="0.0" />
+      <input name="dynamic_min_lod_clamp" type="float" uiname="Dynamic Min LOD Clamp" value="0.0" />
+      <output name="out" type="color4" />
+  </nodedef>
+  <nodedef name="ND_RealityKitTextureCubeLOD_color4" node="RealityKitTextureCubeLOD" nodegroup="cubemap">
+       <input name="file" uiname="File" type="filename" />
+       <input name="u_wrap_mode" type="string" uniform="true" uiname="U Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+       <input name="v_wrap_mode" type="string" uniform="true" uiname="V Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+       <input name="border_color" type="string" uniform="true" uiname="Border Color" enum="transparent_black,opaque_black,opaque_white" value="transparent_black" />
+       <input name="mag_filter" type="string" uniform="true" uiname="Mag Filter" enum="nearest,linear" value="linear" />
+       <input name="min_filter" type="string" uniform="true" uiname="Min Filter" enum="nearest,linear" value="linear" />
+       <input name="mip_filter" type="string" uniform="true" uiname="Mip Filter" enum="none,nearest,linear" value="linear" />
+       <input name="max_anisotropy" type="integer"  enum="1,2,4,8,16" uniform="true" uiname="Max Anisotropy" value="0" />
+       <input name="max_lod_clamp" type="float" uniform="true" uiname="Max LOD Clamp" value="65504.0" />
+       <input name="min_lod_clamp" type="float" uniform="true" uiname="Min LOD Clamp" value="0.0" />
+       <input name="texcoord" type="vector3" uiname="Texture Coordinates" defaultgeomprop="Pobject" />
+       <input name="lod" type="float" uiname="LOD" value="0.0" />
+       <output name="out" type="color4" />
+  </nodedef>
+
+  <nodedef name="ND_RealityKitTextureCubeLOD_vector4" node="RealityKitTextureCubeLOD" nodegroup="cubemap">
+      <input name="file" uiname="File" type="filename" />
+      <input name="u_wrap_mode" type="string" uniform="true" uiname="U Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+      <input name="v_wrap_mode" type="string" uniform="true" uiname="V Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+      <input name="border_color" type="string" uniform="true" uiname="Border Color" enum="transparent_black,opaque_black,opaque_white" value="transparent_black" />
+      <input name="mag_filter" type="string" uniform="true" uiname="Mag Filter" enum="nearest,linear" value="linear" />
+      <input name="min_filter" type="string" uniform="true" uiname="Min Filter" enum="nearest,linear" value="linear" />
+      <input name="mip_filter" type="string" uniform="true" uiname="Mip Filter" enum="none,nearest,linear" value="linear" />
+      <input name="max_anisotropy" type="integer"  enum="1,2,4,8,16" uniform="true" uiname="Max Anisotropy" value="0" />
+      <input name="max_lod_clamp" type="float" uniform="true" uiname="Max LOD Clamp" value="65504.0" />
+      <input name="min_lod_clamp" type="float" uniform="true" uiname="Min LOD Clamp" value="0.0" />
+      <input name="texcoord" type="vector3" uiname="Texture Coordinates" defaultgeomprop="Pobject" />
+      <input name="lod" type="float" uiname="LOD" value="0.0" />
+      <output name="out" type="vector4" />
+  </nodedef>
+
+  <nodedef name="ND_RealityKitTextureCubeGradient_color4" node="RealityKitTextureCubeGradient" nodegroup="cubemap">
+      <input name="file" uiname="File" type="filename" />
+      <input name="u_wrap_mode" type="string" uniform="true" uiname="U Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+      <input name="v_wrap_mode" type="string" uniform="true" uiname="V Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+      <input name="border_color" type="string" uniform="true" uiname="Border Color" enum="transparent_black,opaque_black,opaque_white" value="transparent_black" />
+      <input name="mag_filter" type="string" uniform="true" uiname="Mag Filter" enum="nearest,linear" value="linear" />
+      <input name="min_filter" type="string" uniform="true" uiname="Min Filter" enum="nearest,linear" value="linear" />
+      <input name="mip_filter" type="string" uniform="true" uiname="Mip Filter" enum="none,nearest,linear" value="linear" />
+      <input name="max_anisotropy" type="integer"  enum="1,2,4,8,16" uniform="true" uiname="Max Anisotropy" value="0" />
+      <input name="max_lod_clamp" type="float" uniform="true" uiname="Max LOD Clamp" value="65504.0" />
+      <input name="min_lod_clamp" type="float" uniform="true" uiname="Min LOD Clamp" value="0.0" />
+      <input name="texcoord" type="vector3" uiname="Texture Coordinates" defaultgeomprop="Pobject" />
+      <input name="dynamic_min_lod_clamp" type="float" uiname="Dynamic Min LOD Clamp" value="0.0" />
+      <input name="gradientcube_dPdx" type="vector3" uiname="Gradient Cube dPdx" value="0.0,0.0,0.0" />
+      <input name="gradientcube_dPdy" type="vector3" uiname="Gradient Cube dPdy" value="0.0,0.0,0.0" />
+      <output name="out" type="color4" />
+  </nodedef>
+  <nodedef name="ND_RealityKitTextureCubeGradient_vector4" node="RealityKitTextureCubeGradient" nodegroup="cubemap">
+      <input name="file" uiname="File" type="filename" />
+      <input name="u_wrap_mode" type="string" uniform="true" uiname="U Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+      <input name="v_wrap_mode" type="string" uniform="true" uiname="V Wrap Mode" enum="repeat,mirrored_repeat,clamp_to_edge,clamp_to_zero,clamp_to_border" value="clamp_to_edge" />
+      <input name="border_color" type="string" uniform="true" uiname="Border Color" enum="transparent_black,opaque_black,opaque_white" value="transparent_black" />
+      <input name="mag_filter" type="string" uniform="true" uiname="Mag Filter" enum="nearest,linear" value="linear" />
+      <input name="min_filter" type="string" uniform="true" uiname="Min Filter" enum="nearest,linear" value="linear" />
+      <input name="mip_filter" type="string" uniform="true" uiname="Mip Filter" enum="none,nearest,linear" value="linear" />
+      <input name="max_anisotropy" type="integer"  enum="1,2,4,8,16" uniform="true" uiname="Max Anisotropy" value="0" />
+      <input name="max_lod_clamp" type="float" uniform="true" uiname="Max LOD Clamp" value="65504.0" />
+      <input name="min_lod_clamp" type="float" uniform="true" uiname="Min LOD Clamp" value="0.0" />
+      <input name="texcoord" type="vector3" uiname="Texture Coordinates" defaultgeomprop="Pobject" />
+      <input name="dynamic_min_lod_clamp" type="float" uiname="Dynamic Min LOD Clamp" value="0.0" />
+      <input name="gradientcube_dPdx" type="vector3" uiname="Gradient Cube dPdx" value="0.0,0.0,0.0" />
+      <input name="gradientcube_dPdy" type="vector3" uiname="Gradient Cube dPdy" value="0.0,0.0,0.0" />
+      <output name="out" type="vector4" />
+  </nodedef>
+  <nodedef name="ND_pi_float" node="pi" nodegroup="math">
+      <output name="out" type="float" />
+  </nodedef>
+  <nodedef name="ND_realitykit_geometry_modifier_vertex_id" node="realitykit_geometry_modifier_vertex_id" nodegroup="vertex">
+      <output name="out" type="integer" />
+  </nodedef>
+  <nodedef name="ND_geometry_modifier_vertex_index" node="geometry_modifier_vertex_index" nodegroup="vertex">
+      <output name="out" type="integer" />
+  </nodedef>
+</materialx>

@@ -1,0 +1,91 @@
+#usda 1.0
+(
+    """ Spatial Timeline schema    """
+    subLayers = [
+        @usd/schema.usda@
+    ]
+)
+over "GLOBAL" (
+    customData = {
+        string libraryName       = "spatialTimeline"
+        string libraryPath       = "./"
+        string libraryPrefix     = "UsdSpatialTimeline"
+    }
+) {
+}
+
+# This defines the Timeline Imageable schema
+class SpatialTimelineable "SpatialTimelineable" (
+    doc = """ Timelineable type. Note that it does not specify a typeName"""
+    inherits = </Typed>
+    customData = {
+        string className = "Timelineable"
+    }
+)
+{
+    bool locked = false
+
+    token visibility = "inherited" (
+        allowedTokens = ["inherited", "invisible"]
+    )
+}
+
+# This defines the Timeline schema
+class SpatialTimeline "SpatialTimeline" (
+    doc = """ Timeline type. Note that it does not specify a typeName"""
+    inherits = </SpatialTimelineable>
+    customData = {
+        string className = "Timeline"
+    }
+)
+{
+    int order = 0
+}
+
+# This defines the TimelineTarget schema
+class SpatialTimelineTarget "SpatialTimelineTarget" (
+    doc = """TimelineTarget type. Note that it does not specify a typeName"""
+    inherits = </SpatialTimelineable>
+    customData = {
+        string className = "TimelineTarget"
+    }
+)
+{
+    int order = 0
+}
+
+# This defines the TimelineTrack schema
+class SpatialTimelineTrack "SpatialTimelineTrack" (
+    doc = """TimelineTrack type. Note that it does not specify a typeName"""
+    inherits = </SpatialTimelineable>
+    customData = {
+        string className = "TimelineTrack"
+    }
+)
+{
+    int order = 0
+}
+
+# This defines the TimelineAction schema
+class SpatialTimelineAction "SpatialTimelineAction" (
+    doc = """TimelineTrack type. Note that it does not specify a typeName"""
+    inherits = </SpatialTimelineable>
+    customData = {
+        string className = "TimelineAction"
+    }
+)
+{
+    uniform token info:id (
+        doc = "This is the GUID of the action."
+    )
+
+    string actionKind (
+        doc = "This is the kind of action."
+    )
+
+    double startTime = 0
+
+    rel target (
+        doc = "Relationship to a target prim with same root."
+    )
+}

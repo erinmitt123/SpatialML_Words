@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d64035b37a4a9499d25ba949e23c5d, type: 3}
+  m_Name: face-full-space
+  m_EditorClassIdentifier: ByteDance.PICO.XR::ByteDance.PICO.SecureMR.SpatialMLPipelineZooAsset
+  packageId: face-full-space
+  manifestJson: {fileID: 4900000, guid: 00f52d89bce4945579ae57c25e4e7c22, type: 3}
+  pipelineJsonAssets:
+  - id: tracking
+    packagePath: pipeline/face_tracking_pipeline.json
+    json: {fileID: 4900000, guid: 192aa8a58442e4594b057118ddd7a627, type: 3}
+  binaryAssets:
+  - packagePath: model/face_decoder.tflite
+    asset: {fileID: 4900000, guid: 008920866aecd42d3be52cf88f409f03, type: 3}
+  - packagePath: model/face_detector.tflite
+    asset: {fileID: 4900000, guid: bbfc4e6fcec6c49a38f710ae344bf9e0, type: 3}
+  - packagePath: model/preprocess.tflite
+    asset: {fileID: 4900000, guid: eca4c3eb88b764f878f66eb4bdfafb02, type: 3}
