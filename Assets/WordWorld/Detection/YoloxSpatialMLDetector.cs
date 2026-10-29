@@ -28,6 +28,8 @@ namespace WordWorld.Detection
         private const int TimestampIndex = CounterIndex + 17;       // 657..659
         private const int ValueCount = (MaxDetections + 1) * RowSize;
         private const float PipelineScoreFloor = 0.5f;              // matches the packing script
+        private const float MinStereoDepth = 0.2f;                  // packing script's accepted range
+        private const float MaxStereoDepth = 10f;
 
         [SerializeField] private SpatialMLPipelineZooAsset m_package;
         [Tooltip("The yolo-detection package expects a 640x640 rectified VST image.")]
@@ -243,6 +245,7 @@ namespace WordWorld.Detection
                     CameraUp = up,
                     PlaneWidth = width,
                     PlaneHeight = height,
+                    StereoDepth = ReadStereoDepth(row),
                 });
             }
             FrameReady?.Invoke(m_frame);
@@ -276,6 +279,14 @@ namespace WordWorld.Detection
             InferenceRate = m_rateFrames / elapsed;
             m_rateFrames = 0;
             m_rateWindowStart = Time.unscaledTime;
+        }
+
+        // Lane 16 is the pose's bottom-left cell, which the packing script reuses for stereo depth
+        // (tools/spatialml/live-hybrid-output.js). A rays-only package leaves it 0.
+        private float ReadStereoDepth(int row)
+        {
+            float depth = m_values[row + 16];
+            return float.IsFinite(depth) && depth >= MinStereoDepth && depth <= MaxStereoDepth ? depth : 0f;
         }
 
         private static Vector3 FromOpenXr(float x, float y, float z) => new Vector3(x, y, -z);

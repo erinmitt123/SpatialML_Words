@@ -45,6 +45,8 @@ namespace WordWorld.Tracking
         // Last-frame diagnostics for the debug panel.
         public int LastRayCount { get; private set; }
         public int LastPlacedCount { get; private set; }
+        /// <summary>How many of LastPlacedCount came from stereo depth rather than the room mesh.</summary>
+        public int LastStereoCount { get; private set; }
         public bool LastFrameReliable { get; private set; }
         public IReadOnlyList<DetectionRay> LastRays => m_lastRays;
 
@@ -55,6 +57,9 @@ namespace WordWorld.Tracking
         private readonly List<DetectionRay> m_lastRays = new List<DetectionRay>(32);
         private double m_lastCaptureTime;
         private int m_nextId = 1;
+        private float m_nextSummaryTime;
+        private int m_summaryRays, m_summaryPlaced, m_summaryStereo, m_summaryWithDepth, m_summaryEligible;
+        private string m_summarySample = "";
 
         private void OnEnable()
         {
@@ -86,22 +91,75 @@ namespace WordWorld.Tracking
             if (!frame.MotionReliable)
             {
                 LastPlacedCount = 0;
+                LastStereoCount = 0;
                 return;
             }
 
             m_placed.Clear();
             int mask = RoomMesh.LayerMask;
+            int stereo = 0;
             foreach (DetectionRay ray in frame.Rays)
             {
                 if (ray.Confidence < m_confidenceThreshold || !CocoClasses.IsHousehold(ray.ClassId)) continue;
-                if (MeshRayPlacer.TryPlace(ray, mask, out PlacedDetection placed)) m_placed.Add(placed);
+                // The mesh fit is more precise; stereo covers surfaces the mesh lacks (or no mesh at all).
+                if (MeshRayPlacer.TryPlace(ray, mask, out PlacedDetection placed) || TryPlaceStereo(ray, out placed))
+                {
+                    m_placed.Add(placed);
+                    if (placed.FromStereo) stereo++;
+                }
             }
             LastPlacedCount = m_placed.Count;
+            LastStereoCount = stereo;
+            LogSummary(frame.Rays.Count);
 
             foreach (TrackedObject track in m_tracks) track.HitThisFrame = false;
             foreach (PlacedDetection detection in m_placed) Associate(detection);
             AgeTracks(frame.Camera, dt);
             MergeDuplicates();
+        }
+
+        // Headset tests often run unattended; logcat is the only way to see the pipeline then.
+        [System.Diagnostics.Conditional("DEVELOPMENT_BUILD"), System.Diagnostics.Conditional("UNITY_EDITOR")]
+        private void LogSummary(int rays)
+        {
+            m_summaryRays += rays;
+            m_summaryPlaced += LastPlacedCount;
+            m_summaryStereo += LastStereoCount;
+            foreach (DetectionRay ray in m_lastRays)
+            {
+                if (ray.StereoDepth > 0) m_summaryWithDepth++;
+                if (ray.Confidence >= m_confidenceThreshold && CocoClasses.IsHousehold(ray.ClassId)) m_summaryEligible++;
+                if (m_summarySample.Length < 160)
+                    m_summarySample += $" {CocoClasses.NameOf(ray.ClassId)}:{ray.Confidence:0.00}@{ray.StereoDepth:0.00}m";
+            }
+            if (Time.unscaledTime < m_nextSummaryTime) return;
+            m_nextSummaryTime = Time.unscaledTime + 5f;
+            Debug.Log($"[WordWorld.Tracking] last 5 s: rays {m_summaryRays} (eligible {m_summaryEligible}, " +
+                      $"with depth {m_summaryWithDepth}), placed {m_summaryPlaced} (stereo {m_summaryStereo}), " +
+                      $"candidates {CandidateCount}, confirmed {m_confirmed.Count};{m_summarySample}");
+            m_summaryRays = m_summaryPlaced = m_summaryStereo = m_summaryWithDepth = m_summaryEligible = 0;
+            m_summarySample = "";
+        }
+
+        /// <summary>
+        /// Source B's original (pre-mesh) placement: the box centre on the measured depth plane.
+        /// PlaneDirection reaches the one-metre plane, so scaling it by axial depth lands on the object.
+        /// </summary>
+        private static bool TryPlaceStereo(in DetectionRay ray, out PlacedDetection placed)
+        {
+            placed = default;
+            float depth = ray.StereoDepth;
+            if (!(depth >= MeshRayPlacer.MinDepth && depth <= MeshRayPlacer.MaxDepth)) return false;
+            placed = new PlacedDetection
+            {
+                ClassId = ray.ClassId,
+                Confidence = ray.Confidence,
+                Position = ray.Origin + ray.PlaneDirection * depth,
+                Width = ray.PlaneWidth * depth,
+                Height = ray.PlaneHeight * depth,
+                FromStereo = true,
+            };
+            return true;
         }
 
         private void Associate(in PlacedDetection detection)

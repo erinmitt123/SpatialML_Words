@@ -97,6 +97,7 @@ namespace WordWorld.DebugTools
             {
                 b.Append("Rays ").Append(m_tracking.LastRayCount)
                     .Append("  placed ").Append(m_tracking.LastPlacedCount)
+                    .Append(" (stereo ").Append(m_tracking.LastStereoCount).Append(')')
                     .Append("  candidates ").Append(m_tracking.CandidateCount)
                     .Append("  confirmed ").Append(m_tracking.Confirmed.Count)
                     .Append(m_tracking.LastFrameReliable ? "" : "  <color=#ffb000>(moving)</color>").Append('\n');

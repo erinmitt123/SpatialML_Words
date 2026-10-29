@@ -4,12 +4,15 @@
 // Port of the sample's Gradle `syncYoloLiveAssets` task, adapted for the Unity Pipeline Zoo loader:
 //   * camera access runs inside the pipeline (RECTIFIED_VST_ACCESS), so the VST tensors are
 //     pipeline-local and are never exposed to the app (privacy: no camera frames in C#);
-//   * stereo UV-to-3D is removed; the pipeline publishes one ray per detection and the app
-//     intersects it with the room mesh (SPATIALML_SETUP.md section 5);
+//   * the pipeline publishes one ray per detection for the app to intersect with the room mesh
+//     (SPATIALML_SETUP.md section 5), plus the stereo UV-to-3D depth from the sample's original
+//     graph as a fallback where the mesh has no surface (live-hybrid-output.js);
 //   * the only output is the 33x20 FLOAT32 `detections` packet.
 //
 // Usage:
-//   node tools/spatialml/build_yolo_package.js <sourceB-root> <out-dir> [--target npu|gpu|cpu]
+//   node tools/spatialml/build_yolo_package.js <sourceB-root> <out-dir> [--target npu|gpu|cpu] [--rays-only]
+//
+// --rays-only drops the stereo branch and uses the sample's live ray script unchanged.
 //
 // The output folder is then imported into Assets/SpatialMLPipelineZoo with the SDK importer
 // (see tools/spatialml/README.md).
@@ -20,7 +23,7 @@ const path = require('path');
 const args = process.argv.slice(2);
 const positional = args.filter(a => !a.startsWith('--'));
 if (positional.length < 2) {
-  console.error('usage: build_yolo_package.js <sourceB-root> <out-dir> [--target npu|gpu|cpu]');
+  console.error('usage: build_yolo_package.js <sourceB-root> <out-dir> [--target npu|gpu|cpu] [--rays-only]');
   process.exit(2);
 }
 const targetIndex = args.indexOf('--target');
@@ -31,7 +34,10 @@ if (!['npu', 'gpu', 'cpu'].includes(detectorTarget)) throw new Error(`bad --targ
 const [sourceRoot, outDir] = positional;
 const sourceApp = path.join(sourceRoot, 'yolo-mesh-sample', 'app', 'src', 'main');
 const sourcePackage = path.join(sourceApp, 'assets', 'SpatialML', 'yolo-detection-pipeline');
-const liveScript = fs.readFileSync(path.join(sourceApp, 'yolo', 'live-mesh-output.js'), 'utf8');
+const raysOnly = args.includes('--rays-only');
+const liveScript = raysOnly
+  ? fs.readFileSync(path.join(sourceApp, 'yolo', 'live-mesh-output.js'), 'utf8')
+  : fs.readFileSync(path.join(__dirname, 'live-hybrid-output.js'), 'utf8');
 const graph = JSON.parse(fs.readFileSync(path.join(sourcePackage, 'pipeline', 'inference.json'), 'utf8'));
 
 const VST = ['vst_left', 'vst_right', 'vst_timestamp', 'vst_camera_matrix'];
@@ -42,15 +48,17 @@ const outputsOf = op => (op.outputs || []).map(o => (typeof o === 'string' ? o :
 for (const name of VST) graph.tensors[name].is_placeholder = false;
 graph.tensors.vst_timestamp = { tensor_type: 'timestamp', is_placeholder: false, value: [0, 0, 0, 0] };
 
-// Drop the stereo-depth branch: UV2CAM and the two operators that only feed it.
-const unused = new Set(['image_points_mat', 'image_points', 'point_xyz']);
-graph.operators = graph.operators.filter(op =>
-  !isType(op, 'UV_TO_3D_IN_CAM_SPACE') && !outputsOf(op).some(t => unused.has(t)));
-for (const name of unused) delete graph.tensors[name];
-
-// Replace the packing script with the sample's live ray script.
 const pack = graph.operators.find(op => outputsOf(op).includes('detections'));
-pack.inputs = pack.inputs.filter(i => i.tensor !== 'point_xyz');
+if (raysOnly) {
+  // Drop the stereo-depth branch: UV2CAM and the two operators that only feed it.
+  const unused = new Set(['image_points_mat', 'image_points', 'point_xyz']);
+  graph.operators = graph.operators.filter(op =>
+    !isType(op, 'UV_TO_3D_IN_CAM_SPACE') && !outputsOf(op).some(t => unused.has(t)));
+  for (const name of unused) delete graph.tensors[name];
+  pack.inputs = pack.inputs.filter(i => i.tensor !== 'point_xyz');
+} else if (!pack.inputs.some(i => i.tensor === 'point_xyz')) {
+  throw new Error('source pack operator no longer takes point_xyz; check the hybrid script');
+}
 pack.attrs = [liveScript];
 
 // Loader binds camera outputs positionally: right, left, timestamp, camera matrix.

@@ -5,8 +5,8 @@ using UnityEngine;
 namespace WordWorld.Detection
 {
     /// <summary>
-    /// One detection as a world-space camera ray. The model never measures distance; the room mesh
-    /// decides where along the ray the object is (SPATIALML_SETUP.md section 5).
+    /// One detection as a world-space camera ray. The room mesh decides where along the ray the
+    /// object is (SPATIALML_SETUP.md section 5); stereo depth is the fallback where it has no surface.
     /// </summary>
     public struct DetectionRay
     {
@@ -22,9 +22,11 @@ namespace WordWorld.Detection
         /// <summary>Box width and height on the one-metre plane (metres per metre of depth).</summary>
         public float PlaneWidth;
         public float PlaneHeight;
+        /// <summary>Stereo axial depth in metres from the camera pair, or 0 when the samples disagreed.</summary>
+        public float StereoDepth;
     }
 
-    /// <summary>A detection resolved onto the room mesh.</summary>
+    /// <summary>A detection resolved to a world position.</summary>
     public struct PlacedDetection
     {
         public int ClassId;
@@ -32,6 +34,8 @@ namespace WordWorld.Detection
         public Vector3 Position;
         public float Width;
         public float Height;
+        /// <summary>True when stereo depth placed it because the room mesh had no surface there.</summary>
+        public bool FromStereo;
     }
 
     /// <summary>Everything one completed inference frame produced.</summary>
