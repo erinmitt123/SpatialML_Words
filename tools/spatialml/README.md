@@ -16,6 +16,6 @@ Unity -batchmode -quit -projectPath . \
   -spatialMLOverwritePolicy Replace
 ```
 
-The script defaults to `gpu`, but on Swan both GPU and NPU currently fail for YOLOX-M; the checked-in package uses `--target cpu` for testing only. See `docs/porting-notes.md`.
+The script defaults to `gpu`, which the checked-in package uses. If Swan logs `LiteRt create input buffer failed`, reboot the headset (see `docs/porting-notes.md`).
 
 The generated `*.tflite.bytes` models are git-ignored (PICO permission is verbal only so far). After cloning, run the two commands above to restore them; their `.meta` files are committed so scene references keep working.

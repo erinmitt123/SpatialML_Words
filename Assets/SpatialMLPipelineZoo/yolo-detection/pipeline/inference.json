@@ -226,7 +226,7 @@
         "bin_path": "model/yolox_m.tflite",
         "model_name": "yolox_m",
         "model_type": "tflite",
-        "model_target": "cpu",
+        "model_target": "gpu",
         "input": [
           {
             "name": "images",
@@ -249,8 +249,7 @@
             ],
             "encoding_type": "FP32"
           }
-        ],
-        "cpu_target_num_threads": 4
+        ]
       }
     },
     {

@@ -10,4 +10,4 @@
 | 2026-10-28 | No `docs/` folder (README links `docs/samples/...`) | n/a | ⏳ |
 | 2026-10-28 | No Noto Sans SC font | Add for P1 | ⏳ |
 | 2026-10-29 | Room mesh in Spatial mode: PXR_Loader only makes "PICO Mesh" with AR Foundation 6 (not installed); manual `Create()` returns null | Ask PICO | ⏳ |
-| 2026-10-29 | YOLOX-M fails on Swan GPU ("LiteRt create input buffer failed"); NPU broken | CPU test build; ask PICO | ⏳ |
+| 2026-10-29 | YOLOX-M fails on Swan GPU ("LiteRt create input buffer failed"); NPU broken | GPU works after a reboot (~7.4 Hz). A failed or earlier GPU session breaks it until reboot (tell PICO). NPU still broken | ✅ GPU / ⚠️ service bug |
