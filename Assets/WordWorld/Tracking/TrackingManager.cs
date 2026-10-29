@@ -10,6 +10,8 @@ namespace WordWorld.Tracking
     /// Turns noisy per-frame detections into stable TrackedObjects (CLAUDE.md section 2): confidence
     /// threshold, 5-of-8 frame confirmation within 0.25 m, smoothing, same-class merging, and removal
     /// after 10 s unseen while in view. Past projects flickered; nothing here labels a single frame.
+    /// Matching is global per frame (ObjectAssignment); confirmed objects use the yolo-mesh sample's
+    /// camera-aware re-acquisition gate (ObjectGeometry) so partial views do not spawn duplicates.
     /// </summary>
     [AddComponentMenu("Word World/Tracking Manager")]
     public sealed class TrackingManager : MonoBehaviour
@@ -55,6 +57,9 @@ namespace WordWorld.Tracking
         private readonly List<TrackedObject> m_confirmed = new List<TrackedObject>();
         private readonly List<PlacedDetection> m_placed = new List<PlacedDetection>(32);
         private readonly List<DetectionRay> m_lastRays = new List<DetectionRay>(32);
+        private readonly List<int> m_unassigned = new List<int>(32);
+        private readonly List<TrackedObject> m_stageTracks = new List<TrackedObject>();
+        private readonly ObjectAssignment m_assignment = new ObjectAssignment();
         private double m_lastCaptureTime;
         private int m_nextId = 1;
         private float m_nextSummaryTime;
@@ -113,7 +118,7 @@ namespace WordWorld.Tracking
             LogSummary(frame.Rays.Count);
 
             foreach (TrackedObject track in m_tracks) track.HitThisFrame = false;
-            foreach (PlacedDetection detection in m_placed) Associate(detection);
+            AssignDetections(frame.Camera);
             AgeTracks(frame.Camera, dt);
             MergeDuplicates();
         }
@@ -162,48 +167,92 @@ namespace WordWorld.Tracking
             return true;
         }
 
-        private void Associate(in PlacedDetection detection)
+        /// <summary>
+        /// Matches this frame's detections to tracks globally (Hungarian), as PICO's yolo-mesh sample
+        /// does: confirmed objects first, with the camera-aware re-acquisition gate, then candidates
+        /// with CLAUDE.md's 0.25 m rule. Leftover detections start new candidates.
+        /// </summary>
+        private void AssignDetections(Pose camera)
         {
-            TrackedObject best = null;
-            float bestDistance = m_matchRadius;
+            m_unassigned.Clear();
+            for (int i = 0; i < m_placed.Count; i++) m_unassigned.Add(i);
+            MatchStage(confirmed: true, camera);
+            MatchStage(confirmed: false, camera);
+            foreach (int index in m_unassigned) StartTrack(m_placed[index]);
+        }
+
+        private void MatchStage(bool confirmed, Pose camera)
+        {
+            m_stageTracks.Clear();
             foreach (TrackedObject track in m_tracks)
+                if (track.Confirmed == confirmed && !track.HitThisFrame) m_stageTracks.Add(track);
+            int rows = m_unassigned.Count, tracks = m_stageTracks.Count;
+            if (rows == 0 || tracks == 0) return;
+
+            // One dummy column per detection lets every detection stay unmatched.
+            m_assignment.Begin(rows, tracks + rows);
+            for (int r = 0; r < rows; r++)
             {
-                if (track.ClassId != detection.ClassId || track.HitThisFrame) continue;
-                float distance = Vector3.Distance(track.Position, detection.Position);
-                // Prefer confirmed tracks on ties so a new candidate cannot steal their evidence.
-                if (distance < bestDistance || (best != null && !best.Confirmed && track.Confirmed &&
-                                                Mathf.Approximately(distance, bestDistance)))
+                PlacedDetection detection = m_placed[m_unassigned[r]];
+                for (int c = 0; c < tracks; c++)
                 {
-                    best = track;
-                    bestDistance = distance;
+                    float cost = confirmed
+                        ? ObjectGeometry.ConfirmedCost(m_stageTracks[c], detection, camera)
+                        : CandidateCost(m_stageTracks[c], detection);
+                    m_assignment.Set(r, c, cost >= 0f ? cost : ObjectAssignment.Invalid);
                 }
+                for (int c = tracks; c < tracks + rows; c++) m_assignment.Set(r, c, ObjectAssignment.Unmatched);
             }
 
-            float now = Time.unscaledTime;
-            if (best == null)
+            int[] columns = m_assignment.Solve();
+            for (int r = rows - 1; r >= 0; r--)
             {
-                m_tracks.Add(new TrackedObject
-                {
-                    Id = m_nextId++,
-                    ClassId = detection.ClassId,
-                    ClassName = CocoClasses.NameOf(detection.ClassId),
-                    Position = detection.Position,
-                    Width = detection.Width,
-                    Height = detection.Height,
-                    Confidence = detection.Confidence,
-                    FirstSeenTime = now,
-                    LastSeenTime = now,
-                    HitThisFrame = true,
-                });
-                return;
+                int c = columns[r];
+                if (c < 0 || c >= tracks) continue;
+                PlacedDetection detection = m_placed[m_unassigned[r]];
+                TrackedObject track = m_stageTracks[c];
+                // Re-check: the solver only falls back to an invalid pair when nothing else fits.
+                float cost = confirmed ? ObjectGeometry.ConfirmedCost(track, detection, camera) : CandidateCost(track, detection);
+                if (cost < 0f) continue;
+                Observe(track, detection);
+                m_unassigned.RemoveAt(r);
             }
+        }
 
-            best.Position = Vector3.Lerp(best.Position, detection.Position, m_smoothing);
-            best.Width = Mathf.Lerp(best.Width, detection.Width, m_smoothing);
-            best.Height = Mathf.Lerp(best.Height, detection.Height, m_smoothing);
-            best.Confidence = Mathf.Lerp(best.Confidence, detection.Confidence, m_smoothing);
-            best.LastSeenTime = now;
-            best.HitThisFrame = true;
+        // CLAUDE.md section 2: a candidate only gathers evidence within 0.25 m of where it was seen.
+        private float CandidateCost(TrackedObject track, in PlacedDetection detection)
+        {
+            if (track.ClassId != detection.ClassId) return -1f;
+            float distance = Vector3.Distance(track.Position, detection.Position);
+            return distance <= m_matchRadius ? distance * distance / (m_matchRadius * m_matchRadius) : -1f;
+        }
+
+        private void StartTrack(in PlacedDetection detection)
+        {
+            float now = Time.unscaledTime;
+            m_tracks.Add(new TrackedObject
+            {
+                Id = m_nextId++,
+                ClassId = detection.ClassId,
+                ClassName = CocoClasses.NameOf(detection.ClassId),
+                Position = detection.Position,
+                Width = detection.Width,
+                Height = detection.Height,
+                Confidence = detection.Confidence,
+                FirstSeenTime = now,
+                LastSeenTime = now,
+                HitThisFrame = true,
+            });
+        }
+
+        private void Observe(TrackedObject track, in PlacedDetection detection)
+        {
+            track.Position = Vector3.Lerp(track.Position, detection.Position, m_smoothing);
+            track.Width = Mathf.Lerp(track.Width, detection.Width, m_smoothing);
+            track.Height = Mathf.Lerp(track.Height, detection.Height, m_smoothing);
+            track.Confidence = Mathf.Lerp(track.Confidence, detection.Confidence, m_smoothing);
+            track.LastSeenTime = Time.unscaledTime;
+            track.HitThisFrame = true;
         }
 
         private void AgeTracks(Pose camera, float dt)

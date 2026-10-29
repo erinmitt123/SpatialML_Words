@@ -8,7 +8,7 @@ namespace WordWorld.Tracking
         public int Id { get; internal set; }
         public int ClassId { get; internal set; }
         public string ClassName { get; internal set; }
-        /// <summary>Smoothed surface point on the room mesh, in Unity world space.</summary>
+        /// <summary>Smoothed object position (room mesh surface, or stereo depth), in Unity world space.</summary>
         public Vector3 Position { get; internal set; }
         public float Width { get; internal set; }
         public float Height { get; internal set; }
