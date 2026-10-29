@@ -12,26 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 686286754, guid: a2005d26a7dfb4db3952cf9ed3794675, type: 3}
   m_Name: SpatialAdapterResourceData
   m_EditorClassIdentifier: ByteDance.PICO.SpatialAdapter.Runtime.dll::ByteDance.PICO.SpatialAdapter.SpatialAdapterResourceData
+  SpatialEngineBundlePath: 
   PrefabLookUps: []
   TextureLookUps: []
   MaterialLookUps:
   - resource: {fileID: 2100000, guid: b79979fdb914f4138ad8a3cc8889a083, type: 2}
-    path: SpatialAdapterExport/Assets/Materials/Face Tracking Frame.mat.glb
+    path: SpatialAdapterExport\Assets\Materials\Face Tracking Frame.mat.glb
   - resource: {fileID: 2077298715061165062, guid: 1b22cf08af1e34a4e98fc19fc1b6fec3, type: 2}
-    path: SpatialAdapterExport/Assets/Fonts/SpatialUI/LiberationSans Spatial SDF.asset.glb
+    path: SpatialAdapterExport\Assets\Fonts\SpatialUI\LiberationSans Spatial SDF.asset.glb
   - resource: {fileID: 2103686, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
-    path: SpatialAdapterExport/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.glb
+    path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Sprite Assets\EmojiOne.asset.glb
   - resource: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-    path: SpatialAdapterExport/Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans
+    path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
       SDF - Fallback.asset.glb
   - resource: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    path: SpatialAdapterExport/Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans
+    path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
       SDF.asset.glb
   - resource: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
-    path: SpatialAdapterExport/Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans
+    path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
       SDF - Drop Shadow.mat.glb
+  - resource: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+      SDF - Fallback.asset.glb
   - resource: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
-    path: SpatialAdapterExport/Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans
+    path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
       SDF - Outline.mat.glb
+  - resource: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+      SDF.asset.glb
+  - resource: {fileID: 2103686, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
+    path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Sprite Assets\EmojiOne.asset.glb
   ShaderGraphLookUps: []
   DefaultSpatialCameraConfiguration: {fileID: 11400000, guid: 3f0f12161122646a8bbc81d469b0eaeb, type: 2}
