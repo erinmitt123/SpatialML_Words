@@ -56,6 +56,13 @@ namespace WordWorld.Detection
         private ulong m_lastRun;
         private float m_lastCounter;
         private double m_lastCaptureTime;
+        // Packets that completed but were not delivered, by reason. The inference rate counts every
+        // packet, so without these a stalled pipeline looks healthy (seen Nov 2026: tracking froze
+        // while the panel said 7 Hz).
+        private int m_droppedRepeat, m_droppedAge, m_droppedPose, m_droppedCamera;
+        private float m_lastDeliveredTime;
+        private float m_nextDropLogTime;
+        public int DroppedFrames => m_droppedRepeat + m_droppedAge + m_droppedPose + m_droppedCamera;
         private bool m_inFlight;
         private bool m_failed;
         private bool m_isShuttingDown;
@@ -203,9 +210,25 @@ namespace WordWorld.Detection
             CountRate();
             double captureTime = ReadCaptureTime();
             double age = CapturePoseHistory.Now(captureTime) - captureTime;
-            if (captureTime <= m_lastCaptureTime || age < -0.05 || age > m_maxCaptureAgeSeconds) return;
+            if (captureTime <= m_lastCaptureTime)
+            {
+                m_droppedRepeat++;
+                LogDrops(captureTime, age);
+                return;
+            }
+            if (age < -0.05 || age > m_maxCaptureAgeSeconds)
+            {
+                m_droppedAge++;
+                LogDrops(captureTime, age);
+                return;
+            }
             m_lastCaptureTime = captureTime;
-            if (!m_poses.TryGetAtCapture(captureTime, out Matrix4x4 head)) return;
+            if (!m_poses.TryGetAtCapture(captureTime, out Matrix4x4 head))
+            {
+                m_droppedPose++;
+                LogDrops(captureTime, age);
+                return;
+            }
 
             // Packet poses are OpenXR head-local (right-handed, -Z forward); Unity is left-handed.
             int c = CameraToHeadIndex;
@@ -213,7 +236,12 @@ namespace WordWorld.Detection
             Vector3 rightInHead = FromOpenXr(m_values[c + 0], m_values[c + 4], m_values[c + 8]);
             Vector3 upInHead = FromOpenXr(m_values[c + 1], m_values[c + 5], m_values[c + 9]);
             Vector3 forwardInHead = -FromOpenXr(m_values[c + 2], m_values[c + 6], m_values[c + 10]);
-            if (!IsFinite(cameraInHead) || rightInHead.sqrMagnitude < 0.9f || upInHead.sqrMagnitude < 0.9f) return;
+            if (!IsFinite(cameraInHead) || rightInHead.sqrMagnitude < 0.9f || upInHead.sqrMagnitude < 0.9f)
+            {
+                m_droppedCamera++;
+                LogDrops(captureTime, age);
+                return;
+            }
 
             m_frame.Clear();
             m_frame.CaptureTime = captureTime;
@@ -250,7 +278,19 @@ namespace WordWorld.Detection
                 });
             }
             LogRawSlots();
+            m_lastDeliveredTime = Time.unscaledTime;
             FrameReady?.Invoke(m_frame);
+        }
+
+        // At most every 5 s, and only while nothing has been delivered for 2 s.
+        private void LogDrops(double captureTime, double age)
+        {
+            float now = Time.unscaledTime;
+            if (now < m_nextDropLogTime || now - m_lastDeliveredTime < 2f) return;
+            m_nextDropLogTime = now + 5f;
+            Debug.LogWarning($"{LogTag} no frames delivered for {now - m_lastDeliveredTime:0.0}s; dropped repeat {m_droppedRepeat}, " +
+                             $"age {m_droppedAge} (last {age:0.000}s), pose {m_droppedPose}, camera {m_droppedCamera}; " +
+                             $"capture {captureTime:0.000}, last {m_lastCaptureTime:0.000}");
         }
 
         // Lanes 17-18 hold the candidate index and the score NMS reported (live-hybrid-output.js).

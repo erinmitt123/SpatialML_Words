@@ -23,7 +23,7 @@ namespace WordWorld.DebugTools
         [SerializeField] private RoomMesh m_roomMesh;
         [SerializeField] private float m_refreshInterval = 0.25f;
         [Tooltip("Where the panel appears relative to the user's first head pose.")]
-        [SerializeField] private Vector3 m_offsetFromHead = new Vector3(-0.45f, -0.15f, 1.1f);
+        [SerializeField] private Vector3 m_offsetFromHead = new Vector3(-0.9f, -0.15f, 1.1f);
         [SerializeField] private int m_maxRawRows = 8;
 
         private readonly StringBuilder m_builder = new StringBuilder(1024);
@@ -46,6 +46,8 @@ namespace WordWorld.DebugTools
             }
             m_source = m_detector as IObjectDetector;
             m_fpsWindowStart = Time.unscaledTime;
+            // Hidden until asked for: it sat across the windows and labels in the first full-UI test.
+            if (m_panelRoot != null) m_panelRoot.SetActive(false);
         }
 
         private void Update()
@@ -81,7 +83,13 @@ namespace WordWorld.DebugTools
         {
             InputDevice left = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
             bool down = left.isValid && left.TryGetFeatureValue(CommonUsages.secondaryButton, out bool pressed) && pressed;
-            if (down && !m_toggleWasDown && m_panelRoot != null) m_panelRoot.SetActive(!m_panelRoot.activeSelf);
+            if (down && !m_toggleWasDown && m_panelRoot != null)
+            {
+                bool show = !m_panelRoot.activeSelf;
+                // Appear where the user is now, not where they were at launch.
+                if (show) m_placed = false;
+                m_panelRoot.SetActive(show);
+            }
             m_toggleWasDown = down;
         }
 

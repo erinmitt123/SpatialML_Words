@@ -30,6 +30,15 @@ namespace WordWorld.Tracking
         [SerializeField] private float m_dropAfterUnseenSeconds = 10f;
         [Tooltip("Exponential smoothing weight for each new observation.")]
         [SerializeField, Range(0.05f, 1f)] private float m_smoothing = 0.3f;
+        [Tooltip("Smoothing once confirmed: the object is not moving, so new frames mostly add noise.")]
+        [SerializeField, Range(0.02f, 1f)] private float m_confirmedSmoothing = 0.08f;
+
+        [Header("Stereo-only placement (no room mesh)")]
+        [Tooltip("Stereo depth gets unreliable with range; without the mesh it put TVs and books 5-6 m away.")]
+        [SerializeField] private float m_maxStereoDepth = 4f;
+        [Tooltip("Placements further below the camera than this are under the floor (seen: a cup 3 m down).")]
+        [SerializeField] private float m_maxDropBelowCamera = 1.9f;
+        [SerializeField] private float m_maxRiseAboveCamera = 1.2f;
 
         [Header("In-view test for removal")]
         [SerializeField] private float m_viewHalfAngleDegrees = 35f;
@@ -45,6 +54,12 @@ namespace WordWorld.Tracking
         }
 
         public IReadOnlyList<TrackedObject> Confirmed => m_confirmed;
+        /// <summary>Every track, confirmed or not; unconfirmed ones drive the "scanning" dots.</summary>
+        public IReadOnlyList<TrackedObject> Tracks => m_tracks;
+        /// <summary>While paused, frames are ignored (DESIGN.md section 8 recognition chip).</summary>
+        public bool Paused { get; set; }
+        /// <summary>Time of the last frame with any detection, for the "having trouble seeing" hint.</summary>
+        public float LastDetectionTime { get; private set; }
         public int CandidateCount => m_tracks.Count - m_confirmed.Count;
 
         // Last-frame diagnostics for the debug panel.
@@ -63,6 +78,15 @@ namespace WordWorld.Tracking
         private readonly List<int> m_unassigned = new List<int>(32);
         private readonly List<TrackedObject> m_stageTracks = new List<TrackedObject>();
         private readonly ObjectAssignment m_assignment = new ObjectAssignment();
+
+        // The detector names parts of a laptop as objects of their own: its keys as "keyboard" and its
+        // screen as "tv". A part's box centre lies inside the laptop's box in the same frame.
+        private static readonly int s_laptop = Array.IndexOf(CocoClasses.Names, "laptop");
+        private static readonly int[] s_laptopParts =
+        {
+            Array.IndexOf(CocoClasses.Names, "keyboard"),
+            Array.IndexOf(CocoClasses.Names, "tv"),
+        };
         private double m_lastCaptureTime;
         private int m_nextId = 1;
         private float m_nextSummaryTime;
@@ -88,6 +112,8 @@ namespace WordWorld.Tracking
 
         private void OnFrame(DetectionFrame frame)
         {
+            if (Paused) return;
+            if (frame.Rays.Count > 0) LastDetectionTime = Time.unscaledTime;
             m_lastRays.Clear();
             m_lastRays.AddRange(frame.Rays);
             LastRayCount = frame.Rays.Count;
@@ -109,6 +135,7 @@ namespace WordWorld.Tracking
             foreach (DetectionRay ray in frame.Rays)
             {
                 if (ray.Confidence < m_confidenceThreshold || !CocoClasses.IsHousehold(ray.ClassId)) continue;
+                if (IsPartOfLaptop(ray, frame.Rays)) continue;
                 // The mesh fit is more precise; stereo covers surfaces the mesh lacks (or no mesh at all).
                 // When both measure and disagree, one of them is on something else: skip, never guess.
                 bool onMesh = MeshRayPlacer.TryPlace(ray, mask, out PlacedDetection placed);
@@ -127,6 +154,20 @@ namespace WordWorld.Tracking
             AssignDetections(frame.Camera);
             AgeTracks(frame.Camera, dt);
             MergeDuplicates(frame.Camera);
+        }
+
+        private bool IsPartOfLaptop(in DetectionRay part, List<DetectionRay> rays)
+        {
+            if (Array.IndexOf(s_laptopParts, part.ClassId) < 0) return false;
+            foreach (DetectionRay laptop in rays)
+            {
+                if (laptop.ClassId != s_laptop || laptop.Confidence < m_confidenceThreshold) continue;
+                // Same frame and camera, so one-metre-plane offsets compare like image coordinates.
+                Vector3 offset = part.PlaneDirection - laptop.PlaneDirection;
+                if (Mathf.Abs(Vector3.Dot(offset, laptop.CameraRight)) <= laptop.PlaneWidth * 0.5f &&
+                    Mathf.Abs(Vector3.Dot(offset, laptop.CameraUp)) <= laptop.PlaneHeight * 0.5f) return true;
+            }
+            return false;
         }
 
         private bool SourcesDisagree(in DetectionRay ray, in PlacedDetection onMesh)
@@ -189,16 +230,19 @@ namespace WordWorld.Tracking
         /// Source B's original (pre-mesh) placement: the box centre on the measured depth plane.
         /// PlaneDirection reaches the one-metre plane, so scaling it by axial depth lands on the object.
         /// </summary>
-        private static bool TryPlaceStereo(in DetectionRay ray, out PlacedDetection placed)
+        private bool TryPlaceStereo(in DetectionRay ray, out PlacedDetection placed)
         {
             placed = default;
             float depth = ray.StereoDepth;
-            if (!(depth >= MeshRayPlacer.MinDepth && depth <= MeshRayPlacer.MaxDepth)) return false;
+            if (!(depth >= MeshRayPlacer.MinDepth && depth <= Mathf.Min(MeshRayPlacer.MaxDepth, m_maxStereoDepth))) return false;
+            Vector3 position = ray.Origin + ray.PlaneDirection * depth;
+            float rise = position.y - ray.Origin.y;
+            if (rise < -m_maxDropBelowCamera || rise > m_maxRiseAboveCamera) return false;
             placed = new PlacedDetection
             {
                 ClassId = ray.ClassId,
                 Confidence = ray.Confidence,
-                Position = ray.Origin + ray.PlaneDirection * depth,
+                Position = position,
                 Width = ray.PlaneWidth * depth,
                 Height = ray.PlaneHeight * depth,
                 FromStereo = true,
@@ -286,10 +330,11 @@ namespace WordWorld.Tracking
 
         private void Observe(TrackedObject track, in PlacedDetection detection)
         {
-            track.Position = Vector3.Lerp(track.Position, detection.Position, m_smoothing);
-            track.Width = Mathf.Lerp(track.Width, detection.Width, m_smoothing);
-            track.Height = Mathf.Lerp(track.Height, detection.Height, m_smoothing);
-            track.Confidence = Mathf.Lerp(track.Confidence, detection.Confidence, m_smoothing);
+            float weight = track.Confirmed ? m_confirmedSmoothing : m_smoothing;
+            track.Position = Vector3.Lerp(track.Position, detection.Position, weight);
+            track.Width = Mathf.Lerp(track.Width, detection.Width, weight);
+            track.Height = Mathf.Lerp(track.Height, detection.Height, weight);
+            track.Confidence = Mathf.Lerp(track.Confidence, detection.Confidence, weight);
             track.LastSeenTime = Time.unscaledTime;
             track.HitThisFrame = true;
         }
