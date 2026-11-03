@@ -33,6 +33,8 @@ namespace WordWorld.UI
             // DESIGN.md section 10: light haptic on controllers for press. Harmless when hands are used.
             Pulse(XRNode.LeftHand);
             Pulse(XRNode.RightHand);
+            // One line per tap: tells "the tap never arrived" apart from "it arrived and did nothing".
+            Debug.Log($"[WordWorld.Button] {name} ({m_value})");
             Clicked?.Invoke(this);
         }
 

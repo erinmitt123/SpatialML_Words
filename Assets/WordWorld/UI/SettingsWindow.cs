@@ -167,7 +167,7 @@ namespace WordWorld.UI
                 else text = value.Substring(value.IndexOf(':') + 1) == "+" ? "+" : "−";
 
                 button.Text.Text = text;
-                button.Text.TextColor = selected ? m_theme.Accent : m_theme.Ink;
+                button.Text.TextColor = m_theme.Ink;
                 button.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Card;
             }
         }

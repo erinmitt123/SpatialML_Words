@@ -9,7 +9,7 @@ namespace WordWorld.Labels
     /// <summary>
     /// One pooled object label (DESIGN.md section 3): a card with the word and, under it, a smaller
     /// line with its meaning; an optional pinyin ruby line above; and a thin leader line down to a
-    /// dot on the object. The card is its own background-only child so it can cover both lines. Spatial Adapter only
+    /// dot on the object. A background-only child behind both lines is its soft shadow. Spatial Adapter only
     /// exports objects that exist in the scene at build time, so labels are pooled scene objects
     /// that get re-texted and moved.
     ///
@@ -33,7 +33,7 @@ namespace WordWorld.Labels
         [SerializeField] private SpatialAdapterNativeText m_ruby;
         [Tooltip("The meaning in the interface language, under the word.")]
         [SerializeField] private SpatialAdapterNativeText m_gloss;
-        [Tooltip("Background-only card behind the word and its meaning.")]
+        [Tooltip("Background-only soft shadow behind the word and its meaning.")]
         [SerializeField] private SpatialAdapterNativeText m_backing;
         [SerializeField] private SpatialAdapterNativeText m_leader;
         [SerializeField] private SpatialAdapterNativeText m_dot;
@@ -184,7 +184,7 @@ namespace WordWorld.Labels
             float ink = Mathf.Lerp(0.3f, 1f, a);
             m_text.TextColor = Dim(m_accent ? m_theme.Accent : m_theme.Ink, ink, card);
             m_text.BackgroundColor = Fade(m_theme.Card, card);
-            if (m_backing != null) m_backing.BackgroundColor = Fade(m_theme.Card, card);
+            if (m_backing != null) m_backing.BackgroundColor = Fade(m_theme.Shadow, card);
             if (m_gloss != null)
             {
                 m_gloss.TextColor = Dim(m_theme.InkMuted, ink, card);
@@ -232,14 +232,20 @@ namespace WordWorld.Labels
             m_text.BackgroundSize = new Vector2(m_card.x, mainHeight);
             if (m_glossHeight > 0f)
             {
-                m_gloss.BackgroundSize = new Vector2(m_card.x, m_glossHeight + 0.001f);
-                m_gloss.transform.localPosition = new Vector3(0f, -(mainHeight + m_glossHeight) * 0.5f + 0.0005f, -0.001f);
+                // Both parts have rounded corners. The meaning's background reaches up under the
+                // word's by one radius and sits in front, hiding the word's lower corners, so the
+                // two read as one rounded card with no notches at the seam.
+                float r = m_theme != null ? m_theme.LabelCornerRadius : 0.008f;
+                m_gloss.BackgroundSize = new Vector2(m_card.x, m_glossHeight + r);
+                m_gloss.transform.localPosition = new Vector3(0f, -(mainHeight + m_glossHeight) * 0.5f + r * 0.5f, -0.001f);
             }
             float centreY = -m_glossHeight * 0.5f;
             if (m_backing != null)
             {
-                m_backing.BackgroundSize = m_card;
-                m_backing.transform.localPosition = new Vector3(0f, centreY, 0.001f);
+                // Soft shadow down and to the right: the label reads as a raised card.
+                float soft = m_theme != null ? m_theme.SoftOffset : 0.004f;
+                m_backing.BackgroundSize = m_card + new Vector2(soft, soft);
+                m_backing.transform.localPosition = new Vector3(soft * 0.6f, centreY - soft * 0.6f, 0.001f);
             }
             if (m_collider != null)
             {

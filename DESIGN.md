@@ -11,25 +11,42 @@ How Word World should look, feel and flow. Read this before building any UI, lab
 3. **Calm and clear.** A study tool, not an arcade. Motion is short and purposeful.
 4. **Always show what the app is doing:** scanning, recognized, unsure, correct, wrong.
 5. **Works for a first-time headset user** within 30 seconds.
+6. **Only what is needed, when it is needed.** One window at a time; everything else is one tap away.
+
+### Mixed reality HCI principles we follow
+These come from Apple's visionOS spatial design guidance, Meta's hand-tracking UI guidance, and comfort-zone research for head-worn displays.
+- **Progressive disclosure.** Working memory is small and the room is already busy. The menu offers two choices; exercises sit one level down. Never more than one window open at a time.
+- **The room stays in front.** Main content sits about 1 m away, slightly below eye level, directly ahead. Persistent UI (the dock and the Journey card) sits low in the field of view, where it is reachable and out of the way.
+- **Horizontal over vertical.** Turning the head left and right is easier than up and down, so secondary items go to the side, not above.
+- **Nothing in personal space.** No window closer than 0.5 m. Labels and the quiz prompt are the only things closer than a window.
+- **Big targets.** At least 3 × 3 cm (about 22 mm is the hand-tracking minimum), with 1 cm gaps. Every button works with poke, pinch-ray and controller.
+- **Legibility over style.** Dark ink on light, solid surfaces (at least 7:1 contrast for text). Soft depth effects never carry meaning on their own.
+- **One way home.** The dock's Home button (or the controller's X) returns to the menu from anywhere.
+- **Windows stay where they are put.** Status lines re-centre in one step when far out of view; windows never trail the head.
 
 ---
 
 ## 2. Visual style
 
-**Theme name:** "Field notebook." Clean paper-like cards floating in the room, with one green ink accent.
+**Theme name:** "Soft light." Light neumorphic cards (raised by a soft highlight and shadow) with dark ink, and pastel fills for highlights.
+
+Neumorphism's weakness is contrast: its edges are deliberately faint. So depth is decoration only. Text is always dark ink on a solid light or pastel surface, and every state also changes the words or the fill, never only the shadow.
 
 ### Colors (define once as tokens in a single `WordWorldTheme` ScriptableObject)
 | Token | Hex | Use |
 |---|---|---|
-| `Card` | `#FFFFFF` at 88% opacity | Label and panel backgrounds |
-| `CardDark` | `#1A201D` at 88% opacity | Optional dark-room theme |
-| `Ink` | `#1D2420` | Main text |
-| `InkMuted` | `#5F6B64` | Secondary text (meaning, pinyin on detail card) |
-| `Accent` | `#1F6B52` | Pinyin on labels, selected states, progress |
-| `AccentSoft` | `#E2EFE8` | Hover and selected backgrounds |
-| `Correct` | `#2E9E5B` | Quiz correct |
-| `Hint` | `#E5B765` | Hint glow, "unsure" state |
-| `Wrong` | `#C8553D` | Quiz wrong (used briefly, never as a big fill) |
+| `Card` | `#EEF1F6`, solid | Label, button and window surfaces. Must be solid: on Swan, text over a see-through background renders as dark blocks. |
+| `Shadow` | `#A3AEBF` at 60% | Soft shadow, down and right of raised surfaces |
+| `Highlight` | `#FFFFFF` at 90% | Soft highlight, up and left of raised surfaces |
+| `Ink` | `#1F2633` | All text, including on pastels |
+| `InkMuted` | `#4A5568` | Secondary text (meaning, captions). Still 7:1 on `Card`. |
+| `Accent` | `#1E6E58` (deep teal) | Pinyin text, big numbers, progress fills |
+| `AccentSoft` | `#CDEFE0` (mint) | Selected options, "Recognizing" pill |
+| `Primary` | `#DCD3FA` (lavender) | The one main action on a card (Journey, Start, Play again) |
+| `Info` | `#C9E3FA` (sky) | Progress and timer tracks |
+| `Correct` | `#86D9B6` | Quiz correct ring |
+| `Hint` | `#FFCFAE` (peach) | Hint glow, "having trouble" pill |
+| `Wrong` | `#F6C1CA` (rose) | Exit confirm, wrong answers (briefly) |
 
 Gender color coding (optional, toggle in Settings, off by default): masculine `#3A6EA5`, feminine `#B0436E`, neuter `#6B7F3A`. Applied only to the article text, never the whole label.
 
@@ -39,8 +56,9 @@ Gender color coding (optional, toggle in Settings, off by default): masculine `#
 - Size in **angular terms**, not fixed meters, so labels read the same at any distance (see section 3).
 
 ### Shape and depth
-- Rounded corners: 12 mm radius on panels, 8 mm on labels.
-- Soft shadow under cards, no hard outlines.
+- Rounded corners: 16 mm radius on windows, 10 mm on labels and buttons.
+- Raised surfaces (windows, buttons, labels) get a white highlight offset up-left and a grey shadow offset down-right, both behind the surface (6 mm for windows, 2–4 mm for buttons and labels). No hard outlines.
+- Selected options are not "pressed in" (an inset shadow is too faint to read); they fill with mint.
 - No gradients, no glow on resting elements. Glow is reserved for feedback (found, hint).
 
 ---
@@ -112,18 +130,33 @@ Opens next to the label, slightly toward the user, about 25 cm wide.
 
 ---
 
-## 5. Panels (multi-window, spatial mode)
+## 5. Modes and windows (multi-window, spatial mode)
 
-Four separate windows through the spatial adapter. They open as a **curved row at about 1.2 m from the user, slightly below eye level**, and the user can grab and move each one. Window positions are saved between sessions.
+Separate windows through the spatial adapter, but **only one is open at a time**. Each opens about 1 m in front of the user, slightly below eye level. All windows share one state store; any change updates every window and the labels immediately.
 
-Default layout (user's view):
+### The menu
 ```
-   [Word Bank]   [Quiz]   [Progress]
-                [Settings]  (opened from a gear button, not shown by default)
+┌──────────────────────────────┐      ┌──────────────────────────────┐
+│          Word World          │      │ ‹ Back      Practice         │
+│      Spanish · Level 2       │      │ ┌──────────────────────────┐ │
+│ ┌──────────────────────────┐ │      │ │ Explore                  │ │
+│ │ Journey      (lavender)  │ │      │ │ Read the labels around you│ │
+│ │ Level up step by step    │ │      │ └──────────────────────────┘ │
+│ └──────────────────────────┘ │      │ ┌ Find It ─────────────────┐ │
+│ ┌──────────────────────────┐ │ ───► │ │ Touch the object a word… │ │
+│ │ Practice                 │ │      │ └──────────────────────────┘ │
+│ │ Choose an exercise       │ │      │ ┌ Word Bank ───────────────┐ │
+│ └──────────────────────────┘ │      │ │ Review the words you…    │ │
+│ [Progress] [Settings] [Exit] │      │ └──────────────────────────┘ │
+└──────────────────────────────┘      │ Find It round   [5] [10]     │
+                                      └──────────────────────────────┘
 ```
-Window sizes: Word Bank 45 × 55 cm, Quiz 40 × 30 cm, Progress 35 × 40 cm, Settings 40 × 50 cm.
+- **Journey** (progression mode): a guided loop through the reading levels. Each level has two steps: **read 5 labels** (tap them), then **pass a Find It round** (8 of 10). Passing unlocks the next level. A small Journey card low and to the left shows the level, the current goal and a progress bar; when the round is due it shows **Start Find It**. Progress is saved.
+- **Practice** (choose an exercise): **Explore** (labels only, tap to learn), **Find It** (with a 5 or 10 word round), **Word Bank** (review and find words in the room).
+- Small actions under the main choices: **Progress**, **Settings**, **Exit** (tap twice: the first tap turns it rose and reads "Exit?").
+- A brand-new learner skips the menu and starts the Journey, so the first thing they do is read labels. Later launches open the menu.
 
-All windows share one state store. Any change updates every window and the labels immediately.
+Window sizes: Menu 42 × 50 cm, Word Bank 45 × 55 cm, Progress 35 × 40 cm, Settings 42 × 56 cm, Journey card 34 × 17 cm, Find It results 40 × 24 cm.
 
 ### 5.1 Word Bank
 - Header: "Word Bank" + count ("23 words").
@@ -132,10 +165,10 @@ All windows share one state store. Any change updates every window and the label
 - Tapping a row highlights its real object if it's in view: the object's dot pulses `Accent` and a light beam points to it for 2 s. If not in view: "Not in this room."
 - Empty state: "Look around your room. Words appear here as you tap labels."
 
-### 5.2 Quiz
-- Idle: "Find It" title, round length (10), best streak, big **Start** button.
-- During a round: the prompt in large text (target language, current reading level), timer bar, score (3/10), streak flame count.
-- After a round: score, accuracy, words to review, **Play again** and **Done**.
+### 5.2 Find It
+- Starts straight from Practice or the Journey card; there is no idle window.
+- During a round only the floating prompt shows: the word (target language, current reading level), score and streak under it, a timer bar, and Skip after 15 s.
+- After a round: a results card with score, accuracy, words to review, **Play again** and **Done**. Done returns to where the round started (menu or Journey).
 
 ### 5.3 Progress
 - Words learned (big number), current reading level, quiz accuracy, rooms explored, daily streak.
@@ -154,8 +187,8 @@ All windows share one state store. Any change updates every window and the label
 
 ## 6. Find It quiz flow
 
-1. User taps **Start** in the Quiz window. Labels fade out; small dots stay on recognized objects so the user knows what counts.
-2. A prompt appears both in the Quiz window and floating 60 cm in front of the user: *la taza* / 杯子.
+1. User picks **Find It** in Practice or taps **Start Find It** on the Journey card. Labels fade out; small dots stay on recognized objects so the user knows what counts.
+2. A prompt floats 60 cm in front of the user, slightly low: *la taza* / 杯子.
 3. User touches the real object (hand overlaps the object's bounds) or points and pinches its dot.
 4. **Correct:** a green ring expands from the object, the label pops in showing the word, a soft chime plays (if audio on), streak +1. Next prompt after 1 s.
 5. **Wrong object:** that object's dot shakes briefly and shows its own word for 1.5 s (so wrong answers still teach). No penalty on the first miss.
@@ -171,18 +204,19 @@ All windows share one state store. Any change updates every window and the label
 2. **Short intro card:** "Look around your room. Objects you can learn will get labels." Animated hand showing a pinch. **Got it** button.
 3. **Scanning hint:** while no objects are confirmed, a small floating line says "Look slowly around the room..." with a subtle sweep animation. Disappears when the first label appears.
 4. **First label moment:** the first confirmed object gets a slightly larger label with a "Tap me" tooltip.
-5. After the first tap, the Word Bank, Quiz and Progress windows open in their default row.
+5. The Journey card is already showing "Tap 5 labels to read them", so the first tap is also the first Journey step.
 
-Skip all of this on later launches (go straight to labels + windows).
+Skip all of this on later launches (go straight to the menu).
 
 ---
 
 ## 8. Status and system feedback
 
-- **Recognition indicator:** a small chip at the bottom of the user's view: "● Recognizing objects" (Accent dot). Tapping it pauses recognition ("Paused" in grey). This doubles as the privacy indicator.
+- **Dock:** low in the user's view, two things only: the recognition pill and a **Home** button under it.
+- **Recognition pill:** "● Recognizing objects" on mint. Tapping it pauses recognition ("Paused" on the plain surface). This doubles as the privacy indicator.
 - **Not enough light / nothing found for 20 s:** "Having trouble seeing. Try turning on a light or moving closer."
 - **Errors** say what happened and what to do: "Object recognition stopped. Tap to restart."
-- **Hand menu:** palm-up gesture shows three buttons on the wrist: Windows (show/hide all), Pause recognition, Settings. Controller fallback: menu button.
+- **Home from anywhere:** the dock's Home button, or the left controller's X button, closes whatever is open and shows the menu in front of the user.
 
 ---
 
@@ -220,7 +254,8 @@ Skip all of this on later launches (go straight to labels + windows).
 - Don't cover the object with the label.
 - Don't use emoji in the UI; use simple line icons.
 - Don't show labels during the quiz (it would give away answers).
-- Don't fill the room with windows on launch; the first-time flow opens them one step at a time.
+- Don't fill the room with windows; only one window is open at a time.
+- Don't put light or pastel text on a light surface; text is always dark ink.
 
 ---
 

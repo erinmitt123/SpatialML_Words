@@ -1,10 +1,12 @@
 """Builds vocabulary.json for Word World from one source table.
 
-Phrases and sentences are generated from fixed grammar patterns so gender,
+Words and phrases are generated from fixed grammar patterns so gender,
 plural and article agreement are applied consistently:
   Level 1 (word):     definite article + noun      la silla
   Level 2 (phrase):   indefinite article + noun    una silla   / 一把椅子
-  Level 3 (sentence): "This is my ___."            Esta es mi silla. / 这是我的椅子。
+  Level 3 (sentence): a hand-written sentence per object (SENTENCES), e.g.
+                      Siéntate en la silla, por favor. / 请坐在椅子上。
+                      Classes without one fall back to "This is my ___."
 """
 import json, sys
 
@@ -175,15 +177,70 @@ def zh_entry(chars, py, mw, mwpy, en):
             "sentence": f"这是我的{chars}。", "sentencePinyin": f"Zhè shì wǒ de {py}.",
             "meaning": en}
 
-# Entries where "This is my ___" doesn't make sense.
-OVERRIDES = {
-    "person": {
-        "en": {"sentence": "This is a person."},
-        "es": {"sentence": "Esta es una persona."},
-        "fr": {"sentence": "C'est une personne."},
-        "de": {"sentence": "Das ist eine Person."},
-        "zh": {"sentence": "这是一个人。", "sentencePinyin": "Zhè shì yí gè rén."},
-    },
+# Level 3 sentences for the enabled classes, written per object so the sentences vary
+# (statements, questions, requests; present, past, imperative). Kept to about 36
+# characters so a label wraps to at most two lines. Classes not listed fall back to
+# the "This is my ___" pattern above. All of these need native-speaker review.
+# coco: (en, es, fr, de, zh, zh pinyin)
+SENTENCES = {
+ "person": ("There is a person here.", "Hay una persona aquí.", "Il y a une personne ici.", "Hier ist eine Person.", "这里有一个人。", "Zhèlǐ yǒu yí gè rén."),
+ "bicycle": ("I ride my bicycle to work.", "Voy al trabajo en bicicleta.", "Je vais au travail à vélo.", "Ich fahre mit dem Fahrrad.", "我骑自行车上班。", "Wǒ qí zìxíngchē shàngbān."),
+ "bench": ("We sit on the bench.", "Nos sentamos en el banco.", "On s'assoit sur le banc.", "Wir sitzen auf der Bank.", "我们坐在长椅上。", "Wǒmen zuò zài chángyǐ shàng."),
+ "bird": ("The bird is singing.", "El pájaro está cantando.", "L'oiseau chante.", "Der Vogel singt.", "小鸟在唱歌。", "Xiǎoniǎo zài chànggē."),
+ "cat": ("The cat is sleeping.", "El gato está durmiendo.", "Le chat dort.", "Die Katze schläft.", "猫在睡觉。", "Māo zài shuìjiào."),
+ "dog": ("The dog wants to play.", "El perro quiere jugar.", "Le chien veut jouer.", "Der Hund will spielen.", "狗想出去玩。", "Gǒu xiǎng chūqù wán."),
+ "backpack": ("My backpack is heavy.", "Mi mochila pesa mucho.", "Mon sac à dos est lourd.", "Mein Rucksack ist schwer.", "我的背包很重。", "Wǒ de bēibāo hěn zhòng."),
+ "umbrella": ("It's raining. Take an umbrella.", "Llueve. Lleva el paraguas.", "Il pleut. Prends le parapluie.", "Es regnet. Nimm den Regenschirm.", "下雨了，带上雨伞。", "Xià yǔ le, dàishàng yǔsǎn."),
+ "handbag": ("My keys are in the handbag.", "Mis llaves están en el bolso.", "Mes clés sont dans le sac à main.", "Die Schlüssel sind in der Handtasche.", "我的钥匙在手提包里。", "Wǒ de yàoshi zài shǒutíbāo lǐ."),
+ "tie": ("He wears a tie to work.", "Lleva corbata al trabajo.", "Il porte une cravate au travail.", "Er trägt eine Krawatte.", "他上班戴领带。", "Tā shàngbān dài lǐngdài."),
+ "suitcase": ("The suitcase is ready.", "La maleta está lista.", "La valise est prête.", "Der Koffer ist gepackt.", "行李箱已经收拾好了。", "Xínglixiāng yǐjīng shōushi hǎo le."),
+ "frisbee": ("Throw me the frisbee!", "¡Lánzame el frisbi!", "Lance-moi le frisbee !", "Wirf mir die Frisbeescheibe zu!", "把飞盘扔给我！", "Bǎ fēipán rēng gěi wǒ!"),
+ "sports ball": ("Pass me the ball.", "Pásame la pelota.", "Passe-moi le ballon.", "Spiel mir den Ball zu.", "把球传给我。", "Bǎ qiú chuán gěi wǒ."),
+ "baseball bat": ("The baseball bat is heavy.", "El bate de béisbol pesa.", "La batte de baseball est lourde.", "Der Baseballschläger ist schwer.", "棒球棒很重。", "Bàngqiúbàng hěn zhòng."),
+ "baseball glove": ("My baseball glove is old.", "Mi guante de béisbol es viejo.", "Mon gant de baseball est vieux.", "Mein Baseballhandschuh ist alt.", "我的棒球手套很旧。", "Wǒ de bàngqiú shǒutào hěn jiù."),
+ "skateboard": ("She rides a skateboard.", "Ella va en monopatín.", "Elle fait du skateboard.", "Sie fährt Skateboard.", "她在玩滑板。", "Tā zài wán huábǎn."),
+ "tennis racket": ("The tennis racket is new.", "La raqueta de tenis es nueva.", "La raquette de tennis est neuve.", "Der Tennisschläger ist neu.", "这把网球拍是新的。", "Zhè bǎ wǎngqiúpāi shì xīn de."),
+ "bottle": ("The bottle is empty.", "La botella está vacía.", "La bouteille est vide.", "Die Flasche ist leer.", "瓶子是空的。", "Píngzi shì kōng de."),
+ "wine glass": ("The wine glass is full.", "La copa de vino está llena.", "Le verre à vin est plein.", "Das Weinglas ist voll.", "酒杯满了。", "Jiǔbēi mǎn le."),
+ "cup": ("I drink coffee from this cup.", "Bebo café en esta taza.", "Je bois du café dans cette tasse.", "Ich trinke Kaffee aus der Tasse.", "我用这个杯子喝咖啡。", "Wǒ yòng zhège bēizi hē kāfēi."),
+ "fork": ("I eat with a fork.", "Como con el tenedor.", "Je mange avec une fourchette.", "Ich esse mit der Gabel.", "我用叉子吃饭。", "Wǒ yòng chāzi chīfàn."),
+ "knife": ("Be careful, the knife is sharp.", "Cuidado, el cuchillo corta.", "Attention, le couteau coupe.", "Vorsicht, das Messer ist scharf.", "小心，刀很锋利。", "Xiǎoxīn, dāo hěn fēnglì."),
+ "spoon": ("I eat soup with a spoon.", "Tomo la sopa con la cuchara.", "Je mange la soupe avec une cuillère.", "Ich esse Suppe mit dem Löffel.", "我用勺子喝汤。", "Wǒ yòng sháozi hē tāng."),
+ "bowl": ("The bowl is full of rice.", "El cuenco está lleno de arroz.", "Le bol est plein de riz.", "Die Schüssel ist voller Reis.", "碗里装满了米饭。", "Wǎn lǐ zhuāngmǎn le mǐfàn."),
+ "banana": ("The banana is yellow.", "El plátano es amarillo.", "La banane est jaune.", "Die Banane ist gelb.", "香蕉是黄色的。", "Xiāngjiāo shì huángsè de."),
+ "apple": ("I eat an apple every day.", "Como una manzana cada día.", "Je mange une pomme chaque jour.", "Ich esse jeden Tag einen Apfel.", "我每天吃一个苹果。", "Wǒ měitiān chī yí gè píngguǒ."),
+ "sandwich": ("I'm making a sandwich.", "Estoy haciendo un sándwich.", "Je prépare un sandwich.", "Ich mache ein Sandwich.", "我在做三明治。", "Wǒ zài zuò sānmíngzhì."),
+ "orange": ("I peel the orange.", "Pelo la naranja.", "J'épluche l'orange.", "Ich schäle die Orange.", "我在剥橙子。", "Wǒ zài bāo chéngzi."),
+ "broccoli": ("Broccoli is good for you.", "El brócoli es sano.", "Le brocoli est bon pour la santé.", "Brokkoli ist gesund.", "西兰花很健康。", "Xīlánhuā hěn jiànkāng."),
+ "carrot": ("The rabbit eats a carrot.", "El conejo come una zanahoria.", "Le lapin mange une carotte.", "Der Hase frisst eine Karotte.", "兔子在吃胡萝卜。", "Tùzi zài chī húluóbo."),
+ "hot dog": ("A hot dog, please.", "Un perrito caliente, por favor.", "Un hot-dog, s'il vous plaît.", "Einen Hotdog, bitte.", "请给我一个热狗。", "Qǐng gěi wǒ yí gè règǒu."),
+ "pizza": ("Let's order a pizza tonight.", "Pidamos una pizza esta noche.", "Commandons une pizza ce soir.", "Bestellen wir heute eine Pizza.", "今晚我们点披萨吧。", "Jīnwǎn wǒmen diǎn pīsà ba."),
+ "donut": ("This donut is very sweet.", "Este dónut es muy dulce.", "Ce beignet est très sucré.", "Dieser Donut ist sehr süß.", "这个甜甜圈很甜。", "Zhège tiántiánquān hěn tián."),
+ "cake": ("I baked a cake.", "Hice un pastel.", "J'ai fait un gâteau.", "Ich habe einen Kuchen gebacken.", "我烤了一个蛋糕。", "Wǒ kǎo le yí gè dàngāo."),
+ "chair": ("Please sit on the chair.", "Siéntate en la silla, por favor.", "Assieds-toi sur la chaise.", "Setz dich auf den Stuhl.", "请坐在椅子上。", "Qǐng zuò zài yǐzi shàng."),
+ "couch": ("I relax on the couch.", "Descanso en el sofá.", "Je me repose sur le canapé.", "Ich entspanne mich auf dem Sofa.", "我在沙发上休息。", "Wǒ zài shāfā shàng xiūxi."),
+ "potted plant": ("Water the plant every week.", "Riega la planta cada semana.", "Arrose la plante en pot.", "Gieß die Topfpflanze jede Woche.", "每周给盆栽浇水。", "Měi zhōu gěi pénzāi jiāo shuǐ."),
+ "bed": ("My bed is very comfortable.", "Mi cama es muy cómoda.", "Mon lit est très confortable.", "Mein Bett ist sehr bequem.", "我的床很舒服。", "Wǒ de chuáng hěn shūfu."),
+ "dining table": ("Dinner is on the table.", "La cena está en la mesa.", "Le dîner est sur la table.", "Das Essen steht auf dem Tisch.", "饭菜在桌子上。", "Fàncài zài zhuōzi shàng."),
+ "toilet": ("Where is the toilet?", "¿Dónde está el inodoro?", "Où sont les toilettes ?", "Wo ist die Toilette?", "马桶在卫生间里。", "Mǎtǒng zài wèishēngjiān lǐ."),
+ "tv": ("The TV is on.", "La televisión está encendida.", "La télévision est allumée.", "Der Fernseher ist an.", "电视开着。", "Diànshì kāizhe."),
+ "laptop": ("I work on my laptop.", "Trabajo con mi portátil.", "J'utilise mon ordinateur portable.", "Ich arbeite am Laptop.", "我用笔记本电脑工作。", "Wǒ yòng bǐjìběn diànnǎo gōngzuò."),
+ "mouse": ("Click with the mouse.", "Haz clic con el ratón.", "Clique avec la souris.", "Klick mit der Maus.", "用鼠标点击。", "Yòng shǔbiāo diǎnjī."),
+ "remote": ("Where is the remote?", "¿Dónde está el mando a distancia?", "Où est la télécommande ?", "Wo ist die Fernbedienung?", "遥控器在哪儿？", "Yáokòngqì zài nǎr?"),
+ "keyboard": ("I type on the keyboard.", "Escribo en el teclado.", "Je tape sur le clavier.", "Ich tippe auf der Tastatur.", "我在键盘上打字。", "Wǒ zài jiànpán shàng dǎzì."),
+ "cell phone": ("My phone is ringing!", "¡Mi móvil está sonando!", "Mon téléphone portable sonne !", "Mein Handy klingelt!", "我的手机响了！", "Wǒ de shǒujī xiǎng le!"),
+ "microwave": ("Heat the food in the microwave.", "Calienta la comida en el microondas.", "Réchauffe le repas au micro-ondes.", "Wärme das Essen in der Mikrowelle.", "用微波炉热饭。", "Yòng wēibōlú rè fàn."),
+ "oven": ("The pizza is in the oven.", "La pizza está en el horno.", "La pizza est au four.", "Die Pizza ist im Backofen.", "披萨在烤箱里。", "Pīsà zài kǎoxiāng lǐ."),
+ "toaster": ("I put bread in the toaster.", "Pongo pan en la tostadora.", "Je mets du pain dans le grille-pain.", "Ich stecke Brot in den Toaster.", "我把面包放进烤面包机。", "Wǒ bǎ miànbāo fàng jìn kǎo miànbāo jī."),
+ "sink": ("Wash the dishes in the sink.", "Lava los platos en el fregadero.", "Lave la vaisselle dans l'évier.", "Spül das Geschirr in der Spüle.", "在水槽里洗碗。", "Zài shuǐcáo lǐ xǐ wǎn."),
+ "refrigerator": ("The milk is in the refrigerator.", "La leche está en la nevera.", "Le lait est dans le réfrigérateur.", "Die Milch ist im Kühlschrank.", "牛奶在冰箱里。", "Niúnǎi zài bīngxiāng lǐ."),
+ "book": ("I'm reading a good book.", "Estoy leyendo un buen libro.", "Je lis un bon livre.", "Ich lese ein gutes Buch.", "我在看一本好书。", "Wǒ zài kàn yì běn hǎo shū."),
+ "clock": ("Look at the clock. It's late.", "Mira el reloj. Es tarde.", "Regarde l'horloge. Il est tard.", "Schau auf die Uhr. Es ist spät.", "看看钟，已经很晚了。", "Kànkan zhōng, yǐjīng hěn wǎn le."),
+ "vase": ("Put the flowers in the vase.", "Pon las flores en el jarrón.", "Mets les fleurs dans le vase.", "Stell die Blumen in die Vase.", "把花放进花瓶里。", "Bǎ huā fàng jìn huāpíng lǐ."),
+ "scissors": ("Cut the paper with scissors.", "Corta el papel con las tijeras.", "Coupe le papier avec les ciseaux.", "Schneid das Papier mit der Schere.", "用剪刀剪纸。", "Yòng jiǎndāo jiǎn zhǐ."),
+ "teddy bear": ("The baby hugs the teddy bear.", "El bebé abraza el osito de peluche.", "Le bébé serre l'ours en peluche.", "Das Baby umarmt den Teddybären.", "宝宝抱着泰迪熊。", "Bǎobao bàozhe tàidí xióng."),
+ "hair drier": ("The hair dryer is hot.", "El secador de pelo está caliente.", "Le sèche-cheveux est chaud.", "Der Föhn ist heiß.", "吹风机很热。", "Chuīfēngjī hěn rè."),
+ "toothbrush": ("I need a new toothbrush.", "Necesito un cepillo de dientes nuevo.", "Il me faut une brosse à dents.", "Ich brauche eine neue Zahnbürste.", "我需要一支新牙刷。", "Wǒ xūyào yì zhī xīn yáshuā."),
 }
 
 entries = []
@@ -201,9 +258,16 @@ for (i, coco, en, zh, py, mw, mwpy, es, fr, de, cat, fit) in T:
         "fr": fr_entry(fr[0], fr[1], fr[2], en),
         "de": de_entry(de[0], de[1], en),
     }
-    for lang, fields in OVERRIDES.get(coco, {}).items():
-        e[lang].update(fields)
+    if coco in SENTENCES:
+        s_en, s_es, s_fr, s_de, s_zh, s_py = SENTENCES[coco]
+        e["en"]["sentence"], e["es"]["sentence"] = s_en, s_es
+        e["fr"]["sentence"], e["de"]["sentence"] = s_fr, s_de
+        e["zh"]["sentence"], e["zh"]["sentencePinyin"] = s_zh, s_py
     entries.append(e)
+
+missing = [e["cocoLabel"] for e in entries if e["enabled"] and e["cocoLabel"] not in SENTENCES]
+if missing:
+    print("enabled classes using the fallback sentence:", ", ".join(missing))
 
 db = {
     "version": 1,

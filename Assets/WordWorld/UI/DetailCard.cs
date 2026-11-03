@@ -169,7 +169,7 @@ namespace WordWorld.UI
         {
             bool saved = m_track != null && m_wordBank.IsSaved(m_track.ClassId);
             m_saveButton.Text.Text = S(saved ? "detail.saved" : "detail.save", m_settings.InterfaceLanguage);
-            m_saveButton.Text.TextColor = saved ? m_theme.Accent : m_theme.Ink;
+            m_saveButton.Text.TextColor = m_theme.Ink;
             m_saveButton.Text.BackgroundColor = saved ? m_theme.AccentSoft : m_theme.Card;
         }
 

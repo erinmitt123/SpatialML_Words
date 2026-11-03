@@ -17,7 +17,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a person",
-        "sentence": "This is a person.",
+        "sentence": "There is a person here.",
         "meaning": "人",
         "alternatives": ""
       },
@@ -28,8 +28,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个人",
         "phrasePinyin": "yí gè rén",
-        "sentence": "这是一个人。",
-        "sentencePinyin": "Zhè shì yí gè rén.",
+        "sentence": "这里有一个人。",
+        "sentencePinyin": "Zhèlǐ yǒu yí gè rén.",
         "meaning": "person"
       },
       "es": {
@@ -39,7 +39,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una persona",
-        "sentence": "Esta es una persona.",
+        "sentence": "Hay una persona aquí.",
         "meaning": "person",
         "alternatives": ""
       },
@@ -50,7 +50,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une personne",
-        "sentence": "C'est une personne.",
+        "sentence": "Il y a une personne ici.",
         "meaning": "person",
         "alternatives": ""
       },
@@ -61,7 +61,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Person",
-        "sentence": "Das ist eine Person.",
+        "sentence": "Hier ist eine Person.",
         "meaning": "person",
         "alternatives": ""
       }
@@ -80,7 +80,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a bicycle",
-        "sentence": "This is my bicycle.",
+        "sentence": "I ride my bicycle to work.",
         "meaning": "自行车",
         "alternatives": ""
       },
@@ -91,8 +91,8 @@
         "measureWordPinyin": "liàng",
         "phrase": "一辆自行车",
         "phrasePinyin": "yí liàng zìxíngchē",
-        "sentence": "这是我的自行车。",
-        "sentencePinyin": "Zhè shì wǒ de zìxíngchē.",
+        "sentence": "我骑自行车上班。",
+        "sentencePinyin": "Wǒ qí zìxíngchē shàngbān.",
         "meaning": "bicycle"
       },
       "es": {
@@ -102,7 +102,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una bicicleta",
-        "sentence": "Esta es mi bicicleta.",
+        "sentence": "Voy al trabajo en bicicleta.",
         "meaning": "bicycle",
         "alternatives": ""
       },
@@ -113,7 +113,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un vélo",
-        "sentence": "C'est mon vélo.",
+        "sentence": "Je vais au travail à vélo.",
         "meaning": "bicycle",
         "alternatives": ""
       },
@@ -124,7 +124,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Fahrrad",
-        "sentence": "Das ist mein Fahrrad.",
+        "sentence": "Ich fahre mit dem Fahrrad.",
         "meaning": "bicycle",
         "alternatives": ""
       }
@@ -836,7 +836,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a bench",
-        "sentence": "This is my bench.",
+        "sentence": "We sit on the bench.",
         "meaning": "长椅",
         "alternatives": ""
       },
@@ -847,8 +847,8 @@
         "measureWordPinyin": "zhāng",
         "phrase": "一张长椅",
         "phrasePinyin": "yì zhāng chángyǐ",
-        "sentence": "这是我的长椅。",
-        "sentencePinyin": "Zhè shì wǒ de chángyǐ.",
+        "sentence": "我们坐在长椅上。",
+        "sentencePinyin": "Wǒmen zuò zài chángyǐ shàng.",
         "meaning": "bench"
       },
       "es": {
@@ -858,7 +858,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un banco",
-        "sentence": "Este es mi banco.",
+        "sentence": "Nos sentamos en el banco.",
         "meaning": "bench",
         "alternatives": ""
       },
@@ -869,7 +869,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un banc",
-        "sentence": "C'est mon banc.",
+        "sentence": "On s'assoit sur le banc.",
         "meaning": "bench",
         "alternatives": ""
       },
@@ -880,7 +880,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Bank",
-        "sentence": "Das ist meine Bank.",
+        "sentence": "Wir sitzen auf der Bank.",
         "meaning": "bench",
         "alternatives": ""
       }
@@ -899,7 +899,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a bird",
-        "sentence": "This is my bird.",
+        "sentence": "The bird is singing.",
         "meaning": "鸟",
         "alternatives": ""
       },
@@ -910,8 +910,8 @@
         "measureWordPinyin": "zhī",
         "phrase": "一只鸟",
         "phrasePinyin": "yì zhī niǎo",
-        "sentence": "这是我的鸟。",
-        "sentencePinyin": "Zhè shì wǒ de niǎo.",
+        "sentence": "小鸟在唱歌。",
+        "sentencePinyin": "Xiǎoniǎo zài chànggē.",
         "meaning": "bird"
       },
       "es": {
@@ -921,7 +921,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un pájaro",
-        "sentence": "Este es mi pájaro.",
+        "sentence": "El pájaro está cantando.",
         "meaning": "bird",
         "alternatives": ""
       },
@@ -932,7 +932,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un oiseau",
-        "sentence": "C'est mon oiseau.",
+        "sentence": "L'oiseau chante.",
         "meaning": "bird",
         "alternatives": ""
       },
@@ -943,7 +943,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Vogel",
-        "sentence": "Das ist mein Vogel.",
+        "sentence": "Der Vogel singt.",
         "meaning": "bird",
         "alternatives": ""
       }
@@ -962,7 +962,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a cat",
-        "sentence": "This is my cat.",
+        "sentence": "The cat is sleeping.",
         "meaning": "猫",
         "alternatives": ""
       },
@@ -973,8 +973,8 @@
         "measureWordPinyin": "zhī",
         "phrase": "一只猫",
         "phrasePinyin": "yì zhī māo",
-        "sentence": "这是我的猫。",
-        "sentencePinyin": "Zhè shì wǒ de māo.",
+        "sentence": "猫在睡觉。",
+        "sentencePinyin": "Māo zài shuìjiào.",
         "meaning": "cat"
       },
       "es": {
@@ -984,7 +984,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un gato",
-        "sentence": "Este es mi gato.",
+        "sentence": "El gato está durmiendo.",
         "meaning": "cat",
         "alternatives": ""
       },
@@ -995,7 +995,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un chat",
-        "sentence": "C'est mon chat.",
+        "sentence": "Le chat dort.",
         "meaning": "cat",
         "alternatives": ""
       },
@@ -1006,7 +1006,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Katze",
-        "sentence": "Das ist meine Katze.",
+        "sentence": "Die Katze schläft.",
         "meaning": "cat",
         "alternatives": ""
       }
@@ -1025,7 +1025,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a dog",
-        "sentence": "This is my dog.",
+        "sentence": "The dog wants to play.",
         "meaning": "狗",
         "alternatives": ""
       },
@@ -1036,8 +1036,8 @@
         "measureWordPinyin": "zhī",
         "phrase": "一只狗",
         "phrasePinyin": "yì zhī gǒu",
-        "sentence": "这是我的狗。",
-        "sentencePinyin": "Zhè shì wǒ de gǒu.",
+        "sentence": "狗想出去玩。",
+        "sentencePinyin": "Gǒu xiǎng chūqù wán.",
         "meaning": "dog"
       },
       "es": {
@@ -1047,7 +1047,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un perro",
-        "sentence": "Este es mi perro.",
+        "sentence": "El perro quiere jugar.",
         "meaning": "dog",
         "alternatives": ""
       },
@@ -1058,7 +1058,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un chien",
-        "sentence": "C'est mon chien.",
+        "sentence": "Le chien veut jouer.",
         "meaning": "dog",
         "alternatives": ""
       },
@@ -1069,7 +1069,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Hund",
-        "sentence": "Das ist mein Hund.",
+        "sentence": "Der Hund will spielen.",
         "meaning": "dog",
         "alternatives": ""
       }
@@ -1529,7 +1529,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a backpack",
-        "sentence": "This is my backpack.",
+        "sentence": "My backpack is heavy.",
         "meaning": "背包",
         "alternatives": ""
       },
@@ -1540,8 +1540,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个背包",
         "phrasePinyin": "yí gè bēibāo",
-        "sentence": "这是我的背包。",
-        "sentencePinyin": "Zhè shì wǒ de bēibāo.",
+        "sentence": "我的背包很重。",
+        "sentencePinyin": "Wǒ de bēibāo hěn zhòng.",
         "meaning": "backpack"
       },
       "es": {
@@ -1551,7 +1551,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una mochila",
-        "sentence": "Esta es mi mochila.",
+        "sentence": "Mi mochila pesa mucho.",
         "meaning": "backpack",
         "alternatives": ""
       },
@@ -1562,7 +1562,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un sac à dos",
-        "sentence": "C'est mon sac à dos.",
+        "sentence": "Mon sac à dos est lourd.",
         "meaning": "backpack",
         "alternatives": ""
       },
@@ -1573,7 +1573,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Rucksack",
-        "sentence": "Das ist mein Rucksack.",
+        "sentence": "Mein Rucksack ist schwer.",
         "meaning": "backpack",
         "alternatives": ""
       }
@@ -1592,7 +1592,7 @@
         "gender": "",
         "plural": false,
         "phrase": "an umbrella",
-        "sentence": "This is my umbrella.",
+        "sentence": "It's raining. Take an umbrella.",
         "meaning": "雨伞",
         "alternatives": ""
       },
@@ -1603,8 +1603,8 @@
         "measureWordPinyin": "bǎ",
         "phrase": "一把雨伞",
         "phrasePinyin": "yì bǎ yǔsǎn",
-        "sentence": "这是我的雨伞。",
-        "sentencePinyin": "Zhè shì wǒ de yǔsǎn.",
+        "sentence": "下雨了，带上雨伞。",
+        "sentencePinyin": "Xià yǔ le, dàishàng yǔsǎn.",
         "meaning": "umbrella"
       },
       "es": {
@@ -1614,7 +1614,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un paraguas",
-        "sentence": "Este es mi paraguas.",
+        "sentence": "Llueve. Lleva el paraguas.",
         "meaning": "umbrella",
         "alternatives": ""
       },
@@ -1625,7 +1625,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un parapluie",
-        "sentence": "C'est mon parapluie.",
+        "sentence": "Il pleut. Prends le parapluie.",
         "meaning": "umbrella",
         "alternatives": ""
       },
@@ -1636,7 +1636,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Regenschirm",
-        "sentence": "Das ist mein Regenschirm.",
+        "sentence": "Es regnet. Nimm den Regenschirm.",
         "meaning": "umbrella",
         "alternatives": ""
       }
@@ -1655,7 +1655,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a handbag",
-        "sentence": "This is my handbag.",
+        "sentence": "My keys are in the handbag.",
         "meaning": "手提包",
         "alternatives": ""
       },
@@ -1666,8 +1666,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个手提包",
         "phrasePinyin": "yí gè shǒutíbāo",
-        "sentence": "这是我的手提包。",
-        "sentencePinyin": "Zhè shì wǒ de shǒutíbāo.",
+        "sentence": "我的钥匙在手提包里。",
+        "sentencePinyin": "Wǒ de yàoshi zài shǒutíbāo lǐ.",
         "meaning": "handbag"
       },
       "es": {
@@ -1677,7 +1677,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un bolso",
-        "sentence": "Este es mi bolso.",
+        "sentence": "Mis llaves están en el bolso.",
         "meaning": "handbag",
         "alternatives": "la cartera (Latin America)"
       },
@@ -1688,7 +1688,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un sac à main",
-        "sentence": "C'est mon sac à main.",
+        "sentence": "Mes clés sont dans le sac à main.",
         "meaning": "handbag",
         "alternatives": ""
       },
@@ -1699,7 +1699,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Handtasche",
-        "sentence": "Das ist meine Handtasche.",
+        "sentence": "Die Schlüssel sind in der Handtasche.",
         "meaning": "handbag",
         "alternatives": ""
       }
@@ -1718,7 +1718,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a tie",
-        "sentence": "This is my tie.",
+        "sentence": "He wears a tie to work.",
         "meaning": "领带",
         "alternatives": ""
       },
@@ -1729,8 +1729,8 @@
         "measureWordPinyin": "tiáo",
         "phrase": "一条领带",
         "phrasePinyin": "yì tiáo lǐngdài",
-        "sentence": "这是我的领带。",
-        "sentencePinyin": "Zhè shì wǒ de lǐngdài.",
+        "sentence": "他上班戴领带。",
+        "sentencePinyin": "Tā shàngbān dài lǐngdài.",
         "meaning": "tie"
       },
       "es": {
@@ -1740,7 +1740,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una corbata",
-        "sentence": "Esta es mi corbata.",
+        "sentence": "Lleva corbata al trabajo.",
         "meaning": "tie",
         "alternatives": ""
       },
@@ -1751,7 +1751,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une cravate",
-        "sentence": "C'est ma cravate.",
+        "sentence": "Il porte une cravate au travail.",
         "meaning": "tie",
         "alternatives": ""
       },
@@ -1762,7 +1762,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Krawatte",
-        "sentence": "Das ist meine Krawatte.",
+        "sentence": "Er trägt eine Krawatte.",
         "meaning": "tie",
         "alternatives": ""
       }
@@ -1781,7 +1781,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a suitcase",
-        "sentence": "This is my suitcase.",
+        "sentence": "The suitcase is ready.",
         "meaning": "行李箱",
         "alternatives": ""
       },
@@ -1792,8 +1792,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个行李箱",
         "phrasePinyin": "yí gè xínglixiāng",
-        "sentence": "这是我的行李箱。",
-        "sentencePinyin": "Zhè shì wǒ de xínglixiāng.",
+        "sentence": "行李箱已经收拾好了。",
+        "sentencePinyin": "Xínglixiāng yǐjīng shōushi hǎo le.",
         "meaning": "suitcase"
       },
       "es": {
@@ -1803,7 +1803,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una maleta",
-        "sentence": "Esta es mi maleta.",
+        "sentence": "La maleta está lista.",
         "meaning": "suitcase",
         "alternatives": ""
       },
@@ -1814,7 +1814,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une valise",
-        "sentence": "C'est ma valise.",
+        "sentence": "La valise est prête.",
         "meaning": "suitcase",
         "alternatives": ""
       },
@@ -1825,7 +1825,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Koffer",
-        "sentence": "Das ist mein Koffer.",
+        "sentence": "Der Koffer ist gepackt.",
         "meaning": "suitcase",
         "alternatives": ""
       }
@@ -1844,7 +1844,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a frisbee",
-        "sentence": "This is my frisbee.",
+        "sentence": "Throw me the frisbee!",
         "meaning": "飞盘",
         "alternatives": ""
       },
@@ -1855,8 +1855,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个飞盘",
         "phrasePinyin": "yí gè fēipán",
-        "sentence": "这是我的飞盘。",
-        "sentencePinyin": "Zhè shì wǒ de fēipán.",
+        "sentence": "把飞盘扔给我！",
+        "sentencePinyin": "Bǎ fēipán rēng gěi wǒ!",
         "meaning": "frisbee"
       },
       "es": {
@@ -1866,7 +1866,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un frisbi",
-        "sentence": "Este es mi frisbi.",
+        "sentence": "¡Lánzame el frisbi!",
         "meaning": "frisbee",
         "alternatives": ""
       },
@@ -1877,7 +1877,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un frisbee",
-        "sentence": "C'est mon frisbee.",
+        "sentence": "Lance-moi le frisbee !",
         "meaning": "frisbee",
         "alternatives": ""
       },
@@ -1888,7 +1888,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Frisbeescheibe",
-        "sentence": "Das ist meine Frisbeescheibe.",
+        "sentence": "Wirf mir die Frisbeescheibe zu!",
         "meaning": "frisbee",
         "alternatives": ""
       }
@@ -2033,7 +2033,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a ball",
-        "sentence": "This is my ball.",
+        "sentence": "Pass me the ball.",
         "meaning": "球",
         "alternatives": ""
       },
@@ -2044,8 +2044,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个球",
         "phrasePinyin": "yí gè qiú",
-        "sentence": "这是我的球。",
-        "sentencePinyin": "Zhè shì wǒ de qiú.",
+        "sentence": "把球传给我。",
+        "sentencePinyin": "Bǎ qiú chuán gěi wǒ.",
         "meaning": "ball"
       },
       "es": {
@@ -2055,7 +2055,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una pelota",
-        "sentence": "Esta es mi pelota.",
+        "sentence": "Pásame la pelota.",
         "meaning": "ball",
         "alternatives": ""
       },
@@ -2066,7 +2066,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un ballon",
-        "sentence": "C'est mon ballon.",
+        "sentence": "Passe-moi le ballon.",
         "meaning": "ball",
         "alternatives": ""
       },
@@ -2077,7 +2077,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Ball",
-        "sentence": "Das ist mein Ball.",
+        "sentence": "Spiel mir den Ball zu.",
         "meaning": "ball",
         "alternatives": ""
       }
@@ -2159,7 +2159,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a baseball bat",
-        "sentence": "This is my baseball bat.",
+        "sentence": "The baseball bat is heavy.",
         "meaning": "棒球棒",
         "alternatives": ""
       },
@@ -2170,8 +2170,8 @@
         "measureWordPinyin": "gēn",
         "phrase": "一根棒球棒",
         "phrasePinyin": "yì gēn bàngqiúbàng",
-        "sentence": "这是我的棒球棒。",
-        "sentencePinyin": "Zhè shì wǒ de bàngqiúbàng.",
+        "sentence": "棒球棒很重。",
+        "sentencePinyin": "Bàngqiúbàng hěn zhòng.",
         "meaning": "baseball bat"
       },
       "es": {
@@ -2181,7 +2181,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un bate de béisbol",
-        "sentence": "Este es mi bate de béisbol.",
+        "sentence": "El bate de béisbol pesa.",
         "meaning": "baseball bat",
         "alternatives": ""
       },
@@ -2192,7 +2192,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une batte de baseball",
-        "sentence": "C'est ma batte de baseball.",
+        "sentence": "La batte de baseball est lourde.",
         "meaning": "baseball bat",
         "alternatives": ""
       },
@@ -2203,7 +2203,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Baseballschläger",
-        "sentence": "Das ist mein Baseballschläger.",
+        "sentence": "Der Baseballschläger ist schwer.",
         "meaning": "baseball bat",
         "alternatives": ""
       }
@@ -2222,7 +2222,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a baseball glove",
-        "sentence": "This is my baseball glove.",
+        "sentence": "My baseball glove is old.",
         "meaning": "棒球手套",
         "alternatives": ""
       },
@@ -2233,8 +2233,8 @@
         "measureWordPinyin": "zhī",
         "phrase": "一只棒球手套",
         "phrasePinyin": "yì zhī bàngqiú shǒutào",
-        "sentence": "这是我的棒球手套。",
-        "sentencePinyin": "Zhè shì wǒ de bàngqiú shǒutào.",
+        "sentence": "我的棒球手套很旧。",
+        "sentencePinyin": "Wǒ de bàngqiú shǒutào hěn jiù.",
         "meaning": "baseball glove"
       },
       "es": {
@@ -2244,7 +2244,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un guante de béisbol",
-        "sentence": "Este es mi guante de béisbol.",
+        "sentence": "Mi guante de béisbol es viejo.",
         "meaning": "baseball glove",
         "alternatives": ""
       },
@@ -2255,7 +2255,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un gant de baseball",
-        "sentence": "C'est mon gant de baseball.",
+        "sentence": "Mon gant de baseball est vieux.",
         "meaning": "baseball glove",
         "alternatives": ""
       },
@@ -2266,7 +2266,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Baseballhandschuh",
-        "sentence": "Das ist mein Baseballhandschuh.",
+        "sentence": "Mein Baseballhandschuh ist alt.",
         "meaning": "baseball glove",
         "alternatives": ""
       }
@@ -2285,7 +2285,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a skateboard",
-        "sentence": "This is my skateboard.",
+        "sentence": "She rides a skateboard.",
         "meaning": "滑板",
         "alternatives": ""
       },
@@ -2296,8 +2296,8 @@
         "measureWordPinyin": "kuài",
         "phrase": "一块滑板",
         "phrasePinyin": "yí kuài huábǎn",
-        "sentence": "这是我的滑板。",
-        "sentencePinyin": "Zhè shì wǒ de huábǎn.",
+        "sentence": "她在玩滑板。",
+        "sentencePinyin": "Tā zài wán huábǎn.",
         "meaning": "skateboard"
       },
       "es": {
@@ -2307,7 +2307,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un monopatín",
-        "sentence": "Este es mi monopatín.",
+        "sentence": "Ella va en monopatín.",
         "meaning": "skateboard",
         "alternatives": ""
       },
@@ -2318,7 +2318,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un skateboard",
-        "sentence": "C'est mon skateboard.",
+        "sentence": "Elle fait du skateboard.",
         "meaning": "skateboard",
         "alternatives": ""
       },
@@ -2329,7 +2329,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Skateboard",
-        "sentence": "Das ist mein Skateboard.",
+        "sentence": "Sie fährt Skateboard.",
         "meaning": "skateboard",
         "alternatives": ""
       }
@@ -2411,7 +2411,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a tennis racket",
-        "sentence": "This is my tennis racket.",
+        "sentence": "The tennis racket is new.",
         "meaning": "网球拍",
         "alternatives": ""
       },
@@ -2422,8 +2422,8 @@
         "measureWordPinyin": "bǎ",
         "phrase": "一把网球拍",
         "phrasePinyin": "yì bǎ wǎngqiúpāi",
-        "sentence": "这是我的网球拍。",
-        "sentencePinyin": "Zhè shì wǒ de wǎngqiúpāi.",
+        "sentence": "这把网球拍是新的。",
+        "sentencePinyin": "Zhè bǎ wǎngqiúpāi shì xīn de.",
         "meaning": "tennis racket"
       },
       "es": {
@@ -2433,7 +2433,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una raqueta de tenis",
-        "sentence": "Esta es mi raqueta de tenis.",
+        "sentence": "La raqueta de tenis es nueva.",
         "meaning": "tennis racket",
         "alternatives": ""
       },
@@ -2444,7 +2444,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une raquette de tennis",
-        "sentence": "C'est ma raquette de tennis.",
+        "sentence": "La raquette de tennis est neuve.",
         "meaning": "tennis racket",
         "alternatives": ""
       },
@@ -2455,7 +2455,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Tennisschläger",
-        "sentence": "Das ist mein Tennisschläger.",
+        "sentence": "Der Tennisschläger ist neu.",
         "meaning": "tennis racket",
         "alternatives": ""
       }
@@ -2474,7 +2474,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a bottle",
-        "sentence": "This is my bottle.",
+        "sentence": "The bottle is empty.",
         "meaning": "瓶子",
         "alternatives": ""
       },
@@ -2485,8 +2485,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个瓶子",
         "phrasePinyin": "yí gè píngzi",
-        "sentence": "这是我的瓶子。",
-        "sentencePinyin": "Zhè shì wǒ de píngzi.",
+        "sentence": "瓶子是空的。",
+        "sentencePinyin": "Píngzi shì kōng de.",
         "meaning": "bottle"
       },
       "es": {
@@ -2496,7 +2496,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una botella",
-        "sentence": "Esta es mi botella.",
+        "sentence": "La botella está vacía.",
         "meaning": "bottle",
         "alternatives": ""
       },
@@ -2507,7 +2507,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une bouteille",
-        "sentence": "C'est ma bouteille.",
+        "sentence": "La bouteille est vide.",
         "meaning": "bottle",
         "alternatives": ""
       },
@@ -2518,7 +2518,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Flasche",
-        "sentence": "Das ist meine Flasche.",
+        "sentence": "Die Flasche ist leer.",
         "meaning": "bottle",
         "alternatives": ""
       }
@@ -2537,7 +2537,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a wine glass",
-        "sentence": "This is my wine glass.",
+        "sentence": "The wine glass is full.",
         "meaning": "酒杯",
         "alternatives": ""
       },
@@ -2548,8 +2548,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个酒杯",
         "phrasePinyin": "yí gè jiǔbēi",
-        "sentence": "这是我的酒杯。",
-        "sentencePinyin": "Zhè shì wǒ de jiǔbēi.",
+        "sentence": "酒杯满了。",
+        "sentencePinyin": "Jiǔbēi mǎn le.",
         "meaning": "wine glass"
       },
       "es": {
@@ -2559,7 +2559,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una copa de vino",
-        "sentence": "Esta es mi copa de vino.",
+        "sentence": "La copa de vino está llena.",
         "meaning": "wine glass",
         "alternatives": ""
       },
@@ -2570,7 +2570,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un verre à vin",
-        "sentence": "C'est mon verre à vin.",
+        "sentence": "Le verre à vin est plein.",
         "meaning": "wine glass",
         "alternatives": ""
       },
@@ -2581,7 +2581,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Weinglas",
-        "sentence": "Das ist mein Weinglas.",
+        "sentence": "Das Weinglas ist voll.",
         "meaning": "wine glass",
         "alternatives": ""
       }
@@ -2600,7 +2600,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a cup",
-        "sentence": "This is my cup.",
+        "sentence": "I drink coffee from this cup.",
         "meaning": "杯子",
         "alternatives": ""
       },
@@ -2611,8 +2611,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个杯子",
         "phrasePinyin": "yí gè bēizi",
-        "sentence": "这是我的杯子。",
-        "sentencePinyin": "Zhè shì wǒ de bēizi.",
+        "sentence": "我用这个杯子喝咖啡。",
+        "sentencePinyin": "Wǒ yòng zhège bēizi hē kāfēi.",
         "meaning": "cup"
       },
       "es": {
@@ -2622,7 +2622,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una taza",
-        "sentence": "Esta es mi taza.",
+        "sentence": "Bebo café en esta taza.",
         "meaning": "cup",
         "alternatives": ""
       },
@@ -2633,7 +2633,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une tasse",
-        "sentence": "C'est ma tasse.",
+        "sentence": "Je bois du café dans cette tasse.",
         "meaning": "cup",
         "alternatives": ""
       },
@@ -2644,7 +2644,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Tasse",
-        "sentence": "Das ist meine Tasse.",
+        "sentence": "Ich trinke Kaffee aus der Tasse.",
         "meaning": "cup",
         "alternatives": ""
       }
@@ -2663,7 +2663,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a fork",
-        "sentence": "This is my fork.",
+        "sentence": "I eat with a fork.",
         "meaning": "叉子",
         "alternatives": ""
       },
@@ -2674,8 +2674,8 @@
         "measureWordPinyin": "bǎ",
         "phrase": "一把叉子",
         "phrasePinyin": "yì bǎ chāzi",
-        "sentence": "这是我的叉子。",
-        "sentencePinyin": "Zhè shì wǒ de chāzi.",
+        "sentence": "我用叉子吃饭。",
+        "sentencePinyin": "Wǒ yòng chāzi chīfàn.",
         "meaning": "fork"
       },
       "es": {
@@ -2685,7 +2685,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un tenedor",
-        "sentence": "Este es mi tenedor.",
+        "sentence": "Como con el tenedor.",
         "meaning": "fork",
         "alternatives": ""
       },
@@ -2696,7 +2696,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une fourchette",
-        "sentence": "C'est ma fourchette.",
+        "sentence": "Je mange avec une fourchette.",
         "meaning": "fork",
         "alternatives": ""
       },
@@ -2707,7 +2707,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Gabel",
-        "sentence": "Das ist meine Gabel.",
+        "sentence": "Ich esse mit der Gabel.",
         "meaning": "fork",
         "alternatives": ""
       }
@@ -2726,7 +2726,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a knife",
-        "sentence": "This is my knife.",
+        "sentence": "Be careful, the knife is sharp.",
         "meaning": "刀",
         "alternatives": ""
       },
@@ -2737,8 +2737,8 @@
         "measureWordPinyin": "bǎ",
         "phrase": "一把刀",
         "phrasePinyin": "yì bǎ dāo",
-        "sentence": "这是我的刀。",
-        "sentencePinyin": "Zhè shì wǒ de dāo.",
+        "sentence": "小心，刀很锋利。",
+        "sentencePinyin": "Xiǎoxīn, dāo hěn fēnglì.",
         "meaning": "knife"
       },
       "es": {
@@ -2748,7 +2748,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un cuchillo",
-        "sentence": "Este es mi cuchillo.",
+        "sentence": "Cuidado, el cuchillo corta.",
         "meaning": "knife",
         "alternatives": ""
       },
@@ -2759,7 +2759,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un couteau",
-        "sentence": "C'est mon couteau.",
+        "sentence": "Attention, le couteau coupe.",
         "meaning": "knife",
         "alternatives": ""
       },
@@ -2770,7 +2770,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Messer",
-        "sentence": "Das ist mein Messer.",
+        "sentence": "Vorsicht, das Messer ist scharf.",
         "meaning": "knife",
         "alternatives": ""
       }
@@ -2789,7 +2789,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a spoon",
-        "sentence": "This is my spoon.",
+        "sentence": "I eat soup with a spoon.",
         "meaning": "勺子",
         "alternatives": ""
       },
@@ -2800,8 +2800,8 @@
         "measureWordPinyin": "bǎ",
         "phrase": "一把勺子",
         "phrasePinyin": "yì bǎ sháozi",
-        "sentence": "这是我的勺子。",
-        "sentencePinyin": "Zhè shì wǒ de sháozi.",
+        "sentence": "我用勺子喝汤。",
+        "sentencePinyin": "Wǒ yòng sháozi hē tāng.",
         "meaning": "spoon"
       },
       "es": {
@@ -2811,7 +2811,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una cuchara",
-        "sentence": "Esta es mi cuchara.",
+        "sentence": "Tomo la sopa con la cuchara.",
         "meaning": "spoon",
         "alternatives": ""
       },
@@ -2822,7 +2822,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une cuillère",
-        "sentence": "C'est ma cuillère.",
+        "sentence": "Je mange la soupe avec une cuillère.",
         "meaning": "spoon",
         "alternatives": ""
       },
@@ -2833,7 +2833,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Löffel",
-        "sentence": "Das ist mein Löffel.",
+        "sentence": "Ich esse Suppe mit dem Löffel.",
         "meaning": "spoon",
         "alternatives": ""
       }
@@ -2852,7 +2852,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a bowl",
-        "sentence": "This is my bowl.",
+        "sentence": "The bowl is full of rice.",
         "meaning": "碗",
         "alternatives": ""
       },
@@ -2863,8 +2863,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个碗",
         "phrasePinyin": "yí gè wǎn",
-        "sentence": "这是我的碗。",
-        "sentencePinyin": "Zhè shì wǒ de wǎn.",
+        "sentence": "碗里装满了米饭。",
+        "sentencePinyin": "Wǎn lǐ zhuāngmǎn le mǐfàn.",
         "meaning": "bowl"
       },
       "es": {
@@ -2874,7 +2874,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un cuenco",
-        "sentence": "Este es mi cuenco.",
+        "sentence": "El cuenco está lleno de arroz.",
         "meaning": "bowl",
         "alternatives": "el bol"
       },
@@ -2885,7 +2885,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un bol",
-        "sentence": "C'est mon bol.",
+        "sentence": "Le bol est plein de riz.",
         "meaning": "bowl",
         "alternatives": ""
       },
@@ -2896,7 +2896,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Schüssel",
-        "sentence": "Das ist meine Schüssel.",
+        "sentence": "Die Schüssel ist voller Reis.",
         "meaning": "bowl",
         "alternatives": ""
       }
@@ -2915,7 +2915,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a banana",
-        "sentence": "This is my banana.",
+        "sentence": "The banana is yellow.",
         "meaning": "香蕉",
         "alternatives": ""
       },
@@ -2926,8 +2926,8 @@
         "measureWordPinyin": "gēn",
         "phrase": "一根香蕉",
         "phrasePinyin": "yì gēn xiāngjiāo",
-        "sentence": "这是我的香蕉。",
-        "sentencePinyin": "Zhè shì wǒ de xiāngjiāo.",
+        "sentence": "香蕉是黄色的。",
+        "sentencePinyin": "Xiāngjiāo shì huángsè de.",
         "meaning": "banana"
       },
       "es": {
@@ -2937,7 +2937,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un plátano",
-        "sentence": "Este es mi plátano.",
+        "sentence": "El plátano es amarillo.",
         "meaning": "banana",
         "alternatives": "la banana (Latin America)"
       },
@@ -2948,7 +2948,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une banane",
-        "sentence": "C'est ma banane.",
+        "sentence": "La banane est jaune.",
         "meaning": "banana",
         "alternatives": ""
       },
@@ -2959,7 +2959,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Banane",
-        "sentence": "Das ist meine Banane.",
+        "sentence": "Die Banane ist gelb.",
         "meaning": "banana",
         "alternatives": ""
       }
@@ -2978,7 +2978,7 @@
         "gender": "",
         "plural": false,
         "phrase": "an apple",
-        "sentence": "This is my apple.",
+        "sentence": "I eat an apple every day.",
         "meaning": "苹果",
         "alternatives": ""
       },
@@ -2989,8 +2989,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个苹果",
         "phrasePinyin": "yí gè píngguǒ",
-        "sentence": "这是我的苹果。",
-        "sentencePinyin": "Zhè shì wǒ de píngguǒ.",
+        "sentence": "我每天吃一个苹果。",
+        "sentencePinyin": "Wǒ měitiān chī yí gè píngguǒ.",
         "meaning": "apple"
       },
       "es": {
@@ -3000,7 +3000,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una manzana",
-        "sentence": "Esta es mi manzana.",
+        "sentence": "Como una manzana cada día.",
         "meaning": "apple",
         "alternatives": ""
       },
@@ -3011,7 +3011,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une pomme",
-        "sentence": "C'est ma pomme.",
+        "sentence": "Je mange une pomme chaque jour.",
         "meaning": "apple",
         "alternatives": ""
       },
@@ -3022,7 +3022,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Apfel",
-        "sentence": "Das ist mein Apfel.",
+        "sentence": "Ich esse jeden Tag einen Apfel.",
         "meaning": "apple",
         "alternatives": ""
       }
@@ -3041,7 +3041,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a sandwich",
-        "sentence": "This is my sandwich.",
+        "sentence": "I'm making a sandwich.",
         "meaning": "三明治",
         "alternatives": ""
       },
@@ -3052,8 +3052,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个三明治",
         "phrasePinyin": "yí gè sānmíngzhì",
-        "sentence": "这是我的三明治。",
-        "sentencePinyin": "Zhè shì wǒ de sānmíngzhì.",
+        "sentence": "我在做三明治。",
+        "sentencePinyin": "Wǒ zài zuò sānmíngzhì.",
         "meaning": "sandwich"
       },
       "es": {
@@ -3063,7 +3063,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un sándwich",
-        "sentence": "Este es mi sándwich.",
+        "sentence": "Estoy haciendo un sándwich.",
         "meaning": "sandwich",
         "alternatives": ""
       },
@@ -3074,7 +3074,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un sandwich",
-        "sentence": "C'est mon sandwich.",
+        "sentence": "Je prépare un sandwich.",
         "meaning": "sandwich",
         "alternatives": ""
       },
@@ -3085,7 +3085,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Sandwich",
-        "sentence": "Das ist mein Sandwich.",
+        "sentence": "Ich mache ein Sandwich.",
         "meaning": "sandwich",
         "alternatives": ""
       }
@@ -3104,7 +3104,7 @@
         "gender": "",
         "plural": false,
         "phrase": "an orange",
-        "sentence": "This is my orange.",
+        "sentence": "I peel the orange.",
         "meaning": "橙子",
         "alternatives": ""
       },
@@ -3115,8 +3115,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个橙子",
         "phrasePinyin": "yí gè chéngzi",
-        "sentence": "这是我的橙子。",
-        "sentencePinyin": "Zhè shì wǒ de chéngzi.",
+        "sentence": "我在剥橙子。",
+        "sentencePinyin": "Wǒ zài bāo chéngzi.",
         "meaning": "orange"
       },
       "es": {
@@ -3126,7 +3126,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una naranja",
-        "sentence": "Esta es mi naranja.",
+        "sentence": "Pelo la naranja.",
         "meaning": "orange",
         "alternatives": ""
       },
@@ -3137,7 +3137,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une orange",
-        "sentence": "C'est mon orange.",
+        "sentence": "J'épluche l'orange.",
         "meaning": "orange",
         "alternatives": ""
       },
@@ -3148,7 +3148,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Orange",
-        "sentence": "Das ist meine Orange.",
+        "sentence": "Ich schäle die Orange.",
         "meaning": "orange",
         "alternatives": ""
       }
@@ -3167,7 +3167,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a broccoli",
-        "sentence": "This is my broccoli.",
+        "sentence": "Broccoli is good for you.",
         "meaning": "西兰花",
         "alternatives": ""
       },
@@ -3178,8 +3178,8 @@
         "measureWordPinyin": "kē",
         "phrase": "一棵西兰花",
         "phrasePinyin": "yì kē xīlánhuā",
-        "sentence": "这是我的西兰花。",
-        "sentencePinyin": "Zhè shì wǒ de xīlánhuā.",
+        "sentence": "西兰花很健康。",
+        "sentencePinyin": "Xīlánhuā hěn jiànkāng.",
         "meaning": "broccoli"
       },
       "es": {
@@ -3189,7 +3189,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un brócoli",
-        "sentence": "Este es mi brócoli.",
+        "sentence": "El brócoli es sano.",
         "meaning": "broccoli",
         "alternatives": ""
       },
@@ -3200,7 +3200,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un brocoli",
-        "sentence": "C'est mon brocoli.",
+        "sentence": "Le brocoli est bon pour la santé.",
         "meaning": "broccoli",
         "alternatives": ""
       },
@@ -3211,7 +3211,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Brokkoli",
-        "sentence": "Das ist mein Brokkoli.",
+        "sentence": "Brokkoli ist gesund.",
         "meaning": "broccoli",
         "alternatives": ""
       }
@@ -3230,7 +3230,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a carrot",
-        "sentence": "This is my carrot.",
+        "sentence": "The rabbit eats a carrot.",
         "meaning": "胡萝卜",
         "alternatives": ""
       },
@@ -3241,8 +3241,8 @@
         "measureWordPinyin": "gēn",
         "phrase": "一根胡萝卜",
         "phrasePinyin": "yì gēn húluóbo",
-        "sentence": "这是我的胡萝卜。",
-        "sentencePinyin": "Zhè shì wǒ de húluóbo.",
+        "sentence": "兔子在吃胡萝卜。",
+        "sentencePinyin": "Tùzi zài chī húluóbo.",
         "meaning": "carrot"
       },
       "es": {
@@ -3252,7 +3252,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una zanahoria",
-        "sentence": "Esta es mi zanahoria.",
+        "sentence": "El conejo come una zanahoria.",
         "meaning": "carrot",
         "alternatives": ""
       },
@@ -3263,7 +3263,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une carotte",
-        "sentence": "C'est ma carotte.",
+        "sentence": "Le lapin mange une carotte.",
         "meaning": "carrot",
         "alternatives": ""
       },
@@ -3274,7 +3274,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Karotte",
-        "sentence": "Das ist meine Karotte.",
+        "sentence": "Der Hase frisst eine Karotte.",
         "meaning": "carrot",
         "alternatives": ""
       }
@@ -3293,7 +3293,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a hot dog",
-        "sentence": "This is my hot dog.",
+        "sentence": "A hot dog, please.",
         "meaning": "热狗",
         "alternatives": ""
       },
@@ -3304,8 +3304,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个热狗",
         "phrasePinyin": "yí gè règǒu",
-        "sentence": "这是我的热狗。",
-        "sentencePinyin": "Zhè shì wǒ de règǒu.",
+        "sentence": "请给我一个热狗。",
+        "sentencePinyin": "Qǐng gěi wǒ yí gè règǒu.",
         "meaning": "hot dog"
       },
       "es": {
@@ -3315,7 +3315,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un perrito caliente",
-        "sentence": "Este es mi perrito caliente.",
+        "sentence": "Un perrito caliente, por favor.",
         "meaning": "hot dog",
         "alternatives": "el hot dog (Latin America)"
       },
@@ -3326,7 +3326,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un hot-dog",
-        "sentence": "C'est mon hot-dog.",
+        "sentence": "Un hot-dog, s'il vous plaît.",
         "meaning": "hot dog",
         "alternatives": ""
       },
@@ -3337,7 +3337,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Hotdog",
-        "sentence": "Das ist mein Hotdog.",
+        "sentence": "Einen Hotdog, bitte.",
         "meaning": "hot dog",
         "alternatives": ""
       }
@@ -3356,7 +3356,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a pizza",
-        "sentence": "This is my pizza.",
+        "sentence": "Let's order a pizza tonight.",
         "meaning": "披萨",
         "alternatives": ""
       },
@@ -3367,8 +3367,8 @@
         "measureWordPinyin": "kuài",
         "phrase": "一块披萨",
         "phrasePinyin": "yí kuài pīsà",
-        "sentence": "这是我的披萨。",
-        "sentencePinyin": "Zhè shì wǒ de pīsà.",
+        "sentence": "今晚我们点披萨吧。",
+        "sentencePinyin": "Jīnwǎn wǒmen diǎn pīsà ba.",
         "meaning": "pizza"
       },
       "es": {
@@ -3378,7 +3378,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una pizza",
-        "sentence": "Esta es mi pizza.",
+        "sentence": "Pidamos una pizza esta noche.",
         "meaning": "pizza",
         "alternatives": ""
       },
@@ -3389,7 +3389,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une pizza",
-        "sentence": "C'est ma pizza.",
+        "sentence": "Commandons une pizza ce soir.",
         "meaning": "pizza",
         "alternatives": ""
       },
@@ -3400,7 +3400,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Pizza",
-        "sentence": "Das ist meine Pizza.",
+        "sentence": "Bestellen wir heute eine Pizza.",
         "meaning": "pizza",
         "alternatives": ""
       }
@@ -3419,7 +3419,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a donut",
-        "sentence": "This is my donut.",
+        "sentence": "This donut is very sweet.",
         "meaning": "甜甜圈",
         "alternatives": ""
       },
@@ -3430,8 +3430,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个甜甜圈",
         "phrasePinyin": "yí gè tiántiánquān",
-        "sentence": "这是我的甜甜圈。",
-        "sentencePinyin": "Zhè shì wǒ de tiántiánquān.",
+        "sentence": "这个甜甜圈很甜。",
+        "sentencePinyin": "Zhège tiántiánquān hěn tián.",
         "meaning": "donut"
       },
       "es": {
@@ -3441,7 +3441,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un dónut",
-        "sentence": "Este es mi dónut.",
+        "sentence": "Este dónut es muy dulce.",
         "meaning": "donut",
         "alternatives": "la dona (Latin America)"
       },
@@ -3452,7 +3452,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un beignet",
-        "sentence": "C'est mon beignet.",
+        "sentence": "Ce beignet est très sucré.",
         "meaning": "donut",
         "alternatives": ""
       },
@@ -3463,7 +3463,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Donut",
-        "sentence": "Das ist mein Donut.",
+        "sentence": "Dieser Donut ist sehr süß.",
         "meaning": "donut",
         "alternatives": ""
       }
@@ -3482,7 +3482,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a cake",
-        "sentence": "This is my cake.",
+        "sentence": "I baked a cake.",
         "meaning": "蛋糕",
         "alternatives": ""
       },
@@ -3493,8 +3493,8 @@
         "measureWordPinyin": "kuài",
         "phrase": "一块蛋糕",
         "phrasePinyin": "yí kuài dàngāo",
-        "sentence": "这是我的蛋糕。",
-        "sentencePinyin": "Zhè shì wǒ de dàngāo.",
+        "sentence": "我烤了一个蛋糕。",
+        "sentencePinyin": "Wǒ kǎo le yí gè dàngāo.",
         "meaning": "cake"
       },
       "es": {
@@ -3504,7 +3504,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un pastel",
-        "sentence": "Este es mi pastel.",
+        "sentence": "Hice un pastel.",
         "meaning": "cake",
         "alternatives": ""
       },
@@ -3515,7 +3515,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un gâteau",
-        "sentence": "C'est mon gâteau.",
+        "sentence": "J'ai fait un gâteau.",
         "meaning": "cake",
         "alternatives": ""
       },
@@ -3526,7 +3526,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Kuchen",
-        "sentence": "Das ist mein Kuchen.",
+        "sentence": "Ich habe einen Kuchen gebacken.",
         "meaning": "cake",
         "alternatives": ""
       }
@@ -3545,7 +3545,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a chair",
-        "sentence": "This is my chair.",
+        "sentence": "Please sit on the chair.",
         "meaning": "椅子",
         "alternatives": ""
       },
@@ -3556,8 +3556,8 @@
         "measureWordPinyin": "bǎ",
         "phrase": "一把椅子",
         "phrasePinyin": "yì bǎ yǐzi",
-        "sentence": "这是我的椅子。",
-        "sentencePinyin": "Zhè shì wǒ de yǐzi.",
+        "sentence": "请坐在椅子上。",
+        "sentencePinyin": "Qǐng zuò zài yǐzi shàng.",
         "meaning": "chair"
       },
       "es": {
@@ -3567,7 +3567,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una silla",
-        "sentence": "Esta es mi silla.",
+        "sentence": "Siéntate en la silla, por favor.",
         "meaning": "chair",
         "alternatives": ""
       },
@@ -3578,7 +3578,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une chaise",
-        "sentence": "C'est ma chaise.",
+        "sentence": "Assieds-toi sur la chaise.",
         "meaning": "chair",
         "alternatives": ""
       },
@@ -3589,7 +3589,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Stuhl",
-        "sentence": "Das ist mein Stuhl.",
+        "sentence": "Setz dich auf den Stuhl.",
         "meaning": "chair",
         "alternatives": ""
       }
@@ -3608,7 +3608,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a couch",
-        "sentence": "This is my couch.",
+        "sentence": "I relax on the couch.",
         "meaning": "沙发",
         "alternatives": ""
       },
@@ -3619,8 +3619,8 @@
         "measureWordPinyin": "zhāng",
         "phrase": "一张沙发",
         "phrasePinyin": "yì zhāng shāfā",
-        "sentence": "这是我的沙发。",
-        "sentencePinyin": "Zhè shì wǒ de shāfā.",
+        "sentence": "我在沙发上休息。",
+        "sentencePinyin": "Wǒ zài shāfā shàng xiūxi.",
         "meaning": "couch"
       },
       "es": {
@@ -3630,7 +3630,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un sofá",
-        "sentence": "Este es mi sofá.",
+        "sentence": "Descanso en el sofá.",
         "meaning": "couch",
         "alternatives": ""
       },
@@ -3641,7 +3641,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un canapé",
-        "sentence": "C'est mon canapé.",
+        "sentence": "Je me repose sur le canapé.",
         "meaning": "couch",
         "alternatives": ""
       },
@@ -3652,7 +3652,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Sofa",
-        "sentence": "Das ist mein Sofa.",
+        "sentence": "Ich entspanne mich auf dem Sofa.",
         "meaning": "couch",
         "alternatives": ""
       }
@@ -3671,7 +3671,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a plant",
-        "sentence": "This is my plant.",
+        "sentence": "Water the plant every week.",
         "meaning": "盆栽",
         "alternatives": ""
       },
@@ -3682,8 +3682,8 @@
         "measureWordPinyin": "pén",
         "phrase": "一盆盆栽",
         "phrasePinyin": "yì pén pénzāi",
-        "sentence": "这是我的盆栽。",
-        "sentencePinyin": "Zhè shì wǒ de pénzāi.",
+        "sentence": "每周给盆栽浇水。",
+        "sentencePinyin": "Měi zhōu gěi pénzāi jiāo shuǐ.",
         "meaning": "plant"
       },
       "es": {
@@ -3693,7 +3693,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una planta",
-        "sentence": "Esta es mi planta.",
+        "sentence": "Riega la planta cada semana.",
         "meaning": "plant",
         "alternatives": ""
       },
@@ -3704,7 +3704,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une plante en pot",
-        "sentence": "C'est ma plante en pot.",
+        "sentence": "Arrose la plante en pot.",
         "meaning": "plant",
         "alternatives": ""
       },
@@ -3715,7 +3715,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Topfpflanze",
-        "sentence": "Das ist meine Topfpflanze.",
+        "sentence": "Gieß die Topfpflanze jede Woche.",
         "meaning": "plant",
         "alternatives": ""
       }
@@ -3734,7 +3734,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a bed",
-        "sentence": "This is my bed.",
+        "sentence": "My bed is very comfortable.",
         "meaning": "床",
         "alternatives": ""
       },
@@ -3745,8 +3745,8 @@
         "measureWordPinyin": "zhāng",
         "phrase": "一张床",
         "phrasePinyin": "yì zhāng chuáng",
-        "sentence": "这是我的床。",
-        "sentencePinyin": "Zhè shì wǒ de chuáng.",
+        "sentence": "我的床很舒服。",
+        "sentencePinyin": "Wǒ de chuáng hěn shūfu.",
         "meaning": "bed"
       },
       "es": {
@@ -3756,7 +3756,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una cama",
-        "sentence": "Esta es mi cama.",
+        "sentence": "Mi cama es muy cómoda.",
         "meaning": "bed",
         "alternatives": ""
       },
@@ -3767,7 +3767,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un lit",
-        "sentence": "C'est mon lit.",
+        "sentence": "Mon lit est très confortable.",
         "meaning": "bed",
         "alternatives": ""
       },
@@ -3778,7 +3778,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Bett",
-        "sentence": "Das ist mein Bett.",
+        "sentence": "Mein Bett ist sehr bequem.",
         "meaning": "bed",
         "alternatives": ""
       }
@@ -3797,7 +3797,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a table",
-        "sentence": "This is my table.",
+        "sentence": "Dinner is on the table.",
         "meaning": "桌子",
         "alternatives": ""
       },
@@ -3808,8 +3808,8 @@
         "measureWordPinyin": "zhāng",
         "phrase": "一张桌子",
         "phrasePinyin": "yì zhāng zhuōzi",
-        "sentence": "这是我的桌子。",
-        "sentencePinyin": "Zhè shì wǒ de zhuōzi.",
+        "sentence": "饭菜在桌子上。",
+        "sentencePinyin": "Fàncài zài zhuōzi shàng.",
         "meaning": "table"
       },
       "es": {
@@ -3819,7 +3819,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una mesa",
-        "sentence": "Esta es mi mesa.",
+        "sentence": "La cena está en la mesa.",
         "meaning": "table",
         "alternatives": ""
       },
@@ -3830,7 +3830,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une table",
-        "sentence": "C'est ma table.",
+        "sentence": "Le dîner est sur la table.",
         "meaning": "table",
         "alternatives": ""
       },
@@ -3841,7 +3841,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Tisch",
-        "sentence": "Das ist mein Tisch.",
+        "sentence": "Das Essen steht auf dem Tisch.",
         "meaning": "table",
         "alternatives": ""
       }
@@ -3860,7 +3860,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a toilet",
-        "sentence": "This is my toilet.",
+        "sentence": "Where is the toilet?",
         "meaning": "马桶",
         "alternatives": ""
       },
@@ -3871,8 +3871,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个马桶",
         "phrasePinyin": "yí gè mǎtǒng",
-        "sentence": "这是我的马桶。",
-        "sentencePinyin": "Zhè shì wǒ de mǎtǒng.",
+        "sentence": "马桶在卫生间里。",
+        "sentencePinyin": "Mǎtǒng zài wèishēngjiān lǐ.",
         "meaning": "toilet"
       },
       "es": {
@@ -3882,7 +3882,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un inodoro",
-        "sentence": "Este es mi inodoro.",
+        "sentence": "¿Dónde está el inodoro?",
         "meaning": "toilet",
         "alternatives": ""
       },
@@ -3893,7 +3893,7 @@
         "gender": "f",
         "plural": true,
         "phrase": "des toilettes",
-        "sentence": "Ce sont mes toilettes.",
+        "sentence": "Où sont les toilettes ?",
         "meaning": "toilet",
         "alternatives": ""
       },
@@ -3904,7 +3904,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Toilette",
-        "sentence": "Das ist meine Toilette.",
+        "sentence": "Wo ist die Toilette?",
         "meaning": "toilet",
         "alternatives": ""
       }
@@ -3923,7 +3923,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a TV",
-        "sentence": "This is my TV.",
+        "sentence": "The TV is on.",
         "meaning": "电视",
         "alternatives": ""
       },
@@ -3934,8 +3934,8 @@
         "measureWordPinyin": "tái",
         "phrase": "一台电视",
         "phrasePinyin": "yì tái diànshì",
-        "sentence": "这是我的电视。",
-        "sentencePinyin": "Zhè shì wǒ de diànshì.",
+        "sentence": "电视开着。",
+        "sentencePinyin": "Diànshì kāizhe.",
         "meaning": "TV"
       },
       "es": {
@@ -3945,7 +3945,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una televisión",
-        "sentence": "Esta es mi televisión.",
+        "sentence": "La televisión está encendida.",
         "meaning": "TV",
         "alternatives": ""
       },
@@ -3956,7 +3956,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une télévision",
-        "sentence": "C'est ma télévision.",
+        "sentence": "La télévision est allumée.",
         "meaning": "TV",
         "alternatives": ""
       },
@@ -3967,7 +3967,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Fernseher",
-        "sentence": "Das ist mein Fernseher.",
+        "sentence": "Der Fernseher ist an.",
         "meaning": "TV",
         "alternatives": ""
       }
@@ -3986,7 +3986,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a laptop",
-        "sentence": "This is my laptop.",
+        "sentence": "I work on my laptop.",
         "meaning": "笔记本电脑",
         "alternatives": ""
       },
@@ -3997,8 +3997,8 @@
         "measureWordPinyin": "tái",
         "phrase": "一台笔记本电脑",
         "phrasePinyin": "yì tái bǐjìběn diànnǎo",
-        "sentence": "这是我的笔记本电脑。",
-        "sentencePinyin": "Zhè shì wǒ de bǐjìběn diànnǎo.",
+        "sentence": "我用笔记本电脑工作。",
+        "sentencePinyin": "Wǒ yòng bǐjìběn diànnǎo gōngzuò.",
         "meaning": "laptop"
       },
       "es": {
@@ -4008,7 +4008,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un portátil",
-        "sentence": "Este es mi portátil.",
+        "sentence": "Trabajo con mi portátil.",
         "meaning": "laptop",
         "alternatives": "la laptop (Latin America)"
       },
@@ -4019,7 +4019,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un ordinateur portable",
-        "sentence": "C'est mon ordinateur portable.",
+        "sentence": "J'utilise mon ordinateur portable.",
         "meaning": "laptop",
         "alternatives": ""
       },
@@ -4030,7 +4030,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Laptop",
-        "sentence": "Das ist mein Laptop.",
+        "sentence": "Ich arbeite am Laptop.",
         "meaning": "laptop",
         "alternatives": ""
       }
@@ -4049,7 +4049,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a mouse",
-        "sentence": "This is my mouse.",
+        "sentence": "Click with the mouse.",
         "meaning": "鼠标",
         "alternatives": ""
       },
@@ -4060,8 +4060,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个鼠标",
         "phrasePinyin": "yí gè shǔbiāo",
-        "sentence": "这是我的鼠标。",
-        "sentencePinyin": "Zhè shì wǒ de shǔbiāo.",
+        "sentence": "用鼠标点击。",
+        "sentencePinyin": "Yòng shǔbiāo diǎnjī.",
         "meaning": "mouse"
       },
       "es": {
@@ -4071,7 +4071,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un ratón",
-        "sentence": "Este es mi ratón.",
+        "sentence": "Haz clic con el ratón.",
         "meaning": "mouse",
         "alternatives": "el mouse (Latin America)"
       },
@@ -4082,7 +4082,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une souris",
-        "sentence": "C'est ma souris.",
+        "sentence": "Clique avec la souris.",
         "meaning": "mouse",
         "alternatives": ""
       },
@@ -4093,7 +4093,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Maus",
-        "sentence": "Das ist meine Maus.",
+        "sentence": "Klick mit der Maus.",
         "meaning": "mouse",
         "alternatives": ""
       }
@@ -4112,7 +4112,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a remote",
-        "sentence": "This is my remote.",
+        "sentence": "Where is the remote?",
         "meaning": "遥控器",
         "alternatives": ""
       },
@@ -4123,8 +4123,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个遥控器",
         "phrasePinyin": "yí gè yáokòngqì",
-        "sentence": "这是我的遥控器。",
-        "sentencePinyin": "Zhè shì wǒ de yáokòngqì.",
+        "sentence": "遥控器在哪儿？",
+        "sentencePinyin": "Yáokòngqì zài nǎr?",
         "meaning": "remote"
       },
       "es": {
@@ -4134,7 +4134,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un mando a distancia",
-        "sentence": "Este es mi mando a distancia.",
+        "sentence": "¿Dónde está el mando a distancia?",
         "meaning": "remote",
         "alternatives": "el control remoto (Latin America)"
       },
@@ -4145,7 +4145,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une télécommande",
-        "sentence": "C'est ma télécommande.",
+        "sentence": "Où est la télécommande ?",
         "meaning": "remote",
         "alternatives": ""
       },
@@ -4156,7 +4156,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Fernbedienung",
-        "sentence": "Das ist meine Fernbedienung.",
+        "sentence": "Wo ist die Fernbedienung?",
         "meaning": "remote",
         "alternatives": ""
       }
@@ -4175,7 +4175,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a keyboard",
-        "sentence": "This is my keyboard.",
+        "sentence": "I type on the keyboard.",
         "meaning": "键盘",
         "alternatives": ""
       },
@@ -4186,8 +4186,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个键盘",
         "phrasePinyin": "yí gè jiànpán",
-        "sentence": "这是我的键盘。",
-        "sentencePinyin": "Zhè shì wǒ de jiànpán.",
+        "sentence": "我在键盘上打字。",
+        "sentencePinyin": "Wǒ zài jiànpán shàng dǎzì.",
         "meaning": "keyboard"
       },
       "es": {
@@ -4197,7 +4197,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un teclado",
-        "sentence": "Este es mi teclado.",
+        "sentence": "Escribo en el teclado.",
         "meaning": "keyboard",
         "alternatives": ""
       },
@@ -4208,7 +4208,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un clavier",
-        "sentence": "C'est mon clavier.",
+        "sentence": "Je tape sur le clavier.",
         "meaning": "keyboard",
         "alternatives": ""
       },
@@ -4219,7 +4219,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Tastatur",
-        "sentence": "Das ist meine Tastatur.",
+        "sentence": "Ich tippe auf der Tastatur.",
         "meaning": "keyboard",
         "alternatives": ""
       }
@@ -4238,7 +4238,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a phone",
-        "sentence": "This is my phone.",
+        "sentence": "My phone is ringing!",
         "meaning": "手机",
         "alternatives": ""
       },
@@ -4249,8 +4249,8 @@
         "measureWordPinyin": "bù",
         "phrase": "一部手机",
         "phrasePinyin": "yí bù shǒujī",
-        "sentence": "这是我的手机。",
-        "sentencePinyin": "Zhè shì wǒ de shǒujī.",
+        "sentence": "我的手机响了！",
+        "sentencePinyin": "Wǒ de shǒujī xiǎng le!",
         "meaning": "phone"
       },
       "es": {
@@ -4260,7 +4260,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un móvil",
-        "sentence": "Este es mi móvil.",
+        "sentence": "¡Mi móvil está sonando!",
         "meaning": "phone",
         "alternatives": "el celular (Latin America)"
       },
@@ -4271,7 +4271,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un téléphone portable",
-        "sentence": "C'est mon téléphone portable.",
+        "sentence": "Mon téléphone portable sonne !",
         "meaning": "phone",
         "alternatives": ""
       },
@@ -4282,7 +4282,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Handy",
-        "sentence": "Das ist mein Handy.",
+        "sentence": "Mein Handy klingelt!",
         "meaning": "phone",
         "alternatives": ""
       }
@@ -4301,7 +4301,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a microwave",
-        "sentence": "This is my microwave.",
+        "sentence": "Heat the food in the microwave.",
         "meaning": "微波炉",
         "alternatives": ""
       },
@@ -4312,8 +4312,8 @@
         "measureWordPinyin": "tái",
         "phrase": "一台微波炉",
         "phrasePinyin": "yì tái wēibōlú",
-        "sentence": "这是我的微波炉。",
-        "sentencePinyin": "Zhè shì wǒ de wēibōlú.",
+        "sentence": "用微波炉热饭。",
+        "sentencePinyin": "Yòng wēibōlú rè fàn.",
         "meaning": "microwave"
       },
       "es": {
@@ -4323,7 +4323,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un microondas",
-        "sentence": "Este es mi microondas.",
+        "sentence": "Calienta la comida en el microondas.",
         "meaning": "microwave",
         "alternatives": ""
       },
@@ -4334,7 +4334,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un micro-ondes",
-        "sentence": "C'est mon micro-ondes.",
+        "sentence": "Réchauffe le repas au micro-ondes.",
         "meaning": "microwave",
         "alternatives": ""
       },
@@ -4345,7 +4345,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Mikrowelle",
-        "sentence": "Das ist meine Mikrowelle.",
+        "sentence": "Wärme das Essen in der Mikrowelle.",
         "meaning": "microwave",
         "alternatives": ""
       }
@@ -4364,7 +4364,7 @@
         "gender": "",
         "plural": false,
         "phrase": "an oven",
-        "sentence": "This is my oven.",
+        "sentence": "The pizza is in the oven.",
         "meaning": "烤箱",
         "alternatives": ""
       },
@@ -4375,8 +4375,8 @@
         "measureWordPinyin": "tái",
         "phrase": "一台烤箱",
         "phrasePinyin": "yì tái kǎoxiāng",
-        "sentence": "这是我的烤箱。",
-        "sentencePinyin": "Zhè shì wǒ de kǎoxiāng.",
+        "sentence": "披萨在烤箱里。",
+        "sentencePinyin": "Pīsà zài kǎoxiāng lǐ.",
         "meaning": "oven"
       },
       "es": {
@@ -4386,7 +4386,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un horno",
-        "sentence": "Este es mi horno.",
+        "sentence": "La pizza está en el horno.",
         "meaning": "oven",
         "alternatives": ""
       },
@@ -4397,7 +4397,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un four",
-        "sentence": "C'est mon four.",
+        "sentence": "La pizza est au four.",
         "meaning": "oven",
         "alternatives": ""
       },
@@ -4408,7 +4408,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Backofen",
-        "sentence": "Das ist mein Backofen.",
+        "sentence": "Die Pizza ist im Backofen.",
         "meaning": "oven",
         "alternatives": ""
       }
@@ -4427,7 +4427,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a toaster",
-        "sentence": "This is my toaster.",
+        "sentence": "I put bread in the toaster.",
         "meaning": "烤面包机",
         "alternatives": ""
       },
@@ -4438,8 +4438,8 @@
         "measureWordPinyin": "tái",
         "phrase": "一台烤面包机",
         "phrasePinyin": "yì tái kǎo miànbāo jī",
-        "sentence": "这是我的烤面包机。",
-        "sentencePinyin": "Zhè shì wǒ de kǎo miànbāo jī.",
+        "sentence": "我把面包放进烤面包机。",
+        "sentencePinyin": "Wǒ bǎ miànbāo fàng jìn kǎo miànbāo jī.",
         "meaning": "toaster"
       },
       "es": {
@@ -4449,7 +4449,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una tostadora",
-        "sentence": "Esta es mi tostadora.",
+        "sentence": "Pongo pan en la tostadora.",
         "meaning": "toaster",
         "alternatives": ""
       },
@@ -4460,7 +4460,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un grille-pain",
-        "sentence": "C'est mon grille-pain.",
+        "sentence": "Je mets du pain dans le grille-pain.",
         "meaning": "toaster",
         "alternatives": ""
       },
@@ -4471,7 +4471,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Toaster",
-        "sentence": "Das ist mein Toaster.",
+        "sentence": "Ich stecke Brot in den Toaster.",
         "meaning": "toaster",
         "alternatives": ""
       }
@@ -4490,7 +4490,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a sink",
-        "sentence": "This is my sink.",
+        "sentence": "Wash the dishes in the sink.",
         "meaning": "水槽",
         "alternatives": ""
       },
@@ -4501,8 +4501,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个水槽",
         "phrasePinyin": "yí gè shuǐcáo",
-        "sentence": "这是我的水槽。",
-        "sentencePinyin": "Zhè shì wǒ de shuǐcáo.",
+        "sentence": "在水槽里洗碗。",
+        "sentencePinyin": "Zài shuǐcáo lǐ xǐ wǎn.",
         "meaning": "sink"
       },
       "es": {
@@ -4512,7 +4512,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un fregadero",
-        "sentence": "Este es mi fregadero.",
+        "sentence": "Lava los platos en el fregadero.",
         "meaning": "sink",
         "alternatives": "el lavabo (bathroom sink)"
       },
@@ -4523,7 +4523,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un évier",
-        "sentence": "C'est mon évier.",
+        "sentence": "Lave la vaisselle dans l'évier.",
         "meaning": "sink",
         "alternatives": ""
       },
@@ -4534,7 +4534,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Spüle",
-        "sentence": "Das ist meine Spüle.",
+        "sentence": "Spül das Geschirr in der Spüle.",
         "meaning": "sink",
         "alternatives": ""
       }
@@ -4553,7 +4553,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a refrigerator",
-        "sentence": "This is my refrigerator.",
+        "sentence": "The milk is in the refrigerator.",
         "meaning": "冰箱",
         "alternatives": ""
       },
@@ -4564,8 +4564,8 @@
         "measureWordPinyin": "tái",
         "phrase": "一台冰箱",
         "phrasePinyin": "yì tái bīngxiāng",
-        "sentence": "这是我的冰箱。",
-        "sentencePinyin": "Zhè shì wǒ de bīngxiāng.",
+        "sentence": "牛奶在冰箱里。",
+        "sentencePinyin": "Niúnǎi zài bīngxiāng lǐ.",
         "meaning": "refrigerator"
       },
       "es": {
@@ -4575,7 +4575,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una nevera",
-        "sentence": "Esta es mi nevera.",
+        "sentence": "La leche está en la nevera.",
         "meaning": "refrigerator",
         "alternatives": "el frigorífico"
       },
@@ -4586,7 +4586,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un réfrigérateur",
-        "sentence": "C'est mon réfrigérateur.",
+        "sentence": "Le lait est dans le réfrigérateur.",
         "meaning": "refrigerator",
         "alternatives": ""
       },
@@ -4597,7 +4597,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Kühlschrank",
-        "sentence": "Das ist mein Kühlschrank.",
+        "sentence": "Die Milch ist im Kühlschrank.",
         "meaning": "refrigerator",
         "alternatives": ""
       }
@@ -4616,7 +4616,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a book",
-        "sentence": "This is my book.",
+        "sentence": "I'm reading a good book.",
         "meaning": "书",
         "alternatives": ""
       },
@@ -4627,8 +4627,8 @@
         "measureWordPinyin": "běn",
         "phrase": "一本书",
         "phrasePinyin": "yì běn shū",
-        "sentence": "这是我的书。",
-        "sentencePinyin": "Zhè shì wǒ de shū.",
+        "sentence": "我在看一本好书。",
+        "sentencePinyin": "Wǒ zài kàn yì běn hǎo shū.",
         "meaning": "book"
       },
       "es": {
@@ -4638,7 +4638,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un libro",
-        "sentence": "Este es mi libro.",
+        "sentence": "Estoy leyendo un buen libro.",
         "meaning": "book",
         "alternatives": ""
       },
@@ -4649,7 +4649,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un livre",
-        "sentence": "C'est mon livre.",
+        "sentence": "Je lis un bon livre.",
         "meaning": "book",
         "alternatives": ""
       },
@@ -4660,7 +4660,7 @@
         "gender": "n",
         "plural": false,
         "phrase": "ein Buch",
-        "sentence": "Das ist mein Buch.",
+        "sentence": "Ich lese ein gutes Buch.",
         "meaning": "book",
         "alternatives": ""
       }
@@ -4679,7 +4679,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a clock",
-        "sentence": "This is my clock.",
+        "sentence": "Look at the clock. It's late.",
         "meaning": "钟",
         "alternatives": ""
       },
@@ -4690,8 +4690,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个钟",
         "phrasePinyin": "yí gè zhōng",
-        "sentence": "这是我的钟。",
-        "sentencePinyin": "Zhè shì wǒ de zhōng.",
+        "sentence": "看看钟，已经很晚了。",
+        "sentencePinyin": "Kànkan zhōng, yǐjīng hěn wǎn le.",
         "meaning": "clock"
       },
       "es": {
@@ -4701,7 +4701,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un reloj",
-        "sentence": "Este es mi reloj.",
+        "sentence": "Mira el reloj. Es tarde.",
         "meaning": "clock",
         "alternatives": ""
       },
@@ -4712,7 +4712,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une horloge",
-        "sentence": "C'est mon horloge.",
+        "sentence": "Regarde l'horloge. Il est tard.",
         "meaning": "clock",
         "alternatives": ""
       },
@@ -4723,7 +4723,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Uhr",
-        "sentence": "Das ist meine Uhr.",
+        "sentence": "Schau auf die Uhr. Es ist spät.",
         "meaning": "clock",
         "alternatives": ""
       }
@@ -4742,7 +4742,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a vase",
-        "sentence": "This is my vase.",
+        "sentence": "Put the flowers in the vase.",
         "meaning": "花瓶",
         "alternatives": ""
       },
@@ -4753,8 +4753,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个花瓶",
         "phrasePinyin": "yí gè huāpíng",
-        "sentence": "这是我的花瓶。",
-        "sentencePinyin": "Zhè shì wǒ de huāpíng.",
+        "sentence": "把花放进花瓶里。",
+        "sentencePinyin": "Bǎ huā fàng jìn huāpíng lǐ.",
         "meaning": "vase"
       },
       "es": {
@@ -4764,7 +4764,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un jarrón",
-        "sentence": "Este es mi jarrón.",
+        "sentence": "Pon las flores en el jarrón.",
         "meaning": "vase",
         "alternatives": ""
       },
@@ -4775,7 +4775,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un vase",
-        "sentence": "C'est mon vase.",
+        "sentence": "Mets les fleurs dans le vase.",
         "meaning": "vase",
         "alternatives": ""
       },
@@ -4786,7 +4786,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Vase",
-        "sentence": "Das ist meine Vase.",
+        "sentence": "Stell die Blumen in die Vase.",
         "meaning": "vase",
         "alternatives": ""
       }
@@ -4805,7 +4805,7 @@
         "gender": "",
         "plural": true,
         "phrase": "a pair of scissors",
-        "sentence": "These are my scissors.",
+        "sentence": "Cut the paper with scissors.",
         "meaning": "剪刀",
         "alternatives": ""
       },
@@ -4816,8 +4816,8 @@
         "measureWordPinyin": "bǎ",
         "phrase": "一把剪刀",
         "phrasePinyin": "yì bǎ jiǎndāo",
-        "sentence": "这是我的剪刀。",
-        "sentencePinyin": "Zhè shì wǒ de jiǎndāo.",
+        "sentence": "用剪刀剪纸。",
+        "sentencePinyin": "Yòng jiǎndāo jiǎn zhǐ.",
         "meaning": "scissors"
       },
       "es": {
@@ -4827,7 +4827,7 @@
         "gender": "f",
         "plural": true,
         "phrase": "unas tijeras",
-        "sentence": "Estas son mis tijeras.",
+        "sentence": "Corta el papel con las tijeras.",
         "meaning": "scissors",
         "alternatives": ""
       },
@@ -4838,7 +4838,7 @@
         "gender": "m",
         "plural": true,
         "phrase": "des ciseaux",
-        "sentence": "Ce sont mes ciseaux.",
+        "sentence": "Coupe le papier avec les ciseaux.",
         "meaning": "scissors",
         "alternatives": ""
       },
@@ -4849,7 +4849,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Schere",
-        "sentence": "Das ist meine Schere.",
+        "sentence": "Schneid das Papier mit der Schere.",
         "meaning": "scissors",
         "alternatives": ""
       }
@@ -4868,7 +4868,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a teddy bear",
-        "sentence": "This is my teddy bear.",
+        "sentence": "The baby hugs the teddy bear.",
         "meaning": "泰迪熊",
         "alternatives": ""
       },
@@ -4879,8 +4879,8 @@
         "measureWordPinyin": "zhī",
         "phrase": "一只泰迪熊",
         "phrasePinyin": "yì zhī tàidí xióng",
-        "sentence": "这是我的泰迪熊。",
-        "sentencePinyin": "Zhè shì wǒ de tàidí xióng.",
+        "sentence": "宝宝抱着泰迪熊。",
+        "sentencePinyin": "Bǎobao bàozhe tàidí xióng.",
         "meaning": "teddy bear"
       },
       "es": {
@@ -4890,7 +4890,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un osito de peluche",
-        "sentence": "Este es mi osito de peluche.",
+        "sentence": "El bebé abraza el osito de peluche.",
         "meaning": "teddy bear",
         "alternatives": ""
       },
@@ -4901,7 +4901,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un ours en peluche",
-        "sentence": "C'est mon ours en peluche.",
+        "sentence": "Le bébé serre l'ours en peluche.",
         "meaning": "teddy bear",
         "alternatives": ""
       },
@@ -4912,7 +4912,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Teddybär",
-        "sentence": "Das ist mein Teddybär.",
+        "sentence": "Das Baby umarmt den Teddybären.",
         "meaning": "teddy bear",
         "alternatives": ""
       }
@@ -4931,7 +4931,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a hair dryer",
-        "sentence": "This is my hair dryer.",
+        "sentence": "The hair dryer is hot.",
         "meaning": "吹风机",
         "alternatives": ""
       },
@@ -4942,8 +4942,8 @@
         "measureWordPinyin": "gè",
         "phrase": "一个吹风机",
         "phrasePinyin": "yí gè chuīfēngjī",
-        "sentence": "这是我的吹风机。",
-        "sentencePinyin": "Zhè shì wǒ de chuīfēngjī.",
+        "sentence": "吹风机很热。",
+        "sentencePinyin": "Chuīfēngjī hěn rè.",
         "meaning": "hair dryer"
       },
       "es": {
@@ -4953,7 +4953,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un secador de pelo",
-        "sentence": "Este es mi secador de pelo.",
+        "sentence": "El secador de pelo está caliente.",
         "meaning": "hair dryer",
         "alternatives": ""
       },
@@ -4964,7 +4964,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un sèche-cheveux",
-        "sentence": "C'est mon sèche-cheveux.",
+        "sentence": "Le sèche-cheveux est chaud.",
         "meaning": "hair dryer",
         "alternatives": ""
       },
@@ -4975,7 +4975,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "ein Föhn",
-        "sentence": "Das ist mein Föhn.",
+        "sentence": "Der Föhn ist heiß.",
         "meaning": "hair dryer",
         "alternatives": ""
       }
@@ -4994,7 +4994,7 @@
         "gender": "",
         "plural": false,
         "phrase": "a toothbrush",
-        "sentence": "This is my toothbrush.",
+        "sentence": "I need a new toothbrush.",
         "meaning": "牙刷",
         "alternatives": ""
       },
@@ -5005,8 +5005,8 @@
         "measureWordPinyin": "zhī",
         "phrase": "一支牙刷",
         "phrasePinyin": "yì zhī yáshuā",
-        "sentence": "这是我的牙刷。",
-        "sentencePinyin": "Zhè shì wǒ de yáshuā.",
+        "sentence": "我需要一支新牙刷。",
+        "sentencePinyin": "Wǒ xūyào yì zhī xīn yáshuā.",
         "meaning": "toothbrush"
       },
       "es": {
@@ -5016,7 +5016,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un cepillo de dientes",
-        "sentence": "Este es mi cepillo de dientes.",
+        "sentence": "Necesito un cepillo de dientes nuevo.",
         "meaning": "toothbrush",
         "alternatives": ""
       },
@@ -5027,7 +5027,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "une brosse à dents",
-        "sentence": "C'est ma brosse à dents.",
+        "sentence": "Il me faut une brosse à dents.",
         "meaning": "toothbrush",
         "alternatives": ""
       },
@@ -5038,7 +5038,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "eine Zahnbürste",
-        "sentence": "Das ist meine Zahnbürste.",
+        "sentence": "Ich brauche eine neue Zahnbürste.",
         "meaning": "toothbrush",
         "alternatives": ""
       }

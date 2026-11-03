@@ -25,6 +25,10 @@ namespace WordWorld.App
             public bool showMeaning = true;
             public string labelSize = "M";
             public float confidenceThreshold = 0.55f;
+            // Journey (DESIGN.md section 5): 0 = read labels, 1 = Find It round.
+            public int journeyStep;
+            // Total label taps when the current read step began.
+            public int journeyBaseTaps;
         }
 
         private SaveData m_data = new SaveData();
@@ -51,6 +55,10 @@ namespace WordWorld.App
         public float ConfidenceThreshold => m_data.confidenceThreshold;
         public const float MinConfidence = 0.35f;
         public const float MaxConfidence = 0.85f;
+        /// <summary>Journey step: 0 = read labels, 1 = pass a Find It round.</summary>
+        public int JourneyStep => m_data.journeyStep;
+        /// <summary>Total label taps when the read step began; taps are counted from here.</summary>
+        public int JourneyBaseTaps => m_data.journeyBaseTaps;
         /// <summary>False until a language is picked this session, so labels wait for the picker.</summary>
         public bool SessionReady { get; private set; }
 
@@ -124,6 +132,10 @@ namespace WordWorld.App
             Changed?.Invoke();
         }
 
+        public void SetJourney(int step, int baseTaps) =>
+            Apply(() => { m_data.journeyStep = step; m_data.journeyBaseTaps = baseTaps; },
+                m_data.journeyStep != step || m_data.journeyBaseTaps != baseTaps);
+
         public void SetReadingLevel(int level)
         {
             level = Mathf.Clamp(level, 1, 3);
@@ -142,6 +154,7 @@ namespace WordWorld.App
                 if (loaded == null) return;
                 if (Array.IndexOf(TargetLanguages, loaded.targetLanguage) < 0) loaded.targetLanguage = "";
                 loaded.readingLevel = Mathf.Clamp(loaded.readingLevel, 1, 3);
+                loaded.journeyStep = Mathf.Clamp(loaded.journeyStep, 0, 1);
                 if (loaded.interfaceLanguage != "zh") loaded.interfaceLanguage = "en";
                 if (loaded.labelSize != "S" && loaded.labelSize != "L") loaded.labelSize = "M";
                 loaded.confidenceThreshold = Mathf.Clamp(loaded.confidenceThreshold, MinConfidence, MaxConfidence);

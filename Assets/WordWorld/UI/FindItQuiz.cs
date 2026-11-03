@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 using ByteDance.PICO.SpatialAdapter.Component;
@@ -11,8 +12,9 @@ using WordWorld.Tracking;
 namespace WordWorld.UI
 {
     /// <summary>
-    /// Quiz window and the Find It flow (DESIGN.md sections 5.2 and 6). A round is ten prompts for
-    /// objects confirmed this session. Labels hide and only dots stay; the learner touches the real
+    /// The Find It exercise (DESIGN.md section 6). Started from Practice or the Journey with a round
+    /// length; during a round only the floating prompt is shown (word, score and timer), and the
+    /// results card appears when it ends. Prompts are for objects confirmed this session. Labels hide and only dots stay; the learner touches the real
     /// object or pinches its dot. Correct: a green ring and the word. Wrong: the dot shakes and shows
     /// its own word; the first miss costs nothing. Hint glow after 8 s, Skip after 15 s.
     /// </summary>
@@ -20,6 +22,11 @@ namespace WordWorld.UI
     public sealed class FindItQuiz : MonoBehaviour
     {
         private enum State { Idle, NotEnough, Playing, Results }
+
+        /// <summary>Raised when a round ends normally, with the score and the number of prompts asked.</summary>
+        public event Action<int, int> RoundFinished;
+        /// <summary>Raised when the learner leaves the results (or not-enough) card.</summary>
+        public event Action Closed;
 
         [SerializeField] private LearnerSettings m_settings;
         [SerializeField] private UiStrings m_strings;
@@ -29,20 +36,21 @@ namespace WordWorld.UI
         [SerializeField] private DetailCard m_detailCard;
         [SerializeField] private WordWorldTheme m_theme;
 
-        [Header("Quiz window")]
+        [Header("Results card")]
         [SerializeField] private GameObject m_window;
         [SerializeField] private SpatialAdapterNativeText m_title;
         [SerializeField] private SpatialAdapterNativeText m_body;
-        [SerializeField] private SpatialAdapterNativeText m_prompt;
-        [SerializeField] private SpatialAdapterNativeText m_timerTrack;
-        [SerializeField] private SpatialAdapterNativeText m_timerFill;
         [SerializeField] private SpatialButton m_primary;
         [SerializeField] private SpatialButton m_secondary;
-        [SerializeField] private float m_timerWidth = 0.34f;
+        [SerializeField] private Vector3 m_windowOffset = new Vector3(0f, -0.1f, 1.0f);
 
         [Header("In the room")]
         [SerializeField] private GameObject m_floatingPrompt;
         [SerializeField] private SpatialAdapterNativeText m_floatingText;
+        [SerializeField] private SpatialAdapterNativeText m_floatingStatus;
+        [SerializeField] private SpatialAdapterNativeText m_timerTrack;
+        [SerializeField] private SpatialAdapterNativeText m_timerFill;
+        [SerializeField] private float m_timerWidth = 0.3f;
         [SerializeField] private SpatialButton m_skip;
         [SerializeField] private SpatialAdapterNativeText m_ring;
         [SerializeField] private SpatialAdapterNativeText m_glow;
@@ -76,6 +84,7 @@ namespace WordWorld.UI
         private TrackedObject m_hintTrack;
 
         public GameObject Window => m_window;
+        public bool IsActive => m_state != State.Idle;
 
         private void Awake()
         {
@@ -100,30 +109,36 @@ namespace WordWorld.UI
             m_settings.Changed -= Refresh;
         }
 
-        public void Show()
+        /// <summary>Starts a round straight away (Practice or Journey).</summary>
+        public void Begin(int roundLength)
         {
-            m_window.SetActive(true);
-            Refresh();
+            m_roundLength = Mathf.Max(1, roundLength);
+            StartRound();
+        }
+
+        /// <summary>Leaves the exercise without results (the dock's Home button).</summary>
+        public void Stop()
+        {
+            if (m_state == State.Playing) EndRound(showResults: false);
+            m_state = State.Idle;
+            m_window.SetActive(false);
         }
 
         private void OnPrimary()
         {
-            switch (m_state)
-            {
-                case State.Idle:
-                case State.Results:
-                case State.NotEnough:
-                    StartRound();
-                    break;
-            }
+            if (m_state == State.Results || m_state == State.NotEnough) StartRound();
         }
 
-        // Done in every state: back to idle.
         private void OnSecondary()
         {
-            if (m_state == State.Playing) EndRound(showResults: false);
-            m_state = State.Idle;
-            Refresh();
+            Stop();
+            Closed?.Invoke();
+        }
+
+        private void ShowWindow()
+        {
+            if (!m_window.activeSelf) WindowPlacement.PlaceInFront(m_window.transform, m_windowOffset);
+            m_window.SetActive(true);
         }
 
         private void StartRound()
@@ -138,9 +153,11 @@ namespace WordWorld.UI
             if (m_objects.Count < m_minObjects || m_classes.Count < 2)
             {
                 m_state = State.NotEnough;
+                ShowWindow();
                 Refresh();
                 return;
             }
+            m_window.SetActive(false);
             m_detailCard.Close();
             m_labels.QuizMode = true;
             m_state = State.Playing;
@@ -174,7 +191,7 @@ namespace WordWorld.UI
                 EndRound(showResults: true);
                 return;
             }
-            m_targetClass = m_classes[Random.Range(0, m_classes.Count)];
+            m_targetClass = m_classes[UnityEngine.Random.Range(0, m_classes.Count)];
             m_lastClass = m_targetClass;
             m_promptIndex++;
             m_misses = 0;
@@ -231,7 +248,10 @@ namespace WordWorld.UI
             HideHint();
             m_wordBank.RecordStreak(m_bestThisRound);
             m_state = showResults ? State.Results : State.Idle;
+            if (!showResults) return;
+            ShowWindow();
             Refresh();
+            RoundFinished?.Invoke(m_score, m_promptIndex);
         }
 
         private void Update()
@@ -328,10 +348,7 @@ namespace WordWorld.UI
             m_title.Text = S("quiz.title");
             m_title.TextColor = m_theme.Ink;
             m_body.TextColor = m_theme.Ink;
-            m_prompt.TextColor = m_theme.Ink;
             bool playing = m_state == State.Playing;
-            m_prompt.gameObject.SetActive(playing);
-            m_timerTrack.gameObject.SetActive(playing);
             if (!playing) m_timerFill.gameObject.SetActive(false);
             m_shownTimer = -1f;
 
@@ -341,12 +358,7 @@ namespace WordWorld.UI
             switch (m_state)
             {
                 case State.Idle:
-                    b.Append(string.Format(S("quiz.round_length"), m_roundLength)).Append('\n')
-                        .Append(string.Format(S("quiz.best_streak"), m_wordBank.BestStreak));
-                    m_primary.Text.Text = S("quiz.start");
-                    m_primary.gameObject.SetActive(true);
-                    m_secondary.gameObject.SetActive(false);
-                    break;
+                    return;
                 case State.NotEnough:
                     b.Append(S("quiz.not_enough"));
                     m_primary.Text.Text = S("quiz.try_again");
@@ -355,16 +367,13 @@ namespace WordWorld.UI
                     m_secondary.gameObject.SetActive(true);
                     break;
                 case State.Playing:
-                    string prompt = PromptText();
-                    m_prompt.Text = prompt;
-                    m_floatingText.Text = prompt;
+                    m_floatingText.Text = PromptText();
                     m_floatingText.TextColor = m_theme.Ink;
-                    b.Append(string.Format(S("quiz.score"), m_score, m_promptIndex)).Append("     ")
+                    b.Append(string.Format(S("quiz.score"), m_score, m_promptIndex)).Append("   ")
                         .Append(string.Format(S("quiz.streak"), m_streak));
-                    m_primary.gameObject.SetActive(false);
-                    m_secondary.Text.Text = S("quiz.done");
-                    m_secondary.gameObject.SetActive(true);
-                    break;
+                    m_floatingStatus.Text = b.ToString();
+                    m_floatingStatus.TextColor = m_theme.InkMuted;
+                    return;
                 case State.Results:
                     int accuracy = Mathf.RoundToInt(100f * m_firstTry / Mathf.Max(1, m_promptIndex));
                     b.Append(string.Format(S("quiz.score"), m_score, m_promptIndex)).Append("     ")
@@ -391,8 +400,8 @@ namespace WordWorld.UI
 
         private void StyleButton(SpatialButton button, bool primary)
         {
-            button.Text.TextColor = primary ? m_theme.Card : m_theme.Ink;
-            button.Text.BackgroundColor = primary ? m_theme.Accent : m_theme.Card;
+            button.Text.TextColor = m_theme.Ink;
+            button.Text.BackgroundColor = primary ? m_theme.Primary : m_theme.Card;
         }
 
         private string S(string key) => m_strings.Get(key, m_settings.InterfaceLanguage);

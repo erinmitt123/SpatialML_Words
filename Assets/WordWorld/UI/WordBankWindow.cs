@@ -133,7 +133,7 @@ namespace WordWorld.UI
             {
                 bool selected = filter.Value == m_filter.ToString();
                 filter.Text.Text = S($"wordbank.filter.{filter.Value}");
-                filter.Text.TextColor = selected ? m_theme.Accent : m_theme.Ink;
+                filter.Text.TextColor = m_theme.Ink;
                 filter.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Card;
             }
 

@@ -117,7 +117,7 @@ namespace WordWorld.UI
             {
                 bool selected = button.Value == m_settings.TargetLanguage;
                 button.Text.Text = m_strings.Get($"lang.{button.Value}.endonym", ui);
-                button.Text.TextColor = selected ? m_theme.Accent : m_theme.Ink;
+                button.Text.TextColor = m_theme.Ink;
                 button.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Card;
             }
             PlaceInFront(m_languageWindow, m_windowOffset);
@@ -139,8 +139,8 @@ namespace WordWorld.UI
             m_introText.Text = m_strings.Get("intro.body", ui);
             m_introText.TextColor = m_theme.Ink;
             m_introButton.Text.Text = m_strings.Get("intro.got_it", ui);
-            m_introButton.Text.TextColor = m_theme.Card;
-            m_introButton.Text.BackgroundColor = m_theme.Accent;
+            m_introButton.Text.TextColor = m_theme.Ink;
+            m_introButton.Text.BackgroundColor = m_theme.Primary;
             PlaceInFront(m_introCard, m_windowOffset);
             m_introCard.SetActive(true);
             m_step = Step.Intro;
@@ -178,8 +178,8 @@ namespace WordWorld.UI
             if (m_tapMe == null || m_wordBank == null || m_wordBank.Words.Count > 0) return;
             m_tapMeTrack = track;
             m_tapMeText.Text = m_strings.Get("onboarding.tap_me", m_settings.InterfaceLanguage);
-            m_tapMeText.TextColor = m_theme.Card;
-            m_tapMeText.BackgroundColor = m_theme.Accent;
+            m_tapMeText.TextColor = m_theme.Ink;
+            m_tapMeText.BackgroundColor = m_theme.Primary;
             m_tapMe.SetActive(true);
         }
 

@@ -39,6 +39,27 @@
     { "key": "common.on", "en": "On", "zh": "开" },
     { "key": "common.off", "en": "Off", "zh": "关" },
     { "key": "common.close", "en": "×", "zh": "×" },
+    { "key": "common.back", "en": "‹ Back", "zh": "‹ 返回" },
+
+    { "key": "home.title", "en": "Word World", "zh": "单词世界" },
+    { "key": "home.subtitle", "en": "{0} · Level {1}", "zh": "{0} · 第 {1} 级" },
+    { "key": "home.journey", "en": "Journey\nLevel up step by step", "zh": "学习之旅\n一步一步升级" },
+    { "key": "home.practice", "en": "Practice\nChoose an exercise", "zh": "练习\n选择一个练习" },
+
+    { "key": "practice.title", "en": "Practice", "zh": "练习" },
+    { "key": "practice.explore", "en": "Explore\nRead the labels around you", "zh": "探索\n阅读你周围的标签" },
+    { "key": "practice.find_it", "en": "Find It\nTouch the object a word names", "zh": "找一找\n触摸单词所指的物品" },
+    { "key": "practice.word_bank", "en": "Word Bank\nReview the words you collected", "zh": "单词本\n复习你收集的单词" },
+    { "key": "practice.round", "en": "Find It round", "zh": "找一找每轮" },
+    { "key": "practice.round_n", "en": "{0} words", "zh": "{0} 个" },
+
+    { "key": "journey.title", "en": "Journey · Level {0}", "zh": "学习之旅 · 第 {0} 级" },
+    { "key": "journey.read", "en": "Tap {0} labels to read them  ({1}/{0})", "zh": "点击 {0} 个标签来阅读（{1}/{0}）" },
+    { "key": "journey.quiz", "en": "Find It: get {0} of {1} right", "zh": "找一找：{1} 题答对 {0} 题" },
+    { "key": "journey.start", "en": "Start Find It", "zh": "开始找一找" },
+    { "key": "journey.level_up", "en": "Level {0} unlocked!", "zh": "已解锁第 {0} 级！" },
+    { "key": "journey.try_again", "en": "Almost! Try another round.", "zh": "差一点！再试一轮。" },
+    { "key": "journey.complete", "en": "Journey complete! Keep practicing.", "zh": "旅程完成！继续练习吧。" },
 
     { "key": "settings.title", "en": "Settings", "zh": "设置" },
     { "key": "settings.learning", "en": "I'm learning", "zh": "我在学" },
@@ -56,7 +77,7 @@
     { "key": "status.recognizing", "en": "● Recognizing objects", "zh": "● 正在识别物品" },
     { "key": "status.paused", "en": "● Paused", "zh": "● 已暂停" },
     { "key": "status.trouble", "en": "Having trouble seeing. Try turning on a light or moving closer.", "zh": "看不太清。试试开灯或靠近一点。" },
-    { "key": "status.windows", "en": "Windows", "zh": "窗口" },
+    { "key": "dock.home", "en": "Home", "zh": "主页" },
     { "key": "status.exit", "en": "Exit", "zh": "退出" },
     { "key": "status.exit_confirm", "en": "Exit?", "zh": "确定退出？" },
 
@@ -71,9 +92,6 @@
     { "key": "wordbank.not_here", "en": "Not in this room.", "zh": "不在这个房间。" },
 
     { "key": "quiz.title", "en": "Find It", "zh": "找一找" },
-    { "key": "quiz.round_length", "en": "{0} words per round", "zh": "每轮 {0} 个单词" },
-    { "key": "quiz.best_streak", "en": "Best streak: {0}", "zh": "最佳连对：{0}" },
-    { "key": "quiz.start", "en": "Start", "zh": "开始" },
     { "key": "quiz.score", "en": "Score {0}/{1}", "zh": "得分 {0}/{1}" },
     { "key": "quiz.streak", "en": "Streak {0}", "zh": "连对 {0}" },
     { "key": "quiz.skip", "en": "Skip", "zh": "跳过" },

@@ -14,7 +14,10 @@ namespace WordWorld.Spatial
             InputDevice head = InputDevices.GetDeviceAtXRNode(XRNode.Head);
             if (head.isValid &&
                 head.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position) &&
-                head.TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion rotation))
+                head.TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion rotation) &&
+                // An untracked head reports exactly the origin; placing windows from it put the
+                // menu metres away (seen when the app started while the headset was off the head).
+                (position.sqrMagnitude > 1e-8f || rotation != Quaternion.identity))
             {
                 pose = new Pose(position, rotation);
                 return true;

@@ -39,6 +39,8 @@ namespace WordWorld.Editor
         private const string VocabularyPath = "Assets/Data/vocabulary.json";
         private const string UiStringsPath = "Assets/Data/ui_strings.json";
         private const string ThemePath = "Assets/Data/WordWorldTheme.asset";
+        // Set at the start of a build so the helpers can fill text backgrounds and soft shadows.
+        private static WordWorldTheme s_theme;
 
         [MenuItem("Word World/Rebuild Word World Scene")]
         public static void BuildScene()
@@ -57,6 +59,7 @@ namespace WordWorld.Editor
                 if (root.name == TemplateSampleObject) Object.DestroyImmediate(root);
 
             WordWorldTheme theme = LoadOrCreateTheme();
+            s_theme = theme;
             var app = new GameObject("Word World");
 
             // Spatial Adapter forwards poke and pinch hits as uGUI pointer events, but only when an
@@ -153,23 +156,37 @@ namespace WordWorld.Editor
             Set(quiz, "m_detailCard", detail);
             Set(quiz, "m_theme", theme);
 
-            var row = new GameObject("Window Row").AddComponent<WindowRow>();
-            row.transform.SetParent(app.transform, false);
-            Set(row, "m_settings", settings);
-            Set(row, "m_wordBank", wordBank);
-            Set(row, "m_labels", labels);
-            Set(row, "m_wordBankWindow", wordBankWindow);
-            Set(row, "m_quiz", quiz);
-            Set(row, "m_progress", progress);
+            var journey = new GameObject("Journey").AddComponent<JourneyCard>();
+            journey.transform.SetParent(app.transform, false);
+            CreateJourneyCard(journey, theme);
+            Set(journey, "m_settings", settings);
+            Set(journey, "m_strings", strings);
+            Set(journey, "m_wordBank", wordBank);
+            Set(journey, "m_quiz", quiz);
+            Set(journey, "m_theme", theme);
 
-            var status = new GameObject("Status").AddComponent<StatusChip>();
+            var home = new GameObject("Home").AddComponent<HomeMenu>();
+            home.transform.SetParent(app.transform, false);
+            CreateHomeMenu(home, theme);
+            Set(home, "m_settings", settings);
+            Set(home, "m_strings", strings);
+            Set(home, "m_wordBank", wordBank);
+            Set(home, "m_labels", labels);
+            Set(home, "m_theme", theme);
+            Set(home, "m_journey", journey);
+            Set(home, "m_quiz", quiz);
+            Set(home, "m_wordBankWindow", wordBankWindow);
+            Set(home, "m_progressWindow", progress);
+            Set(home, "m_settingsWindow", settingsWindow);
+            Set(home, "m_detailCard", detail);
+
+            var status = new GameObject("Dock").AddComponent<StatusChip>();
             status.transform.SetParent(app.transform, false);
             CreateStatusChip(status, theme);
             Set(status, "m_settings", settings);
             Set(status, "m_strings", strings);
             Set(status, "m_tracking", tracking);
-            Set(status, "m_settingsWindow", settingsWindow);
-            Set(status, "m_windowRow", row);
+            Set(status, "m_home", home);
             Set(status, "m_theme", theme);
 
             var panel = new GameObject("Debug").AddComponent<DetectionDebugPanel>();
@@ -205,15 +222,15 @@ namespace WordWorld.Editor
             var go = new GameObject($"Label {index:00}");
             go.transform.SetParent(parent, false);
             // The word and meaning each draw a solid card background; the Card child behind them
-            // rounds the corners of the whole label.
+            // is the label's soft shadow.
             SpatialAdapterNativeText text = CreateNativeText(go, "label", 90, TextJustification.Center,
-                theme.Ink, theme.Card, new Vector2(0.3f, 0.07f), 0f);
+                theme.Ink, theme.Card, new Vector2(0.3f, 0.07f), theme.LabelCornerRadius);
             AddSyncCollider(go, new Vector3(0.3f, 0.07f, 0.01f));
             SpatialAdapterNativeText backing = CreateChildText(go.transform, "Card", new Vector3(0f, 0f, 0.001f), "", 10,
-                theme.Ink, theme.Card, new Vector2(0.3f, 0.09f), theme.LabelCornerRadius);
+                theme.Ink, theme.Shadow, new Vector2(0.3f, 0.09f), theme.LabelCornerRadius);
             AddSyncCollider(backing.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
             SpatialAdapterNativeText gloss = CreateChildText(go.transform, "Meaning", new Vector3(0f, -0.04f, -0.001f), "", 54,
-                theme.InkMuted, theme.Card, new Vector2(0.2f, 0.025f), 0f);
+                theme.InkMuted, theme.Card, new Vector2(0.2f, 0.025f), theme.LabelCornerRadius);
             AddSyncCollider(gloss.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
             gloss.gameObject.SetActive(false);
 
@@ -399,7 +416,7 @@ namespace WordWorld.Editor
                 AddSyncCollider(name.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
                 names.Add(name);
                 CreateChildText(t, $"Bar {i} Track", new Vector3(barLeft + barWidth * 0.5f, y, -0.004f), "", 10, theme.Ink,
-                    theme.AccentSoft, new Vector2(barWidth, 0.012f), 0.006f);
+                    theme.Info, new Vector2(barWidth, 0.012f), 0.006f);
                 SpatialAdapterNativeText fill = CreateChildText(t, $"Bar {i} Fill", new Vector3(barLeft, y, -0.006f), "", 10,
                     theme.Accent, theme.Accent, new Vector2(0.001f, 0.012f), 0.006f);
                 AddSyncCollider(fill.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
@@ -440,29 +457,20 @@ namespace WordWorld.Editor
             Set(window, "m_notYet", notYet);
         }
 
-        // DESIGN.md sections 5.2 and 6: the 40 x 30 cm Quiz window, plus the floating prompt, the
-        // correct ring and the hint glow that appear in the room.
+        // DESIGN.md section 6: the floating prompt (word, score, timer, Skip) shown during a round,
+        // the results card shown after it, and the correct ring and hint glow in the room.
         private static void CreateQuiz(FindItQuiz quiz, WordWorldTheme theme)
         {
-            GameObject card = CreateCard(quiz.transform, "Quiz Window", theme, new Vector2(0.4f, 0.3f));
+            GameObject card = CreateCard(quiz.transform, "Results Card", theme, new Vector2(0.4f, 0.24f));
             Transform t = card.transform;
-            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(0f, 0.115f, -0.005f), "quiz.title",
+            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(0f, 0.085f, -0.005f), "quiz.title",
                 44, theme.Ink, Color.clear, new Vector2(0.36f, 0.05f), 0f, TextJustification.Left);
-            SpatialAdapterNativeText prompt = CreateChildText(t, "Prompt", new Vector3(0f, 0.05f, -0.005f), "prompt",
-                56, theme.Ink, Color.clear, new Vector2(0.36f, 0.07f), 0f);
-            AddSyncCollider(prompt.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
-            SpatialAdapterNativeText track = CreateChildText(t, "Timer Track", new Vector3(0f, 0.005f, -0.004f), "", 10,
-                theme.Ink, theme.AccentSoft, new Vector2(0.34f, 0.008f), 0.004f);
-            AddSyncCollider(track.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
-            SpatialAdapterNativeText fill = CreateChildText(t, "Timer Fill", new Vector3(0f, 0.005f, -0.006f), "", 10,
-                theme.Accent, theme.Accent, new Vector2(0.34f, 0.008f), 0.004f);
-            AddSyncCollider(fill.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
-            SpatialAdapterNativeText body = CreateChildText(t, "Body", new Vector3(0f, -0.04f, -0.005f), "body",
-                28, theme.Ink, Color.clear, new Vector2(0.36f, 0.07f), 0f, TextJustification.Left);
-            SpatialButton primary = CreateButton(t, "Primary", new Vector3(-0.08f, -0.11f, -0.01f), "primary", "quiz.start",
-                32, theme, new Vector2(0.15f, 0.045f));
-            SpatialButton secondary = CreateButton(t, "Secondary", new Vector3(0.09f, -0.11f, -0.01f), "secondary", "quiz.done",
-                28, theme, new Vector2(0.13f, 0.045f));
+            SpatialAdapterNativeText body = CreateChildText(t, "Body", new Vector3(0f, 0.01f, -0.005f), "body",
+                28, theme.Ink, Color.clear, new Vector2(0.36f, 0.08f), 0f, TextJustification.Left);
+            SpatialButton primary = CreateButton(t, "Primary", new Vector3(-0.08f, -0.08f, -0.01f), "primary", "quiz.play_again",
+                30, theme, new Vector2(0.17f, 0.05f));
+            SpatialButton secondary = CreateButton(t, "Secondary", new Vector3(0.1f, -0.08f, -0.01f), "secondary", "quiz.done",
+                30, theme, new Vector2(0.13f, 0.05f));
 
             var floating = new GameObject("Floating Prompt");
             floating.transform.SetParent(quiz.transform, false);
@@ -470,8 +478,16 @@ namespace WordWorld.Editor
             SpatialAdapterNativeText floatingText = CreateNativeText(floating, "prompt", 48, TextJustification.Center,
                 theme.Ink, theme.Card, new Vector2(0.36f, 0.075f), theme.LabelCornerRadius);
             AddSyncCollider(floating, new Vector3(0.36f, 0.075f, 0.005f));
-            SpatialButton skip = CreateButton(floating.transform, "Skip", new Vector3(0f, -0.065f, -0.005f), "skip",
-                "quiz.skip", 28, theme, new Vector2(0.1f, 0.04f));
+            AddSoftShadow(floating.transform, new Vector2(0.36f, 0.075f), theme.LabelCornerRadius, theme.SoftOffset);
+            SpatialAdapterNativeText floatingStatus = CreateChildText(floating.transform, "Score", new Vector3(0f, -0.06f, -0.002f),
+                "score", 20, theme.InkMuted, theme.Card, new Vector2(0.22f, 0.03f), theme.LabelCornerRadius);
+            SpatialAdapterNativeText track = CreateChildText(floating.transform, "Timer Track", new Vector3(0f, -0.088f, -0.002f),
+                "", 10, theme.Ink, theme.Info, new Vector2(0.3f, 0.008f), 0.004f);
+            SpatialAdapterNativeText fill = CreateChildText(floating.transform, "Timer Fill", new Vector3(0f, -0.088f, -0.004f),
+                "", 10, theme.Accent, theme.Accent, new Vector2(0.3f, 0.008f), 0.004f);
+            AddSyncCollider(fill.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
+            SpatialButton skip = CreateButton(floating.transform, "Skip", new Vector3(0f, -0.125f, -0.005f), "skip",
+                "quiz.skip", 28, theme, new Vector2(0.1f, 0.045f));
 
             var ring = new GameObject("Correct Ring");
             ring.transform.SetParent(quiz.transform, false);
@@ -487,37 +503,108 @@ namespace WordWorld.Editor
             Set(quiz, "m_window", card);
             Set(quiz, "m_title", title);
             Set(quiz, "m_body", body);
-            Set(quiz, "m_prompt", prompt);
-            Set(quiz, "m_timerTrack", track);
-            Set(quiz, "m_timerFill", fill);
             Set(quiz, "m_primary", primary);
             Set(quiz, "m_secondary", secondary);
             Set(quiz, "m_floatingPrompt", floating);
             Set(quiz, "m_floatingText", floatingText);
+            Set(quiz, "m_floatingStatus", floatingStatus);
+            Set(quiz, "m_timerTrack", track);
+            Set(quiz, "m_timerFill", fill);
             Set(quiz, "m_skip", skip);
             Set(quiz, "m_ring", ringText);
             Set(quiz, "m_glow", glowText);
         }
 
-        // DESIGN.md section 8: recognition chip with Windows, Settings and Exit buttons under it.
+        // DESIGN.md section 8: the dock. The recognition pill, and Home under it.
         private static void CreateStatusChip(StatusChip status, WordWorldTheme theme)
         {
-            var chip = new GameObject("Chip");
+            var chip = new GameObject("Dock");
             chip.transform.SetParent(status.transform, false);
             chip.transform.localPosition = new Vector3(0f, 0.9f, 1f);
+            // The pill resizes to its text at runtime, so it has no soft shadow to keep in step.
             SpatialButton recognising = CreateButton(chip.transform, "Recognition", Vector3.zero, "pause",
-                "status.recognizing", 30, theme, new Vector2(0.2f, 0.04f));
-            SpatialButton windows = CreateButton(chip.transform, "Windows Button", new Vector3(-0.13f, -0.05f, 0f), "windows",
-                "status.windows", 28, theme, new Vector2(0.12f, 0.04f));
-            SpatialButton settings = CreateButton(chip.transform, "Settings Button", new Vector3(0f, -0.05f, 0f), "settings",
-                "settings.title", 28, theme, new Vector2(0.12f, 0.04f));
+                "status.recognizing", 26, theme, new Vector2(0.24f, 0.045f), soft: false);
+            SpatialButton home = CreateButton(chip.transform, "Home Button", new Vector3(0f, -0.058f, 0f), "home",
+                "dock.home", 28, theme, new Vector2(0.12f, 0.045f));
             Set(status, "m_chip", chip);
             Set(status, "m_statusButton", recognising);
-            Set(status, "m_settingsButton", settings);
-            Set(status, "m_windowsButton", windows);
-            SpatialButton exit = CreateButton(chip.transform, "Exit Button", new Vector3(0.13f, -0.05f, 0f), "exit",
-                "status.exit", 28, theme, new Vector2(0.12f, 0.04f));
-            Set(status, "m_exitButton", exit);
+            Set(status, "m_homeButton", home);
+        }
+
+        // DESIGN.md section 5: the Journey card, low and to the left.
+        private static void CreateJourneyCard(JourneyCard journey, WordWorldTheme theme)
+        {
+            GameObject card = CreateCard(journey.transform, "Journey Card", theme, new Vector2(0.34f, 0.17f));
+            Transform t = card.transform;
+            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(0f, 0.058f, -0.005f), "journey.title",
+                30, theme.Ink, Color.clear, new Vector2(0.3f, 0.035f), 0f, TextJustification.Left);
+            SpatialAdapterNativeText goal = CreateChildText(t, "Goal", new Vector3(0f, 0.008f, -0.005f), "goal",
+                22, theme.Ink, Color.clear, new Vector2(0.3f, 0.06f), 0f, TextJustification.Left);
+            SpatialAdapterNativeText barTrack = CreateChildText(t, "Bar Track", new Vector3(0f, -0.055f, -0.006f), "", 10,
+                theme.Ink, theme.Info, new Vector2(0.28f, 0.012f), 0.006f);
+            AddSyncCollider(barTrack.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
+            SpatialAdapterNativeText barFill = CreateChildText(t, "Bar Fill", new Vector3(-0.14f, -0.055f, -0.008f), "", 10,
+                theme.Accent, theme.Accent, new Vector2(0.001f, 0.012f), 0.006f);
+            AddSyncCollider(barFill.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
+            SpatialButton start = CreateButton(t, "Start", new Vector3(0f, -0.052f, -0.01f), "start", "journey.start",
+                28, theme, new Vector2(0.2f, 0.045f));
+            Set(journey, "m_card", card);
+            Set(journey, "m_title", title);
+            Set(journey, "m_goal", goal);
+            Set(journey, "m_barTrack", barTrack);
+            Set(journey, "m_barFill", barFill);
+            Set(journey, "m_startButton", start);
+        }
+
+        // DESIGN.md section 5: the one menu. Main page: Journey and Practice, with Progress, Settings
+        // and Exit small underneath. Practice page: the three exercises and the Find It round length.
+        private static void CreateHomeMenu(HomeMenu home, WordWorldTheme theme)
+        {
+            GameObject card = CreateCard(home.transform, "Menu", theme, new Vector2(0.42f, 0.5f));
+            Transform t = card.transform;
+            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(0f, 0.2f, -0.005f), "home.title",
+                44, theme.Ink, Color.clear, new Vector2(0.2f, 0.05f), 0f);
+            SpatialAdapterNativeText subtitle = CreateChildText(t, "Subtitle", new Vector3(0f, 0.155f, -0.005f), "home.subtitle",
+                24, theme.InkMuted, Color.clear, new Vector2(0.38f, 0.035f), 0f);
+            AddSyncCollider(subtitle.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
+            var buttons = new List<Object>();
+
+            GameObject Page(string name)
+            {
+                var page = new GameObject(name);
+                page.transform.SetParent(t, false);
+                // Pages are shown and hidden at runtime.
+                AddSyncCollider(page, new Vector3(0.001f, 0.001f, 0.001f));
+                return page;
+            }
+            void Button(GameObject page, string value, float x, float y, Vector2 size, int points) =>
+                buttons.Add(CreateButton(page.transform, $"Button {value}", new Vector3(x, y, -0.01f), value, value, points, theme, size));
+
+            GameObject main = Page("Main Page");
+            Button(main, "journey", 0f, 0.05f, new Vector2(0.36f, 0.11f), 32);
+            Button(main, "practice", 0f, -0.075f, new Vector2(0.36f, 0.11f), 32);
+            Button(main, "progress", -0.125f, -0.195f, new Vector2(0.11f, 0.045f), 24);
+            Button(main, "settings", 0f, -0.195f, new Vector2(0.11f, 0.045f), 24);
+            Button(main, "exit", 0.125f, -0.195f, new Vector2(0.11f, 0.045f), 24);
+
+            GameObject practice = Page("Practice Page");
+            Button(practice, "back", -0.15f, 0.2f, new Vector2(0.09f, 0.045f), 24);
+            Button(practice, "explore", 0f, 0.105f, new Vector2(0.36f, 0.09f), 28);
+            Button(practice, "find_it", 0f, 0.0f, new Vector2(0.36f, 0.09f), 28);
+            Button(practice, "word_bank", 0f, -0.105f, new Vector2(0.36f, 0.09f), 28);
+            SpatialAdapterNativeText roundLabel = CreateChildText(practice.transform, "Round Label", new Vector3(-0.075f, -0.195f, -0.005f),
+                "practice.round", 22, theme.InkMuted, Color.clear, new Vector2(0.2f, 0.035f), 0f, TextJustification.Left);
+            Button(practice, "round:5", 0.07f, -0.195f, new Vector2(0.08f, 0.045f), 22);
+            Button(practice, "round:10", 0.155f, -0.195f, new Vector2(0.08f, 0.045f), 22);
+            practice.SetActive(false);
+
+            Set(home, "m_window", card);
+            Set(home, "m_title", title);
+            Set(home, "m_subtitle", subtitle);
+            Set(home, "m_mainPage", main);
+            Set(home, "m_practicePage", practice);
+            Set(home, "m_roundLabel", roundLabel);
+            SetArray(home, "m_buttons", buttons.ToArray());
         }
 
         private static TextAsset LoadText(string path)
@@ -598,6 +685,7 @@ namespace WordWorld.Editor
             card.transform.localPosition = new Vector3(0f, 1.2f, 1.2f);
             CreateNativeText(card, "", 10, TextJustification.Center, theme.Ink, theme.Card, size, theme.PanelCornerRadius);
             AddSyncCollider(card, new Vector3(size.x, size.y, 0.005f));
+            AddSoftShadow(card.transform, size, theme.PanelCornerRadius, theme.SoftOffset * 1.5f);
             return card;
         }
 
@@ -614,16 +702,28 @@ namespace WordWorld.Editor
         // DESIGN.md section 10: buttons are at least 3 x 3 cm and work with poke, pinch-ray and
         // controller. The solid (non-trigger) box is slightly thick so pokes register.
         private static SpatialButton CreateButton(Transform parent, string name, Vector3 position, string value,
-            string placeholder, int points, WordWorldTheme theme, Vector2 size)
+            string placeholder, int points, WordWorldTheme theme, Vector2 size, bool soft = true)
         {
             SpatialAdapterNativeText text = CreateChildText(parent, name, position, placeholder, points, theme.Ink,
                 theme.Card, size, theme.LabelCornerRadius);
             GameObject go = text.gameObject;
+            if (soft) AddSoftShadow(go.transform, size, theme.LabelCornerRadius, theme.SoftOffset * 0.6f);
             go.AddComponent<BoxCollider>().size = new Vector3(size.x, size.y, 0.02f);
             go.AddComponent<SpatialAdapterHoverEffect>();
             var button = go.AddComponent<SpatialButton>();
             button.Bind(value, text);
             return button;
+        }
+
+        // Light neumorphism (DESIGN.md section 2): a white highlight up and to the left and a soft
+        // shadow down and to the right, both behind the surface. They are fixed relative to it, so
+        // they follow it without sync colliders of their own.
+        private static void AddSoftShadow(Transform surface, Vector2 size, float radius, float offset)
+        {
+            CreateChildText(surface, "Highlight", new Vector3(-offset, offset, 0.003f), "", 10, s_theme.Ink, s_theme.Highlight,
+                size, radius);
+            CreateChildText(surface, "Shadow", new Vector3(offset, -offset, 0.002f), "", 10, s_theme.Ink, s_theme.Shadow,
+                size, radius);
         }
 
         private static void CreatePanel(Transform parent, out GameObject root, out SpatialAdapterNativeText text)
@@ -656,7 +756,7 @@ namespace WordWorld.Editor
         {
             // Text needs a solid background on Swan: over a transparent one (black or white) small
             // or distant glyphs rendered as dark blocks. All text sits on white cards, so use white.
-            if (background.a <= 0f) background = Color.white;
+            if (background.a <= 0f) background = s_theme != null ? s_theme.Card : Color.white;
             // Window and card text was too small to read at 1.2 m once sizes were true to scale.
             if (points > 12) points = Mathf.RoundToInt(points * WindowTextScale);
             var text = go.AddComponent<SpatialAdapterNativeText>();

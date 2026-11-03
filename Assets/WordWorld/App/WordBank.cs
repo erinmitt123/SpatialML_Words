@@ -62,6 +62,17 @@ namespace WordWorld.App
             }
         }
 
+        /// <summary>Every label tap ever; the Journey's read step counts from a snapshot of this.</summary>
+        public int TotalTaps
+        {
+            get
+            {
+                int total = 0;
+                foreach (Word word in m_data.words) total += word.taps;
+                return total;
+            }
+        }
+
         public int TotalCorrect
         {
             get
