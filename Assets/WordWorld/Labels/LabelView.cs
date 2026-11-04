@@ -9,7 +9,7 @@ namespace WordWorld.Labels
     /// <summary>
     /// One pooled object label (DESIGN.md section 3): a card with the word and, under it, a smaller
     /// line with its meaning; an optional pinyin ruby line above; and a thin leader line down to a
-    /// dot on the object. A background-only child behind both lines is its soft shadow. Spatial Adapter only
+    /// dot on the object. A background-only child behind both lines makes them one panel. Spatial Adapter only
     /// exports objects that exist in the scene at build time, so labels are pooled scene objects
     /// that get re-texted and moved.
     ///
@@ -33,7 +33,7 @@ namespace WordWorld.Labels
         [SerializeField] private SpatialAdapterNativeText m_ruby;
         [Tooltip("The meaning in the interface language, under the word.")]
         [SerializeField] private SpatialAdapterNativeText m_gloss;
-        [Tooltip("Background-only soft shadow behind the word and its meaning.")]
+        [Tooltip("Background-only panel behind the word and its meaning.")]
         [SerializeField] private SpatialAdapterNativeText m_backing;
         [SerializeField] private SpatialAdapterNativeText m_leader;
         [SerializeField] private SpatialAdapterNativeText m_dot;
@@ -184,7 +184,7 @@ namespace WordWorld.Labels
             float ink = Mathf.Lerp(0.3f, 1f, a);
             m_text.TextColor = Dim(m_accent ? m_theme.Accent : m_theme.Ink, ink, card);
             m_text.BackgroundColor = Fade(m_theme.Card, card);
-            if (m_backing != null) m_backing.BackgroundColor = Fade(m_theme.Shadow, card);
+            if (m_backing != null) m_backing.BackgroundColor = Fade(m_theme.Card, card);
             if (m_gloss != null)
             {
                 m_gloss.TextColor = Dim(m_theme.InkMuted, ink, card);
@@ -242,10 +242,9 @@ namespace WordWorld.Labels
             float centreY = -m_glossHeight * 0.5f;
             if (m_backing != null)
             {
-                // Soft shadow down and to the right: the label reads as a raised card.
-                float soft = m_theme != null ? m_theme.SoftOffset : 0.004f;
-                m_backing.BackgroundSize = m_card + new Vector2(soft, soft);
-                m_backing.transform.localPosition = new Vector3(soft * 0.6f, centreY - soft * 0.6f, 0.001f);
+                // One panel behind the word and the meaning.
+                m_backing.BackgroundSize = m_card;
+                m_backing.transform.localPosition = new Vector3(0f, centreY, 0.001f);
             }
             if (m_collider != null)
             {

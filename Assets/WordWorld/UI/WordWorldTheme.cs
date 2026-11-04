@@ -3,10 +3,9 @@ using UnityEngine;
 namespace WordWorld.UI
 {
     /// <summary>
-    /// "Soft light" colour tokens (DESIGN.md section 2): a light neumorphic surface with dark ink and
-    /// pastel highlights. Every UI script takes its colours from here so the look changes in one place.
-    /// Text is always dark ink, on the surface or on a pastel, never pastel on light: neumorphism's
-    /// soft edges carry no contrast, so legibility and state come from ink and pastel fills.
+    /// "Soft light" colour tokens (DESIGN.md section 2): solid light panels with dark ink and pastel
+    /// highlights. Every UI script takes its colours from here so the look changes in one place.
+    /// Text is always dark ink, on the surface or on a pastel, never pastel on light.
     /// </summary>
     [CreateAssetMenu(menuName = "Word World/Theme", fileName = "WordWorldTheme")]
     public sealed class WordWorldTheme : ScriptableObject
@@ -15,10 +14,6 @@ namespace WordWorld.UI
         // Solid: on Swan, text over a see-through background rendered as dark blocks.
         public Color Card = new Color32(0xEE, 0xF1, 0xF6, 0xFF);
         public Color CardDark = new Color32(0x1A, 0x20, 0x1D, 224); // #1A201D at 88%
-        [Tooltip("Soft shadow behind raised surfaces, offset down and right.")]
-        public Color Shadow = new Color32(0xA3, 0xAE, 0xBF, 0x99);
-        [Tooltip("Soft highlight behind raised surfaces, offset up and left.")]
-        public Color Highlight = new Color32(0xFF, 0xFF, 0xFF, 0xE6);
 
         [Header("Text")]
         public Color Ink = new Color32(0x1F, 0x26, 0x33, 0xFF);
@@ -47,7 +42,5 @@ namespace WordWorld.UI
         [Header("Shape (metres)")]
         public float PanelCornerRadius = 0.016f;
         public float LabelCornerRadius = 0.01f;
-        [Tooltip("How far the shadow and highlight sit from a raised surface.")]
-        public float SoftOffset = 0.004f;
     }
 }

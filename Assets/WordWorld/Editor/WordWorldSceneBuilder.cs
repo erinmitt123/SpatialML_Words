@@ -39,7 +39,7 @@ namespace WordWorld.Editor
         private const string VocabularyPath = "Assets/Data/vocabulary.json";
         private const string UiStringsPath = "Assets/Data/ui_strings.json";
         private const string ThemePath = "Assets/Data/WordWorldTheme.asset";
-        // Set at the start of a build so the helpers can fill text backgrounds and soft shadows.
+        // Set at the start of a build so the helpers can fill text backgrounds.
         private static WordWorldTheme s_theme;
 
         [MenuItem("Word World/Rebuild Word World Scene")]
@@ -222,12 +222,12 @@ namespace WordWorld.Editor
             var go = new GameObject($"Label {index:00}");
             go.transform.SetParent(parent, false);
             // The word and meaning each draw a solid card background; the Card child behind them
-            // is the label's soft shadow.
+            // is one panel covering both, so the seam between them never shows.
             SpatialAdapterNativeText text = CreateNativeText(go, "label", 90, TextJustification.Center,
                 theme.Ink, theme.Card, new Vector2(0.3f, 0.07f), theme.LabelCornerRadius);
             AddSyncCollider(go, new Vector3(0.3f, 0.07f, 0.01f));
             SpatialAdapterNativeText backing = CreateChildText(go.transform, "Card", new Vector3(0f, 0f, 0.001f), "", 10,
-                theme.Ink, theme.Shadow, new Vector2(0.3f, 0.09f), theme.LabelCornerRadius);
+                theme.Ink, theme.Card, new Vector2(0.3f, 0.09f), theme.LabelCornerRadius);
             AddSyncCollider(backing.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
             SpatialAdapterNativeText gloss = CreateChildText(go.transform, "Meaning", new Vector3(0f, -0.04f, -0.001f), "", 54,
                 theme.InkMuted, theme.Card, new Vector2(0.2f, 0.025f), theme.LabelCornerRadius);
@@ -478,7 +478,6 @@ namespace WordWorld.Editor
             SpatialAdapterNativeText floatingText = CreateNativeText(floating, "prompt", 48, TextJustification.Center,
                 theme.Ink, theme.Card, new Vector2(0.36f, 0.075f), theme.LabelCornerRadius);
             AddSyncCollider(floating, new Vector3(0.36f, 0.075f, 0.005f));
-            AddSoftShadow(floating.transform, new Vector2(0.36f, 0.075f), theme.LabelCornerRadius, theme.SoftOffset);
             SpatialAdapterNativeText floatingStatus = CreateChildText(floating.transform, "Score", new Vector3(0f, -0.06f, -0.002f),
                 "score", 20, theme.InkMuted, theme.Card, new Vector2(0.22f, 0.03f), theme.LabelCornerRadius);
             SpatialAdapterNativeText track = CreateChildText(floating.transform, "Timer Track", new Vector3(0f, -0.088f, -0.002f),
@@ -521,9 +520,8 @@ namespace WordWorld.Editor
             var chip = new GameObject("Dock");
             chip.transform.SetParent(status.transform, false);
             chip.transform.localPosition = new Vector3(0f, 0.9f, 1f);
-            // The pill resizes to its text at runtime, so it has no soft shadow to keep in step.
             SpatialButton recognising = CreateButton(chip.transform, "Recognition", Vector3.zero, "pause",
-                "status.recognizing", 26, theme, new Vector2(0.24f, 0.045f), soft: false);
+                "status.recognizing", 26, theme, new Vector2(0.24f, 0.045f));
             SpatialButton home = CreateButton(chip.transform, "Home Button", new Vector3(0f, -0.058f, 0f), "home",
                 "dock.home", 28, theme, new Vector2(0.12f, 0.045f));
             Set(status, "m_chip", chip);
@@ -685,7 +683,6 @@ namespace WordWorld.Editor
             card.transform.localPosition = new Vector3(0f, 1.2f, 1.2f);
             CreateNativeText(card, "", 10, TextJustification.Center, theme.Ink, theme.Card, size, theme.PanelCornerRadius);
             AddSyncCollider(card, new Vector3(size.x, size.y, 0.005f));
-            AddSoftShadow(card.transform, size, theme.PanelCornerRadius, theme.SoftOffset * 1.5f);
             return card;
         }
 
@@ -702,28 +699,16 @@ namespace WordWorld.Editor
         // DESIGN.md section 10: buttons are at least 3 x 3 cm and work with poke, pinch-ray and
         // controller. The solid (non-trigger) box is slightly thick so pokes register.
         private static SpatialButton CreateButton(Transform parent, string name, Vector3 position, string value,
-            string placeholder, int points, WordWorldTheme theme, Vector2 size, bool soft = true)
+            string placeholder, int points, WordWorldTheme theme, Vector2 size)
         {
             SpatialAdapterNativeText text = CreateChildText(parent, name, position, placeholder, points, theme.Ink,
                 theme.Card, size, theme.LabelCornerRadius);
             GameObject go = text.gameObject;
-            if (soft) AddSoftShadow(go.transform, size, theme.LabelCornerRadius, theme.SoftOffset * 0.6f);
             go.AddComponent<BoxCollider>().size = new Vector3(size.x, size.y, 0.02f);
             go.AddComponent<SpatialAdapterHoverEffect>();
             var button = go.AddComponent<SpatialButton>();
             button.Bind(value, text);
             return button;
-        }
-
-        // Light neumorphism (DESIGN.md section 2): a white highlight up and to the left and a soft
-        // shadow down and to the right, both behind the surface. They are fixed relative to it, so
-        // they follow it without sync colliders of their own.
-        private static void AddSoftShadow(Transform surface, Vector2 size, float radius, float offset)
-        {
-            CreateChildText(surface, "Highlight", new Vector3(-offset, offset, 0.003f), "", 10, s_theme.Ink, s_theme.Highlight,
-                size, radius);
-            CreateChildText(surface, "Shadow", new Vector3(offset, -offset, 0.002f), "", 10, s_theme.Ink, s_theme.Shadow,
-                size, radius);
         }
 
         private static void CreatePanel(Transform parent, out GameObject root, out SpatialAdapterNativeText text)

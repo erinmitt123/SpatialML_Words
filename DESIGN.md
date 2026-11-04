@@ -20,7 +20,7 @@ These come from Apple's visionOS spatial design guidance, Meta's hand-tracking U
 - **Horizontal over vertical.** Turning the head left and right is easier than up and down, so secondary items go to the side, not above.
 - **Nothing in personal space.** No window closer than 0.5 m. Labels and the quiz prompt are the only things closer than a window.
 - **Big targets.** At least 3 × 3 cm (about 22 mm is the hand-tracking minimum), with 1 cm gaps. Every button works with poke, pinch-ray and controller.
-- **Legibility over style.** Dark ink on light, solid surfaces (at least 7:1 contrast for text). Soft depth effects never carry meaning on their own.
+- **Legibility over style.** Dark ink on light, solid surfaces (at least 7:1 contrast for text). State is shown by words and fills, never by depth effects.
 - **One way home.** The dock's Home button (or the controller's X) returns to the menu from anywhere.
 - **Windows stay where they are put.** Status lines re-centre in one step when far out of view; windows never trail the head.
 
@@ -28,16 +28,14 @@ These come from Apple's visionOS spatial design guidance, Meta's hand-tracking U
 
 ## 2. Visual style
 
-**Theme name:** "Soft light." Light neumorphic cards (raised by a soft highlight and shadow) with dark ink, and pastel fills for highlights.
+**Theme name:** "Soft light." Solid light panels with dark ink, and pastel fills for highlights.
 
-Neumorphism's weakness is contrast: its edges are deliberately faint. So depth is decoration only. Text is always dark ink on a solid light or pastel surface, and every state also changes the words or the fill, never only the shadow.
+Each surface is one solid background panel. We tried neumorphism (a highlight and a shadow layer behind each surface), but in passthrough the extra layers read as stray grey outlines rather than depth, so they were removed. Text is always dark ink on a solid light or pastel surface, and every state changes the words or the fill.
 
 ### Colors (define once as tokens in a single `WordWorldTheme` ScriptableObject)
 | Token | Hex | Use |
 |---|---|---|
 | `Card` | `#EEF1F6`, solid | Label, button and window surfaces. Must be solid: on Swan, text over a see-through background renders as dark blocks. |
-| `Shadow` | `#A3AEBF` at 60% | Soft shadow, down and right of raised surfaces |
-| `Highlight` | `#FFFFFF` at 90% | Soft highlight, up and left of raised surfaces |
 | `Ink` | `#1F2633` | All text, including on pastels |
 | `InkMuted` | `#4A5568` | Secondary text (meaning, captions). Still 7:1 on `Card`. |
 | `Accent` | `#1E6E58` (deep teal) | Pinyin text, big numbers, progress fills |
@@ -57,8 +55,8 @@ Gender color coding (optional, toggle in Settings, off by default): masculine `#
 
 ### Shape and depth
 - Rounded corners: 16 mm radius on windows, 10 mm on labels and buttons.
-- Raised surfaces (windows, buttons, labels) get a white highlight offset up-left and a grey shadow offset down-right, both behind the surface (6 mm for windows, 2–4 mm for buttons and labels). No hard outlines.
-- Selected options are not "pressed in" (an inset shadow is too faint to read); they fill with mint.
+- One solid background panel per surface: no shadow or highlight layers, no hard outlines.
+- Selected options fill with mint; the main action on a card fills with lavender.
 - No gradients, no glow on resting elements. Glow is reserved for feedback (found, hint).
 
 ---
@@ -86,7 +84,7 @@ Gender color coding (optional, toggle in Settings, off by default): masculine `#
 | 2 | Phrase: *una silla* | Characters with pinyin above: 椅子 / *yǐzi* |
 | 3 | Sentence: *Esta es mi silla.* | Characters only: 椅子 |
 
-Text comes from `VocabularyDatabase.GetLabel()`. Never hard-code vocabulary in UI scripts. Level-3 sentences wrap at about 18 characters per line, maximum 2 lines.
+Text comes from `Vocabulary.TryGetLabel()`, which reads `Assets/Data/vocabulary.json`. That file is built from the vocabulary sheet, `Assets/Languages/vocabulary.csv`, where every word, phrase and sentence is written by hand; nothing is generated. Never hard-code vocabulary in UI scripts. Level-3 sentences wrap at about 18 characters per line, maximum 2 lines.
 
 ### Label states
 | State | Look |
