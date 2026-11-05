@@ -219,6 +219,65 @@ before changing the SDK package revision, and the
 [SpatialML Guide](https://developer.picoxr.com/document/pico-unity-spatialml/)
 for the platform APIs and additional examples.
 
+## Credits
+
+Word World is built on the work below. Versions, local paths and notes are in
+[docs/dependencies.md](docs/dependencies.md).
+
+### Base project and SDKs
+
+| Dependency | Use | License |
+| --- | --- | --- |
+| [PICO SpatialML Unity samples](https://github.com/Pico-Developer/SpatialML-Unity-Samples) | Base Unity project, SpatialML and Spatial Adapter setup | Apache-2.0 |
+| PICO YOLO + room mesh sample (Android Studio) | Detection pipeline, room mesh and ray localization, ported with PICO's permission | PICO proprietary |
+| [PICO Unity Integration SDK](https://github.com/Pico-Developer/PICO-Unity-SDK) (`com.bytedance.pico.xr`, `com.bytedance.pico.spatialadapter` 6.2.0) | XR, passthrough, SecureMR, spatial mode | PICO SDK license |
+| [UnityGLTF](https://github.com/KhronosGroup/UnityGLTF) (`com.plattar.unitygltf` 1.142.0) | glTF export for Spatial Adapter | MIT |
+| [USD for Unity](https://docs.unity3d.com/Packages/com.unity.formats.usd@latest) (`com.unity.formats.usd` 3.0.0-exp.5) | Spatial Adapter dependency | Unity Companion License |
+| Unity packages (URP, Input System, uGUI, Test Framework and others in `Packages/manifest.json`) | Engine features | Unity Companion License |
+
+### Detection
+
+| Dependency | Use | License |
+| --- | --- | --- |
+| [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) (YOLOX-M, Megvii), converted by PICO | On-device object detection, 80 COCO classes | Apache-2.0 |
+| [COCO](https://cocodataset.org) class names | Vocabulary keys | CC BY 4.0 |
+
+### Fonts
+
+| Dependency | License |
+| --- | --- |
+| [Inter](https://rsms.me/inter/) by Rasmus Andersson | SIL Open Font License 1.1 ([Inter-LICENSE.txt](Assets/Fonts/Spatial/Inter-LICENSE.txt)) |
+
+### Pronunciation audio
+
+The clips in `Assets/Audio/Vocab` were generated on a PC with
+[Piper](https://github.com/OHF-Voice/piper1-gpl) (GPL-3.0, a build tool only; Piper
+is not shipped in the app). Voices come from
+[rhasspy/piper-voices](https://huggingface.co/rhasspy/piper-voices).
+
+| Language | Voice | License and credit |
+| --- | --- | --- |
+| Mandarin | `zh_CN-chaowen-medium` | CC0. Fine-tuned from `zh_CN-xiao_ya-medium`, trained on the Data Baker BZNSYP corpus, which is licensed for non-commercial use only. Word World is free and non-commercial. |
+| Spanish (Mexico) | `es_MX-claude-high` | Apache-2.0 |
+| French | `fr_FR-siwis-medium` | CC BY 4.0. Uses the **SIWIS French Speech Synthesis Database**, University of Edinburgh (Junichi Yamagishi, Pierre-Edouard Honnet, Philip Garner, Alexandros Lazaridis). |
+| German | `de_DE-thorsten-medium` | CC0. [Thorsten-Voice](https://www.thorsten-voice.de) by Thorsten Müller |
+| English | `en_US-ljspeech-medium` | Public domain. [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/) by Keith Ito |
+
+Mandarin phonemes were prepared with [g2pW](https://github.com/GitYCC/g2pW)
+(Apache-2.0) and [unicode-rbnf](https://github.com/rhasspy/unicode-rbnf) (MIT),
+both build tools only.
+
+### Speech recognition (Say It)
+
+Speech is recognized on the headset. Audio is never saved or sent anywhere.
+
+| Dependency | Use | License |
+| --- | --- | --- |
+| [Vosk](https://github.com/alphacep/vosk-api) Android library 0.3.75 (Alpha Cephei) | Offline speech recognition | Apache-2.0 |
+| [Vosk models](https://alphacephei.com/vosk/models): `small-cn-0.22`, `small-es-0.42`, `small-fr-0.22`, `small-de-0.15`, `small-en-us-0.15` | One model per learning language | Apache-2.0 |
+| [JNA](https://github.com/java-native-access/jna) 5.18.1 | Native bridge used by Vosk | Apache-2.0 (dual-licensed with LGPL-2.1) |
+| Vosk Python package 0.3.45 | Offline checks in `tools/` only | Apache-2.0 |
+
 ## License
 
 See [LICENSE](LICENSE).

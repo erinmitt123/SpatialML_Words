@@ -16,7 +16,7 @@ namespace WordWorld.UI
     [AddComponentMenu("Word World/Home Menu")]
     public sealed class HomeMenu : MonoBehaviour
     {
-        public enum Mode { None, Menu, Journey, Explore, FindIt, WordBank, Progress, Settings }
+        public enum Mode { None, Menu, Journey, Explore, FindIt, SayIt, WordBank, Progress, Settings }
 
         [SerializeField] private LearnerSettings m_settings;
         [SerializeField] private UiStrings m_strings;
@@ -27,6 +27,7 @@ namespace WordWorld.UI
         [Header("Modes")]
         [SerializeField] private JourneyCard m_journey;
         [SerializeField] private FindItQuiz m_quiz;
+        [SerializeField] private SayItCard m_sayIt;
         [SerializeField] private WordBankWindow m_wordBankWindow;
         [SerializeField] private ProgressWindow m_progressWindow;
         [SerializeField] private SettingsWindow m_settingsWindow;
@@ -38,7 +39,7 @@ namespace WordWorld.UI
         [SerializeField] private SpatialAdapterNativeText m_subtitle;
         [SerializeField] private GameObject m_mainPage;
         [SerializeField] private GameObject m_practicePage;
-        [Tooltip("Main page: journey, practice, progress, settings, exit. Practice page: back, explore, find_it, word_bank, round:5, round:10.")]
+        [Tooltip("Main page: journey, practice, progress, settings, exit. Practice page: back, explore, find_it, say_it, word_bank, round:5, round:10.")]
         [SerializeField] private SpatialButton[] m_buttons = System.Array.Empty<SpatialButton>();
         [SerializeField] private SpatialAdapterNativeText m_roundLabel;
 
@@ -64,12 +65,14 @@ namespace WordWorld.UI
         {
             m_settings.Changed += Refresh;
             m_quiz.Closed += OnQuizClosed;
+            m_sayIt.Closed += OnQuizClosed;
         }
 
         private void OnDisable()
         {
             m_settings.Changed -= Refresh;
             m_quiz.Closed -= OnQuizClosed;
+            m_sayIt.Closed -= OnQuizClosed;
         }
 
         private void Update()
@@ -108,6 +111,7 @@ namespace WordWorld.UI
             m_window.SetActive(false);
             m_journey.Hide();
             m_quiz.Stop();
+            m_sayIt.Stop();
             m_wordBankWindow.Window.SetActive(false);
             m_progressWindow.Window.SetActive(false);
             m_settingsWindow.Close();
@@ -128,6 +132,10 @@ namespace WordWorld.UI
                 case Mode.FindIt:
                     m_quiz.Begin(m_roundLength);
                     break;
+                case Mode.SayIt:
+                    // Practice has no pass mark; the summary just lists words to practise.
+                    m_sayIt.BeginRound(m_roundLength, 0);
+                    break;
                 case Mode.WordBank:
                     WindowPlacement.PlaceInFront(m_wordBankWindow.Window.transform, m_windowOffset);
                     m_wordBankWindow.Show();
@@ -143,7 +151,7 @@ namespace WordWorld.UI
             }
         }
 
-        // After a Journey round the card comes back; after a Practice round, the menu.
+        // After a Journey round (Find It or Say It) the card comes back; after a Practice round, the menu.
         private void OnQuizClosed()
         {
             if (m_mode == Mode.Journey) m_journey.Show();
@@ -161,6 +169,7 @@ namespace WordWorld.UI
                 case "settings": Enter(Mode.Settings); break;
                 case "explore": Enter(Mode.Explore); break;
                 case "find_it": Enter(Mode.FindIt); break;
+                case "say_it": Enter(Mode.SayIt); break;
                 case "word_bank": Enter(Mode.WordBank); break;
                 case "round:5": m_roundLength = 5; Refresh(); break;
                 case "round:10": m_roundLength = 10; Refresh(); break;
@@ -218,8 +227,10 @@ namespace WordWorld.UI
                         break;
                     case "progress": text = S("progress.title"); break;
                     case "back": text = S("common.back"); break;
-                    default: text = S($"practice.{value}"); break; // explore, find_it, word_bank
+                    default: text = S($"practice.{value}"); break; // explore, find_it, say_it, word_bank
                 }
+                // Say It only where this build can check speech in the learner's language.
+                if (value == "say_it") button.gameObject.SetActive(m_sayIt.Available);
                 button.Text.Text = text;
                 button.Text.TextColor = m_theme.Ink;
                 button.Text.BackgroundColor = background;

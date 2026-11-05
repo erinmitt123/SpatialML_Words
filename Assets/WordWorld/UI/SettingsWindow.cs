@@ -98,6 +98,7 @@ namespace WordWorld.UI
                 case "pinyin": m_settings.SetShowPinyin(!m_settings.ShowPinyin); break;
                 case "meaning": m_settings.SetShowMeaning(!m_settings.ShowMeaning); break;
                 case "people": m_settings.SetLabelPeople(!m_settings.LabelPeople); break;
+                case "audio": m_settings.SetAudioOn(!m_settings.AudioOn); break;
                 case "size": m_settings.SetLabelSize(arg); break;
                 case "conf": m_settings.SetConfidenceThreshold(m_settings.ConfidenceThreshold + (arg == "+" ? 0.05f : -0.05f)); break;
                 case "close": Close(); break;
@@ -162,6 +163,11 @@ namespace WordWorld.UI
                 {
                     selected = m_settings.LabelPeople;
                     text = $"{S("settings.label_people")}: {S(selected ? "common.on" : "common.off")}";
+                }
+                else if (value == "audio")
+                {
+                    selected = m_settings.AudioOn;
+                    text = $"{S("settings.audio")}: {S(selected ? "common.on" : "common.off")}";
                 }
                 else if (value == "close") text = S("common.close");
                 else text = value.Substring(value.IndexOf(':') + 1) == "+" ? "+" : "−";

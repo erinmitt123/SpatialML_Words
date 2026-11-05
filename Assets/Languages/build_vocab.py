@@ -80,7 +80,7 @@ def main(out):
         "notes": "Built from Assets/Languages/vocabulary.csv; edit the sheet, not this file. "
                  "classIndex matches the YOLOX output index (0-79). Levels: 1 = word, 2 = phrase, 3 = sentence. "
                  "Mandarin levels use pinyin -> characters with pinyin -> characters only. "
-                 "Spanish defaults to Spain; Latin American words are in 'alternatives'. All entries need native-speaker review.",
+                 "Spanish is Mexican Spanish; the Spain word, where different, is in 'alternatives'. All entries need native-speaker review.",
         "entries": entries,
     }
     with open(out, "w", encoding="utf-8") as f:

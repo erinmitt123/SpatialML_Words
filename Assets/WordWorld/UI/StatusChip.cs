@@ -1,5 +1,6 @@
 using UnityEngine;
 using WordWorld.App;
+using WordWorld.Audio;
 using WordWorld.Data;
 using WordWorld.Tracking;
 
@@ -19,6 +20,7 @@ namespace WordWorld.UI
         [SerializeField] private UiStrings m_strings;
         [SerializeField] private TrackingManager m_tracking;
         [SerializeField] private HomeMenu m_home;
+        [SerializeField] private AudioTurn m_turn;
         [SerializeField] private WordWorldTheme m_theme;
 
         [SerializeField] private GameObject m_chip;
@@ -59,6 +61,12 @@ namespace WordWorld.UI
 
         private void TogglePause()
         {
+            // While listening the pill is the microphone indicator; tapping it stops listening.
+            if (m_turn != null && m_turn.State == TurnState.Listening)
+            {
+                m_turn.FinishListening();
+                return;
+            }
             m_tracking.Paused = !m_tracking.Paused;
             Debug.Log($"[WordWorld.Status] recognition {(m_tracking.Paused ? "paused" : "resumed")}");
         }
@@ -67,7 +75,11 @@ namespace WordWorld.UI
         {
             float now = Time.unscaledTime;
             float lastSeen = Mathf.Max(m_tracking.LastDetectionTime, m_readySince);
-            string key = m_tracking.Paused ? "status.paused"
+            // While the microphone is open the pill says so: it is the privacy indicator for both
+            // the camera and the microphone (docs/audio-plan.md, "Privacy").
+            bool micOn = m_turn != null && m_turn.State == TurnState.Listening;
+            string key = micOn ? "dock.mic_on"
+                : m_tracking.Paused ? "status.paused"
                 : now - lastSeen > m_troubleAfterSeconds ? "status.trouble"
                 : "status.recognizing";
             string ui = m_settings.InterfaceLanguage;
@@ -82,7 +94,8 @@ namespace WordWorld.UI
             status.Text = text;
             // Colour never carries the state alone: the words change too.
             status.TextColor = key == "status.paused" ? m_theme.InkMuted : m_theme.Ink;
-            status.BackgroundColor = key == "status.trouble" ? m_theme.Hint : key == "status.paused" ? m_theme.Card : m_theme.AccentSoft;
+            status.BackgroundColor = micOn ? m_theme.Primary
+                : key == "status.trouble" ? m_theme.Hint : key == "status.paused" ? m_theme.Card : m_theme.AccentSoft;
             TextFit.FitBackground(status, text, m_statusPoints, 0.045f);
             m_homeButton.Text.Text = m_strings.Get("dock.home", ui);
             m_homeButton.Text.TextColor = m_theme.Ink;

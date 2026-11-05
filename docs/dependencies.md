@@ -43,4 +43,27 @@ Unity editor: project made with 6000.3.13f1; currently opened with 6000.3.15f1.
 |---|---|---|
 | Inter (base project) | `Assets/Fonts/Spatial` | OFL (`Inter-LICENSE.txt`) |
 | Noto Sans SC | not yet added | OFL |
-| Piper voices | not yet added | per voice |
+| Piper voices | see below | per voice |
+
+## Pronunciation voices (Piper, used on a PC by `tools/generate_audio.py`; only the generated clips ship)
+
+Piper itself (`piper-tts` 1.8.0) is GPL-3.0 and is not shipped. Licenses below are copied from each voice's `MODEL_CARD` on https://huggingface.co/rhasspy/piper-voices (checked 2026-11-04).
+
+| Language | Voice | Dataset license | Notes |
+|---|---|---|---|
+| Mandarin | `zh_CN-chaowen-medium` | CC0 | Fine-tuned from `zh_CN-xiao_ya-medium`, whose dataset (Data Baker BZNSYP) is non-commercial only. Kept because Word World is free and non-commercial (Erin, 2026-11-04); revisit if that changes. The other Mandarin voices are no better: `xiao_ya` is non-commercial and `huayan`'s license is "Unknown". Clips are spoken from the sheet's reviewed pinyin, not Piper's own guess. |
+| Spanish (Mexico) | `es_MX-claude-high` | Apache-2.0 | Alternative: `es_MX-ald-medium` (Unlicense) |
+| French | `fr_FR-siwis-medium` | CC-BY 4.0 | **Attribution required:** SIWIS French Speech Synthesis Database, University of Edinburgh. Credit it in the app's about text and README. |
+| German | `de_DE-thorsten-medium` | CC0 | Thorsten-Voice |
+| English | `en_US-ljspeech-medium` | Public domain | LJ Speech dataset |
+
+## Speech recognition (Say It)
+
+| Item | Version | License | Where |
+|---|---|---|---|
+| Vosk Android library | `com.alphacephei:vosk-android` 0.3.75 | Apache-2.0 | `Assets/Plugins/Android/vosk-android.aar` (arm64 only) |
+| JNA | `net.java.dev.jna:jna` 5.18.1 | Apache-2.0 or LGPL-2.1 | `Assets/Plugins/Android/jna.aar` (arm64 only) |
+| Vosk models | `vosk-model-small-cn-0.22`, `-es-0.42`, `-fr-0.22`, `-de-0.15`, `-en-us-0.15` | Apache-2.0 (alphacephei.com/vosk/models) | `Assets/StreamingAssets/vosk/<lang>.zip`, not committed; `py -3 tools/fetch_speech.py` |
+| Vosk Python package (tools only) | 0.3.45 | Apache-2.0 | used by `tools/build_speech.py`, `tools/test_speech.py` |
+
+Rejected voices: `fr_FR-tom-medium` (AGPLv3), `en_US-hfc_female-medium` (CC BY-NC-SA), `en_US-lessac-medium` (custom Blizzard 2013 dataset license; public-domain voices exist, so not pursued).

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "YOLOX-M (COCO 80 classes)",
-  "notes": "Built from Assets/Languages/vocabulary.csv; edit the sheet, not this file. classIndex matches the YOLOX output index (0-79). Levels: 1 = word, 2 = phrase, 3 = sentence. Mandarin levels use pinyin -> characters with pinyin -> characters only. Spanish defaults to Spain; Latin American words are in 'alternatives'. All entries need native-speaker review.",
+  "notes": "Built from Assets/Languages/vocabulary.csv; edit the sheet, not this file. classIndex matches the YOLOX output index (0-79). Levels: 1 = word, 2 = phrase, 3 = sentence. Mandarin levels use pinyin -> characters with pinyin -> characters only. Spanish is Mexican Spanish; the Spain word, where different, is in 'alternatives'. All entries need native-speaker review.",
   "entries": [
     {
       "classIndex": 0,
@@ -159,15 +159,15 @@
         "meaning": "car"
       },
       "es": {
-        "word": "el coche",
+        "word": "el carro",
         "article": "el",
-        "noun": "coche",
+        "noun": "carro",
         "gender": "m",
         "plural": false,
-        "phrase": "un coche",
-        "sentence": "El coche es muy rápido.",
+        "phrase": "un carro",
+        "sentence": "El carro es muy rápido.",
         "meaning": "car",
-        "alternatives": "el carro (Latin America)"
+        "alternatives": "el coche"
       },
       "fr": {
         "word": "la voiture",
@@ -228,7 +228,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una moto",
-        "sentence": "Él va en moto.",
+        "sentence": "Él anda en moto.",
         "meaning": "motorcycle",
         "alternatives": ""
       },
@@ -354,7 +354,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un autobús",
-        "sentence": "Voy al colegio en autobús.",
+        "sentence": "Voy a la escuela en autobús.",
         "meaning": "bus",
         "alternatives": ""
       },
@@ -663,15 +663,15 @@
         "meaning": "fire hydrant"
       },
       "es": {
-        "word": "la boca de incendios",
-        "article": "la",
-        "noun": "boca de incendios",
-        "gender": "f",
+        "word": "el hidrante",
+        "article": "el",
+        "noun": "hidrante",
+        "gender": "m",
         "plural": false,
-        "phrase": "una boca de incendios",
-        "sentence": "La boca de incendios es amarilla.",
+        "phrase": "un hidrante",
+        "sentence": "El hidrante es amarillo.",
         "meaning": "fire hydrant",
-        "alternatives": ""
+        "alternatives": "la boca de incendios"
       },
       "fr": {
         "word": "la bouche d'incendie",
@@ -726,15 +726,15 @@
         "meaning": "stop sign"
       },
       "es": {
-        "word": "la señal de stop",
+        "word": "la señal de alto",
         "article": "la",
-        "noun": "señal de stop",
+        "noun": "señal de alto",
         "gender": "f",
         "plural": false,
-        "phrase": "una señal de stop",
-        "sentence": "Para en la señal de stop.",
+        "phrase": "una señal de alto",
+        "sentence": "Detente en la señal de alto.",
         "meaning": "stop sign",
-        "alternatives": ""
+        "alternatives": "la señal de stop"
       },
       "fr": {
         "word": "le panneau stop",
@@ -1173,7 +1173,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una oveja",
-        "sentence": "La oveja come hierba.",
+        "sentence": "La oveja come pasto.",
         "meaning": "sheep",
         "alternatives": ""
       },
@@ -1671,15 +1671,15 @@
         "meaning": "handbag"
       },
       "es": {
-        "word": "el bolso",
-        "article": "el",
-        "noun": "bolso",
-        "gender": "m",
+        "word": "la bolsa",
+        "article": "la",
+        "noun": "bolsa",
+        "gender": "f",
         "plural": false,
-        "phrase": "un bolso",
-        "sentence": "Mis llaves están en el bolso.",
+        "phrase": "una bolsa",
+        "sentence": "Mis llaves están en la bolsa.",
         "meaning": "handbag",
-        "alternatives": "la cartera (Latin America)"
+        "alternatives": "el bolso"
       },
       "fr": {
         "word": "le sac à main",
@@ -1860,15 +1860,15 @@
         "meaning": "frisbee"
       },
       "es": {
-        "word": "el frisbi",
+        "word": "el frisbee",
         "article": "el",
-        "noun": "frisbi",
+        "noun": "frisbee",
         "gender": "m",
         "plural": false,
-        "phrase": "un frisbi",
-        "sentence": "¡Lánzame el frisbi!",
+        "phrase": "un frisbee",
+        "sentence": "¡Lánzame el frisbee!",
         "meaning": "frisbee",
-        "alternatives": ""
+        "alternatives": "el frisbi"
       },
       "fr": {
         "word": "le frisbee",
@@ -2112,15 +2112,15 @@
         "meaning": "kite"
       },
       "es": {
-        "word": "la cometa",
-        "article": "la",
-        "noun": "cometa",
-        "gender": "f",
+        "word": "el papalote",
+        "article": "el",
+        "noun": "papalote",
+        "gender": "m",
         "plural": false,
-        "phrase": "una cometa",
-        "sentence": "La cometa vuela alto.",
+        "phrase": "un papalote",
+        "sentence": "El papalote vuela alto.",
         "meaning": "kite",
-        "alternatives": "el papalote (Mexico)"
+        "alternatives": "la cometa"
       },
       "fr": {
         "word": "le cerf-volant",
@@ -2301,15 +2301,15 @@
         "meaning": "skateboard"
       },
       "es": {
-        "word": "el monopatín",
-        "article": "el",
-        "noun": "monopatín",
-        "gender": "m",
+        "word": "la patineta",
+        "article": "la",
+        "noun": "patineta",
+        "gender": "f",
         "plural": false,
-        "phrase": "un monopatín",
-        "sentence": "Ella va en monopatín.",
+        "phrase": "una patineta",
+        "sentence": "Ella anda en patineta.",
         "meaning": "skateboard",
-        "alternatives": ""
+        "alternatives": "el monopatín"
       },
       "fr": {
         "word": "le skateboard",
@@ -2622,7 +2622,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una taza",
-        "sentence": "Bebo café en esta taza.",
+        "sentence": "Tomo café en esta taza.",
         "meaning": "cup",
         "alternatives": ""
       },
@@ -2868,15 +2868,15 @@
         "meaning": "bowl"
       },
       "es": {
-        "word": "el cuenco",
+        "word": "el tazón",
         "article": "el",
-        "noun": "cuenco",
+        "noun": "tazón",
         "gender": "m",
         "plural": false,
-        "phrase": "un cuenco",
-        "sentence": "El cuenco está lleno de arroz.",
+        "phrase": "un tazón",
+        "sentence": "El tazón está lleno de arroz.",
         "meaning": "bowl",
-        "alternatives": "el bol"
+        "alternatives": "el cuenco"
       },
       "fr": {
         "word": "le bol",
@@ -2939,7 +2939,7 @@
         "phrase": "un plátano",
         "sentence": "El plátano es amarillo.",
         "meaning": "banana",
-        "alternatives": "la banana (Latin America)"
+        "alternatives": ""
       },
       "fr": {
         "word": "la banane",
@@ -3000,7 +3000,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una manzana",
-        "sentence": "Como una manzana cada día.",
+        "sentence": "Como una manzana todos los días.",
         "meaning": "apple",
         "alternatives": ""
       },
@@ -3189,7 +3189,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un brócoli",
-        "sentence": "El brócoli es sano.",
+        "sentence": "El brócoli es saludable.",
         "meaning": "broccoli",
         "alternatives": ""
       },
@@ -3309,15 +3309,15 @@
         "meaning": "hot dog"
       },
       "es": {
-        "word": "el perrito caliente",
+        "word": "el hot dog",
         "article": "el",
-        "noun": "perrito caliente",
+        "noun": "hot dog",
         "gender": "m",
         "plural": false,
-        "phrase": "un perrito caliente",
-        "sentence": "Un perrito caliente, por favor.",
+        "phrase": "un hot dog",
+        "sentence": "Un hot dog, por favor.",
         "meaning": "hot dog",
-        "alternatives": "el hot dog (Latin America)"
+        "alternatives": "el perrito caliente"
       },
       "fr": {
         "word": "le hot-dog",
@@ -3435,15 +3435,15 @@
         "meaning": "donut"
       },
       "es": {
-        "word": "el dónut",
-        "article": "el",
-        "noun": "dónut",
-        "gender": "m",
+        "word": "la dona",
+        "article": "la",
+        "noun": "dona",
+        "gender": "f",
         "plural": false,
-        "phrase": "un dónut",
-        "sentence": "Este dónut es muy dulce.",
+        "phrase": "una dona",
+        "sentence": "Esta dona es muy dulce.",
         "meaning": "donut",
-        "alternatives": "la dona (Latin America)"
+        "alternatives": "el dónut"
       },
       "fr": {
         "word": "le beignet",
@@ -3882,7 +3882,7 @@
         "gender": "m",
         "plural": false,
         "phrase": "un inodoro",
-        "sentence": "¿Dónde está el inodoro?",
+        "sentence": "El inodoro está en el baño.",
         "meaning": "toilet",
         "alternatives": ""
       },
@@ -3945,7 +3945,7 @@
         "gender": "f",
         "plural": false,
         "phrase": "una televisión",
-        "sentence": "La televisión está encendida.",
+        "sentence": "La televisión está prendida.",
         "meaning": "TV",
         "alternatives": ""
       },
@@ -4002,15 +4002,15 @@
         "meaning": "laptop"
       },
       "es": {
-        "word": "el portátil",
-        "article": "el",
-        "noun": "portátil",
-        "gender": "m",
+        "word": "la laptop",
+        "article": "la",
+        "noun": "laptop",
+        "gender": "f",
         "plural": false,
-        "phrase": "un portátil",
-        "sentence": "Trabajo con mi portátil.",
+        "phrase": "una laptop",
+        "sentence": "Trabajo en mi laptop.",
         "meaning": "laptop",
-        "alternatives": "la laptop (Latin America)"
+        "alternatives": "el portátil"
       },
       "fr": {
         "word": "l'ordinateur portable",
@@ -4065,15 +4065,15 @@
         "meaning": "mouse"
       },
       "es": {
-        "word": "el ratón",
+        "word": "el mouse",
         "article": "el",
-        "noun": "ratón",
+        "noun": "mouse",
         "gender": "m",
         "plural": false,
-        "phrase": "un ratón",
-        "sentence": "Haz clic con el ratón.",
+        "phrase": "un mouse",
+        "sentence": "Haz clic con el mouse.",
         "meaning": "mouse",
-        "alternatives": "el mouse (Latin America)"
+        "alternatives": "el ratón"
       },
       "fr": {
         "word": "la souris",
@@ -4128,15 +4128,15 @@
         "meaning": "remote"
       },
       "es": {
-        "word": "el mando a distancia",
+        "word": "el control remoto",
         "article": "el",
-        "noun": "mando a distancia",
+        "noun": "control remoto",
         "gender": "m",
         "plural": false,
-        "phrase": "un mando a distancia",
-        "sentence": "¿Dónde está el mando a distancia?",
+        "phrase": "un control remoto",
+        "sentence": "¿Dónde está el control remoto?",
         "meaning": "remote",
-        "alternatives": "el control remoto (Latin America)"
+        "alternatives": "el mando a distancia"
       },
       "fr": {
         "word": "la télécommande",
@@ -4254,15 +4254,15 @@
         "meaning": "phone"
       },
       "es": {
-        "word": "el móvil",
+        "word": "el celular",
         "article": "el",
-        "noun": "móvil",
+        "noun": "celular",
         "gender": "m",
         "plural": false,
-        "phrase": "un móvil",
-        "sentence": "¡Mi móvil está sonando!",
+        "phrase": "un celular",
+        "sentence": "¡Mi celular está sonando!",
         "meaning": "phone",
-        "alternatives": "el celular (Latin America)"
+        "alternatives": "el móvil"
       },
       "fr": {
         "word": "le téléphone portable",
@@ -4443,15 +4443,15 @@
         "meaning": "toaster"
       },
       "es": {
-        "word": "la tostadora",
-        "article": "la",
-        "noun": "tostadora",
-        "gender": "f",
+        "word": "el tostador",
+        "article": "el",
+        "noun": "tostador",
+        "gender": "m",
         "plural": false,
-        "phrase": "una tostadora",
-        "sentence": "Pongo pan en la tostadora.",
+        "phrase": "un tostador",
+        "sentence": "Pongo pan en el tostador.",
         "meaning": "toaster",
-        "alternatives": ""
+        "alternatives": "la tostadora"
       },
       "fr": {
         "word": "le grille-pain",
@@ -4514,7 +4514,7 @@
         "phrase": "un fregadero",
         "sentence": "Lava los platos en el fregadero.",
         "meaning": "sink",
-        "alternatives": "el lavabo (bathroom sink)"
+        "alternatives": ""
       },
       "fr": {
         "word": "l'évier",
@@ -4569,15 +4569,15 @@
         "meaning": "refrigerator"
       },
       "es": {
-        "word": "la nevera",
-        "article": "la",
-        "noun": "nevera",
-        "gender": "f",
+        "word": "el refrigerador",
+        "article": "el",
+        "noun": "refrigerador",
+        "gender": "m",
         "plural": false,
-        "phrase": "una nevera",
-        "sentence": "La leche está en la nevera.",
+        "phrase": "un refrigerador",
+        "sentence": "La leche está en el refrigerador.",
         "meaning": "refrigerator",
-        "alternatives": "el frigorífico"
+        "alternatives": "la nevera"
       },
       "fr": {
         "word": "le réfrigérateur",
@@ -4758,15 +4758,15 @@
         "meaning": "vase"
       },
       "es": {
-        "word": "el jarrón",
+        "word": "el florero",
         "article": "el",
-        "noun": "jarrón",
+        "noun": "florero",
         "gender": "m",
         "plural": false,
-        "phrase": "un jarrón",
-        "sentence": "Pon las flores en el jarrón.",
+        "phrase": "un florero",
+        "sentence": "Pon las flores en el florero.",
         "meaning": "vase",
-        "alternatives": ""
+        "alternatives": "el jarrón"
       },
       "fr": {
         "word": "le vase",
@@ -4947,15 +4947,15 @@
         "meaning": "hair dryer"
       },
       "es": {
-        "word": "el secador de pelo",
-        "article": "el",
-        "noun": "secador de pelo",
-        "gender": "m",
+        "word": "la secadora de pelo",
+        "article": "la",
+        "noun": "secadora de pelo",
+        "gender": "f",
         "plural": false,
-        "phrase": "un secador de pelo",
-        "sentence": "El secador de pelo está caliente.",
+        "phrase": "una secadora de pelo",
+        "sentence": "La secadora de pelo está caliente.",
         "meaning": "hair dryer",
-        "alternatives": ""
+        "alternatives": "el secador de pelo"
       },
       "fr": {
         "word": "le sèche-cheveux",

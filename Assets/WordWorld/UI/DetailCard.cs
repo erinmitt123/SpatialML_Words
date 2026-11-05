@@ -2,6 +2,7 @@ using System.Text;
 using ByteDance.PICO.SpatialAdapter.Component;
 using UnityEngine;
 using WordWorld.App;
+using WordWorld.Audio;
 using WordWorld.Data;
 using WordWorld.Labels;
 using WordWorld.Spatial;
@@ -33,6 +34,11 @@ namespace WordWorld.UI
         [SerializeField] private SpatialButton m_saveButton;
         [SerializeField] private SpatialButton m_notRightButton;
         [SerializeField] private SpatialButton m_closeButton;
+        [SerializeField] private SpatialButton m_listenButton;
+        [SerializeField] private SpatialButton m_exampleButton;
+        [SerializeField] private SpatialButton m_sayItButton;
+        [SerializeField] private VocabAudio m_audio;
+        [SerializeField] private SayItCard m_sayIt;
 
         [SerializeField] private float m_closeAfterSeconds = 20f;
         [Tooltip("Sideways and toward-the-user offset from the label, in metres.")]
@@ -52,6 +58,18 @@ namespace WordWorld.UI
             m_saveButton.Clicked += _ => ToggleSave();
             m_notRightButton.Clicked += _ => NotRight();
             m_closeButton.Clicked += _ => Close();
+            m_listenButton.Clicked += _ => Listen(VocabClips.ForLevel(m_settings.TargetLanguage, m_settings.ReadingLevel));
+            m_exampleButton.Clicked += _ => Listen(ClipKind.Sentence);
+            m_sayItButton.Clicked += _ => SayIt();
+        }
+
+        // The Say It card takes over from this one for the same word.
+        private void SayIt()
+        {
+            if (m_track == null || m_sayIt == null) return;
+            int classId = m_track.ClassId;
+            Close();
+            m_sayIt.BeginSingle(classId);
         }
 
         private void OnEnable()
@@ -91,6 +109,15 @@ namespace WordWorld.UI
             m_track = null;
             m_card.SetActive(false);
             m_labels.SetSelected(null);
+            if (m_audio != null) m_audio.Stop();
+        }
+
+        // From the object itself, so the sound comes from the thing the word names.
+        private void Listen(ClipKind kind)
+        {
+            if (m_track == null || m_audio == null) return;
+            m_lastInteraction = Time.unscaledTime;
+            m_audio.Play(m_track.ClassId, kind, m_track.Position);
         }
 
         private void ToggleSave()
@@ -141,9 +168,9 @@ namespace WordWorld.UI
                 Vocabulary.LatinEntry latin = Vocabulary.LatinFor(entry, lang);
                 m_header.Text = latin.word;
                 b.Clear().Append(latin.meaning);
-                // DESIGN.md: show the Latin American alternative under the word when one exists.
+                // DESIGN.md: Spanish is Mexican; show the Spain word under it when it differs.
                 if (lang == "es" && !string.IsNullOrEmpty(latin.alternatives))
-                    b.Append("   ").Append(S("detail.latam", ui)).Append(": ").Append(latin.alternatives);
+                    b.Append("   ").Append(S("detail.spain", ui)).Append(": ").Append(latin.alternatives);
                 m_subheader.Text = b.ToString();
 
                 b.Clear();
@@ -163,6 +190,27 @@ namespace WordWorld.UI
             m_notRightButton.Text.Text = S("detail.not_right", ui);
             m_closeButton.Text.Text = S("common.close", ui);
             RefreshSaveButton();
+            RefreshListenButtons(entry.classIndex, ui);
+        }
+
+        // Hidden when audio is off, the clip is missing or speech can't be checked, so a button never
+        // does nothing. Say It doesn't depend on the Audio setting: it works without the model clip.
+        private void RefreshListenButtons(int classId, string ui)
+        {
+            ClipKind kind = VocabClips.ForLevel(m_settings.TargetLanguage, m_settings.ReadingLevel);
+            bool word = m_audio != null && m_audio.Has(classId, kind);
+            bool example = m_audio != null && m_audio.Has(classId, ClipKind.Sentence);
+            bool say = m_sayIt != null && m_sayIt.CanSay(classId);
+            m_listenButton.gameObject.SetActive(word);
+            m_exampleButton.gameObject.SetActive(example);
+            m_sayItButton.gameObject.SetActive(say);
+            m_listenButton.Text.Text = S("audio.listen", ui);
+            m_exampleButton.Text.Text = S("audio.example", ui);
+            m_sayItButton.Text.Text = S("audio.say_it", ui);
+            m_listenButton.Text.TextColor = m_theme.Ink;
+            m_exampleButton.Text.TextColor = m_theme.Ink;
+            m_sayItButton.Text.TextColor = m_theme.Ink;
+            m_sayItButton.Text.BackgroundColor = m_theme.Primary;
         }
 
         private void RefreshSaveButton()

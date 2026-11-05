@@ -82,3 +82,8 @@ Assets/StreamingAssets/SpatialAdapterExport.meta
 
 # PICO yolo-mesh models: regenerate with tools/spatialml (licence not yet in writing; see docs/porting-notes.md)
 /Assets/SpatialMLPipelineZoo/yolo-detection/model/*.tflite.bytes
+
+# Vosk speech models (about 210 MB); fetched by tools/fetch_speech.py
+/[Aa]ssets/StreamingAssets/vosk/
+/[Aa]ssets/StreamingAssets/vosk.meta
+__pycache__/

@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 using WordWorld.App;
+using WordWorld.Audio;
 using WordWorld.Data;
 using WordWorld.DebugTools;
 using WordWorld.Detection;
@@ -38,6 +39,7 @@ namespace WordWorld.Editor
         private const float WindowTextScale = 1.5f;
         private const string VocabularyPath = "Assets/Data/vocabulary.json";
         private const string UiStringsPath = "Assets/Data/ui_strings.json";
+        private const string SpeechPath = "Assets/Data/speech.json";
         private const string ThemePath = "Assets/Data/WordWorldTheme.asset";
         // Set at the start of a build so the helpers can fill text backgrounds.
         private static WordWorldTheme s_theme;
@@ -106,6 +108,9 @@ namespace WordWorld.Editor
             SetArray(labels, "m_pool", pool.Cast<Object>().ToArray());
             SetArray(labels, "m_scanDots", scanDots.ToArray());
 
+            VocabAudio vocabAudio = CreateAudio(app.transform, settings, out AudioTurn turn, out SpeechData speechData,
+                out SpeechCheck speech);
+
             var detail = new GameObject("Detail Card").AddComponent<DetailCard>();
             detail.transform.SetParent(app.transform, false);
             CreateDetailCard(detail, theme);
@@ -116,6 +121,7 @@ namespace WordWorld.Editor
             Set(detail, "m_labels", labels);
             Set(detail, "m_tracking", tracking);
             Set(detail, "m_theme", theme);
+            Set(detail, "m_audio", vocabAudio);
 
             var settingsWindow = new GameObject("Settings").AddComponent<SettingsWindow>();
             settingsWindow.transform.SetParent(app.transform, false);
@@ -156,6 +162,21 @@ namespace WordWorld.Editor
             Set(quiz, "m_detailCard", detail);
             Set(quiz, "m_theme", theme);
 
+            var sayIt = new GameObject("Say It").AddComponent<SayItCard>();
+            sayIt.transform.SetParent(app.transform, false);
+            CreateSayItCard(sayIt, theme);
+            Set(sayIt, "m_settings", settings);
+            Set(sayIt, "m_strings", strings);
+            Set(sayIt, "m_vocabulary", vocabulary);
+            Set(sayIt, "m_wordBank", wordBank);
+            Set(sayIt, "m_labels", labels);
+            Set(sayIt, "m_speechData", speechData);
+            Set(sayIt, "m_speech", speech);
+            Set(sayIt, "m_turn", turn);
+            Set(sayIt, "m_audio", vocabAudio);
+            Set(sayIt, "m_theme", theme);
+            Set(detail, "m_sayIt", sayIt);
+
             var journey = new GameObject("Journey").AddComponent<JourneyCard>();
             journey.transform.SetParent(app.transform, false);
             CreateJourneyCard(journey, theme);
@@ -163,6 +184,7 @@ namespace WordWorld.Editor
             Set(journey, "m_strings", strings);
             Set(journey, "m_wordBank", wordBank);
             Set(journey, "m_quiz", quiz);
+            Set(journey, "m_sayIt", sayIt);
             Set(journey, "m_theme", theme);
 
             var home = new GameObject("Home").AddComponent<HomeMenu>();
@@ -175,6 +197,7 @@ namespace WordWorld.Editor
             Set(home, "m_theme", theme);
             Set(home, "m_journey", journey);
             Set(home, "m_quiz", quiz);
+            Set(home, "m_sayIt", sayIt);
             Set(home, "m_wordBankWindow", wordBankWindow);
             Set(home, "m_progressWindow", progress);
             Set(home, "m_settingsWindow", settingsWindow);
@@ -187,6 +210,7 @@ namespace WordWorld.Editor
             Set(status, "m_strings", strings);
             Set(status, "m_tracking", tracking);
             Set(status, "m_home", home);
+            Set(status, "m_turn", turn);
             Set(status, "m_theme", theme);
 
             var panel = new GameObject("Debug").AddComponent<DetectionDebugPanel>();
@@ -258,23 +282,72 @@ namespace WordWorld.Editor
             return view;
         }
 
+        // docs/audio-plan.md: one AudioTurn owns the voice. The template's listener sits on the window
+        // camera, which isn't the user's head in spatial mode, so it is replaced by one that follows
+        // the head. The voice is mostly 3D (it comes from the object) but never fades out completely.
+        private static VocabAudio CreateAudio(Transform parent, LearnerSettings settings, out AudioTurn turn,
+            out SpeechData speechData, out SpeechCheck speech)
+        {
+            foreach (AudioListener existing in Object.FindObjectsByType<AudioListener>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                Object.DestroyImmediate(existing);
+
+            var root = new GameObject("Audio");
+            root.transform.SetParent(parent, false);
+            var listener = new GameObject("Listener", typeof(AudioListener));
+            listener.transform.SetParent(root.transform, false);
+            var voiceObject = new GameObject("Voice");
+            voiceObject.transform.SetParent(root.transform, false);
+            var voice = voiceObject.AddComponent<AudioSource>();
+            voice.playOnAwake = false;
+            voice.spatialBlend = 0.6f;
+            voice.rolloffMode = AudioRolloffMode.Linear;
+            voice.minDistance = 2f;
+            voice.maxDistance = 12f;
+            voice.dopplerLevel = 0f;
+
+            // Say It: what to expect (speech.json) and the Vosk recognizer.
+            speechData = root.AddComponent<SpeechData>();
+            Set(speechData, "m_table", LoadText(SpeechPath));
+            speech = root.AddComponent<SpeechCheck>();
+            Set(speech, "m_data", speechData);
+
+            turn = root.AddComponent<AudioTurn>();
+            Set(turn, "m_voice", voice);
+            Set(turn, "m_listener", listener.transform);
+            Set(turn, "m_speech", speech);
+            Set(turn, "m_speechData", speechData);
+            var audio = root.AddComponent<VocabAudio>();
+            Set(audio, "m_clips", VocabAudioImport.BuildIndex());
+            Set(audio, "m_turn", turn);
+            Set(audio, "m_settings", settings);
+            return audio;
+        }
+
         // DESIGN.md section 4: about 25 cm wide; word, pinyin and meaning, grammar and example rows,
         // then Save and Not right?, with a close button in the corner.
         private static void CreateDetailCard(DetailCard detail, WordWorldTheme theme)
         {
             GameObject card = CreateCard(detail.transform, "Card", theme, new Vector2(0.36f, 0.24f));
-            SpatialAdapterNativeText header = CreateChildText(card.transform, "Word", new Vector3(-0.02f, 0.08f, -0.005f),
-                "word", 44, theme.Ink, Color.clear, new Vector2(0.3f, 0.05f), 0f, TextJustification.Left);
+            SpatialAdapterNativeText header = CreateChildText(card.transform, "Word", new Vector3(-0.08f, 0.08f, -0.005f),
+                "word", 44, theme.Ink, Color.clear, new Vector2(0.18f, 0.05f), 0f, TextJustification.Left);
             SpatialAdapterNativeText sub = CreateChildText(card.transform, "Meaning", new Vector3(0f, 0.04f, -0.005f),
                 "meaning", 26, theme.InkMuted, Color.clear, new Vector2(0.34f, 0.03f), 0f, TextJustification.Left);
             SpatialAdapterNativeText body = CreateChildText(card.transform, "Body", new Vector3(0f, -0.025f, -0.005f),
                 "body", 22, theme.Ink, Color.clear, new Vector2(0.34f, 0.08f), 0f, TextJustification.Left);
             SpatialButton close = CreateButton(card.transform, "Close", new Vector3(0.15f, 0.09f, -0.01f),
                 "close", "×", 40, theme, new Vector2(0.04f, 0.04f));
-            SpatialButton save = CreateButton(card.transform, "Save", new Vector3(-0.07f, -0.093f, -0.01f),
-                "save", "detail.save", 30, theme, new Vector2(0.12f, 0.04f));
-            SpatialButton notRight = CreateButton(card.transform, "Not Right", new Vector3(0.07f, -0.093f, -0.01f),
-                "not_right", "detail.not_right", 30, theme, new Vector2(0.12f, 0.04f));
+            // Pronunciation (docs/audio-plan.md): Listen and Say it beside the word, the example
+            // sentence in the bottom row. Everything plays or listens only on a tap.
+            SpatialButton listen = CreateButton(card.transform, "Listen", new Vector3(0.04f, 0.09f, -0.01f),
+                "listen", "audio.listen", 20, theme, new Vector2(0.055f, 0.04f));
+            SpatialButton sayIt = CreateButton(card.transform, "Say It", new Vector3(0.1f, 0.09f, -0.01f),
+                "say_it", "audio.say_it", 20, theme, new Vector2(0.055f, 0.04f));
+            SpatialButton example = CreateButton(card.transform, "Listen Example", new Vector3(0f, -0.093f, -0.01f),
+                "listen_example", "audio.example", 26, theme, new Vector2(0.11f, 0.04f));
+            SpatialButton save = CreateButton(card.transform, "Save", new Vector3(-0.12f, -0.093f, -0.01f),
+                "save", "detail.save", 26, theme, new Vector2(0.11f, 0.04f));
+            SpatialButton notRight = CreateButton(card.transform, "Not Right", new Vector3(0.12f, -0.093f, -0.01f),
+                "not_right", "detail.not_right", 26, theme, new Vector2(0.11f, 0.04f));
 
             Set(detail, "m_card", card);
             Set(detail, "m_header", header);
@@ -283,12 +356,15 @@ namespace WordWorld.Editor
             Set(detail, "m_saveButton", save);
             Set(detail, "m_notRightButton", notRight);
             Set(detail, "m_closeButton", close);
+            Set(detail, "m_listenButton", listen);
+            Set(detail, "m_exampleButton", example);
+            Set(detail, "m_sayItButton", sayIt);
         }
 
         // DESIGN.md section 5.4: 40 x 50 cm (a little taller here to keep 1 cm between 4 cm buttons).
         private static void CreateSettingsWindow(SettingsWindow window, WordWorldTheme theme)
         {
-            GameObject card = CreateCard(window.transform, "Settings Window", theme, new Vector2(0.42f, 0.56f));
+            GameObject card = CreateCard(window.transform, "Settings Window", theme, new Vector2(0.42f, 0.62f));
             Transform t = card.transform;
             var rowSize = new Vector2(0.38f, 0.03f);
             var buttons = new List<Object>();
@@ -299,9 +375,9 @@ namespace WordWorld.Editor
                 CreateChildText(t, name, new Vector3(0f, y, -0.005f), name, points, theme.InkMuted, Color.clear, rowSize, 0f,
                     TextJustification.Left);
 
-            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(-0.03f, 0.245f, -0.005f), "settings.title",
+            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(-0.03f, 0.275f, -0.005f), "settings.title",
                 44, theme.Ink, Color.clear, new Vector2(0.32f, 0.05f), 0f, TextJustification.Left);
-            buttons.Add(Button("close", 0.175f, 0.245f, 0.04f, 40));
+            buttons.Add(Button("close", 0.175f, 0.275f, 0.04f, 40));
 
             SpatialAdapterNativeText learning = Row("I'm learning", 0.19f);
             for (int i = 0; i < LearnerSettings.TargetLanguages.Length; i++)
@@ -327,7 +403,9 @@ namespace WordWorld.Editor
             buttons.Add(Button("conf:-", 0.09f, -0.19f, 0.045f, 36));
             buttons.Add(Button("conf:+", 0.145f, -0.19f, 0.045f, 36));
 
-            SpatialAdapterNativeText privacy = Row("Privacy", -0.245f, 20);
+            buttons.Add(Button("audio", -0.13f, -0.235f, 0.125f, 18));
+
+            SpatialAdapterNativeText privacy = Row("Privacy", -0.28f, 20);
 
             SetArray(window, "m_buttons", buttons.ToArray());
             Set(window, "m_window", card);
@@ -514,6 +592,68 @@ namespace WordWorld.Editor
             Set(quiz, "m_glow", glowText);
         }
 
+        // docs/audio-plan.md: the Say It card. The line to say (with pinyin above for Mandarin Level 2),
+        // its meaning, a row of word chips after each try, the feedback line, then Listen, Speak and
+        // Next. Parts shown, hidden or moved at runtime get sync colliders.
+        private static void CreateSayItCard(SayItCard sayIt, WordWorldTheme theme)
+        {
+            GameObject card = CreateCard(sayIt.transform, "Say It Card", theme, new Vector2(0.4f, 0.34f));
+            Transform t = card.transform;
+            var tiny = new Vector3(0.001f, 0.001f, 0.001f);
+            SpatialAdapterNativeText Text(string name, Vector3 position, string value, int points, Color color, Vector2 size,
+                TextJustification justification = TextJustification.Center, bool toggled = true)
+            {
+                SpatialAdapterNativeText text = CreateChildText(t, name, position, value, points, color, Color.clear, size, 0f, justification);
+                if (toggled) AddSyncCollider(text.gameObject, tiny);
+                return text;
+            }
+
+            SpatialAdapterNativeText title = Text("Title", new Vector3(-0.06f, 0.14f, -0.005f), "sayit.title", 30, theme.Ink,
+                new Vector2(0.26f, 0.04f), TextJustification.Left, toggled: false);
+            SpatialAdapterNativeText progress = Text("Progress", new Vector3(0.11f, 0.14f, -0.005f), "1 / 5", 20, theme.InkMuted,
+                new Vector2(0.08f, 0.03f));
+            SpatialButton close = CreateButton(t, "Close", new Vector3(0.175f, 0.14f, -0.01f), "close", "×", 40, theme,
+                new Vector2(0.04f, 0.04f));
+            SpatialAdapterNativeText ruby = Text("Ruby", new Vector3(0f, 0.1f, -0.005f), "pinyin", 22, theme.Accent,
+                new Vector2(0.36f, 0.03f));
+            SpatialAdapterNativeText prompt = Text("Prompt", new Vector3(0f, 0.062f, -0.005f), "prompt", 28, theme.Ink,
+                new Vector2(0.37f, 0.06f));
+            SpatialAdapterNativeText meaning = Text("Meaning", new Vector3(0f, 0.018f, -0.005f), "meaning", 20, theme.InkMuted,
+                new Vector2(0.36f, 0.025f));
+
+            var chips = new List<Object>();
+            for (int i = 0; i < 8; i++)
+            {
+                SpatialAdapterNativeText chip = CreateChildText(t, $"Chip {i}", new Vector3(0f, -0.035f, -0.006f), "", 20,
+                    theme.Ink, theme.AccentSoft, new Vector2(0.05f, 0.026f), theme.LabelCornerRadius);
+                AddSyncCollider(chip.gameObject, new Vector3(0.05f, 0.026f, 0.002f));
+                chip.gameObject.SetActive(false);
+                chips.Add(chip);
+            }
+
+            SpatialAdapterNativeText result = Text("Result", new Vector3(0f, -0.1f, -0.005f), "result", 20, theme.InkMuted,
+                new Vector2(0.37f, 0.04f), toggled: false);
+            SpatialButton listen = CreateButton(t, "Listen", new Vector3(-0.13f, -0.145f, -0.01f), "listen", "audio.listen",
+                24, theme, new Vector2(0.1f, 0.04f));
+            SpatialButton speak = CreateButton(t, "Speak", new Vector3(0f, -0.145f, -0.01f), "speak", "sayit.speak",
+                24, theme, new Vector2(0.14f, 0.04f));
+            SpatialButton next = CreateButton(t, "Next", new Vector3(0.13f, -0.145f, -0.01f), "next", "sayit.next",
+                24, theme, new Vector2(0.1f, 0.04f));
+
+            Set(sayIt, "m_card", card);
+            Set(sayIt, "m_title", title);
+            Set(sayIt, "m_progress", progress);
+            Set(sayIt, "m_ruby", ruby);
+            Set(sayIt, "m_prompt", prompt);
+            Set(sayIt, "m_meaning", meaning);
+            Set(sayIt, "m_result", result);
+            SetArray(sayIt, "m_chips", chips.ToArray());
+            Set(sayIt, "m_listen", listen);
+            Set(sayIt, "m_speak", speak);
+            Set(sayIt, "m_next", next);
+            Set(sayIt, "m_close", close);
+        }
+
         // DESIGN.md section 8: the dock. The recognition pill, and Home under it.
         private static void CreateStatusChip(StatusChip status, WordWorldTheme theme)
         {
@@ -558,11 +698,11 @@ namespace WordWorld.Editor
         // and Exit small underneath. Practice page: the three exercises and the Find It round length.
         private static void CreateHomeMenu(HomeMenu home, WordWorldTheme theme)
         {
-            GameObject card = CreateCard(home.transform, "Menu", theme, new Vector2(0.42f, 0.5f));
+            GameObject card = CreateCard(home.transform, "Menu", theme, new Vector2(0.42f, 0.54f));
             Transform t = card.transform;
-            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(0f, 0.2f, -0.005f), "home.title",
+            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(0f, 0.22f, -0.005f), "home.title",
                 44, theme.Ink, Color.clear, new Vector2(0.2f, 0.05f), 0f);
-            SpatialAdapterNativeText subtitle = CreateChildText(t, "Subtitle", new Vector3(0f, 0.155f, -0.005f), "home.subtitle",
+            SpatialAdapterNativeText subtitle = CreateChildText(t, "Subtitle", new Vector3(0f, 0.17f, -0.005f), "home.subtitle",
                 24, theme.InkMuted, Color.clear, new Vector2(0.38f, 0.035f), 0f);
             AddSyncCollider(subtitle.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
             var buttons = new List<Object>();
@@ -586,14 +726,16 @@ namespace WordWorld.Editor
             Button(main, "exit", 0.125f, -0.195f, new Vector2(0.11f, 0.045f), 24);
 
             GameObject practice = Page("Practice Page");
-            Button(practice, "back", -0.15f, 0.2f, new Vector2(0.09f, 0.045f), 24);
-            Button(practice, "explore", 0f, 0.105f, new Vector2(0.36f, 0.09f), 28);
-            Button(practice, "find_it", 0f, 0.0f, new Vector2(0.36f, 0.09f), 28);
-            Button(practice, "word_bank", 0f, -0.105f, new Vector2(0.36f, 0.09f), 28);
-            SpatialAdapterNativeText roundLabel = CreateChildText(practice.transform, "Round Label", new Vector3(-0.075f, -0.195f, -0.005f),
+            // Four exercises; Say It hides where speech can't be checked.
+            Button(practice, "back", -0.15f, 0.22f, new Vector2(0.09f, 0.045f), 24);
+            Button(practice, "explore", 0f, 0.135f, new Vector2(0.36f, 0.075f), 24);
+            Button(practice, "find_it", 0f, 0.05f, new Vector2(0.36f, 0.075f), 24);
+            Button(practice, "say_it", 0f, -0.035f, new Vector2(0.36f, 0.075f), 24);
+            Button(practice, "word_bank", 0f, -0.12f, new Vector2(0.36f, 0.075f), 24);
+            SpatialAdapterNativeText roundLabel = CreateChildText(practice.transform, "Round Label", new Vector3(-0.075f, -0.215f, -0.005f),
                 "practice.round", 22, theme.InkMuted, Color.clear, new Vector2(0.2f, 0.035f), 0f, TextJustification.Left);
-            Button(practice, "round:5", 0.07f, -0.195f, new Vector2(0.08f, 0.045f), 22);
-            Button(practice, "round:10", 0.155f, -0.195f, new Vector2(0.08f, 0.045f), 22);
+            Button(practice, "round:5", 0.07f, -0.215f, new Vector2(0.08f, 0.045f), 22);
+            Button(practice, "round:10", 0.155f, -0.215f, new Vector2(0.08f, 0.045f), 22);
             practice.SetActive(false);
 
             Set(home, "m_window", card);

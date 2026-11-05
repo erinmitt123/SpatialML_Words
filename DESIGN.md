@@ -109,19 +109,20 @@ Opens next to the label, slightly toward the user, about 25 cm wide.
 
 ```
 ┌───────────────────────────────────┐
-│  椅子              yǐzi        ✕  │  ← word + pinyin, close button
-│  chair                             │  ← meaning (interface language)
+│  椅子     [Listen] [Say it]     ✕  │  ← word, audio, close button
+│  yǐzi   chair                      │  ← pinyin + meaning (interface language)
 │ ───────────────────────────────── │
 │  Measure word   一把椅子  yì bǎ yǐzi │  ← grammar row (article/gender for es/fr/de)
 │  Example        这是我的椅子。       │
 │                 Zhè shì wǒ de yǐzi. │
 │ ───────────────────────────────── │
-│  [🔊 Listen]  [★ Save]  [Not right?]│
+│  [Save]  [Hear example] [Not right?]│
 └───────────────────────────────────┘
 ```
-- **Spanish/French/German grammar row:** "Gender: feminine · Article: la · Plural: no". Show the Latin American alternative under the word when one exists (*LatAm: el carro*).
+- **Spanish/French/German grammar row:** "Gender: feminine · Article: la · Plural: no". Spanish is Mexican Spanish; when Spain uses a different word, show it under the word (*Spain: el coche*).
 - **English (Chinese interface):** meaning in Chinese, all row titles in Chinese.
-- **Listen** only appears if audio is on and a clip exists.
+- **Listen** plays the label's own line (word, phrase or sentence at the reading level; Mandarin: the word) from the object. **Hear example** plays the example sentence. Both only appear if audio is on and a clip exists, and only ever play on a tap.
+- **Say it** (lavender) opens the Say It card for this word (section 5.5). It only appears where speech can be checked for the word.
 - **Save** adds the word to the Word Bank (words are also auto-collected on first tap).
 - **Not right?** hides that label for the session and logs nothing else.
 - Closes on ✕, tapping elsewhere, or after 20 s without interaction.
@@ -143,18 +144,21 @@ Separate windows through the spatial adapter, but **only one is open at a time**
 │ └──────────────────────────┘ │      │ ┌ Find It ─────────────────┐ │
 │ ┌──────────────────────────┐ │ ───► │ │ Touch the object a word… │ │
 │ │ Practice                 │ │      │ └──────────────────────────┘ │
-│ │ Choose an exercise       │ │      │ ┌ Word Bank ───────────────┐ │
-│ └──────────────────────────┘ │      │ │ Review the words you…    │ │
+│ │ Choose an exercise       │ │      │ ┌ Say It ──────────────────┐ │
+│ └──────────────────────────┘ │      │ │ Read words out loud      │ │
 │ [Progress] [Settings] [Exit] │      │ └──────────────────────────┘ │
-└──────────────────────────────┘      │ Find It round   [5] [10]     │
+└──────────────────────────────┘      │ ┌ Word Bank ───────────────┐ │
+                                      │ │ Review the words you…    │ │
+                                      │ └──────────────────────────┘ │
+                                      │ Round length    [5] [10]     │
                                       └──────────────────────────────┘
 ```
-- **Journey** (progression mode): a guided loop through the reading levels. Each level has two steps: **read 5 labels** (tap them), then **pass a Find It round** (8 of 10). Passing unlocks the next level. A small Journey card low and to the left shows the level, the current goal and a progress bar; when the round is due it shows **Start Find It**. Progress is saved.
-- **Practice** (choose an exercise): **Explore** (labels only, tap to learn), **Find It** (with a 5 or 10 word round), **Word Bank** (review and find words in the room).
+- **Journey** (progression mode): a guided loop through the reading levels. Each level has three steps: **read 5 labels** (tap them), **pass a Find It round** (8 of 10), then **pass a Say It round** (say 4 of 5 words correctly; skipped where Say It isn't available). Passing unlocks the next level. A small Journey card low and to the left shows the level, the current goal and a progress bar; when a round is due it shows **Start Find It** or **Start Say It**. Progress is saved.
+- **Practice** (choose an exercise): **Explore** (labels only, tap to learn), **Find It** and **Say It** (rounds of 5 or 10), **Word Bank** (review and find words in the room). Say It is hidden where speech can't be checked.
 - Small actions under the main choices: **Progress**, **Settings**, **Exit** (tap twice: the first tap turns it rose and reads "Exit?").
 - A brand-new learner skips the menu and starts the Journey, so the first thing they do is read labels. Later launches open the menu.
 
-Window sizes: Menu 42 × 50 cm, Word Bank 45 × 55 cm, Progress 35 × 40 cm, Settings 42 × 56 cm, Journey card 34 × 17 cm, Find It results 40 × 24 cm.
+Window sizes: Menu 42 × 54 cm, Word Bank 45 × 55 cm, Progress 35 × 40 cm, Settings 42 × 62 cm, Journey card 34 × 17 cm, Find It results 40 × 24 cm, Say It card 40 × 34 cm.
 
 ### 5.1 Word Bank
 - Header: "Word Bank" + count ("23 words").
@@ -168,6 +172,26 @@ Window sizes: Menu 42 × 50 cm, Word Bank 45 × 55 cm, Progress 35 × 40 cm, Set
 - During a round only the floating prompt shows: the word (target language, current reading level), score and streak under it, a timer bar, and Skip after 15 s.
 - After a round: a results card with score, accuracy, words to review, **Play again** and **Done**. Done returns to where the round started (menu or Journey).
 
+### 5.5 Say It
+Details in `docs/audio-plan.md`.
+```
+┌──────────────────────────────────────┐
+│ Say it                     2 / 5   ✕ │
+│          yì bǎ yǐzi                  │  ← pinyin above (Mandarin Level 2)
+│            一把椅子                   │  ← exactly what to say
+│             chair                    │
+│      [一] [把] [椅] [子]              │  ← chips after a try: mint clear,
+│  Almost: say 椅 again.               │     peach say again, rose wrong/missing
+│  [Listen]   [  Speak  ]   [Next]     │
+└──────────────────────────────────────┘
+```
+- What to say is always written on the card: the label's line at the reading level (word, phrase or sentence). Mandarin always says the measure-word phrase.
+- **Listen** plays it first if the learner wants. **Speak** is the only way the microphone opens; it reads **Listening… tap when done**, then **Checking…**. Listening also stops after 1 s of quiet.
+- The feedback line always says what happened in words; the chip colours are a second signal, never the only one.
+- Unlimited tries, no penalty. **Next** turns lavender once the word has been said correctly.
+- The round summary shows one chip per word (mint said correctly, rose not yet), "To practise: …", and a one-line honest note: Say It checks the words it hears, not every sound.
+- First use in a language shows **Getting ready…** while the speech model is unpacked in the background.
+
 ### 5.3 Progress
 - Words learned (big number), current reading level, quiz accuracy, rooms explored, daily streak.
 - A simple bar per category showing words learned out of available.
@@ -177,7 +201,7 @@ Window sizes: Menu 42 × 50 cm, Word Bank 45 × 55 cm, Progress 35 × 40 cm, Set
 - **I'm learning:** Mandarin / Spanish / French / German / English.
 - **Interface language:** English / 简体中文 (auto-set to Chinese when learning English, can be changed).
 - **Reading level:** 1 / 2 / 3 with a live preview of the chair label.
-- **Show pinyin** (Mandarin only), **Gender colors**, **Audio**, **Label size** (S / M / L).
+- **Show pinyin** (Mandarin only), **Gender colors**, **Audio** (pronunciation clips; Say It still works with it off), **Label size** (S / M / L).
 - **Advanced:** detection confidence slider, "Show room mesh" (debug, hidden in release).
 - **Privacy note** (always visible at the bottom): "Object recognition runs on your headset. Word World never saves or sends camera images."
 
@@ -212,6 +236,7 @@ Skip all of this on later launches (go straight to the menu).
 
 - **Dock:** low in the user's view, two things only: the recognition pill and a **Home** button under it.
 - **Recognition pill:** "● Recognizing objects" on mint. Tapping it pauses recognition ("Paused" on the plain surface). This doubles as the privacy indicator.
+- **Microphone:** while Say It is listening the pill reads "● Microphone on" on lavender; tapping it stops listening. The microphone is never on without this.
 - **Not enough light / nothing found for 20 s:** "Having trouble seeing. Try turning on a light or moving closer."
 - **Errors** say what happened and what to do: "Object recognition stopped. Tap to restart."
 - **Home from anywhere:** the dock's Home button, or the left controller's X button, closes whatever is open and shows the menu in front of the user.

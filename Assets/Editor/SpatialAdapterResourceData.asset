@@ -16,10 +16,10 @@ MonoBehaviour:
   PrefabLookUps: []
   TextureLookUps: []
   MaterialLookUps:
-  - resource: {fileID: 2100000, guid: b79979fdb914f4138ad8a3cc8889a083, type: 2}
-    path: SpatialAdapterExport\Assets\Materials\Face Tracking Frame.mat.glb
   - resource: {fileID: 2077298715061165062, guid: 1b22cf08af1e34a4e98fc19fc1b6fec3, type: 2}
     path: SpatialAdapterExport\Assets\Fonts\SpatialUI\LiberationSans Spatial SDF.asset.glb
+  - resource: {fileID: 2100000, guid: b79979fdb914f4138ad8a3cc8889a083, type: 2}
+    path: SpatialAdapterExport\Assets\Materials\Face Tracking Frame.mat.glb
   - resource: {fileID: 2103686, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
     path: SpatialAdapterExport\Assets\TextMesh Pro\Resources\Sprite Assets\EmojiOne.asset.glb
   - resource: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
