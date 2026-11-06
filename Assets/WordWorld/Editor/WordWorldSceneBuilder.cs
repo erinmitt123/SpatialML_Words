@@ -21,16 +21,17 @@ using WordWorld.UI;
 namespace WordWorld.Editor
 {
     /// <summary>
-    /// Generates Assets/Scenes/Spatial/WordWorld.unity from the Full Space face scene, which already
-    /// has the Spatial camera setup that works on Swan. Spatial Adapter only renders objects that are
+    /// Regenerates Assets/Scenes/Spatial/WordWorld.unity around its existing Main Camera, which has
+    /// the Spatial camera setup that works on Swan. Spatial Adapter only renders objects that are
     /// authored into the scene, so the label pool and panels are created here rather than at runtime.
     /// Headless: -executeMethod WordWorld.Editor.WordWorldSceneBuilder.BuildScene
     /// </summary>
     public static class WordWorldSceneBuilder
     {
         public const string ScenePath = "Assets/Scenes/Spatial/WordWorld.unity";
-        private const string TemplateScenePath = "Assets/Scenes/Spatial/FaceDetectionFullSpaceSpatial.unity";
-        private const string TemplateSampleObject = "Full Space Face Tracking";
+        // The scene was first copied from PICO's face sample for its Swan-tested Spatial camera.
+        // That sample is gone, so a rebuild keeps this camera root and regenerates everything else.
+        private const string CameraRootName = "Main Camera";
         private const string PackagePath = "Assets/SpatialMLPipelineZoo/yolo-detection/yolo-detection.asset";
         private const int LabelPoolSize = 24;
         private const int ScanDotCount = 8;
@@ -52,13 +53,18 @@ namespace WordWorld.Editor
             var package = AssetDatabase.LoadAssetAtPath<SpatialMLPipelineZooAsset>(PackagePath);
             if (package == null) throw new System.InvalidOperationException($"Missing {PackagePath}; run tools/spatialml import first.");
 
-            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath) != null) AssetDatabase.DeleteAsset(ScenePath);
-            if (!AssetDatabase.CopyAsset(TemplateScenePath, ScenePath))
-                throw new System.InvalidOperationException($"Could not copy {TemplateScenePath}.");
+            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath) == null)
+                throw new System.InvalidOperationException($"Missing {ScenePath}; restore it from git (it holds the Spatial camera).");
 
             var scene = EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+            bool hasCamera = false;
             foreach (GameObject root in scene.GetRootGameObjects())
-                if (root.name == TemplateSampleObject) Object.DestroyImmediate(root);
+            {
+                if (root.name == CameraRootName) hasCamera = true;
+                else Object.DestroyImmediate(root);
+            }
+            if (!hasCamera)
+                throw new System.InvalidOperationException($"{ScenePath} has no '{CameraRootName}' root.");
 
             WordWorldTheme theme = LoadOrCreateTheme();
             s_theme = theme;
@@ -633,12 +639,13 @@ namespace WordWorld.Editor
 
             SpatialAdapterNativeText result = Text("Result", new Vector3(0f, -0.1f, -0.005f), "result", 20, theme.InkMuted,
                 new Vector2(0.37f, 0.04f), toggled: false);
-            SpatialButton listen = CreateButton(t, "Listen", new Vector3(-0.13f, -0.145f, -0.01f), "listen", "audio.listen",
-                24, theme, new Vector2(0.1f, 0.04f));
+            // Speak is the widest: it also shows "Listening… tap when done". 1.5 cm gaps, inside the 40 cm card.
+            SpatialButton listen = CreateButton(t, "Listen", new Vector3(-0.14f, -0.145f, -0.01f), "listen", "audio.listen",
+                24, theme, new Vector2(0.09f, 0.04f));
             SpatialButton speak = CreateButton(t, "Speak", new Vector3(0f, -0.145f, -0.01f), "speak", "sayit.speak",
-                24, theme, new Vector2(0.14f, 0.04f));
-            SpatialButton next = CreateButton(t, "Next", new Vector3(0.13f, -0.145f, -0.01f), "next", "sayit.next",
-                24, theme, new Vector2(0.1f, 0.04f));
+                24, theme, new Vector2(0.16f, 0.04f));
+            SpatialButton next = CreateButton(t, "Next", new Vector3(0.14f, -0.145f, -0.01f), "next", "sayit.next",
+                24, theme, new Vector2(0.09f, 0.04f));
 
             Set(sayIt, "m_card", card);
             Set(sayIt, "m_title", title);
@@ -844,12 +851,13 @@ namespace WordWorld.Editor
             string placeholder, int points, WordWorldTheme theme, Vector2 size)
         {
             SpatialAdapterNativeText text = CreateChildText(parent, name, position, placeholder, points, theme.Ink,
-                theme.Card, size, theme.LabelCornerRadius);
+                theme.Button, size, theme.LabelCornerRadius);
             GameObject go = text.gameObject;
             go.AddComponent<BoxCollider>().size = new Vector3(size.x, size.y, 0.02f);
             go.AddComponent<SpatialAdapterHoverEffect>();
             var button = go.AddComponent<SpatialButton>();
-            button.Bind(value, text);
+            // Same scaling CreateNativeText applied, so runtime fitting starts from the drawn size.
+            button.Bind(value, text, points > 12 ? Mathf.RoundToInt(points * WindowTextScale) : points, size);
             return button;
         }
 
@@ -936,9 +944,7 @@ namespace WordWorld.Editor
 
         private static void AddToBuildSettings()
         {
-            List<EditorBuildSettingsScene> scenes = EditorBuildSettings.scenes.Where(s => s.path != ScenePath).ToList();
-            scenes.Insert(0, new EditorBuildSettingsScene(ScenePath, true));
-            EditorBuildSettings.scenes = scenes.ToArray();
+            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
         }
 
         /// <summary>Room mesh on, and a dedicated physics layer so placement rays only hit the mesh.</summary>

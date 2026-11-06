@@ -132,9 +132,9 @@ namespace WordWorld.UI
             foreach (SpatialButton filter in m_filters)
             {
                 bool selected = filter.Value == m_filter.ToString();
-                filter.Text.Text = S($"wordbank.filter.{filter.Value}");
+                filter.SetLabel(S($"wordbank.filter.{filter.Value}"));
                 filter.Text.TextColor = m_theme.Ink;
-                filter.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Card;
+                filter.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Button;
             }
 
             // Newest first.
@@ -152,7 +152,7 @@ namespace WordWorld.UI
                 m_rows[r].gameObject.SetActive(used);
                 if (!used) continue;
                 m_rowClass[r] = m_shown[index].classId;
-                m_rows[r].Text.Text = RowText(m_shown[index].classId);
+                m_rows[r].SetLabel(RowText(m_shown[index].classId));
                 m_rows[r].Text.TextColor = m_theme.Ink;
             }
 

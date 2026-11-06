@@ -14,6 +14,8 @@ namespace WordWorld.UI
         // Solid: on Swan, text over a see-through background rendered as dark blocks.
         public Color Card = new Color32(0xEE, 0xF1, 0xF6, 0xFF);
         public Color CardDark = new Color32(0x1A, 0x20, 0x1D, 224); // #1A201D at 88%
+        // Unselected buttons. A shade darker than Card so a button on a card still shows its shape.
+        public Color Button = new Color32(0xD3, 0xDB, 0xE7, 0xFF);
 
         [Header("Text")]
         public Color Ink = new Color32(0x1F, 0x26, 0x33, 0xFF);

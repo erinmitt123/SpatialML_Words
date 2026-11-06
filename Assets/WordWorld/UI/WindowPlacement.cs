@@ -40,6 +40,30 @@ namespace WordWorld.UI
             return true;
         }
 
+        /// <summary>
+        /// Beside an object, on the user's side of it: along the line to <paramref name="point"/>, at its
+        /// distance but pulled in to between <paramref name="minDistance"/> and
+        /// <paramref name="maxDistance"/> so text stays readable. Shifted <paramref name="side"/> metres
+        /// toward where the user is looking so the card doesn't cover the object, and kept between
+        /// chest and eye height. Upright and facing the user like every other window.
+        /// </summary>
+        public static bool PlaceBeside(Transform target, Vector3 point, float side = 0.3f,
+            float minDistance = 0.7f, float maxDistance = 1.3f)
+        {
+            if (target == null || !HeadPose.TryGet(out Pose head)) return false;
+            Vector3 toPoint = point - head.position;
+            toPoint.y = 0f;
+            if (toPoint.sqrMagnitude < 0.01f) return false;
+            Quaternion facing = Quaternion.LookRotation(toPoint.normalized, Vector3.up);
+            Vector3 gaze = head.rotation * Vector3.forward;
+            float towardGaze = Vector3.Dot(gaze, facing * Vector3.right) >= 0f ? 1f : -1f;
+            float distance = Mathf.Clamp(toPoint.magnitude, minDistance, maxDistance);
+            Vector3 position = head.position + facing * new Vector3(side * towardGaze, 0f, distance);
+            position.y = Mathf.Clamp(point.y, head.position.y - 0.45f, head.position.y + 0.05f);
+            target.SetPositionAndRotation(position, facing);
+            return true;
+        }
+
         /// <summary>Re-centres a status line once the user has looked more than this far away from it.</summary>
         public static void KeepInView(Transform target, Vector3 offset, float maxDegrees)
         {

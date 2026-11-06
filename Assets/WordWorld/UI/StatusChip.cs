@@ -95,9 +95,9 @@ namespace WordWorld.UI
             // Colour never carries the state alone: the words change too.
             status.TextColor = key == "status.paused" ? m_theme.InkMuted : m_theme.Ink;
             status.BackgroundColor = micOn ? m_theme.Primary
-                : key == "status.trouble" ? m_theme.Hint : key == "status.paused" ? m_theme.Card : m_theme.AccentSoft;
+                : key == "status.trouble" ? m_theme.Hint : key == "status.paused" ? m_theme.Button : m_theme.AccentSoft;
             TextFit.FitBackground(status, text, m_statusPoints, 0.045f);
-            m_homeButton.Text.Text = m_strings.Get("dock.home", ui);
+            m_homeButton.SetLabel(m_strings.Get("dock.home", ui));
             m_homeButton.Text.TextColor = m_theme.Ink;
         }
 

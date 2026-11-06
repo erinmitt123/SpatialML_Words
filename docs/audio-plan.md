@@ -180,6 +180,7 @@ It returns the words it heard, each with a confidence. `SpeechScorer` (plain C#,
 Each Journey level gets a third step after Find It.
 
 - **What it shows:** five words, chosen from objects tracked in this session (preferring the ones the learner tapped in step 1). Each is written out at the learner's reading level, so at Levels 2 and 3 it's the phrase or sentence. The word's object dot pulses so the learner can see what it names.
+- **Pointing at the object:** each word starts with a soft ping played from its object (fully 3D, through `AudioTurn` so it never overlaps the microphone), and the Say It card moves beside that object, on the side the learner is looking. The word's pronunciation still plays only on a Listen tap.
 - **How it runs:** one word at a time. The learner can tap Listen to hear it first, then taps Speak. The microphone never opens on its own, even between words.
 - **What it checks:** every word gets the full check from "Checking an answer": the correctness result plus the per-word clear / say again / wrong chips.
 - **Retries:** after each result, Try again (unlimited, no penalty) or Next.

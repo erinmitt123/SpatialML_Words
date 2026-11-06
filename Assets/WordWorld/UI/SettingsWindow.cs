@@ -172,9 +172,9 @@ namespace WordWorld.UI
                 else if (value == "close") text = S("common.close");
                 else text = value.Substring(value.IndexOf(':') + 1) == "+" ? "+" : "−";
 
-                button.Text.Text = text;
+                button.SetLabel(text);
                 button.Text.TextColor = m_theme.Ink;
-                button.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Card;
+                button.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Button;
             }
         }
 

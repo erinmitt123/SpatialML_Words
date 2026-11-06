@@ -39,6 +39,23 @@ namespace WordWorld.UI
             return widest;
         }
 
+        /// <summary>Below this share of its authored size, a shrunk label is logged as too long.</summary>
+        public const float MinShrink = 0.7f;
+
+        /// <summary>
+        /// The largest size up to <paramref name="points"/> at which <paramref name="value"/> fits inside
+        /// <paramref name="box"/> with 8 mm side and 4 mm top/bottom padding. Widths are estimates, so
+        /// a 10% margin covers wide glyphs.
+        /// </summary>
+        public static float FitPoints(string value, float points, Vector2 box)
+        {
+            float ems = WidestLineEms(value, out int lines) * 1.1f;
+            if (ems <= 0f) return points;
+            float byWidth = (box.x - 0.016f) / (ems * MetresPerPoint);
+            float byHeight = (box.y - 0.008f) / (lines * 1.3f * MetresPerPoint);
+            return Mathf.Max(1f, Mathf.Min(points, byWidth, byHeight));
+        }
+
         /// <summary>Sizes the background to the text plus 8 mm side padding; keeps the collider in step.</summary>
         public static void FitBackground(SpatialAdapterNativeText text, string value, int points, float minHeight)
         {

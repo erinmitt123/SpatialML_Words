@@ -22,6 +22,9 @@ namespace WordWorld.Audio
         public bool Play(int classIndex, ClipKind kind, Vector3 position) =>
             Enabled && m_turn.Speak(m_clips.Get(m_settings.TargetLanguage, classIndex, kind), position);
 
+        /// <summary>A spatial ping from an object, to draw the eye to it. Needs Audio on, not vocab clips.</summary>
+        public bool Ping(Vector3 position) => m_settings.AudioOn && m_turn.Cue(AudioCues.Ping, position);
+
         public void Stop() => m_turn.Stop();
     }
 }

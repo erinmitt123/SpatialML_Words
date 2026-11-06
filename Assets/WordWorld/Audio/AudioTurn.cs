@@ -31,12 +31,15 @@ namespace WordWorld.Audio
         [Tooltip("Listening stops after this much quiet once the learner has started speaking.")]
         [SerializeField] private float m_endSilenceSeconds = 1f;
         [SerializeField] private int m_preferredSampleRate = 16000;
+        [Tooltip("Cues like the Say It ping are fully 3D so the ear finds the object; speech stays partly 2D.")]
+        [SerializeField] private float m_cueSpatialBlend = 1f;
 
         /// <summary>Why a listen ended without a score.</summary>
         public enum ListenProblem { None, NoPermission, NotReady, Failed }
 
         private TurnState m_state;
         private AudioClip m_pending;
+        private float m_speechSpatialBlend = -1f;
         private float m_quietAt;
 
         // Listening.
@@ -57,11 +60,18 @@ namespace WordWorld.Audio
         public event Action<TurnState> StateChanged;
 
         /// <summary>Plays a clip from a point in the room. Interrupts a clip, and cancels listening.</summary>
-        public bool Speak(AudioClip clip, Vector3 position)
+        public bool Speak(AudioClip clip, Vector3 position) => Play(clip, position, cue: false);
+
+        /// <summary>A short sound that points at a spot in the room (fully 3D). Same turn rules as speech.</summary>
+        public bool Cue(AudioClip clip, Vector3 position) => Play(clip, position, cue: true);
+
+        private bool Play(AudioClip clip, Vector3 position, bool cue)
         {
             if (clip == null || m_voice == null) return false;
             CancelListening();
             m_voice.Stop();
+            if (m_speechSpatialBlend < 0f) m_speechSpatialBlend = m_voice.spatialBlend;
+            m_voice.spatialBlend = cue ? m_cueSpatialBlend : m_speechSpatialBlend;
             m_voice.transform.position = position;
             FollowHead();
             m_pending = clip;

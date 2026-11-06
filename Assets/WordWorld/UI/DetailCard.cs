@@ -187,8 +187,8 @@ namespace WordWorld.UI
             m_header.TextColor = m_theme.Ink;
             m_subheader.TextColor = m_theme.InkMuted;
             m_body.TextColor = m_theme.Ink;
-            m_notRightButton.Text.Text = S("detail.not_right", ui);
-            m_closeButton.Text.Text = S("common.close", ui);
+            m_notRightButton.SetLabel(S("detail.not_right", ui));
+            m_closeButton.SetLabel(S("common.close", ui));
             RefreshSaveButton();
             RefreshListenButtons(entry.classIndex, ui);
         }
@@ -204,9 +204,9 @@ namespace WordWorld.UI
             m_listenButton.gameObject.SetActive(word);
             m_exampleButton.gameObject.SetActive(example);
             m_sayItButton.gameObject.SetActive(say);
-            m_listenButton.Text.Text = S("audio.listen", ui);
-            m_exampleButton.Text.Text = S("audio.example", ui);
-            m_sayItButton.Text.Text = S("audio.say_it", ui);
+            m_listenButton.SetLabel(S("audio.listen", ui));
+            m_exampleButton.SetLabel(S("audio.example", ui));
+            m_sayItButton.SetLabel(S("audio.say_it", ui));
             m_listenButton.Text.TextColor = m_theme.Ink;
             m_exampleButton.Text.TextColor = m_theme.Ink;
             m_sayItButton.Text.TextColor = m_theme.Ink;
@@ -216,9 +216,9 @@ namespace WordWorld.UI
         private void RefreshSaveButton()
         {
             bool saved = m_track != null && m_wordBank.IsSaved(m_track.ClassId);
-            m_saveButton.Text.Text = S(saved ? "detail.saved" : "detail.save", m_settings.InterfaceLanguage);
+            m_saveButton.SetLabel(S(saved ? "detail.saved" : "detail.save", m_settings.InterfaceLanguage));
             m_saveButton.Text.TextColor = m_theme.Ink;
-            m_saveButton.Text.BackgroundColor = saved ? m_theme.AccentSoft : m_theme.Card;
+            m_saveButton.Text.BackgroundColor = saved ? m_theme.AccentSoft : m_theme.Button;
         }
 
         private static string GenderKey(string gender) =>

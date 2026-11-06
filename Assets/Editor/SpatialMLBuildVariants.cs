@@ -31,8 +31,9 @@ namespace SpatialML.Samples.Editor
         private const string SpatialAdapterPackageName = "com.bytedance.pico.spatialadapter";
         private const string SpatialAdapterRuntimeSettingsPath = "Assets/Settings/SpatialAdapterRuntimeSettings.asset";
         private const string SpatialSceneRoot = "Assets/Scenes/Spatial/";
-        private const string XrSceneLoaderPath = "Assets/Scenes/SceneLoader.unity";
-        private const string SpatialSceneLoaderPath = "Assets/Scenes/Spatial/SpatialSceneLoader.unity";
+        // Word World is the only app this project ships, so Spatial builds contain just this scene
+        // and launch straight into it (PICO's sample selector and sample scenes were removed).
+        private const string WordWorldScenePath = "Assets/Scenes/Spatial/WordWorld.unity";
         private const string MainManifestPath = "Assets/Plugins/Android/AndroidManifest.xml";
         private const string LauncherManifestPath = "Assets/Plugins/Android/LauncherManifest.xml";
         private const string DefaultOutputRoot = "Builds";
@@ -106,21 +107,8 @@ namespace SpatialML.Samples.Editor
             {
                 throw new BuildFailedException(
                     mode == SpatialMLBuildMode.Spatial
-                        ? $"No Spatial scenes were found under {SpatialSceneRoot}. Add the first Spatial scene before building."
+                        ? $"Missing {WordWorldScenePath}. Run Word World > Rebuild Word World Scene."
                         : "No enabled XR scenes were found outside Assets/Scenes/Spatial.");
-            }
-
-            string sceneLoaderPath = GetSceneLoaderPath(mode);
-            if (!scenes.Contains(sceneLoaderPath, StringComparer.Ordinal))
-            {
-                throw new BuildFailedException(
-                    $"The {mode} scene selector is missing from Build Settings: {sceneLoaderPath}");
-            }
-
-            if (scenes.Length == 1)
-            {
-                throw new BuildFailedException(
-                    $"No enabled {mode} sample scenes were found alongside {sceneLoaderPath}.");
             }
 
             string defaultOutput = Path.Combine(DefaultOutputRoot, mode.ToString(), GetDefaultApkName(mode));
@@ -195,31 +183,17 @@ namespace SpatialML.Samples.Editor
 
         public static string[] GetBuildScenes(SpatialMLBuildMode mode)
         {
-            string[] scenes = EditorBuildSettings.scenes
-                .Where(scene => scene.enabled && IsSceneForMode(scene.path, mode))
-                .Select(scene => scene.path)
-                .OrderBy(path => string.Equals(
-                    path,
-                    GetSceneLoaderPath(mode),
-                    StringComparison.Ordinal) ? 0 : 1)
-                .ToArray();
-
-            string startScene = GetCommandLineArgument("-spatialmlStartScene");
-            if (string.IsNullOrEmpty(startScene))
+            if (mode == SpatialMLBuildMode.Spatial)
             {
-                return scenes;
+                // Ignore Build Settings so a stray enabled scene can never put a menu in front of
+                // Word World.
+                return File.Exists(WordWorldScenePath) ? new[] { WordWorldScenePath } : Array.Empty<string>();
             }
 
-            return scenes
-                .OrderBy(path => string.Equals(path, startScene, StringComparison.Ordinal) ? 0 : 1)
+            return EditorBuildSettings.scenes
+                .Where(scene => scene.enabled && IsSceneForMode(scene.path, mode))
+                .Select(scene => scene.path)
                 .ToArray();
-        }
-
-        private static string GetSceneLoaderPath(SpatialMLBuildMode mode)
-        {
-            return mode == SpatialMLBuildMode.Spatial
-                ? SpatialSceneLoaderPath
-                : XrSceneLoaderPath;
         }
 
         private static bool IsSceneForMode(string scenePath, SpatialMLBuildMode mode)

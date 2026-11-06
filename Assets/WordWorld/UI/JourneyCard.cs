@@ -170,7 +170,7 @@ namespace WordWorld.UI
             m_goal.TextColor = m_theme.Ink;
 
             m_startButton.gameObject.SetActive(roundStep);
-            m_startButton.Text.Text = S(step == 2 ? "journey.start_say" : "journey.start");
+            m_startButton.SetLabel(S(step == 2 ? "journey.start_say" : "journey.start"));
             m_startButton.Text.TextColor = m_theme.Ink;
             m_startButton.Text.BackgroundColor = m_theme.Primary;
 

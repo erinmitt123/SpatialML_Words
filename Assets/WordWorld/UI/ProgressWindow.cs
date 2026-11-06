@@ -106,10 +106,10 @@ namespace WordWorld.UI
             {
                 m_levelUpText.Text = string.Format(S("progress.level_up"), level + 1);
                 m_levelUpText.TextColor = m_theme.Ink;
-                m_tryIt.Text.Text = S("progress.try_it");
+                m_tryIt.SetLabel(S("progress.try_it"));
                 m_tryIt.Text.TextColor = m_theme.Ink;
                 m_tryIt.Text.BackgroundColor = m_theme.Primary;
-                m_notYet.Text.Text = S("progress.not_yet");
+                m_notYet.SetLabel(S("progress.not_yet"));
             }
         }
 

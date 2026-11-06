@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Threading.Tasks;
 using ByteDance.PICO.SecureMR;
-using PicoXR.SpatialML.Demo;
 using Unity.Collections;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace WordWorld.Detection
     /// The app never sees camera pixels: the pipeline publishes only classes, scores and rays.
     /// </summary>
     [AddComponentMenu("Word World/YOLOX SpatialML Detector")]
-    public sealed class YoloxSpatialMLDetector : MonoBehaviour, IObjectDetector, ISpatialMLServiceCleanup
+    public sealed class YoloxSpatialMLDetector : MonoBehaviour, IObjectDetector
     {
         private const string LogTag = "[WordWorld.Detector]";
         private const string PipelineId = "inference";

@@ -35,7 +35,8 @@ Each surface is one solid background panel. We tried neumorphism (a highlight an
 ### Colors (define once as tokens in a single `WordWorldTheme` ScriptableObject)
 | Token | Hex | Use |
 |---|---|---|
-| `Card` | `#EEF1F6`, solid | Label, button and window surfaces. Must be solid: on Swan, text over a see-through background renders as dark blocks. |
+| `Card` | `#EEF1F6`, solid | Label and window surfaces. Must be solid: on Swan, text over a see-through background renders as dark blocks. |
+| `Button` | `#D3DBE7`, solid | Unselected buttons. Darker than `Card` so every button shows its edges on a card. |
 | `Ink` | `#1F2633` | All text, including on pastels |
 | `InkMuted` | `#4A5568` | Secondary text (meaning, captions). Still 7:1 on `Card`. |
 | `Accent` | `#1E6E58` (deep teal) | Pinyin text, big numbers, progress fills |

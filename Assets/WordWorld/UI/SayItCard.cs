@@ -71,6 +71,7 @@ namespace WordWorld.UI
         private SpeechTarget m_target;
         private SpeechScore m_score;
         private string m_message; // a strings key shown in place of a score
+        private bool m_besideObject;
 
         public bool IsOpen => m_phase != Phase.Closed;
 
@@ -152,6 +153,7 @@ namespace WordWorld.UI
             if (m_phase == Phase.Closed) return;
             m_turn.Stop();
             m_phase = Phase.Closed;
+            m_besideObject = false;
             m_card.SetActive(false);
             m_labels.SetSelected(null);
         }
@@ -177,7 +179,8 @@ namespace WordWorld.UI
 
         private void Show()
         {
-            if (!m_card.activeSelf) WindowPlacement.PlaceInFront(m_card.transform, m_offset);
+            // Items with an object were already placed beside it in StartItem.
+            if (!m_card.activeSelf && !m_besideObject) WindowPlacement.PlaceInFront(m_card.transform, m_offset);
             m_card.SetActive(true);
             Refresh();
         }
@@ -189,10 +192,15 @@ namespace WordWorld.UI
             m_message = null;
             int id = m_items[m_index];
             m_target = TargetFor(id);
+            m_besideObject = false;
             if (m_labels.TryFindByClass(id, out TrackedObject track))
             {
                 m_labels.SetSelected(track);
                 m_labels.Pulse(track, 3f);
+                // Ping from the object so the ear finds it, then put the card asking for the word
+                // beside it. The word itself still plays only on a Listen tap.
+                m_audio.Ping(track.Position);
+                m_besideObject = WindowPlacement.PlaceBeside(m_card.transform, track.Position);
             }
         }
 
@@ -316,7 +324,7 @@ namespace WordWorld.UI
             if (m_phase == Phase.Closed || !m_settings.HasLanguage) return;
             string lang = m_settings.TargetLanguage;
             Style(m_title, S("sayit.title"), m_theme.Ink);
-            m_close.Text.Text = S("common.close");
+            m_close.SetLabel(S("common.close"));
             m_close.Text.TextColor = m_theme.Ink;
 
             switch (m_phase)
@@ -520,9 +528,9 @@ namespace WordWorld.UI
 
         private void StyleButton(SpatialButton button, string text, bool primary)
         {
-            button.Text.Text = text;
+            button.SetLabel(text);
             button.Text.TextColor = m_theme.Ink;
-            button.Text.BackgroundColor = primary ? m_theme.Primary : m_theme.Card;
+            button.Text.BackgroundColor = primary ? m_theme.Primary : m_theme.Button;
         }
 
         private static void Style(SpatialAdapterNativeText text, string value, Color color)

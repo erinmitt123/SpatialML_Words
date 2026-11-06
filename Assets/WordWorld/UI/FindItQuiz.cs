@@ -268,7 +268,7 @@ namespace WordWorld.UI
             if (elapsed > m_hintAfterSeconds) ShowHint(now);
             if (elapsed > m_skipAfterSeconds && !m_skip.gameObject.activeSelf)
             {
-                m_skip.Text.Text = S("quiz.skip");
+                m_skip.SetLabel(S("quiz.skip"));
                 m_skip.gameObject.SetActive(true);
             }
             UpdateTimer(1f - elapsed / m_skipAfterSeconds);
@@ -361,9 +361,9 @@ namespace WordWorld.UI
                     return;
                 case State.NotEnough:
                     b.Append(S("quiz.not_enough"));
-                    m_primary.Text.Text = S("quiz.try_again");
+                    m_primary.SetLabel(S("quiz.try_again"));
                     m_primary.gameObject.SetActive(true);
-                    m_secondary.Text.Text = S("quiz.done");
+                    m_secondary.SetLabel(S("quiz.done"));
                     m_secondary.gameObject.SetActive(true);
                     break;
                 case State.Playing:
@@ -389,9 +389,9 @@ namespace WordWorld.UI
                                 b.Append(c.Main);
                         }
                     }
-                    m_primary.Text.Text = S("quiz.play_again");
+                    m_primary.SetLabel(S("quiz.play_again"));
                     m_primary.gameObject.SetActive(true);
-                    m_secondary.Text.Text = S("quiz.done");
+                    m_secondary.SetLabel(S("quiz.done"));
                     m_secondary.gameObject.SetActive(true);
                     break;
             }
@@ -401,7 +401,7 @@ namespace WordWorld.UI
         private void StyleButton(SpatialButton button, bool primary)
         {
             button.Text.TextColor = m_theme.Ink;
-            button.Text.BackgroundColor = primary ? m_theme.Primary : m_theme.Card;
+            button.Text.BackgroundColor = primary ? m_theme.Primary : m_theme.Button;
         }
 
         private string S(string key) => m_strings.Get(key, m_settings.InterfaceLanguage);

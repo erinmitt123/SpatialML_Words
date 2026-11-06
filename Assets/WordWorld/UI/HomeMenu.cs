@@ -208,7 +208,7 @@ namespace WordWorld.UI
             foreach (SpatialButton button in m_buttons)
             {
                 string value = button.Value;
-                Color background = m_theme.Card;
+                Color background = m_theme.Button;
                 string text;
                 switch (value)
                 {
@@ -231,7 +231,7 @@ namespace WordWorld.UI
                 }
                 // Say It only where this build can check speech in the learner's language.
                 if (value == "say_it") button.gameObject.SetActive(m_sayIt.Available);
-                button.Text.Text = text;
+                button.SetLabel(text);
                 button.Text.TextColor = m_theme.Ink;
                 button.Text.BackgroundColor = background;
             }

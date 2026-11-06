@@ -116,9 +116,9 @@ namespace WordWorld.UI
             foreach (SpatialButton button in m_languageButtons)
             {
                 bool selected = button.Value == m_settings.TargetLanguage;
-                button.Text.Text = m_strings.Get($"lang.{button.Value}.endonym", ui);
+                button.SetLabel(m_strings.Get($"lang.{button.Value}.endonym", ui));
                 button.Text.TextColor = m_theme.Ink;
-                button.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Card;
+                button.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Button;
             }
             PlaceInFront(m_languageWindow, m_windowOffset);
             m_languageWindow.SetActive(true);
@@ -138,7 +138,7 @@ namespace WordWorld.UI
             string ui = m_settings.InterfaceLanguage;
             m_introText.Text = m_strings.Get("intro.body", ui);
             m_introText.TextColor = m_theme.Ink;
-            m_introButton.Text.Text = m_strings.Get("intro.got_it", ui);
+            m_introButton.SetLabel(m_strings.Get("intro.got_it", ui));
             m_introButton.Text.TextColor = m_theme.Ink;
             m_introButton.Text.BackgroundColor = m_theme.Primary;
             PlaceInFront(m_introCard, m_windowOffset);
