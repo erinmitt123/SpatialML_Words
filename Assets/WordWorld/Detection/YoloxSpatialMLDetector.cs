@@ -75,6 +75,14 @@ namespace WordWorld.Detection
         private float m_nextRawLogTime;
         private float m_rateWindowStart;
 
+#if UNITY_ANDROID && !UNITY_EDITOR
+        private static readonly string[] RequiredPermissions =
+        {
+            UnityEngine.Android.Permission.Camera,
+            "com.picovr.permission.SPATIAL_DATA",
+        };
+#endif
+
         private IEnumerator Start()
         {
             if (m_package == null)
@@ -82,6 +90,29 @@ namespace WordWorld.Detection
                 Fail("No yolo-detection package assigned.");
                 yield break;
             }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+            // SecureMR refuses tensor readback unless both runtime permissions are granted
+            // (seen Nov 2026: "caller is not granted with Permission: SPATIAL_DATA").
+            Status = "Waiting for camera permission";
+            foreach (string permission in RequiredPermissions)
+            {
+                if (UnityEngine.Android.Permission.HasUserAuthorizedPermission(permission)) continue;
+                bool answered = false;
+                var callbacks = new UnityEngine.Android.PermissionCallbacks();
+                callbacks.PermissionGranted += _ => answered = true;
+                callbacks.PermissionDenied += _ => answered = true;
+                callbacks.PermissionDeniedAndDontAskAgain += _ => answered = true;
+                UnityEngine.Android.Permission.RequestUserPermission(permission, callbacks);
+                while (!answered && !m_isShuttingDown) yield return null;
+                if (m_isShuttingDown) yield break;
+                if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(permission))
+                {
+                    Fail($"Permission denied: {permission}");
+                    yield break;
+                }
+            }
+#endif
 
             const int attempts = 10;
             for (int attempt = 1; attempt <= attempts && m_provider == null; attempt++)

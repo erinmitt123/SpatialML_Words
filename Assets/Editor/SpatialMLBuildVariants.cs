@@ -521,24 +521,23 @@ namespace SpatialML.Samples.Editor
             }
 
             string manifest = File.ReadAllText(manifestPath);
-            if (!manifest.Contains("com.unity3d.player.SpatialAdapterPlayerActivity", StringComparison.Ordinal) ||
-                !manifest.Contains("pico.spatial.windowcontainer.id", StringComparison.Ordinal))
+            if (!manifest.Contains("com.unity3d.player.SpatialAdapterPlayerActivity", StringComparison.Ordinal))
             {
                 return;
             }
 
-            if (!manifest.Contains(NumericContainerId, StringComparison.Ordinal))
-            {
-                if (!manifest.Contains(StringContainerId, StringComparison.Ordinal))
-                {
-                    throw new BuildFailedException(
-                        "Spatial Adapter emitted an unexpected pico.spatial.windowcontainer.id value. " +
-                        "Refusing to build an APK that may be classified as a 2D app.");
-                }
-            }
-            else
+            // Stage mode emits pico.spatial.stage.id and no windowcontainer.id. The permissions
+            // below are still required there, so only the container-id fix depends on that key.
+            if (manifest.Contains(NumericContainerId, StringComparison.Ordinal))
             {
                 manifest = manifest.Replace(NumericContainerId, StringContainerId, StringComparison.Ordinal);
+            }
+            else if (manifest.Contains("pico.spatial.windowcontainer.id", StringComparison.Ordinal) &&
+                     !manifest.Contains(StringContainerId, StringComparison.Ordinal))
+            {
+                throw new BuildFailedException(
+                    "Spatial Adapter emitted an unexpected pico.spatial.windowcontainer.id value. " +
+                    "Refusing to build an APK that may be classified as a 2D app.");
             }
 
             if (!manifest.Contains(SpatialApplicationMetadata, StringComparison.Ordinal))

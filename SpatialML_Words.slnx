@@ -1,11 +1,11 @@
 ﻿<Solution>
   <Project Path="ByteDance.PICO.XR.csproj" />
   <Project Path="ByteDance.PICO.SptatialUI.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="USD.NET.csproj" />
   <Project Path="Unity.XR.Quantum.Editor.ShaderGraph.csproj" />
   <Project Path="PlattarCompile.csproj" />
   <Project Path="ByteDance.PICO.IconConfigurator.Editor.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="ByteDance.PICO.XR.Editor.csproj" />
   <Project Path="ByteDance.PICO.Platform.csproj" />
   <Project Path="ByteDance.PICO.SpatialAdapter.Editor.csproj" />
@@ -25,9 +25,11 @@
   <Project Path="ByteDance.PICO.Interaction.csproj" />
   <Project Path="ByteDance.PICO.CameraPack.csproj" />
   <Project Path="ByteDance.PICO.CameraPack.Editor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="ByteDance.PICO.Spatial.Stage.csproj" />
+  <Project Path="WordWorld.Speech.csproj" />
   <Project Path="Bytedance.PICO.SpatialAdapter.XRI.csproj" />
   <Project Path="PlattarSelectiveCompile.csproj" />
+  <Project Path="WordWorld.Speech.Tests.csproj" />
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj" />
-  <Project Path="Assembly-CSharp-Editor.csproj" />
 </Solution>
