@@ -5,6 +5,12 @@ using UnityEngine;
 namespace WordWorld.App
 {
     /// <summary>
+    /// The Sound setting. Off: silent. Alerts: short sound effects only (ripples, chimes, pings).
+    /// All: effects, background music and spoken words.
+    /// </summary>
+    public enum SoundMode { Off, Alerts, All }
+
+    /// <summary>
     /// The shared learner state store (CLAUDE.md section 8): target language and reading level.
     /// Panels and labels listen to <see cref="Changed"/>. Saved as JSON in persistentDataPath.
     /// </summary>
@@ -25,7 +31,12 @@ namespace WordWorld.App
             public bool showMeaning = true;
             public string labelSize = "M";
             public float confidenceThreshold = 0.55f;
+            // Before the Sound setting: on/off for pronunciation clips. Read only to migrate.
             public bool audioOn = true;
+            // off, alerts or all; empty in files saved before it existed.
+            public string soundMode = "";
+            // Was the practice objects switch; they are session only now, so this is never read.
+            public bool practiceObjects;
             // Journey (DESIGN.md section 5): 0 = read labels, 1 = Find It round, 2 = Say It round.
             public int journeyStep;
             // Total label taps when the current read step began.
@@ -54,8 +65,10 @@ namespace WordWorld.App
         public string LabelSize => m_data.labelSize;
         public float LabelScale => m_data.labelSize == "S" ? 0.8f : m_data.labelSize == "L" ? 1.25f : 1f;
         public float ConfidenceThreshold => m_data.confidenceThreshold;
-        /// <summary>Pronunciation clips; when off, Listen buttons hide (SPATIALML_SETUP.md section 9).</summary>
-        public bool AudioOn => m_data.audioOn;
+        /// <summary>Off, Alerts (effects only) or All (effects, music and spoken words).</summary>
+        public SoundMode Sound => ParseSound(m_data.soundMode, m_data.audioOn);
+        /// <summary>Pronunciation clips play only with Sound on All; otherwise Listen buttons hide.</summary>
+        public bool SpokenWords => Sound == SoundMode.All;
         public const float MinConfidence = 0.35f;
         public const float MaxConfidence = 0.85f;
         /// <summary>Journey step: 0 = read labels, 1 = pass a Find It round, 2 = pass a Say It round.</summary>
@@ -87,15 +100,6 @@ namespace WordWorld.App
             Changed?.Invoke();
         }
 
-        /// <summary>Later launches skip the picker and continue with the saved language.</summary>
-        public void ResumeSession()
-        {
-            if (!HasLanguage || SessionReady) return;
-            SessionReady = true;
-            Debug.Log($"[WordWorld.Settings] resuming '{TargetLanguage}' with a '{InterfaceLanguage}' interface, level {ReadingLevel}");
-            Changed?.Invoke();
-        }
-
         public void CompleteOnboarding()
         {
             if (m_data.onboardingDone) return;
@@ -115,7 +119,34 @@ namespace WordWorld.App
 
         public void SetLabelPeople(bool label) => Apply(() => m_data.labelPeople = label, m_data.labelPeople != label);
 
-        public void SetAudioOn(bool on) => Apply(() => m_data.audioOn = on, m_data.audioOn != on);
+        // Session only: practice objects are placed for the room the learner is in now, so they
+        // never carry over to the next launch (where the room, or the furniture, may differ).
+        private bool m_practiceObjects;
+
+        public bool PracticeObjects => m_practiceObjects;
+
+        public void SetPracticeObjects(bool on)
+        {
+            if (m_practiceObjects == on) return;
+            m_practiceObjects = on;
+            Changed?.Invoke();
+        }
+
+        public void SetSound(SoundMode mode)
+        {
+            string value = SoundKey(mode);
+            Apply(() => m_data.soundMode = value, m_data.soundMode != value);
+        }
+
+        public static string SoundKey(SoundMode mode) =>
+            mode == SoundMode.Off ? "off" : mode == SoundMode.Alerts ? "alerts" : "all";
+
+        // Files from before the Sound setting keep what they had: audio off stays silent.
+        private static SoundMode ParseSound(string value, bool legacyAudioOn) =>
+            value == "off" ? SoundMode.Off
+            : value == "alerts" ? SoundMode.Alerts
+            : value == "all" ? SoundMode.All
+            : legacyAudioOn ? SoundMode.All : SoundMode.Off;
 
         public void SetLabelSize(string size)
         {

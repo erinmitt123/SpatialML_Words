@@ -60,8 +60,20 @@ namespace WordWorld.Detection
     /// Model-agnostic detector. YOLOX today; an Apache-2.0 EfficientDet swap only replaces the
     /// implementation (CLAUDE.md section 1).
     /// </summary>
+    /// <summary>Whether object recognition can work right now, in terms the learner can act on.</summary>
+    public enum DetectorHealth
+    {
+        Starting,
+        Running,
+        /// <summary>The model would not load or stopped delivering frames. On Swan a headset restart fixes it.</summary>
+        Failed,
+        /// <summary>The camera permission was refused.</summary>
+        NoPermission,
+    }
+
     public interface IObjectDetector
     {
+        DetectorHealth Health { get; }
         /// <summary>Raised on the main thread; the frame object is reused, so copy what you keep.</summary>
         event Action<DetectionFrame> FrameReady;
         bool IsRunning { get; }

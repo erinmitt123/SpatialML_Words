@@ -84,17 +84,17 @@ namespace WordWorld.UI
         {
             if (!m_window.activeSelf || !m_settings.HasLanguage) return;
             int words = m_wordBank.Words.Count;
-            m_title.Text = S("progress.title");
+            m_title.SetFitted(S("progress.title"));
             m_title.TextColor = m_theme.Ink;
             m_bigNumber.Text = words.ToString();
             m_bigNumber.TextColor = m_theme.Accent;
-            m_caption.Text = S("progress.words_learned");
+            m_caption.SetFitted(S("progress.words_learned"));
             m_caption.TextColor = m_theme.InkMuted;
 
             int attempts = m_wordBank.TotalAttempts;
             string accuracy = attempts > 0 ? $"{Mathf.RoundToInt(100f * m_wordBank.TotalCorrect / attempts)}%" : "-";
-            m_stats.Text = $"{S("progress.level")} {m_settings.ReadingLevel}   ·   {S("progress.accuracy")} {accuracy}\n" +
-                           string.Format(S("progress.day_streak"), m_wordBank.DayStreak);
+            m_stats.SetFitted($"{S("progress.level")} {m_settings.ReadingLevel}   ·   {S("progress.accuracy")} {accuracy}\n" +
+                           string.Format(S("progress.day_streak"), m_wordBank.DayStreak));
             m_stats.TextColor = m_theme.Ink;
 
             RefreshBars();
@@ -104,11 +104,11 @@ namespace WordWorld.UI
             m_levelUp.SetActive(ready);
             if (ready)
             {
-                m_levelUpText.Text = string.Format(S("progress.level_up"), level + 1);
+                m_levelUpText.SetFitted(string.Format(S("progress.level_up"), level + 1));
                 m_levelUpText.TextColor = m_theme.Ink;
                 m_tryIt.SetLabel(S("progress.try_it"));
                 m_tryIt.Text.TextColor = m_theme.Ink;
-                m_tryIt.Text.BackgroundColor = m_theme.Primary;
+                m_tryIt.Background = m_theme.Primary;
                 m_notYet.SetLabel(S("progress.not_yet"));
             }
         }
@@ -148,7 +148,7 @@ namespace WordWorld.UI
                 string category = m_categories[i];
                 m_learned.TryGetValue(category, out int learned);
                 int available = m_available[category];
-                m_barNames[i].Text = S($"category.{category}");
+                m_barNames[i].SetFitted(S($"category.{category}"));
                 m_barNames[i].TextColor = m_theme.Ink;
                 m_barCounts[i].Text = $"{learned}/{available}";
                 m_barCounts[i].TextColor = m_theme.InkMuted;

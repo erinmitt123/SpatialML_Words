@@ -44,6 +44,44 @@ namespace WordWorld.Detection
         public event Action<DetectionFrame> FrameReady;
         public bool IsRunning => m_pipeline != null && !m_failed;
         public string Status { get; private set; } = "Starting";
+
+        // Seen on Swan: after any failed GPU model load, or on a headset up for days, SecureMR loads
+        // nothing or delivers nothing until the headset restarts. Both count as failed so the app can
+        // say so plainly instead of waiting forever.
+        [Tooltip("No frame delivered for this long after starting counts as failed.")]
+        [SerializeField] private float m_stallSeconds = 25f;
+        [Tooltip("Not running this long after launch counts as failed.")]
+        [SerializeField] private float m_startTimeoutSeconds = 40f;
+        private bool m_noPermission;
+        private float m_runningSince = -1f;
+        // Frames stop while the headset sleeps or the app is in the background. Counting that time
+        // as a stall marked recognition down for a moment on every wake (Nov 12 log: "no frames for
+        // 129 s", recovered 0.3 s later), so the stall clock restarts on resume.
+        private float m_resumedAt = -1f;
+
+        private void OnApplicationPause(bool paused)
+        {
+            if (!paused) m_resumedAt = Time.unscaledTime;
+        }
+
+        private void OnApplicationFocus(bool focused)
+        {
+            if (focused) m_resumedAt = Time.unscaledTime;
+        }
+
+        public DetectorHealth Health
+        {
+            get
+            {
+                if (m_noPermission) return DetectorHealth.NoPermission;
+                if (m_failed) return DetectorHealth.Failed;
+                float now = Time.unscaledTime;
+                if (m_runningSince < 0f)
+                    return Status.StartsWith("Waiting for camera") || now < m_startTimeoutSeconds ? DetectorHealth.Starting : DetectorHealth.Failed;
+                float since = Mathf.Max(Mathf.Max(m_lastDeliveredTime, m_runningSince), m_resumedAt);
+                return now - since > m_stallSeconds ? DetectorHealth.Failed : DetectorHealth.Running;
+            }
+        }
         public float InferenceRate { get; private set; }
 
         private readonly CapturePoseHistory m_poses = new CapturePoseHistory();
@@ -102,11 +140,15 @@ namespace WordWorld.Detection
                 callbacks.PermissionGranted += _ => answered = true;
                 callbacks.PermissionDenied += _ => answered = true;
                 callbacks.PermissionDeniedAndDontAskAgain += _ => answered = true;
+                // The prompt pauses the app; that is not the learner leaving it.
+                WordWorld.App.AppLifecycle.AskingPermission = true;
                 UnityEngine.Android.Permission.RequestUserPermission(permission, callbacks);
                 while (!answered && !m_isShuttingDown) yield return null;
+                WordWorld.App.AppLifecycle.AskingPermission = false;
                 if (m_isShuttingDown) yield break;
                 if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(permission))
                 {
+                    m_noPermission = true;
                     Fail($"Permission denied: {permission}");
                     yield break;
                 }
@@ -152,6 +194,7 @@ namespace WordWorld.Detection
                 m_values = new NativeArray<float>(ValueCount, Allocator.Persistent);
                 m_rateWindowStart = Time.unscaledTime;
                 Status = "Running";
+                m_runningSince = Time.unscaledTime;
                 Debug.Log($"{LogTag} ready: {m_vstSize}x{m_vstSize} VST, {m_targetRateHz:F0} Hz target");
             }
             catch (Exception exception)

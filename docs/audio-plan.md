@@ -134,6 +134,8 @@ It returns the words it heard, each with a confidence. `SpeechScorer` (plain C#,
 | `tools/generate_audio.py` | Reads `Assets/Languages/vocabulary.csv` and runs Piper for every word, phrase and sentence. Writes 22.05 kHz mono Ogg Vorbis, trims silence and evens out loudness. Skips cells whose text is unchanged (hash in the manifest). |
 | `Assets/Audio/Vocab/<lang>/<classIndex>_<word\|phrase\|sentence>.ogg` | 1,200 clips (80 × 5 × 3). Imported mono, compressed, not preloaded (`Assets/WordWorld/Editor/VocabAudioImport.cs`). |
 | `Assets/Audio/Vocab/manifest.json` | Text, hash and voice for each clip. |
+| `tools/generate_tour_audio.py` | Speaks the guided tour's captions (`tour.*` in ui_strings.json) in English and Mandarin with the same voices, and for Mandarin the same pinyin-driven phonemes. Re-run after editing a `tour.*` string (and its pinyin in the script). |
+| `Assets/Audio/Tour/<en\|zh>/<step>.ogg` | 18 narration clips (9 steps × 2), imported like the vocabulary clips; the scene builder assigns them to the Tour. |
 | `Assets/Data/VocabClips.asset` | Index of the clips, rebuilt by the scene builder. |
 | `tools/fetch_speech.py` | Downloads the Vosk library (arm64 only) and the five small models. Run once after cloning; the models (about 210 MB) are gitignored. |
 | `tools/build_speech.py` | Writes `Assets/Data/speech.json`: every word, phrase and sentence split into the words its model knows, the words that name the object, and the words a model doesn't know (listed for review). |

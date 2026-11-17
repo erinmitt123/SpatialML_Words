@@ -42,6 +42,15 @@ namespace WordWorld.UI
         public Color Neuter = new Color32(0x6B, 0x7F, 0x3A, 0xFF);
 
         [Header("Shape (metres)")]
+        // Panel edge (V3 review: panels should stand out from the room). Native text has no gradient
+        // fill, so the depth comes from a rim that runs light at the top to darker at the bottom, a
+        // bright inner top edge, and a soft shadow below.
+        public Color PanelRimTop = new Color32(0xC6, 0xD0, 0xDE, 0xFF);
+        public Color PanelRimBottom = new Color32(0x8E, 0x9E, 0xB4, 0xFF);
+        public Color PanelShadow = new Color32(0x10, 0x18, 0x28, 0x38);
+        public Color PanelHighlight = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
+        public float PanelRimWidth = 0.003f;
+
         public float PanelCornerRadius = 0.016f;
         public float LabelCornerRadius = 0.01f;
     }

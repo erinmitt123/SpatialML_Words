@@ -121,6 +121,7 @@ namespace WordWorld.UI
         /// </summary>
         public void BeginRound(int count, int passNeeded)
         {
+            RoomFx.Ripple();
             m_items.Clear();
             m_labels.GetLabelled(m_objects);
             var known = new List<int>();
@@ -181,6 +182,7 @@ namespace WordWorld.UI
         {
             // Items with an object were already placed beside it in StartItem.
             if (!m_card.activeSelf && !m_besideObject) WindowPlacement.PlaceInFront(m_card.transform, m_offset);
+            if (!m_card.activeSelf) Sfx.Appear(m_card.transform.position);
             m_card.SetActive(true);
             Refresh();
         }
@@ -200,7 +202,7 @@ namespace WordWorld.UI
                 // Ping from the object so the ear finds it, then put the card asking for the word
                 // beside it. The word itself still plays only on a Listen tap.
                 m_audio.Ping(track.Position);
-                m_besideObject = WindowPlacement.PlaceBeside(m_card.transform, track.Position);
+                m_besideObject = WindowPlacement.PlaceNear(m_card.transform, track.Position);
             }
         }
 
@@ -257,6 +259,12 @@ namespace WordWorld.UI
                 // Speaking counts toward mastery like a quiz answer; a pass on any try counts.
                 if (score.Passed && !m_passed[m_index]) m_wordBank.RecordQuizAnswer(id, true, m_settings.ReadingLevel);
                 m_passed[m_index] |= score.Passed;
+                // The object answers too: a hop when said right, a shake when not.
+                if (m_labels.TryFindByClass(id, out TrackedObject track))
+                {
+                    if (score.Passed) m_labels.Jump(track);
+                    else m_labels.Shake(track);
+                }
             }
             Refresh();
         }
@@ -355,7 +363,7 @@ namespace WordWorld.UI
                 : turn == TurnState.Checking ? S("sayit.checking")
                 : S("sayit.speak");
             StyleButton(m_speak, speak, ready && turn != TurnState.Checking);
-            if (turn == TurnState.Listening) m_speak.Text.BackgroundColor = m_theme.AccentSoft;
+            if (turn == TurnState.Listening) m_speak.Background = m_theme.AccentSoft;
 
             bool passed = m_passed[m_index];
             m_next.gameObject.SetActive(true);
@@ -530,12 +538,12 @@ namespace WordWorld.UI
         {
             button.SetLabel(text);
             button.Text.TextColor = m_theme.Ink;
-            button.Text.BackgroundColor = primary ? m_theme.Primary : m_theme.Button;
+            button.Background = primary ? m_theme.Primary : m_theme.Button;
         }
 
         private static void Style(SpatialAdapterNativeText text, string value, Color color)
         {
-            text.Text = value ?? "";
+            text.SetFitted(value ?? "");
             text.TextColor = color;
         }
 

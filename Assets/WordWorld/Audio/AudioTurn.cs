@@ -134,9 +134,11 @@ namespace WordWorld.Audio
             if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
             {
                 var callbacks = new PermissionCallbacks();
-                callbacks.PermissionGranted += _ => StartRecording();
-                callbacks.PermissionDenied += _ => Complete(null, ListenProblem.NoPermission);
-                callbacks.PermissionDeniedAndDontAskAgain += _ => Complete(null, ListenProblem.NoPermission);
+                // The prompt pauses the app; that is not the learner leaving it.
+                callbacks.PermissionGranted += _ => { WordWorld.App.AppLifecycle.AskingPermission = false; StartRecording(); };
+                callbacks.PermissionDenied += _ => { WordWorld.App.AppLifecycle.AskingPermission = false; Complete(null, ListenProblem.NoPermission); };
+                callbacks.PermissionDeniedAndDontAskAgain += _ => { WordWorld.App.AppLifecycle.AskingPermission = false; Complete(null, ListenProblem.NoPermission); };
+                WordWorld.App.AppLifecycle.AskingPermission = true;
                 Permission.RequestUserPermission(Permission.Microphone, callbacks);
                 return;
             }
@@ -171,6 +173,8 @@ namespace WordWorld.Audio
 
         private void Update()
         {
+            // Always, not just while speaking: ripples and the Say It ping play from places in the room.
+            FollowHead();
             switch (m_state)
             {
                 case TurnState.Speaking: UpdateSpeaking(); break;
@@ -180,7 +184,6 @@ namespace WordWorld.Audio
 
         private void UpdateSpeaking()
         {
-            FollowHead();
             if (m_pending != null)
             {
                 switch (m_pending.loadState)

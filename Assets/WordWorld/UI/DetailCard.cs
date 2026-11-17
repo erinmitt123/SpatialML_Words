@@ -14,7 +14,7 @@ namespace WordWorld.UI
     /// Detail card (DESIGN.md section 4): tap a label to see the word, its meaning in the interface
     /// language, a grammar row (article and gender, or measure word) and an example sentence. Opens
     /// next to the label, slightly toward the user, and closes on the close button or after 20 s.
-    /// Opening collects the word into the Word Bank.
+    /// Opening collects the word into the Word Bank and says the word aloud (Sound on All).
     /// </summary>
     [AddComponentMenu("Word World/Detail Card")]
     public sealed class DetailCard : MonoBehaviour
@@ -41,23 +41,27 @@ namespace WordWorld.UI
         [SerializeField] private SayItCard m_sayIt;
 
         [SerializeField] private float m_closeAfterSeconds = 20f;
-        [Tooltip("Sideways and toward-the-user offset from the label, in metres.")]
-        [SerializeField] private Vector2 m_offsetFromLabel = new Vector2(0.24f, 0.12f);
-        [Tooltip("DESIGN.md section 10: nothing closer than 40 cm to the eyes.")]
-        [SerializeField] private float m_minDistanceFromEyes = 0.45f;
+        [Tooltip("Distance from the eyes: in front of the object but within poke reach. DESIGN.md section 10 keeps it over 40 cm.")]
+        [SerializeField] private float m_distanceFromEyes = 0.6f;
 
         private readonly StringBuilder m_builder = new StringBuilder(256);
         private TrackedObject m_track;
         private float m_lastInteraction;
 
         public bool IsOpen => m_track != null;
+        public Transform Card => m_card.transform;
+        public SpatialButton CloseButton => m_closeButton;
 
         private void Awake()
         {
             m_card.SetActive(false);
             m_saveButton.Clicked += _ => ToggleSave();
             m_notRightButton.Clicked += _ => NotRight();
-            m_closeButton.Clicked += _ => Close();
+            m_closeButton.Clicked += _ =>
+            {
+                Sfx.Dismiss(m_card.transform.position);
+                Close();
+            };
             m_listenButton.Clicked += _ => Listen(VocabClips.ForLevel(m_settings.TargetLanguage, m_settings.ReadingLevel));
             m_exampleButton.Clicked += _ => Listen(ClipKind.Sentence);
             m_sayItButton.Clicked += _ => SayIt();
@@ -98,9 +102,14 @@ namespace WordWorld.UI
             m_lastInteraction = Time.unscaledTime;
             m_wordBank.RecordTap(track.ClassId);
             Fill(entry);
-            Place(view.transform.position);
+            WindowPlacement.PlaceNear(m_card.transform, track.Position, Mathf.Max(0.45f, m_distanceFromEyes));
             m_card.SetActive(true);
             m_labels.SetSelected(track);
+            Sfx.Appear(m_card.transform.position);
+            // Exploring: tapping a label says the object's name from the object (Sound on All only).
+            // Listen on the card still plays the label's full line at the reading level. Not during
+            // the tour, whose narration explains the card next.
+            if (m_audio != null && !Tour.Active) m_audio.PlayIfFree(track.ClassId, ClipKind.Word, track.Position);
         }
 
         public void Close()
@@ -156,8 +165,8 @@ namespace WordWorld.UI
             if (lang == "zh")
             {
                 Vocabulary.ChineseEntry zh = entry.zh;
-                m_header.Text = zh.characters;
-                m_subheader.Text = $"{zh.pinyin}   {zh.meaning}";
+                m_header.SetFitted(zh.characters);
+                m_subheader.SetFitted($"{zh.pinyin}   {zh.meaning}");
                 b.Clear()
                     .Append(S("detail.measure_word", ui)).Append("   ").Append(zh.phrase).Append("  ").Append(zh.phrasePinyin).Append('\n')
                     .Append(S("detail.example", ui)).Append("   ").Append(zh.sentence).Append('\n')
@@ -166,12 +175,12 @@ namespace WordWorld.UI
             else
             {
                 Vocabulary.LatinEntry latin = Vocabulary.LatinFor(entry, lang);
-                m_header.Text = latin.word;
+                m_header.SetFitted(latin.word);
                 b.Clear().Append(latin.meaning);
                 // DESIGN.md: Spanish is Mexican; show the Spain word under it when it differs.
                 if (lang == "es" && !string.IsNullOrEmpty(latin.alternatives))
                     b.Append("   ").Append(S("detail.spain", ui)).Append(": ").Append(latin.alternatives);
-                m_subheader.Text = b.ToString();
+                m_subheader.SetFitted(b.ToString());
 
                 b.Clear();
                 if (lang == "en")
@@ -182,7 +191,7 @@ namespace WordWorld.UI
                         .Append(" · ").Append(S("detail.plural", ui)).Append(": ").Append(S(latin.plural ? "common.yes" : "common.no", ui));
                 b.Append('\n').Append(S("detail.example", ui)).Append("   ").Append(Vocabulary.Wrap(latin.sentence, 34, 2));
             }
-            m_body.Text = b.ToString();
+            m_body.SetFitted(b.ToString());
 
             m_header.TextColor = m_theme.Ink;
             m_subheader.TextColor = m_theme.InkMuted;
@@ -201,16 +210,20 @@ namespace WordWorld.UI
             bool word = m_audio != null && m_audio.Has(classId, kind);
             bool example = m_audio != null && m_audio.Has(classId, ClipKind.Sentence);
             bool say = m_sayIt != null && m_sayIt.CanSay(classId);
-            m_listenButton.gameObject.SetActive(word);
-            m_exampleButton.gameObject.SetActive(example);
-            m_sayItButton.gameObject.SetActive(say);
+            // The tour only asks the learner to read the card and close it: nothing else shows.
+            bool tour = Tour.Active;
+            m_listenButton.gameObject.SetActive(word && !tour);
+            m_exampleButton.gameObject.SetActive(example && !tour);
+            m_sayItButton.gameObject.SetActive(say && !tour);
+            m_saveButton.gameObject.SetActive(!tour);
+            m_notRightButton.gameObject.SetActive(!tour);
             m_listenButton.SetLabel(S("audio.listen", ui));
             m_exampleButton.SetLabel(S("audio.example", ui));
             m_sayItButton.SetLabel(S("audio.say_it", ui));
             m_listenButton.Text.TextColor = m_theme.Ink;
             m_exampleButton.Text.TextColor = m_theme.Ink;
             m_sayItButton.Text.TextColor = m_theme.Ink;
-            m_sayItButton.Text.BackgroundColor = m_theme.Primary;
+            m_sayItButton.Background = m_theme.Primary;
         }
 
         private void RefreshSaveButton()
@@ -218,7 +231,7 @@ namespace WordWorld.UI
             bool saved = m_track != null && m_wordBank.IsSaved(m_track.ClassId);
             m_saveButton.SetLabel(S(saved ? "detail.saved" : "detail.save", m_settings.InterfaceLanguage));
             m_saveButton.Text.TextColor = m_theme.Ink;
-            m_saveButton.Text.BackgroundColor = saved ? m_theme.AccentSoft : m_theme.Button;
+            m_saveButton.Background = saved ? m_theme.AccentSoft : m_theme.Button;
         }
 
         private static string GenderKey(string gender) =>
@@ -226,19 +239,5 @@ namespace WordWorld.UI
 
         private string S(string key, string ui) => m_strings.Get(key, ui);
 
-        // Beside the label and a little toward the user, facing them, never too close.
-        private void Place(Vector3 labelPosition)
-        {
-            if (!HeadPose.TryGet(out Pose head)) return;
-            Vector3 toUser = head.position - labelPosition;
-            toUser.y = 0f;
-            if (toUser.sqrMagnitude < 1e-4f) toUser = Vector3.back;
-            toUser.Normalize();
-            Vector3 right = Vector3.Cross(Vector3.up, -toUser);
-            Vector3 position = labelPosition + right * m_offsetFromLabel.x + toUser * m_offsetFromLabel.y;
-            Vector3 fromEyes = position - head.position;
-            if (fromEyes.magnitude < m_minDistanceFromEyes) position = head.position + fromEyes.normalized * m_minDistanceFromEyes;
-            m_card.transform.SetPositionAndRotation(position, ObjectLabels.Billboard(head.position, position));
-        }
     }
 }

@@ -2,6 +2,7 @@ using ByteDance.PICO.SpatialAdapter.Component;
 using UnityEngine;
 using UnityEngine.XR;
 using WordWorld.App;
+using WordWorld.Audio;
 using WordWorld.Data;
 using WordWorld.Labels;
 
@@ -39,9 +40,11 @@ namespace WordWorld.UI
         [SerializeField] private SpatialAdapterNativeText m_subtitle;
         [SerializeField] private GameObject m_mainPage;
         [SerializeField] private GameObject m_practicePage;
-        [Tooltip("Main page: journey, practice, progress, settings, exit. Practice page: back, explore, find_it, say_it, word_bank, round:5, round:10.")]
+        [Tooltip("Main page: journey, practice, progress, settings, exit, sound:off, sound:alerts, sound:all. " +
+                 "Practice page: back, explore, find_it, say_it, word_bank, round:5, round:10.")]
         [SerializeField] private SpatialButton[] m_buttons = System.Array.Empty<SpatialButton>();
         [SerializeField] private SpatialAdapterNativeText m_roundLabel;
+        [SerializeField] private SpatialAdapterNativeText m_soundLabel;
 
         [SerializeField] private Vector3 m_menuOffset = new Vector3(0f, -0.08f, 0.9f);
         [SerializeField] private Vector3 m_windowOffset = new Vector3(0f, -0.1f, 1.0f);
@@ -54,6 +57,46 @@ namespace WordWorld.UI
         private bool m_xWasDown;
 
         public Mode Current => m_mode;
+        public GameObject Window => m_window;
+
+        /// <summary>Set by the scene builder; the menu's Tour button replays it.</summary>
+        [SerializeField] private Tour m_tour;
+
+        /// <summary>A menu button by its value ("journey", "practice", "settings", "tour", ...).</summary>
+        public SpatialButton FindButton(string value)
+        {
+            foreach (SpatialButton button in m_buttons)
+                if (button.Value == value) return button;
+            return null;
+        }
+
+        private bool m_tourLocked;
+
+        /// <summary>
+        /// During the tour the menu is shown only to point at its buttons: none of them can be used,
+        /// hovered or heard, and the controller's X does not open it.
+        /// </summary>
+        public void SetTourLock(bool locked)
+        {
+            if (m_tourLocked == locked) return;
+            m_tourLocked = locked;
+            foreach (SpatialButton button in m_buttons) button.Interactable = !locked;
+        }
+
+        /// <summary>Back to the menu's first page (the tour points at its buttons).</summary>
+        public void ShowMainPage()
+        {
+            if (!m_practice) return;
+            m_practice = false;
+            Refresh();
+        }
+
+        /// <summary>Closes whatever is open and switches mode, as a menu tap would.</summary>
+        public void EnterMode(Mode mode)
+        {
+            if (mode == Mode.Menu) OpenMenu();
+            else Enter(mode);
+        }
 
         private void Awake()
         {
@@ -81,6 +124,12 @@ namespace WordWorld.UI
             // Nothing is placed until the head is tracked, so the menu lands in front of the learner.
             if (m_mode == Mode.None && !WordWorld.Spatial.HeadPose.TryGet(out _)) return;
             // A brand-new learner starts the Journey right away; returning learners get the menu.
+            // Each launch first plays the tour (Skip ends it), which then leads to the same place.
+            if (m_mode == Mode.None && m_tour != null && !m_tour.RanThisSession)
+            {
+                m_tour.Begin(m_wordBank.Words.Count == 0);
+                return;
+            }
             if (m_mode == Mode.None)
             {
                 if (m_wordBank.Words.Count == 0) Enter(Mode.Journey);
@@ -103,6 +152,7 @@ namespace WordWorld.UI
             m_practice = false;
             WindowPlacement.PlaceInFront(m_window.transform, m_menuOffset);
             m_window.SetActive(true);
+            Sfx.Appear(m_window.transform.position);
             Refresh();
         }
 
@@ -139,13 +189,18 @@ namespace WordWorld.UI
                 case Mode.WordBank:
                     WindowPlacement.PlaceInFront(m_wordBankWindow.Window.transform, m_windowOffset);
                     m_wordBankWindow.Show();
+                    Sfx.Appear(m_wordBankWindow.Window.transform.position);
                     break;
                 case Mode.Progress:
                     WindowPlacement.PlaceInFront(m_progressWindow.Window.transform, m_windowOffset);
                     m_progressWindow.Show();
+                    Sfx.Appear(m_progressWindow.Window.transform.position);
                     break;
                 case Mode.Settings:
                     m_settingsWindow.Open();
+                    break;
+                case Mode.Explore:
+                    RoomFx.Ripple();
                     break;
                 // Explore: the labels are the whole exercise; nothing else is shown.
             }
@@ -173,7 +228,12 @@ namespace WordWorld.UI
                 case "word_bank": Enter(Mode.WordBank); break;
                 case "round:5": m_roundLength = 5; Refresh(); break;
                 case "round:10": m_roundLength = 10; Refresh(); break;
+                // The store raises Changed, which refreshes this menu and the Settings window.
+                case "sound:off": m_settings.SetSound(SoundMode.Off); break;
+                case "sound:alerts": m_settings.SetSound(SoundMode.Alerts); break;
+                case "sound:all": m_settings.SetSound(SoundMode.All); break;
                 case "exit": OnExit(); break;
+                case "tour": if (m_tour != null) m_tour.Begin(false); break;
             }
         }
 
@@ -183,12 +243,16 @@ namespace WordWorld.UI
             if (Time.unscaledTime < m_exitArmedUntil)
             {
                 Debug.Log("[WordWorld.Home] exit");
-                Application.Quit();
+                Quit();
                 return;
             }
             m_exitArmedUntil = Time.unscaledTime + m_exitConfirmSeconds;
             Refresh();
         }
+
+        // Everything is saved as it changes, so the app leaves the screen and ends its own process
+        // (Application.Quit crashes inside PICO's spatial runtime; see AppLifecycle.EndProcess).
+        private static void Quit() => AppLifecycle.EndProcess(true);
 
         private void Refresh()
         {
@@ -196,13 +260,16 @@ namespace WordWorld.UI
             m_mainPage.SetActive(!m_practice);
             m_practicePage.SetActive(m_practice);
 
-            m_title.Text = S(m_practice ? "practice.title" : "home.title");
+            m_title.SetFitted(S(m_practice ? "practice.title" : "home.title"));
             m_title.TextColor = m_theme.Ink;
-            m_subtitle.Text = string.Format(S("home.subtitle"), S($"lang.{m_settings.TargetLanguage}"), m_settings.ReadingLevel);
+            m_subtitle.SetFitted(string.Format(S("home.subtitle"), S($"lang.{m_settings.TargetLanguage}"), m_settings.ReadingLevel));
             m_subtitle.TextColor = m_theme.InkMuted;
             m_subtitle.gameObject.SetActive(!m_practice);
-            m_roundLabel.Text = S("practice.round");
+            m_roundLabel.SetFitted(S("practice.round"));
             m_roundLabel.TextColor = m_theme.InkMuted;
+            m_soundLabel.SetFitted(S("sound.title"));
+            m_soundLabel.TextColor = m_theme.InkMuted;
+            string sound = LearnerSettings.SoundKey(m_settings.Sound);
 
             bool armed = Time.unscaledTime < m_exitArmedUntil;
             foreach (SpatialButton button in m_buttons)
@@ -219,11 +286,19 @@ namespace WordWorld.UI
                         if (armed) background = m_theme.Wrong;
                         break;
                     case "settings": text = S("settings.title"); break;
+                    case "tour": text = S("home.tour"); break;
                     case "round:5":
                     case "round:10":
                         int length = value == "round:5" ? 5 : 10;
                         text = string.Format(S("practice.round_n"), length);
                         if (length == m_roundLength) background = m_theme.AccentSoft;
+                        break;
+                    case "sound:off":
+                    case "sound:alerts":
+                    case "sound:all":
+                        string key = value.Substring(6);
+                        text = S($"sound.{key}");
+                        if (key == sound) background = m_theme.AccentSoft;
                         break;
                     case "progress": text = S("progress.title"); break;
                     case "back": text = S("common.back"); break;
@@ -233,15 +308,20 @@ namespace WordWorld.UI
                 if (value == "say_it") button.gameObject.SetActive(m_sayIt.Available);
                 button.SetLabel(text);
                 button.Text.TextColor = m_theme.Ink;
-                button.Text.BackgroundColor = background;
+                button.Background = background;
             }
         }
 
         private void PollController()
         {
             InputDevice left = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-            bool down = left.isValid && left.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed) && pressed;
-            if (down && !m_xWasDown) OpenMenu();
+            // Only a real controller's X. Under hand tracking the left-hand device can report a pinch
+            // as primaryButton, which aborted a Find It round in the Nov 7 recording (1:27).
+            bool controller = left.isValid &&
+                (left.characteristics & InputDeviceCharacteristics.Controller) != 0 &&
+                (left.characteristics & InputDeviceCharacteristics.HandTracking) == 0;
+            bool down = controller && left.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed) && pressed;
+            if (down && !m_xWasDown && !m_tourLocked) OpenMenu();
             m_xWasDown = down;
         }
 

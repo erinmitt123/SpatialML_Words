@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using ByteDance.PICO.SpatialAdapter.Component;
 using UnityEngine;
 using WordWorld.App;
+using WordWorld.Audio;
 using WordWorld.Data;
 using WordWorld.Spatial;
 using WordWorld.Tracking;
+using WordWorld.UI;
 
 namespace WordWorld.Labels
 {
@@ -91,10 +93,12 @@ namespace WordWorld.Labels
             public float Opacity;
             public float ShownSince = -1f;
             public bool Visible;
+            // The appear ripple plays once per confirmed object, not every time it fades back in.
+            public bool Announced;
             public int Percent = -1;
             // Timed effects (unscaled time): word shown during the quiz, shake, attention pulse.
             public float FlashUntil;
-            public float ShakeUntil;
+            public ObjectEffects.Motion Motion;
             public float PulseUntil;
         }
 
@@ -110,6 +114,20 @@ namespace WordWorld.Labels
             get => m_quizMode;
             set => m_quizMode = value;
         }
+
+        // Labels stay up whenever their object is tracked. One only fades while a window or card
+        // lines up with it from the learner's eyes (it would block the window, or show through it),
+        // unless it is part of what the learner is doing right now (V3 follow-up, Nov 12).
+        private const float PanelMargin = 0.03f;
+
+        // One poke can register on a label and on the practice model behind it, or several times
+        // while a finger rests on the model (Nov 12 log: the table's card reopened 2-3 times a second).
+        private const float RepeatTapSeconds = 0.5f;
+        private TrackedObject m_lastTapped;
+        private float m_lastTapTime = -1f;
+
+        /// <summary>What each object's button says during Find It ("This one").</summary>
+        public string PickText { get; set; } = "";
 
         private bool Ready => m_settings == null || m_settings.SessionReady;
 
@@ -178,6 +196,26 @@ namespace WordWorld.Labels
             return track != null;
         }
 
+        /// <summary>The shown label closest to where the learner is looking (the tour points at it).</summary>
+        public bool TryGetLabelNearGaze(out LabelView view)
+        {
+            view = null;
+            if (!HeadPose.TryGet(out Pose head)) return false;
+            Vector3 forward = head.rotation * Vector3.forward;
+            float best = -2f;
+            foreach (ActiveLabel label in m_active.Values)
+            {
+                if (!label.Visible || label.Opacity < 0.5f) continue;
+                float dot = Vector3.Dot(forward, (label.View.transform.position - head.position).normalized);
+                if (dot > best)
+                {
+                    best = dot;
+                    view = label.View;
+                }
+            }
+            return view != null;
+        }
+
         /// <summary>Labelled objects confirmed this session, for quiz prompts.</summary>
         public void GetLabelled(List<TrackedObject> into)
         {
@@ -194,10 +232,13 @@ namespace WordWorld.Labels
         /// <summary>Quiz feedback for a wrong pick: a brief sideways shake.</summary>
         public void Shake(TrackedObject track)
         {
-            if (track != null && m_active.TryGetValue(track, out ActiveLabel label)) label.ShakeUntil = Time.unscaledTime + 0.4f;
+            ObjectEffects.Shake(track);
         }
 
         /// <summary>Word Bank: the dot pulses and the label shows at full strength.</summary>
+        /// <summary>A right answer: the label (and a practice object's model) hops and glows.</summary>
+        public void Jump(TrackedObject track) => ObjectEffects.Jump(track);
+
         public void Pulse(TrackedObject track, float seconds)
         {
             if (track != null && m_active.TryGetValue(track, out ActiveLabel label)) label.PulseUntil = Time.unscaledTime + seconds;
@@ -211,11 +252,42 @@ namespace WordWorld.Labels
             return true;
         }
 
+        // In Find It every label is a target; a selected label is the subject of the open card or
+        // Say It; a flashing or lit-up one is feedback the learner should see.
+        private bool PartOfExercise(ActiveLabel label, float now) =>
+            m_quizMode || label.Track == m_selected || label.Motion.Show ||
+            now < label.PulseUntil || now < label.FlashUntil;
+
+        // The tour only lets words be tapped on its "tap a word" step; repeats within half a second
+        // are one tap.
+        private bool AcceptTap(TrackedObject track)
+        {
+            if (Tour.Active && Tour.ActiveStep != "labels") return false;
+            float now = Time.unscaledTime;
+            if (track == m_lastTapped && now - m_lastTapTime < RepeatTapSeconds) return false;
+            m_lastTapped = track;
+            m_lastTapTime = now;
+            return true;
+        }
+
         private void OnViewTapped(LabelView view)
         {
-            if (!m_byView.TryGetValue(view, out TrackedObject track)) return;
+            if (!m_byView.TryGetValue(view, out TrackedObject track) || !AcceptTap(track)) return;
+            Sfx.Tap(view.transform.position);
             if (m_quizMode) ObjectPicked?.Invoke(track);
             else LabelTapped?.Invoke(track, view);
+        }
+
+        /// <summary>
+        /// A tap on the object itself (a practice object's 3D model): the same as tapping its label.
+        /// Ignored when it has no label (hidden with "Not right?", or not shown yet).
+        /// </summary>
+        public void TapObject(TrackedObject track, Vector3 at)
+        {
+            if (track == null || !m_active.TryGetValue(track, out ActiveLabel label) || !label.Visible || !AcceptTap(track)) return;
+            Sfx.Tap(at);
+            if (m_quizMode) ObjectPicked?.Invoke(track);
+            else LabelTapped?.Invoke(track, label.View);
         }
 
         // Objects confirmed while the picker was open get their labels now; existing labels re-text.
@@ -277,6 +349,7 @@ namespace WordWorld.Labels
         private void Show(TrackedObject track)
         {
             if (!Ready || m_active.ContainsKey(track) || !Labelable(track)) return;
+            if (m_free.Count == 0) FreeOldestHidden();
             if (m_free.Count == 0)
             {
                 Debug.LogWarning($"[WordWorld.Labels] label pool exhausted ({m_pool.Length}); '{track.ClassName}' not shown");
@@ -287,6 +360,21 @@ namespace WordWorld.Labels
             m_active.Add(track, label);
             m_byView[view] = track;
             Retext(label);
+        }
+
+        // Every label in use (Nov 12: 24 of them, words dropped): give up the one for the real object
+        // seen longest ago that is not on screen, so a newly confirmed object can still be named.
+        private void FreeOldestHidden()
+        {
+            TrackedObject oldest = null;
+            foreach (ActiveLabel label in m_active.Values)
+            {
+                if (label.Visible || label.Track.IsVirtual || label.Track == m_selected) continue;
+                if (oldest == null || label.Track.LastSeenTime < oldest.LastSeenTime) oldest = label.Track;
+            }
+            if (oldest == null) return;
+            Debug.Log($"[WordWorld.Labels] pool full: reusing the label of '{oldest.ClassName}' (unseen {Time.unscaledTime - oldest.LastSeenTime:0}s)");
+            Hide(oldest);
         }
 
         private void Hide(TrackedObject track)
@@ -324,6 +412,8 @@ namespace WordWorld.Labels
                 ActiveLabel label = m_ranked[i];
                 TrackedObject track = label.Track;
                 // In the quiz every nearby dot stays, so any object can be picked.
+                label.Motion = ObjectEffects.Evaluate(track, track.Position,
+                    Vector3.Cross(Vector3.up, track.Position - head.position).normalized, now);
                 bool eligible = m_quizMode ? label.Distance <= m_maxDistance * 1.5f
                     : i < m_maxLabels && label.Distance <= m_maxDistance;
                 float unseen = now - track.LastSeenTime;
@@ -333,6 +423,10 @@ namespace WordWorld.Labels
                     : 1f;
                 if (m_selected != null && m_selected != track) target *= m_dimmedOpacity;
                 if (now < label.PulseUntil || now < label.FlashUntil) target = 1f;
+                if (label.Motion.Show) target = 1f;
+                if (target > 0f && !PartOfExercise(label, now) &&
+                    PanelOccluder.AnyCovers(head.position, label.View.transform.position, PanelMargin))
+                    target = 0f;
 
                 // Fade in (and out) over a quarter second.
                 label.Opacity = Mathf.MoveTowards(label.Opacity, target, dt / m_fadeSeconds);
@@ -344,6 +438,11 @@ namespace WordWorld.Labels
                     if (visible)
                     {
                         label.ShownSince = now;
+                        if (!label.Announced)
+                        {
+                            label.Announced = true;
+                            Sfx.Appear(track.Position);
+                        }
                         if (!m_anyShown)
                         {
                             m_anyShown = true;
@@ -353,14 +452,17 @@ namespace WordWorld.Labels
                 }
                 if (!visible) continue;
 
-                label.View.SetTextVisible(!m_quizMode || now < label.FlashUntil);
+                // Find It: a button on every object; a flash (feedback) shows the real word instead.
+                label.View.SetPickMode(m_quizMode && now >= label.FlashUntil, PickText);
                 label.View.SetOpacity(label.Opacity);
+                label.View.SetGlow(label.Motion.Glow);
                 label.View.SetObjectBounds(m_quizMode ? new Vector3(
                     Mathf.Max(0.12f, track.Width), Mathf.Max(0.12f, track.Height), Mathf.Max(0.12f, track.Width)) : Vector3.zero);
                 // Confirmed: scales from 90% to 100% as it fades in; pulses while highlighted.
                 float appear = Mathf.Clamp01((now - label.ShownSince) / m_fadeSeconds);
                 float scale = 0.9f + 0.1f * (1f - (1f - appear) * (1f - appear));
                 if (now < label.PulseUntil) scale *= 1f + 0.08f * Mathf.Sin(now * 9f);
+                scale *= label.Motion.Scale;
                 label.View.transform.localScale = new Vector3(scale, scale, scale);
 
                 Vector3 hit = track.Position;
@@ -402,8 +504,7 @@ namespace WordWorld.Labels
                 }
                 label.Shown = Vector3.SmoothDamp(label.Shown, label.Goal, ref label.Velocity, m_glideSeconds, Mathf.Infinity, dt);
                 Quaternion facing = Billboard(head.position, label.Shown);
-                Vector3 shake = now < label.ShakeUntil ? facing * Vector3.right * (0.012f * Mathf.Sin(now * 60f)) : Vector3.zero;
-                label.View.transform.SetPositionAndRotation(label.Shown + shake, facing);
+                label.View.transform.SetPositionAndRotation(label.Shown + label.Motion.Offset, facing);
                 // The leader ends on the object even while the card is stacked above others.
                 label.View.SetLeaderLength((label.Shown.y - label.Track.Position.y) / label.View.transform.localScale.y);
             }

@@ -104,7 +104,7 @@ namespace WordWorld.UI
                 m_labels.Pulse(track, m_highlightSeconds);
                 return;
             }
-            m_message.Text = S("wordbank.not_here");
+            m_message.SetFitted(S("wordbank.not_here"));
             m_message.TextColor = m_theme.InkMuted;
             m_message.gameObject.SetActive(true);
             m_messageUntil = Time.unscaledTime + m_highlightSeconds;
@@ -126,7 +126,7 @@ namespace WordWorld.UI
         {
             if (!m_window.activeSelf || !m_settings.HasLanguage) return;
             IReadOnlyList<WordBank.Word> words = m_wordBank.Words;
-            m_header.Text = $"{S("wordbank.title")}   {string.Format(S("wordbank.count"), words.Count)}";
+            m_header.SetFitted($"{S("wordbank.title")}   {string.Format(S("wordbank.count"), words.Count)}");
             m_header.TextColor = m_theme.Ink;
 
             foreach (SpatialButton filter in m_filters)
@@ -134,7 +134,7 @@ namespace WordWorld.UI
                 bool selected = filter.Value == m_filter.ToString();
                 filter.SetLabel(S($"wordbank.filter.{filter.Value}"));
                 filter.Text.TextColor = m_theme.Ink;
-                filter.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Button;
+                filter.Background = selected ? m_theme.AccentSoft : m_theme.Button;
             }
 
             // Newest first.
@@ -159,7 +159,7 @@ namespace WordWorld.UI
             m_empty.gameObject.SetActive(words.Count == 0);
             if (words.Count == 0)
             {
-                m_empty.Text = S("wordbank.empty");
+                m_empty.SetFitted(S("wordbank.empty"));
                 m_empty.TextColor = m_theme.InkMuted;
             }
             m_page.Text = pages > 1 ? $"{m_pageIndex + 1} / {pages}" : "";

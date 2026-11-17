@@ -28,6 +28,9 @@ namespace WordWorld.Tracking
                  "disagree by 15-25% up close on Swan, so 0.25 m along the ray split one object into several.")]
         [SerializeField, Range(0.05f, 1f)] private float m_depthTolerance = 0.35f;
         [SerializeField] private float m_dropAfterUnseenSeconds = 10f;
+        [Tooltip("Forget a real object not seen at all for this long, even out of view: false detections " +
+                 "and objects from earlier in the session piled up until no labels were left (Nov 12).")]
+        [SerializeField] private float m_forgetAfterSeconds = 180f;
         [Tooltip("Exponential smoothing weight for each new observation.")]
         [SerializeField, Range(0.05f, 1f)] private float m_smoothing = 0.3f;
         [Tooltip("Smoothing once confirmed: the object is not moving, so new frames mostly add noise.")]
@@ -58,6 +61,8 @@ namespace WordWorld.Tracking
         public IReadOnlyList<TrackedObject> Tracks => m_tracks;
         /// <summary>While paused, frames are ignored (DESIGN.md section 8 recognition chip).</summary>
         public bool Paused { get; set; }
+        /// <summary>Whether object recognition is working (Starting until the detector is known).</summary>
+        public DetectorHealth DetectorHealth => m_source != null ? m_source.Health : DetectorHealth.Starting;
         /// <summary>Time of the last frame with any detection, for the "having trouble seeing" hint.</summary>
         public float LastDetectionTime { get; private set; }
         public int CandidateCount => m_tracks.Count - m_confirmed.Count;
@@ -365,7 +370,8 @@ namespace WordWorld.Tracking
                 // Only time spent looking at the spot counts; objects behind the user persist.
                 if (track.HitThisFrame) track.UnseenInViewSeconds = 0f;
                 else if (IsInView(track.Position, camera)) track.UnseenInViewSeconds += dt;
-                if (track.UnseenInViewSeconds >= m_dropAfterUnseenSeconds) RemoveAt(i);
+                if (track.UnseenInViewSeconds >= m_dropAfterUnseenSeconds ||
+                    Time.unscaledTime - track.LastSeenTime >= m_forgetAfterSeconds) RemoveAt(i);
             }
         }
 
@@ -418,9 +424,52 @@ namespace WordWorld.Tracking
             return count;
         }
 
+        // ---- Practice objects ------------------------------------------------------------------
+        // Kept out of m_tracks, so matching, ageing and merging never touch them: they are always
+        // confirmed, never seen by the camera, and stay until removed.
+
+        /// <summary>Adds a practice object at <paramref name="centre"/> (its bounds centre) as a confirmed track.</summary>
+        public TrackedObject AddVirtual(int classId, Vector3 centre, float width, float height)
+        {
+            float now = Time.unscaledTime;
+            var track = new TrackedObject
+            {
+                Id = m_nextId++,
+                ClassId = classId,
+                ClassName = CocoClasses.NameOf(classId),
+                Position = centre,
+                Width = width,
+                Height = height,
+                Confidence = 1f,
+                Confirmed = true,
+                IsVirtual = true,
+                FirstSeenTime = now,
+                LastSeenTime = float.MaxValue,
+            };
+            m_confirmed.Add(track);
+            ObjectConfirmed?.Invoke(track);
+            return track;
+        }
+
+        /// <summary>Moves a practice object; labels follow on their next frame.</summary>
+        public void MoveVirtual(TrackedObject track, Vector3 centre)
+        {
+            if (track != null && track.IsVirtual) track.Position = centre;
+        }
+
+        public void RemoveVirtual(TrackedObject track)
+        {
+            if (track != null && track.IsVirtual && m_confirmed.Remove(track)) ObjectRemoved?.Invoke(track);
+        }
+
         /// <summary>Hides a label the user marked "Not right?" (CLAUDE.md section 6).</summary>
         public void Dismiss(TrackedObject track)
         {
+            if (track != null && track.IsVirtual)
+            {
+                RemoveVirtual(track);
+                return;
+            }
             int index = m_tracks.IndexOf(track);
             if (index >= 0) RemoveAt(index);
         }

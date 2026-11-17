@@ -4,6 +4,7 @@ using System.Text;
 using ByteDance.PICO.SpatialAdapter.Component;
 using UnityEngine;
 using WordWorld.App;
+using WordWorld.Audio;
 using WordWorld.Data;
 using WordWorld.Labels;
 using WordWorld.Spatial;
@@ -14,9 +15,11 @@ namespace WordWorld.UI
     /// <summary>
     /// The Find It exercise (DESIGN.md section 6). Started from Practice or the Journey with a round
     /// length; during a round only the floating prompt is shown (word, score and timer), and the
-    /// results card appears when it ends. Prompts are for objects confirmed this session. Labels hide and only dots stay; the learner touches the real
-    /// object or pinches its dot. Correct: a green ring and the word. Wrong: the dot shakes and shows
-    /// its own word; the first miss costs nothing. Hint glow after 8 s, Skip after 15 s.
+    /// results card appears when it ends. Prompts are for objects confirmed this session. Every
+    /// object's label becomes a "This one" button (or the learner touches the real object).
+    /// Correct: a green ring and the word. Wrong: the button shakes and shows its own word; the first
+    /// miss costs nothing. Two tries per word: after the second miss the right object shows its word
+    /// and the round moves on. Hint glow after 8 s, Skip after 15 s.
     /// </summary>
     [AddComponentMenu("Word World/Find It Quiz")]
     public sealed class FindItQuiz : MonoBehaviour
@@ -52,6 +55,11 @@ namespace WordWorld.UI
         [SerializeField] private SpatialAdapterNativeText m_timerFill;
         [SerializeField] private float m_timerWidth = 0.3f;
         [SerializeField] private SpatialButton m_skip;
+        [Tooltip("Ends the round now, without results, and goes back where it was started from.")]
+        [SerializeField] private SpatialButton m_cancel;
+        [Tooltip("Optional: hear the word being asked for. Plays from the prompt, never from the object.")]
+        [SerializeField] private SpatialButton m_listen;
+        [SerializeField] private VocabAudio m_audio;
         [SerializeField] private SpatialAdapterNativeText m_ring;
         [SerializeField] private SpatialAdapterNativeText m_glow;
         [SerializeField] private Vector3 m_promptOffset = new Vector3(0f, -0.12f, 0.6f);
@@ -63,10 +71,14 @@ namespace WordWorld.UI
         [SerializeField] private float m_skipAfterSeconds = 15f;
         [SerializeField] private float m_nextPromptDelay = 1f;
         [SerializeField] private float m_wrongWordSeconds = 1.5f;
+        [SerializeField] private int m_triesPerPrompt = 2;
+        [Tooltip("How long the right answer stays shown after the last try.")]
+        [SerializeField] private float m_revealSeconds = 2.5f;
 
         private readonly List<TrackedObject> m_objects = new List<TrackedObject>();
         private readonly List<int> m_classes = new List<int>();
         private readonly List<int> m_review = new List<int>();
+        private readonly HashSet<int> m_collected = new HashSet<int>();
         private readonly StringBuilder m_builder = new StringBuilder(128);
         private State m_state = State.Idle;
         private int m_promptIndex;
@@ -82,6 +94,7 @@ namespace WordWorld.UI
         private float m_ringStart = -1f;
         private float m_shownTimer = -1f;
         private TrackedObject m_hintTrack;
+        private string m_message; // a strings key shown in place of the score, cleared each prompt
 
         public GameObject Window => m_window;
         public bool IsActive => m_state != State.Idle;
@@ -95,7 +108,24 @@ namespace WordWorld.UI
             m_primary.Clicked += _ => OnPrimary();
             m_secondary.Clicked += _ => OnSecondary();
             m_skip.Clicked += _ => Skip();
+            if (m_cancel != null) m_cancel.Clicked += _ =>
+            {
+                Sfx.Dismiss(m_floatingPrompt.transform.position);
+                Stop();
+                Closed?.Invoke();
+            };
+            if (m_listen != null) m_listen.Clicked += _ => ListenToPrompt();
         }
+
+        // The sound comes from the prompt card: playing it from the object would give the answer away.
+        private void ListenToPrompt()
+        {
+            if (m_state != State.Playing || m_audio == null) return;
+            m_audio.Play(m_targetClass, PromptClip, m_floatingPrompt.transform.position);
+        }
+
+        // What the prompt shows: the word, phrase or sentence of the reading level (Mandarin: the word).
+        private ClipKind PromptClip => VocabClips.ForLevel(m_settings.TargetLanguage, m_settings.ReadingLevel);
 
         private void OnEnable()
         {
@@ -137,7 +167,11 @@ namespace WordWorld.UI
 
         private void ShowWindow()
         {
-            if (!m_window.activeSelf) WindowPlacement.PlaceInFront(m_window.transform, m_windowOffset);
+            if (!m_window.activeSelf)
+            {
+                WindowPlacement.PlaceInFront(m_window.transform, m_windowOffset);
+                Sfx.Appear(m_window.transform.position);
+            }
             m_window.SetActive(true);
         }
 
@@ -159,6 +193,7 @@ namespace WordWorld.UI
             }
             m_window.SetActive(false);
             m_detailCard.Close();
+            m_labels.PickText = S("quiz.pick");
             m_labels.QuizMode = true;
             m_state = State.Playing;
             m_promptIndex = 0;
@@ -166,7 +201,16 @@ namespace WordWorld.UI
             m_lastClass = -1;
             m_review.Clear();
             WindowPlacement.PlaceInFront(m_floatingPrompt.transform, m_promptOffset);
+            if (m_cancel != null)
+            {
+                m_cancel.SetLabel(S("quiz.end"));
+                m_cancel.Text.TextColor = m_theme.Ink;
+                m_cancel.Background = m_theme.Button;
+            }
             m_floatingPrompt.SetActive(true);
+            // The room answers: a ripple runs out from the learner and lifts each object it passes.
+            RoomFx.Ripple();
+            Sfx.Appear(m_floatingPrompt.transform.position);
             NextPrompt();
         }
 
@@ -195,6 +239,7 @@ namespace WordWorld.UI
             m_lastClass = m_targetClass;
             m_promptIndex++;
             m_misses = 0;
+            m_message = null;
             m_promptStart = Time.unscaledTime;
             m_skip.gameObject.SetActive(false);
             Refresh();
@@ -217,17 +262,42 @@ namespace WordWorld.UI
                 else if (!m_review.Contains(m_targetClass)) m_review.Add(m_targetClass);
                 m_wordBank.RecordQuizAnswer(m_targetClass, counts, m_settings.ReadingLevel);
                 StartRing(track.Position);
+                Sfx.Correct(track.Position);
+                m_labels.Jump(track);
                 m_labels.Flash(track, m_nextPromptDelay + 0.2f);
                 m_nextPromptAt = Time.unscaledTime + m_nextPromptDelay;
+                m_message = null;
                 HideHint();
                 Refresh();
                 return;
             }
             // Wrong object: it still teaches its own word.
             m_misses++;
-            if (m_misses == 2) m_streak = 0;
             m_labels.Shake(track);
             m_labels.Flash(track, m_wrongWordSeconds);
+            if (m_misses >= m_triesPerPrompt)
+            {
+                RevealAnswer();
+                return;
+            }
+            m_message = "quiz.one_more";
+            Refresh();
+        }
+
+        // Out of tries: show where the word was, count it as missed, and move on.
+        private void RevealAnswer()
+        {
+            m_streak = 0;
+            if (!m_review.Contains(m_targetClass)) m_review.Add(m_targetClass);
+            m_wordBank.RecordQuizAnswer(m_targetClass, false, m_settings.ReadingLevel);
+            if (m_labels.TryFindByClass(m_targetClass, out TrackedObject answer))
+            {
+                m_labels.Flash(answer, m_revealSeconds + 0.2f);
+                m_labels.Pulse(answer, m_revealSeconds);
+            }
+            HideHint();
+            m_message = "quiz.answer_shown";
+            m_nextPromptAt = Time.unscaledTime + m_revealSeconds;
             Refresh();
         }
 
@@ -245,10 +315,15 @@ namespace WordWorld.UI
         {
             m_labels.QuizMode = false;
             m_floatingPrompt.SetActive(false);
+            if (m_audio != null) m_audio.Stop();
             HideHint();
             m_wordBank.RecordStreak(m_bestThisRound);
             m_state = showResults ? State.Results : State.Idle;
             if (!showResults) return;
+            // Every word collected so far lights up around the room, nearest first.
+            m_collected.Clear();
+            foreach (WordBank.Word word in m_wordBank.Words) m_collected.Add(word.classId);
+            RoomFx.LightUp(m_collected);
             ShowWindow();
             Refresh();
             RoundFinished?.Invoke(m_score, m_promptIndex);
@@ -345,7 +420,7 @@ namespace WordWorld.UI
         private void Refresh()
         {
             if (!m_settings.HasLanguage) return;
-            m_title.Text = S("quiz.title");
+            m_title.SetFitted(S("quiz.title"));
             m_title.TextColor = m_theme.Ink;
             m_body.TextColor = m_theme.Ink;
             bool playing = m_state == State.Playing;
@@ -367,12 +442,25 @@ namespace WordWorld.UI
                     m_secondary.gameObject.SetActive(true);
                     break;
                 case State.Playing:
-                    m_floatingText.Text = PromptText();
+                    m_labels.PickText = S("quiz.pick");
+                    m_floatingText.SetFitted(PromptText());
                     m_floatingText.TextColor = m_theme.Ink;
-                    b.Append(string.Format(S("quiz.score"), m_score, m_promptIndex)).Append("   ")
+                    if (m_message != null) b.Append(S(m_message));
+                    else b.Append(string.Format(S("quiz.score"), m_score, m_promptIndex)).Append("   ")
                         .Append(string.Format(S("quiz.streak"), m_streak));
-                    m_floatingStatus.Text = b.ToString();
+                    m_floatingStatus.SetFitted(b.ToString());
                     m_floatingStatus.TextColor = m_theme.InkMuted;
+                    // Only when Sound is on All and this word has a clip, so the button never does nothing.
+                    if (m_listen != null)
+                    {
+                        bool canListen = m_audio != null && m_audio.Has(m_targetClass, PromptClip);
+                        m_listen.gameObject.SetActive(canListen);
+                        if (canListen)
+                        {
+                            m_listen.SetLabel(S("audio.listen"));
+                            StyleButton(m_listen, false);
+                        }
+                    }
                     return;
                 case State.Results:
                     int accuracy = Mathf.RoundToInt(100f * m_firstTry / Mathf.Max(1, m_promptIndex));
@@ -395,13 +483,13 @@ namespace WordWorld.UI
                     m_secondary.gameObject.SetActive(true);
                     break;
             }
-            m_body.Text = b.ToString();
+            m_body.SetFitted(b.ToString());
         }
 
         private void StyleButton(SpatialButton button, bool primary)
         {
             button.Text.TextColor = m_theme.Ink;
-            button.Text.BackgroundColor = primary ? m_theme.Primary : m_theme.Button;
+            button.Background = primary ? m_theme.Primary : m_theme.Button;
         }
 
         private string S(string key) => m_strings.Get(key, m_settings.InterfaceLanguage);

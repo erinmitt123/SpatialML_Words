@@ -1,6 +1,7 @@
 using ByteDance.PICO.SpatialAdapter.Component;
 using UnityEngine;
 using WordWorld.App;
+using WordWorld.Audio;
 using WordWorld.Data;
 using WordWorld.Tracking;
 
@@ -22,6 +23,7 @@ namespace WordWorld.UI
         [SerializeField] private Vocabulary m_vocabulary;
         [SerializeField] private TrackingManager m_tracking;
         [SerializeField] private WordWorldTheme m_theme;
+        [SerializeField] private WordWorld.Practice.PracticeObjects m_practice;
 
         [SerializeField] private GameObject m_window;
         [SerializeField] private SpatialButton[] m_buttons = System.Array.Empty<SpatialButton>();
@@ -80,9 +82,14 @@ namespace WordWorld.UI
             Refresh();
             WindowPlacement.PlaceInFront(m_window.transform, m_offsetFromHead);
             m_window.SetActive(true);
+            Sfx.Appear(m_window.transform.position);
         }
 
-        public void Close() => m_window.SetActive(false);
+        public void Close()
+        {
+            if (m_window.activeSelf) Sfx.Dismiss(m_window.transform.position);
+            m_window.SetActive(false);
+        }
 
         private void OnClicked(SpatialButton button)
         {
@@ -98,9 +105,14 @@ namespace WordWorld.UI
                 case "pinyin": m_settings.SetShowPinyin(!m_settings.ShowPinyin); break;
                 case "meaning": m_settings.SetShowMeaning(!m_settings.ShowMeaning); break;
                 case "people": m_settings.SetLabelPeople(!m_settings.LabelPeople); break;
-                case "audio": m_settings.SetAudioOn(!m_settings.AudioOn); break;
+                // Cycles All → Alerts only → Off; the menu has the same choice as three buttons.
+                case "audio": m_settings.SetSound((SoundMode)(((int)m_settings.Sound + 2) % 3)); break;
                 case "size": m_settings.SetLabelSize(arg); break;
                 case "conf": m_settings.SetConfidenceThreshold(m_settings.ConfidenceThreshold + (arg == "+" ? 0.05f : -0.05f)); break;
+                case "practice":
+                    if (arg == "here") { if (m_practice != null) m_practice.PlaceHere(); }
+                    else m_settings.SetPracticeObjects(!m_settings.PracticeObjects);
+                    break;
                 case "close": Close(); break;
             }
         }
@@ -166,15 +178,26 @@ namespace WordWorld.UI
                 }
                 else if (value == "audio")
                 {
-                    selected = m_settings.AudioOn;
-                    text = $"{S("settings.audio")}: {S(selected ? "common.on" : "common.off")}";
+                    selected = m_settings.Sound != SoundMode.Off;
+                    text = $"{S("sound.title")}: {S($"sound.{LearnerSettings.SoundKey(m_settings.Sound)}")}";
+                }
+                else if (value == "practice")
+                {
+                    selected = m_settings.PracticeObjects;
+                    text = $"{S("settings.practice")}: {S(selected ? "common.on" : "common.off")}";
+                }
+                else if (value == "practice:here")
+                {
+                    // Only useful once they are out.
+                    button.gameObject.SetActive(m_settings.PracticeObjects);
+                    text = S("settings.practice_here");
                 }
                 else if (value == "close") text = S("common.close");
                 else text = value.Substring(value.IndexOf(':') + 1) == "+" ? "+" : "−";
 
                 button.SetLabel(text);
                 button.Text.TextColor = m_theme.Ink;
-                button.Text.BackgroundColor = selected ? m_theme.AccentSoft : m_theme.Button;
+                button.Background = selected ? m_theme.AccentSoft : m_theme.Button;
             }
         }
 
@@ -183,7 +206,7 @@ namespace WordWorld.UI
         private static void Set(SpatialAdapterNativeText text, string value, Color color)
         {
             if (text == null) return;
-            text.Text = value;
+            text.SetFitted(value);
             text.TextColor = color;
         }
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace WordWorld.Tracking
 {
-    /// <summary>A real object that passed multi-frame confirmation. Only these ever get labels.</summary>
+    /// <summary>A real object that passed multi-frame confirmation, or a practice object. Only these ever get labels.</summary>
     public sealed class TrackedObject
     {
         public int Id { get; internal set; }
@@ -16,6 +16,8 @@ namespace WordWorld.Tracking
         public bool Confirmed { get; internal set; }
         public float FirstSeenTime { get; internal set; }
         public float LastSeenTime { get; internal set; }
+        /// <summary>A practice object (a 3D model placed by the app), not something the camera saw.</summary>
+        public bool IsVirtual { get; internal set; }
 
         // Bit i set = matched i frames ago (bit 0 is the newest frame).
         internal uint HitHistory;

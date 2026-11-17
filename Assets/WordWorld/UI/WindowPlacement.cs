@@ -41,25 +41,24 @@ namespace WordWorld.UI
         }
 
         /// <summary>
-        /// Beside an object, on the user's side of it: along the line to <paramref name="point"/>, at its
-        /// distance but pulled in to between <paramref name="minDistance"/> and
-        /// <paramref name="maxDistance"/> so text stays readable. Shifted <paramref name="side"/> metres
-        /// toward where the user is looking so the card doesn't cover the object, and kept between
-        /// chest and eye height. Upright and facing the user like every other window.
+        /// In front of an object but within arm's reach: on the line from the user to
+        /// <paramref name="point"/>, <paramref name="distance"/> from the eyes, so the card is clearly
+        /// about that object yet pokeable. Cards opened at the object itself ended up 2.5 m away and
+        /// behind other windows (Nov 7 recording, 4:42). Height follows the line to the object but stays
+        /// in the comfortable poke band below the eyes. Upright and facing the user.
         /// </summary>
-        public static bool PlaceBeside(Transform target, Vector3 point, float side = 0.3f,
-            float minDistance = 0.7f, float maxDistance = 1.3f)
+        public static bool PlaceNear(Transform target, Vector3 point, float distance = 0.6f,
+            float highest = -0.1f, float lowest = -0.32f)
         {
             if (target == null || !HeadPose.TryGet(out Pose head)) return false;
             Vector3 toPoint = point - head.position;
-            toPoint.y = 0f;
-            if (toPoint.sqrMagnitude < 0.01f) return false;
-            Quaternion facing = Quaternion.LookRotation(toPoint.normalized, Vector3.up);
-            Vector3 gaze = head.rotation * Vector3.forward;
-            float towardGaze = Vector3.Dot(gaze, facing * Vector3.right) >= 0f ? 1f : -1f;
-            float distance = Mathf.Clamp(toPoint.magnitude, minDistance, maxDistance);
-            Vector3 position = head.position + facing * new Vector3(side * towardGaze, 0f, distance);
-            position.y = Mathf.Clamp(point.y, head.position.y - 0.45f, head.position.y + 0.05f);
+            Vector3 flat = new Vector3(toPoint.x, 0f, toPoint.z);
+            if (flat.sqrMagnitude < 0.01f) return false;
+            Quaternion facing = Quaternion.LookRotation(flat.normalized, Vector3.up);
+            // Where the sight line to the object passes at this distance, clamped to the poke band.
+            float drop = toPoint.y * distance / Mathf.Max(flat.magnitude, distance);
+            Vector3 position = head.position + facing * new Vector3(0f, 0f, distance);
+            position.y = head.position.y + Mathf.Clamp(drop, lowest, highest);
             target.SetPositionAndRotation(position, facing);
             return true;
         }
@@ -70,9 +69,11 @@ namespace WordWorld.UI
             if (target == null || !HeadPose.TryGet(out Pose head)) return;
             Vector3 toTarget = target.position - head.position;
             Vector3 forward = head.rotation * Vector3.forward;
+            // Also when the user stands up or sits down, so the dock never ends up at their feet.
+            bool wrongHeight = Mathf.Abs(toTarget.y - offset.y) > 0.35f;
             toTarget.y = 0f;
             forward.y = 0f;
-            if (Vector3.Angle(toTarget, forward) > maxDegrees) PlaceInFront(target, offset);
+            if (wrongHeight || Vector3.Angle(toTarget, forward) > maxDegrees) PlaceInFront(target, offset);
         }
     }
 }

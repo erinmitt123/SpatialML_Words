@@ -41,7 +41,7 @@ namespace SpatialML.Samples.Editor
         private const string XrApplicationIdentifier = "com.pico.spatialml.samples";
         // Word World ships as its own app so it never overwrites the PICO samples on the headset.
         private const string SpatialApplicationIdentifier = "com.wordworld.app";
-        private const string SpatialProductName = "WordWorld";
+        private const string SpatialProductName = "Word World";
 
         [MenuItem("PICO/SpatialML/Build Variants/Configure XR", priority = 20)]
         public static void ConfigureXR()

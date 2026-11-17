@@ -18,7 +18,8 @@ namespace WordWorld.Editor
 
         private void OnPreprocessAudio()
         {
-            if (!assetPath.StartsWith(ClipFolder + "/")) return;
+            // The tour narration (Assets/Audio/Tour) is imported the same way.
+            if (!assetPath.StartsWith(ClipFolder + "/") && !assetPath.StartsWith("Assets/Audio/Tour/")) return;
             var importer = (AudioImporter)assetImporter;
             importer.forceToMono = true;
             importer.loadInBackground = true;

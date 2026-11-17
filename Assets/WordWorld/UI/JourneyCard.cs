@@ -7,7 +7,7 @@ namespace WordWorld.UI
 {
     /// <summary>
     /// Journey mode (DESIGN.md section 5): a guided loop through the reading levels, shown as one small
-    /// card low and to the left so the room and its labels stay in front. Each level has three steps:
+    /// card low and to the right (the dock is on the left) so the room and its labels stay in front. Each level has three steps:
     /// read labels (tap them), pass a Find It round, then say five words out loud (docs/audio-plan.md,
     /// "Journey: Say step"; skipped where Say It isn't available). Passing moves up a level. Progress
     /// is saved, so the Journey continues where the learner left it.
@@ -39,7 +39,7 @@ namespace WordWorld.UI
 
         [Header("Placement")]
         [Tooltip("Low and to the left: in view, but never between the learner and the room.")]
-        [SerializeField] private Vector3 m_offset = new Vector3(-0.34f, -0.24f, 0.95f);
+        [SerializeField] private Vector3 m_offset = new Vector3(0.34f, -0.24f, 0.95f);
         [SerializeField] private float m_recentreDegrees = 50f;
 
         // Shown once after a round, until the next step's goal replaces it.
@@ -72,7 +72,11 @@ namespace WordWorld.UI
 
         public void Show()
         {
-            if (!m_card.activeSelf) WindowPlacement.PlaceInFront(m_card.transform, m_offset);
+            if (!m_card.activeSelf)
+            {
+                WindowPlacement.PlaceInFront(m_card.transform, m_offset);
+                WordWorld.Audio.Sfx.Appear(m_card.transform.position);
+            }
             m_card.SetActive(true);
             m_shownFill = -1f;
             Refresh();
@@ -159,20 +163,20 @@ namespace WordWorld.UI
             int level = m_settings.ReadingLevel;
             int step = m_settings.JourneyStep;
             bool roundStep = step >= 1;
-            m_title.Text = string.Format(S("journey.title"), level);
+            m_title.SetFitted(string.Format(S("journey.title"), level));
             m_title.TextColor = m_theme.Ink;
 
             string goal = step == 2 ? string.Format(S("journey.say"), m_sayCount, m_sayPass)
                 : step == 1 ? string.Format(S("journey.quiz"), m_passScore, m_roundLength)
                 : string.Format(S("journey.read"), m_tapsPerLevel, Mathf.Min(TapsThisStep, m_tapsPerLevel));
             if (!string.IsNullOrEmpty(m_messageKey)) goal = string.Format(S(m_messageKey), level) + "\n" + goal;
-            m_goal.Text = goal;
+            m_goal.SetFitted(goal);
             m_goal.TextColor = m_theme.Ink;
 
             m_startButton.gameObject.SetActive(roundStep);
             m_startButton.SetLabel(S(step == 2 ? "journey.start_say" : "journey.start"));
             m_startButton.Text.TextColor = m_theme.Ink;
-            m_startButton.Text.BackgroundColor = m_theme.Primary;
+            m_startButton.Background = m_theme.Primary;
 
             m_barTrack.gameObject.SetActive(!roundStep);
             SetFill(roundStep ? 0f : (float)Mathf.Min(TapsThisStep, m_tapsPerLevel) / m_tapsPerLevel);

@@ -53,12 +53,19 @@ namespace WordWorld.Labels
         private float m_rubyHeight;
         private float m_leaderLength = -1f;
         private float m_opacity = -1f;
-        private bool m_showText = true;
+        // 0..1: the card leans toward the "correct" green (room ripple, light-up, right answer).
+        private float m_glow;
+        // Find It: the card becomes a "This one" button instead of showing the word.
+        private bool m_pick;
+        private string m_pickText = "";
         // Card width only grows while one word is shown, so changing digits never resize it.
         private float m_cardEms;
 
         /// <summary>Raised when the label is poked or pinched.</summary>
         public event Action<LabelView> Tapped;
+
+        /// <summary>The tap target; its size follows the card.</summary>
+        public BoxCollider Collider => m_collider;
 
         /// <summary>Height of the card (word and meaning) plus its ruby line, for de-overlap.</summary>
         public float HeightMetres => m_card.y + m_rubyHeight;
@@ -84,7 +91,10 @@ namespace WordWorld.Labels
             if (m_dot != null) m_dot.BackgroundSize = new Vector2(DotSize, DotSize);
         }
 
-        public void OnPointerClick(PointerEventData eventData) => Tapped?.Invoke(this);
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (WordWorld.Spatial.ClickGate.Allow(gameObject, eventData)) Tapped?.Invoke(this);
+        }
 
         /// <summary>
         /// Main text, optional ruby above and optional meaning below. With <paramref name="suffix"/>
@@ -103,16 +113,16 @@ namespace WordWorld.Labels
             if (!changed) return;
             m_accent = accent;
             m_glossText = gloss;
-            if (m_text != null) m_text.Text = shown;
+            if (m_text != null && !m_pick) m_text.Text = shown;
             if (m_ruby != null)
             {
                 m_ruby.Text = ruby ?? "";
-                m_ruby.gameObject.SetActive(m_showText && !string.IsNullOrEmpty(ruby));
+                m_ruby.gameObject.SetActive(!m_pick && !string.IsNullOrEmpty(ruby));
             }
             if (m_gloss != null)
             {
                 m_gloss.Text = gloss ?? "";
-                m_gloss.gameObject.SetActive(m_showText && !string.IsNullOrEmpty(gloss));
+                m_gloss.gameObject.SetActive(!m_pick && !string.IsNullOrEmpty(gloss));
             }
             ApplyColours();
             Layout();
@@ -130,16 +140,32 @@ namespace WordWorld.Labels
             Layout();
         }
 
-        /// <summary>Quiz mode shows only the dot on the object (DESIGN.md section 3).</summary>
-        public void SetTextVisible(bool visible)
+        /// <summary>
+        /// Find It: the card shows <paramref name="pickText"/> on a button colour instead of the word,
+        /// with the leader and dot still pointing at the object, so every object has something to
+        /// tap. The word text lives on this label's root object, so it is re-texted, never disabled
+        /// (disabling it hid the whole label, dot and touch box included).
+        /// </summary>
+        public void SetPickMode(bool pick, string pickText)
         {
-            if (visible == m_showText) return;
-            m_showText = visible;
-            m_text.gameObject.SetActive(visible);
-            if (m_ruby != null) m_ruby.gameObject.SetActive(visible && !string.IsNullOrEmpty(m_rubyText));
-            if (m_gloss != null) m_gloss.gameObject.SetActive(visible && !string.IsNullOrEmpty(m_glossText));
-            if (m_backing != null) m_backing.gameObject.SetActive(visible);
-            if (m_leader != null) m_leader.gameObject.SetActive(visible);
+            pickText ??= "";
+            if (pick == m_pick && (!pick || pickText == m_pickText)) return;
+            m_pick = pick;
+            m_pickText = pickText;
+            if (m_text != null) m_text.Text = pick ? pickText : CurrentText ?? "";
+            if (m_ruby != null) m_ruby.gameObject.SetActive(!pick && !string.IsNullOrEmpty(m_rubyText));
+            if (m_gloss != null) m_gloss.gameObject.SetActive(!pick && !string.IsNullOrEmpty(m_glossText));
+            ApplyColours();
+            Layout();
+        }
+
+        /// <summary>Tints the card toward the theme's Correct green, in tenths: each step is a native update.</summary>
+        public void SetGlow(float glow)
+        {
+            glow = Mathf.Round(Mathf.Clamp01(glow) * 10f) / 10f;
+            if (Mathf.Approximately(glow, m_glow)) return;
+            m_glow = glow;
+            ApplyColours();
         }
 
         /// <summary>Multiplies every colour's alpha. Small changes are skipped: each is a native update.</summary>
@@ -182,9 +208,10 @@ namespace WordWorld.Labels
             // fade in or out makes the card itself transparent.
             float card = Mathf.Clamp01(a / 0.3f);
             float ink = Mathf.Lerp(0.3f, 1f, a);
-            m_text.TextColor = Dim(m_accent ? m_theme.Accent : m_theme.Ink, ink, card);
-            m_text.BackgroundColor = Fade(m_theme.Card, card);
-            if (m_backing != null) m_backing.BackgroundColor = Fade(m_theme.Card, card);
+            Color surface = Color.Lerp(m_pick ? m_theme.Button : m_theme.Card, m_theme.Correct, m_glow * 0.75f);
+            m_text.TextColor = Dim(m_accent && !m_pick ? m_theme.Accent : m_theme.Ink, ink, card);
+            m_text.BackgroundColor = Fade(surface, card);
+            if (m_backing != null) m_backing.BackgroundColor = Fade(surface, card);
             if (m_gloss != null)
             {
                 m_gloss.TextColor = Dim(m_theme.InkMuted, ink, card);
@@ -212,21 +239,30 @@ namespace WordWorld.Labels
         private void Layout()
         {
             if (m_points <= 0 || m_text == null) return;
-            float ems = Mathf.Max(m_cardEms, TextFit.WidestLineEms(CurrentText, out int lines), 1f);
+            string glossText = m_pick ? null : m_glossText;
+            string rubyText = m_pick ? null : m_rubyText;
+            float ems = TextFit.WidestLineEms(m_pick ? m_pickText : CurrentText, out int lines);
+            ems = Mathf.Max(m_pick ? 0f : m_cardEms, ems, 1f);
             float metresPerEm = m_points * TextFit.MetresPerPoint;
-            float mainHeight = lines * metresPerEm * 1.3f + 2f * PadY;
+            float mainHeight = lines * metresPerEm * 1.2f + 2f * PadY;
             float width = ems * metresPerEm;
 
             // The meaning sits under the word, inside the same card.
             m_glossHeight = 0f;
-            if (m_gloss != null && !string.IsNullOrEmpty(m_glossText))
+            if (m_gloss != null && !string.IsNullOrEmpty(glossText))
             {
                 float glossEm = metresPerEm * GlossScale;
-                float glossWidth = TextFit.WidestLineEms(m_glossText, out int glossLines) * glossEm;
-                m_glossHeight = glossLines * glossEm * 1.3f + PadY;
+                float glossWidth = TextFit.WidestLineEms(glossText, out int glossLines) * glossEm;
+                m_glossHeight = glossLines * glossEm * 1.2f + PadY;
                 width = Mathf.Max(width, glossWidth);
             }
             m_card = new Vector2(width + 2f * PadX, mainHeight + m_glossHeight);
+            // DESIGN.md section 10: a button is at least 3 x 3 cm, even on a far or short label.
+            if (m_pick)
+            {
+                mainHeight = Mathf.Max(mainHeight, 0.03f);
+                m_card = new Vector2(Mathf.Max(m_card.x, 0.04f), mainHeight);
+            }
             // The word and meaning backgrounds are full width and flush, so together they read as
             // one solid card; the backing behind them only adds the rounded outline.
             m_text.BackgroundSize = new Vector2(m_card.x, mainHeight);
@@ -253,7 +289,7 @@ namespace WordWorld.Labels
             }
 
             m_rubyHeight = 0f;
-            if (m_ruby != null && !string.IsNullOrEmpty(m_rubyText))
+            if (m_ruby != null && !string.IsNullOrEmpty(rubyText))
             {
                 float rubyEm = metresPerEm * RubyScale;
                 m_rubyHeight = rubyEm * 1.4f;
