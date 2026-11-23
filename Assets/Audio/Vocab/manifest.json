@@ -1,0 +1,7213 @@
+{
+  "notes": "Written by tools/generate_audio.py; do not edit by hand.",
+  "voices": {
+    "zh": "zh_CN-chaowen-medium",
+    "es": "es_MX-claude-high",
+    "fr": "fr_FR-siwis-medium",
+    "de": "de_DE-thorsten-medium",
+    "en": "en_US-ljspeech-medium"
+  },
+  "lengthScale": 1.12,
+  "clips": {
+    "de/0_phrase": {
+      "text": "eine Person",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b18bb2cb5e306c22",
+      "seconds": 0.89
+    },
+    "de/0_sentence": {
+      "text": "Hier ist eine Person.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "60b227684c208236",
+      "seconds": 1.28
+    },
+    "de/0_word": {
+      "text": "die Person",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f1f94d2271586a62",
+      "seconds": 0.82
+    },
+    "de/10_phrase": {
+      "text": "ein Hydrant",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "13988197785322b8",
+      "seconds": 0.81
+    },
+    "de/10_sentence": {
+      "text": "Der Hydrant ist gelb.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "70b86d8959288c8c",
+      "seconds": 1.21
+    },
+    "de/10_word": {
+      "text": "der Hydrant",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "66a6fbe3edd1d52a",
+      "seconds": 0.77
+    },
+    "de/11_phrase": {
+      "text": "ein Stoppschild",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0f61e41e479a4ccf",
+      "seconds": 0.85
+    },
+    "de/11_sentence": {
+      "text": "Halt am Stoppschild an.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f54391eb3e1250b2",
+      "seconds": 1.35
+    },
+    "de/11_word": {
+      "text": "das Stoppschild",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f35b4100bebb442b",
+      "seconds": 0.86
+    },
+    "de/12_phrase": {
+      "text": "eine Parkuhr",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "3a066a29df562a63",
+      "seconds": 0.88
+    },
+    "de/12_sentence": {
+      "text": "Bezahl an der Parkuhr.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "6baa3dea08068043",
+      "seconds": 1.27
+    },
+    "de/12_word": {
+      "text": "die Parkuhr",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f3ebe4f13bfa5269",
+      "seconds": 0.81
+    },
+    "de/13_phrase": {
+      "text": "eine Bank",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "3334fd4aad13a123",
+      "seconds": 0.72
+    },
+    "de/13_sentence": {
+      "text": "Wir sitzen auf der Bank.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c2d2b48498d3bfdd",
+      "seconds": 1.19
+    },
+    "de/13_word": {
+      "text": "die Bank",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "4f425ce356b2b807",
+      "seconds": 0.56
+    },
+    "de/14_phrase": {
+      "text": "ein Vogel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "18ffab700eadfe96",
+      "seconds": 0.71
+    },
+    "de/14_sentence": {
+      "text": "Der Vogel singt.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "76c723631b589132",
+      "seconds": 0.95
+    },
+    "de/14_word": {
+      "text": "der Vogel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "e037a4868dd41ee3",
+      "seconds": 0.63
+    },
+    "de/15_phrase": {
+      "text": "eine Katze",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "e0b3912725976ab3",
+      "seconds": 0.68
+    },
+    "de/15_sentence": {
+      "text": "Die Katze schläft.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "2f6b538601dc2a84",
+      "seconds": 1.0
+    },
+    "de/15_word": {
+      "text": "die Katze",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "66fe3980d1a98505",
+      "seconds": 0.71
+    },
+    "de/16_phrase": {
+      "text": "ein Hund",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "58fdcd69368bcb41",
+      "seconds": 0.69
+    },
+    "de/16_sentence": {
+      "text": "Der Hund will spielen.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c28d9b518ca3dd55",
+      "seconds": 1.1
+    },
+    "de/16_word": {
+      "text": "der Hund",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a0e3e9c7bd0bef10",
+      "seconds": 0.58
+    },
+    "de/17_phrase": {
+      "text": "ein Pferd",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b62aac83f562c1aa",
+      "seconds": 0.65
+    },
+    "de/17_sentence": {
+      "text": "Das Pferd läuft schnell.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "44d4095b5b0f1c05",
+      "seconds": 1.3
+    },
+    "de/17_word": {
+      "text": "das Pferd",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1d7e04b100323688",
+      "seconds": 0.74
+    },
+    "de/18_phrase": {
+      "text": "ein Schaf",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "94c9c3723e9a9a32",
+      "seconds": 0.71
+    },
+    "de/18_sentence": {
+      "text": "Das Schaf frisst Gras.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0be2fcd5a4624fc1",
+      "seconds": 1.34
+    },
+    "de/18_word": {
+      "text": "das Schaf",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "2e4a46494d2a4752",
+      "seconds": 0.68
+    },
+    "de/19_phrase": {
+      "text": "eine Kuh",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "007238f8a8511d58",
+      "seconds": 0.74
+    },
+    "de/19_sentence": {
+      "text": "Die Kuh gibt uns Milch.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "d5de48cb9fc88c33",
+      "seconds": 1.26
+    },
+    "de/19_word": {
+      "text": "die Kuh",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1714e40f1e4e69bd",
+      "seconds": 0.69
+    },
+    "de/1_phrase": {
+      "text": "ein Fahrrad",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "cfb33319c9129403",
+      "seconds": 0.77
+    },
+    "de/1_sentence": {
+      "text": "Ich fahre mit dem Fahrrad.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b2496b973d971c77",
+      "seconds": 1.37
+    },
+    "de/1_word": {
+      "text": "das Fahrrad",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "3cfd5247ccda6a15",
+      "seconds": 0.86
+    },
+    "de/20_phrase": {
+      "text": "ein Elefant",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a5c2520bd8595519",
+      "seconds": 0.9
+    },
+    "de/20_sentence": {
+      "text": "Der Elefant ist sehr groß.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "69b28343509fc9a2",
+      "seconds": 1.47
+    },
+    "de/20_word": {
+      "text": "der Elefant",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "76567a7d146af784",
+      "seconds": 0.77
+    },
+    "de/21_phrase": {
+      "text": "ein Bär",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "63c5e33dcb4d49c8",
+      "seconds": 0.57
+    },
+    "de/21_sentence": {
+      "text": "Der Bär lebt im Wald.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c0a212a696096e3f",
+      "seconds": 1.42
+    },
+    "de/21_word": {
+      "text": "der Bär",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "fbdb16b838cc1bbf",
+      "seconds": 0.64
+    },
+    "de/22_phrase": {
+      "text": "ein Zebra",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "5f1d29ec867867a5",
+      "seconds": 0.77
+    },
+    "de/22_sentence": {
+      "text": "Das Zebra hat Streifen.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "7ed866d4587ae9ce",
+      "seconds": 1.56
+    },
+    "de/22_word": {
+      "text": "das Zebra",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0dc4dbcb6a604c2d",
+      "seconds": 0.87
+    },
+    "de/23_phrase": {
+      "text": "eine Giraffe",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ffce434e96f503c0",
+      "seconds": 0.97
+    },
+    "de/23_sentence": {
+      "text": "Die Giraffe hat einen langen Hals.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a4454b96048f0555",
+      "seconds": 1.83
+    },
+    "de/23_word": {
+      "text": "die Giraffe",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "e943bc27039cb4b4",
+      "seconds": 0.8
+    },
+    "de/24_phrase": {
+      "text": "ein Rucksack",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b125e3cb6ebacc3c",
+      "seconds": 0.91
+    },
+    "de/24_sentence": {
+      "text": "Mein Rucksack ist schwer.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "aa733dfc6b3fafa5",
+      "seconds": 1.37
+    },
+    "de/24_word": {
+      "text": "der Rucksack",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "69574c146a6cfcfc",
+      "seconds": 0.78
+    },
+    "de/25_phrase": {
+      "text": "ein Regenschirm",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "50f38d9da0973ea4",
+      "seconds": 1.09
+    },
+    "de/25_sentence": {
+      "text": "Es regnet. Nimm den Regenschirm.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "81d7c8a3c9141b84",
+      "seconds": 2.48
+    },
+    "de/25_word": {
+      "text": "der Regenschirm",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "91a5f3fb916f3df0",
+      "seconds": 0.85
+    },
+    "de/26_phrase": {
+      "text": "eine Handtasche",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "8c942f1577b51fcc",
+      "seconds": 1.02
+    },
+    "de/26_sentence": {
+      "text": "Die Schlüssel sind in der Handtasche.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "bc0e34283de3d748",
+      "seconds": 1.64
+    },
+    "de/26_word": {
+      "text": "die Handtasche",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a6f7112c4a301a0b",
+      "seconds": 0.83
+    },
+    "de/27_phrase": {
+      "text": "eine Krawatte",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "7f665a20189e1737",
+      "seconds": 1.02
+    },
+    "de/27_sentence": {
+      "text": "Er trägt eine Krawatte.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "206c697654f0cbf2",
+      "seconds": 1.27
+    },
+    "de/27_word": {
+      "text": "die Krawatte",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "24ae929f9d0006ec",
+      "seconds": 0.87
+    },
+    "de/28_phrase": {
+      "text": "ein Koffer",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "355e267045065e74",
+      "seconds": 0.72
+    },
+    "de/28_sentence": {
+      "text": "Der Koffer ist gepackt.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "4e8167d4c3a3c929",
+      "seconds": 1.37
+    },
+    "de/28_word": {
+      "text": "der Koffer",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "6fcef48e729e2fb4",
+      "seconds": 0.7
+    },
+    "de/29_phrase": {
+      "text": "eine Frisbeescheibe",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ecef8cafa6fecd62",
+      "seconds": 1.24
+    },
+    "de/29_sentence": {
+      "text": "Wirf mir die Frisbeescheibe zu!",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "3bafa310fa79f32a",
+      "seconds": 1.69
+    },
+    "de/29_word": {
+      "text": "die Frisbeescheibe",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "732b25459219e43d",
+      "seconds": 1.08
+    },
+    "de/2_phrase": {
+      "text": "ein Auto",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "942bad4cd626d39e",
+      "seconds": 0.73
+    },
+    "de/2_sentence": {
+      "text": "Das Auto ist sehr schnell.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "57fed5f42a3f46eb",
+      "seconds": 1.45
+    },
+    "de/2_word": {
+      "text": "das Auto",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "d1953ce89183907f",
+      "seconds": 0.7
+    },
+    "de/30_phrase": {
+      "text": "Skier",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b15c44a44d063e0e",
+      "seconds": 0.57
+    },
+    "de/30_sentence": {
+      "text": "Meine Skier stehen an der Tür.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "5740fda5177351ce",
+      "seconds": 1.62
+    },
+    "de/30_word": {
+      "text": "die Skier",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c557ace838953ac1",
+      "seconds": 0.67
+    },
+    "de/31_phrase": {
+      "text": "ein Snowboard",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "5dfffcfb3d538fa8",
+      "seconds": 0.86
+    },
+    "de/31_sentence": {
+      "text": "Im Winter fahre ich Snowboard.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "037d242159881e78",
+      "seconds": 1.55
+    },
+    "de/31_word": {
+      "text": "das Snowboard",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "983ad7c4269d6086",
+      "seconds": 0.82
+    },
+    "de/32_phrase": {
+      "text": "ein Ball",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f98b9ac3b6532389",
+      "seconds": 0.59
+    },
+    "de/32_sentence": {
+      "text": "Spiel mir den Ball zu.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c7f64a40b745ebd7",
+      "seconds": 1.27
+    },
+    "de/32_word": {
+      "text": "der Ball",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "66624fa5c6e4bcc4",
+      "seconds": 0.59
+    },
+    "de/33_phrase": {
+      "text": "ein Drachen",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "658bfe74531d890d",
+      "seconds": 0.73
+    },
+    "de/33_sentence": {
+      "text": "Der Drachen fliegt hoch.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "9b0cd99b4cbe36a1",
+      "seconds": 1.34
+    },
+    "de/33_word": {
+      "text": "der Drachen",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a71d05c3bafbd467",
+      "seconds": 0.68
+    },
+    "de/34_phrase": {
+      "text": "ein Baseballschläger",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "8f3d4cdc3585260e",
+      "seconds": 1.21
+    },
+    "de/34_sentence": {
+      "text": "Der Baseballschläger ist schwer.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "24e8c12f4a1f6109",
+      "seconds": 1.87
+    },
+    "de/34_word": {
+      "text": "der Baseballschläger",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "afbc724a35a988ff",
+      "seconds": 1.32
+    },
+    "de/35_phrase": {
+      "text": "ein Baseballhandschuh",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f4ef3c267ef5272d",
+      "seconds": 1.19
+    },
+    "de/35_sentence": {
+      "text": "Mein Baseballhandschuh ist alt.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f2c4c3c17f2d041a",
+      "seconds": 1.83
+    },
+    "de/35_word": {
+      "text": "der Baseballhandschuh",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1d5874f3daa9b015",
+      "seconds": 1.29
+    },
+    "de/36_phrase": {
+      "text": "ein Skateboard",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a28d871ff39daf21",
+      "seconds": 0.93
+    },
+    "de/36_sentence": {
+      "text": "Sie fährt Skateboard.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "e52fad380a469fe6",
+      "seconds": 1.09
+    },
+    "de/36_word": {
+      "text": "das Skateboard",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "748346f708811b62",
+      "seconds": 0.9
+    },
+    "de/37_phrase": {
+      "text": "ein Surfbrett",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "4ffd3ab0dd7ed9a2",
+      "seconds": 0.86
+    },
+    "de/37_sentence": {
+      "text": "Das Surfbrett liegt am Strand.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "95a0b00b230e0b28",
+      "seconds": 1.57
+    },
+    "de/37_word": {
+      "text": "das Surfbrett",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "87cbbf6de5b57bdf",
+      "seconds": 0.87
+    },
+    "de/38_phrase": {
+      "text": "ein Tennisschläger",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "204e45aa3cf98bb3",
+      "seconds": 0.96
+    },
+    "de/38_sentence": {
+      "text": "Der Tennisschläger ist neu.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "72646e4a158cc37e",
+      "seconds": 1.55
+    },
+    "de/38_word": {
+      "text": "der Tennisschläger",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "34cc1bffee9b07d6",
+      "seconds": 0.94
+    },
+    "de/39_phrase": {
+      "text": "eine Flasche",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "71d50af8948cd321",
+      "seconds": 0.69
+    },
+    "de/39_sentence": {
+      "text": "Die Flasche ist leer.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a1ab10cbbbf99f40",
+      "seconds": 0.98
+    },
+    "de/39_word": {
+      "text": "die Flasche",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "eb453f8a62675556",
+      "seconds": 0.67
+    },
+    "de/3_phrase": {
+      "text": "ein Motorrad",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "2f26661321cb2500",
+      "seconds": 1.06
+    },
+    "de/3_sentence": {
+      "text": "Er fährt Motorrad.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "727e8abb38f3b2a0",
+      "seconds": 1.17
+    },
+    "de/3_word": {
+      "text": "das Motorrad",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "2470f91d63aa031a",
+      "seconds": 0.94
+    },
+    "de/40_phrase": {
+      "text": "ein Weinglas",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "70c933abf794ea2c",
+      "seconds": 0.88
+    },
+    "de/40_sentence": {
+      "text": "Das Weinglas ist voll.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "6d058630449a4e6e",
+      "seconds": 1.21
+    },
+    "de/40_word": {
+      "text": "das Weinglas",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "06bf71e160586d09",
+      "seconds": 0.86
+    },
+    "de/41_phrase": {
+      "text": "eine Tasse",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "aa58d96b6e155087",
+      "seconds": 0.79
+    },
+    "de/41_sentence": {
+      "text": "Ich trinke Kaffee aus der Tasse.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "6498c04a2dba83ee",
+      "seconds": 1.61
+    },
+    "de/41_word": {
+      "text": "die Tasse",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "cef025ad28191c2c",
+      "seconds": 0.65
+    },
+    "de/42_phrase": {
+      "text": "eine Gabel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "8169acf8d2b243eb",
+      "seconds": 0.68
+    },
+    "de/42_sentence": {
+      "text": "Ich esse mit der Gabel.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "2160fa4737f69beb",
+      "seconds": 1.14
+    },
+    "de/42_word": {
+      "text": "die Gabel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b53b7a2675a7c08f",
+      "seconds": 0.71
+    },
+    "de/43_phrase": {
+      "text": "ein Messer",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "3468164e1ffac52c",
+      "seconds": 0.68
+    },
+    "de/43_sentence": {
+      "text": "Vorsicht, das Messer ist scharf.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "eb662a6e62fda012",
+      "seconds": 2.17
+    },
+    "de/43_word": {
+      "text": "das Messer",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "da872c6fc7e9a763",
+      "seconds": 0.73
+    },
+    "de/44_phrase": {
+      "text": "ein Löffel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c031e52c6edb8c7b",
+      "seconds": 0.76
+    },
+    "de/44_sentence": {
+      "text": "Ich esse Suppe mit dem Löffel.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "85b1ec61c38ad83b",
+      "seconds": 1.46
+    },
+    "de/44_word": {
+      "text": "der Löffel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c11e66f9834adf40",
+      "seconds": 0.68
+    },
+    "de/45_phrase": {
+      "text": "eine Schüssel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "658bb4f01249acaf",
+      "seconds": 0.81
+    },
+    "de/45_sentence": {
+      "text": "Die Schüssel ist voller Reis.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c004579c27ed4962",
+      "seconds": 1.58
+    },
+    "de/45_word": {
+      "text": "die Schüssel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a862e6dc44c9f08b",
+      "seconds": 0.72
+    },
+    "de/46_phrase": {
+      "text": "eine Banane",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "5d8ddfa3e66d912b",
+      "seconds": 0.95
+    },
+    "de/46_sentence": {
+      "text": "Die Banane ist gelb.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "5a23cd9ee5592cb7",
+      "seconds": 1.23
+    },
+    "de/46_word": {
+      "text": "die Banane",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c4db39b88e660d7b",
+      "seconds": 0.78
+    },
+    "de/47_phrase": {
+      "text": "ein Apfel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "33d4f3ce44e30f5c",
+      "seconds": 0.86
+    },
+    "de/47_sentence": {
+      "text": "Ich esse jeden Tag einen Apfel.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a5c6591dbee32252",
+      "seconds": 1.81
+    },
+    "de/47_word": {
+      "text": "der Apfel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "45c4a9acf9848f64",
+      "seconds": 0.73
+    },
+    "de/48_phrase": {
+      "text": "ein Sandwich",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "71bf636b5cde4d18",
+      "seconds": 0.8
+    },
+    "de/48_sentence": {
+      "text": "Ich mache ein Sandwich.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "7dfd469205997f75",
+      "seconds": 1.09
+    },
+    "de/48_word": {
+      "text": "das Sandwich",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b619efa95f922395",
+      "seconds": 0.84
+    },
+    "de/49_phrase": {
+      "text": "eine Orange",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "84ab5d248a289fa6",
+      "seconds": 0.8
+    },
+    "de/49_sentence": {
+      "text": "Ich schäle die Orange.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "97f23ed020df7e37",
+      "seconds": 1.05
+    },
+    "de/49_word": {
+      "text": "die Orange",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "221287868160ff25",
+      "seconds": 0.73
+    },
+    "de/4_phrase": {
+      "text": "ein Flugzeug",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f7b07685bedd1862",
+      "seconds": 0.94
+    },
+    "de/4_sentence": {
+      "text": "Das Flugzeug ist am Himmel.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f61cd76c3052e8ac",
+      "seconds": 1.51
+    },
+    "de/4_word": {
+      "text": "das Flugzeug",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "677a1a303320a548",
+      "seconds": 0.9
+    },
+    "de/50_phrase": {
+      "text": "ein Brokkoli",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c0a286dd8f968bdb",
+      "seconds": 0.87
+    },
+    "de/50_sentence": {
+      "text": "Brokkoli ist gesund.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ea8164bee9b3049f",
+      "seconds": 1.16
+    },
+    "de/50_word": {
+      "text": "der Brokkoli",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1da651c0ade131dd",
+      "seconds": 0.78
+    },
+    "de/51_phrase": {
+      "text": "eine Karotte",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ebe0a6873bc38e80",
+      "seconds": 0.94
+    },
+    "de/51_sentence": {
+      "text": "Der Hase frisst eine Karotte.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "e47d910f0417480e",
+      "seconds": 1.62
+    },
+    "de/51_word": {
+      "text": "die Karotte",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "8828d9672d194152",
+      "seconds": 0.78
+    },
+    "de/52_phrase": {
+      "text": "ein Hotdog",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "461ef2be978738ff",
+      "seconds": 0.72
+    },
+    "de/52_sentence": {
+      "text": "Einen Hotdog, bitte.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ac61391a4d7bbe1b",
+      "seconds": 1.26
+    },
+    "de/52_word": {
+      "text": "der Hotdog",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "83ba56123e9f4d49",
+      "seconds": 0.79
+    },
+    "de/53_phrase": {
+      "text": "eine Pizza",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "edf8bb0f0ccd7ecc",
+      "seconds": 0.78
+    },
+    "de/53_sentence": {
+      "text": "Bestellen wir heute eine Pizza.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "dff2f36255cec4dc",
+      "seconds": 1.64
+    },
+    "de/53_word": {
+      "text": "die Pizza",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ea7a643732bfcf2b",
+      "seconds": 0.67
+    },
+    "de/54_phrase": {
+      "text": "ein Donut",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "4b7d87980e2c389e",
+      "seconds": 0.77
+    },
+    "de/54_sentence": {
+      "text": "Dieser Donut ist sehr süß.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "983be8be7a48841b",
+      "seconds": 1.61
+    },
+    "de/54_word": {
+      "text": "der Donut",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "528f87712c576a41",
+      "seconds": 0.8
+    },
+    "de/55_phrase": {
+      "text": "ein Kuchen",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "d03c4d43a1511ca9",
+      "seconds": 0.77
+    },
+    "de/55_sentence": {
+      "text": "Ich habe einen Kuchen gebacken.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "4122ff5a8f98665d",
+      "seconds": 1.39
+    },
+    "de/55_word": {
+      "text": "der Kuchen",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a995adc6250521fb",
+      "seconds": 0.75
+    },
+    "de/56_phrase": {
+      "text": "ein Stuhl",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "8d1292eb6a844433",
+      "seconds": 0.74
+    },
+    "de/56_sentence": {
+      "text": "Setz dich auf den Stuhl.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "070f7d200d396384",
+      "seconds": 1.14
+    },
+    "de/56_word": {
+      "text": "der Stuhl",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "8b98eb1b0fd5ae3f",
+      "seconds": 0.71
+    },
+    "de/57_phrase": {
+      "text": "ein Sofa",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "646d66f9b3fb027e",
+      "seconds": 0.68
+    },
+    "de/57_sentence": {
+      "text": "Ich entspanne mich auf dem Sofa.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "08b7c8f474cdd1d0",
+      "seconds": 1.57
+    },
+    "de/57_word": {
+      "text": "das Sofa",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "da3a29b00363cda4",
+      "seconds": 0.74
+    },
+    "de/58_phrase": {
+      "text": "eine Topfpflanze",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0a9b29e1dfdeb055",
+      "seconds": 1.22
+    },
+    "de/58_sentence": {
+      "text": "Gieß die Topfpflanze jede Woche.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c053901fd82e0cbe",
+      "seconds": 1.7
+    },
+    "de/58_word": {
+      "text": "die Topfpflanze",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1e29dabd43729c98",
+      "seconds": 1.24
+    },
+    "de/59_phrase": {
+      "text": "ein Bett",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ca2ee456cfdc93ec",
+      "seconds": 0.61
+    },
+    "de/59_sentence": {
+      "text": "Mein Bett ist sehr bequem.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "311ed6889bd5d321",
+      "seconds": 1.33
+    },
+    "de/59_word": {
+      "text": "das Bett",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "13e59638055e21ce",
+      "seconds": 0.6
+    },
+    "de/5_phrase": {
+      "text": "ein Bus",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "68d93e151f74ccc3",
+      "seconds": 0.64
+    },
+    "de/5_sentence": {
+      "text": "Ich fahre mit dem Bus zur Schule.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b1417295c1307109",
+      "seconds": 1.48
+    },
+    "de/5_word": {
+      "text": "der Bus",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "3f52825cff478bb8",
+      "seconds": 0.57
+    },
+    "de/60_phrase": {
+      "text": "ein Tisch",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "3bf1ed18b64990e7",
+      "seconds": 0.61
+    },
+    "de/60_sentence": {
+      "text": "Das Essen steht auf dem Tisch.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "46f0f5e58b3bc847",
+      "seconds": 1.42
+    },
+    "de/60_word": {
+      "text": "der Tisch",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "fec7a6591410decd",
+      "seconds": 0.55
+    },
+    "de/61_phrase": {
+      "text": "eine Toilette",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "320eb54a1e11ab14",
+      "seconds": 0.81
+    },
+    "de/61_sentence": {
+      "text": "Wo ist die Toilette?",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ee0b7fdfa17d7f47",
+      "seconds": 1.05
+    },
+    "de/61_word": {
+      "text": "die Toilette",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0828bb1baf427308",
+      "seconds": 0.84
+    },
+    "de/62_phrase": {
+      "text": "ein Fernseher",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1a780917e3fa28b9",
+      "seconds": 0.82
+    },
+    "de/62_sentence": {
+      "text": "Der Fernseher ist an.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "20d40bd34ec9a1af",
+      "seconds": 1.28
+    },
+    "de/62_word": {
+      "text": "der Fernseher",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "cbfca896208247aa",
+      "seconds": 0.84
+    },
+    "de/63_phrase": {
+      "text": "ein Laptop",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "5be71e6c4c2b3f4a",
+      "seconds": 0.81
+    },
+    "de/63_sentence": {
+      "text": "Ich arbeite am Laptop.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "270c114e6570d0e9",
+      "seconds": 1.26
+    },
+    "de/63_word": {
+      "text": "der Laptop",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "5de39a0cad7e6dff",
+      "seconds": 0.66
+    },
+    "de/64_phrase": {
+      "text": "eine Maus",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f0a0ecf317bd58f8",
+      "seconds": 0.86
+    },
+    "de/64_sentence": {
+      "text": "Klick mit der Maus.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "264362177dcd1286",
+      "seconds": 1.06
+    },
+    "de/64_word": {
+      "text": "die Maus",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b42bce7f5ceb9311",
+      "seconds": 0.65
+    },
+    "de/65_phrase": {
+      "text": "eine Fernbedienung",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "4131d4b929fd7a31",
+      "seconds": 1.06
+    },
+    "de/65_sentence": {
+      "text": "Wo ist die Fernbedienung?",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c5ced391d7bb3956",
+      "seconds": 1.23
+    },
+    "de/65_word": {
+      "text": "die Fernbedienung",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "adaeafaf31d4c3dd",
+      "seconds": 1.06
+    },
+    "de/66_phrase": {
+      "text": "eine Tastatur",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "67b3ffeb70bd06bd",
+      "seconds": 0.97
+    },
+    "de/66_sentence": {
+      "text": "Ich tippe auf der Tastatur.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "2bd11a5ceef14bcd",
+      "seconds": 1.44
+    },
+    "de/66_word": {
+      "text": "die Tastatur",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "d52195007bbf45ea",
+      "seconds": 0.93
+    },
+    "de/67_phrase": {
+      "text": "ein Handy",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "4936073e72e72eb5",
+      "seconds": 0.65
+    },
+    "de/67_sentence": {
+      "text": "Mein Handy klingelt!",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "3f44fabe7d03f14f",
+      "seconds": 1.08
+    },
+    "de/67_word": {
+      "text": "das Handy",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "9e1509cf45dacef4",
+      "seconds": 0.67
+    },
+    "de/68_phrase": {
+      "text": "eine Mikrowelle",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "283bee097baacc4c",
+      "seconds": 1.09
+    },
+    "de/68_sentence": {
+      "text": "Wärme das Essen in der Mikrowelle.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f8a60f2e3a941034",
+      "seconds": 1.87
+    },
+    "de/68_word": {
+      "text": "die Mikrowelle",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "e67dd0f89b20e0c6",
+      "seconds": 0.98
+    },
+    "de/69_phrase": {
+      "text": "ein Backofen",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "189e8e91e9d73110",
+      "seconds": 0.88
+    },
+    "de/69_sentence": {
+      "text": "Die Pizza ist im Backofen.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b26cb7a310ac963c",
+      "seconds": 1.46
+    },
+    "de/69_word": {
+      "text": "der Backofen",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "7471761686f29815",
+      "seconds": 0.81
+    },
+    "de/6_phrase": {
+      "text": "ein Zug",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "d69f659bb095c01c",
+      "seconds": 0.53
+    },
+    "de/6_sentence": {
+      "text": "Der Zug fährt um neun ab.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a0ee2ed8eca83bfb",
+      "seconds": 1.47
+    },
+    "de/6_word": {
+      "text": "der Zug",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f2ba900f3a927f1e",
+      "seconds": 0.61
+    },
+    "de/70_phrase": {
+      "text": "ein Toaster",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "c69b6ba007973ae5",
+      "seconds": 0.82
+    },
+    "de/70_sentence": {
+      "text": "Ich stecke Brot in den Toaster.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1521d1c7cc479327",
+      "seconds": 1.74
+    },
+    "de/70_word": {
+      "text": "der Toaster",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "e0f02e2eaad76795",
+      "seconds": 0.84
+    },
+    "de/71_phrase": {
+      "text": "eine Spüle",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "8275f8a142eb5b52",
+      "seconds": 0.72
+    },
+    "de/71_sentence": {
+      "text": "Spül das Geschirr in der Spüle.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "8eda0da8bb9e3dfe",
+      "seconds": 1.55
+    },
+    "de/71_word": {
+      "text": "die Spüle",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "d4627206f9629740",
+      "seconds": 0.67
+    },
+    "de/72_phrase": {
+      "text": "ein Kühlschrank",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a44242b9cb137bda",
+      "seconds": 0.94
+    },
+    "de/72_sentence": {
+      "text": "Die Milch ist im Kühlschrank.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "cc9dfe35a9255839",
+      "seconds": 1.45
+    },
+    "de/72_word": {
+      "text": "der Kühlschrank",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1f74874f2eaba90f",
+      "seconds": 0.91
+    },
+    "de/73_phrase": {
+      "text": "ein Buch",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "05f1ce9f0da77330",
+      "seconds": 0.64
+    },
+    "de/73_sentence": {
+      "text": "Ich lese ein gutes Buch.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0f38543ddd204603",
+      "seconds": 1.28
+    },
+    "de/73_word": {
+      "text": "das Buch",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "9736945c42239261",
+      "seconds": 0.63
+    },
+    "de/74_phrase": {
+      "text": "eine Uhr",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "37e9a56fb0432562",
+      "seconds": 0.74
+    },
+    "de/74_sentence": {
+      "text": "Schau auf die Uhr. Es ist spät.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "a6e12f9ad9d27272",
+      "seconds": 2.1
+    },
+    "de/74_word": {
+      "text": "die Uhr",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "bef86297700956e2",
+      "seconds": 0.56
+    },
+    "de/75_phrase": {
+      "text": "eine Vase",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "22db6009c7a56516",
+      "seconds": 0.79
+    },
+    "de/75_sentence": {
+      "text": "Stell die Blumen in die Vase.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "1beba61a575be82c",
+      "seconds": 1.53
+    },
+    "de/75_word": {
+      "text": "die Vase",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ee2af407b9de6356",
+      "seconds": 0.74
+    },
+    "de/76_phrase": {
+      "text": "eine Schere",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f5122b0e37cd275b",
+      "seconds": 0.79
+    },
+    "de/76_sentence": {
+      "text": "Schneid das Papier mit der Schere.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "38f1e5a21323a191",
+      "seconds": 1.79
+    },
+    "de/76_word": {
+      "text": "die Schere",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "96fed0679bf4f9b1",
+      "seconds": 0.7
+    },
+    "de/77_phrase": {
+      "text": "ein Teddybär",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "b2c0fb8e9d43c3b9",
+      "seconds": 0.81
+    },
+    "de/77_sentence": {
+      "text": "Das Baby umarmt den Teddybären.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ba6db449ece40fae",
+      "seconds": 1.9
+    },
+    "de/77_word": {
+      "text": "der Teddybär",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f4ba39254b9c14c1",
+      "seconds": 0.86
+    },
+    "de/78_phrase": {
+      "text": "ein Föhn",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "da9497ed6365c340",
+      "seconds": 0.73
+    },
+    "de/78_sentence": {
+      "text": "Der Föhn ist heiß.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "e6b82bc42dc456d3",
+      "seconds": 1.11
+    },
+    "de/78_word": {
+      "text": "der Föhn",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "6f4ea7d87934b2b7",
+      "seconds": 0.61
+    },
+    "de/79_phrase": {
+      "text": "eine Zahnbürste",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "abe42cf2aa5200a6",
+      "seconds": 1.12
+    },
+    "de/79_sentence": {
+      "text": "Ich brauche eine neue Zahnbürste.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0296acf97df5335b",
+      "seconds": 1.74
+    },
+    "de/79_word": {
+      "text": "die Zahnbürste",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f0c4a4207f58d640",
+      "seconds": 0.94
+    },
+    "de/7_phrase": {
+      "text": "ein Lastwagen",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "17b4f3f6919ad3dd",
+      "seconds": 0.91
+    },
+    "de/7_sentence": {
+      "text": "Der Lastwagen bringt Kisten.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "f07ce5a8869bf17b",
+      "seconds": 1.49
+    },
+    "de/7_word": {
+      "text": "der Lastwagen",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0637d6cc5c6b9d06",
+      "seconds": 1.0
+    },
+    "de/8_phrase": {
+      "text": "ein Boot",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "32ae50e6f78447bd",
+      "seconds": 0.7
+    },
+    "de/8_sentence": {
+      "text": "Wir fahren Boot auf dem See.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "38fa7b09185b5ece",
+      "seconds": 1.5
+    },
+    "de/8_word": {
+      "text": "das Boot",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "49ec3c629457fe07",
+      "seconds": 0.62
+    },
+    "de/9_phrase": {
+      "text": "eine Ampel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "ed46cd65cbd6774b",
+      "seconds": 0.82
+    },
+    "de/9_sentence": {
+      "text": "Die Ampel ist rot.",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "0456784c8115af37",
+      "seconds": 1.12
+    },
+    "de/9_word": {
+      "text": "die Ampel",
+      "voice": "de_DE-thorsten-medium",
+      "hash": "cf1780411419477c",
+      "seconds": 0.77
+    },
+    "en/0_phrase": {
+      "text": "a person",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "cb05819c8951be79",
+      "seconds": 0.77
+    },
+    "en/0_sentence": {
+      "text": "There is a person here.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5fb5afff9e0af858",
+      "seconds": 1.34
+    },
+    "en/0_word": {
+      "text": "person",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "df06047dd78a3678",
+      "seconds": 0.65
+    },
+    "en/10_phrase": {
+      "text": "a fire hydrant",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2ef5b4bee81f9ee1",
+      "seconds": 1.34
+    },
+    "en/10_sentence": {
+      "text": "The fire hydrant is yellow.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f6c319039e03c609",
+      "seconds": 1.61
+    },
+    "en/10_word": {
+      "text": "fire hydrant",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "7c64b85e311854f3",
+      "seconds": 1.14
+    },
+    "en/11_phrase": {
+      "text": "a stop sign",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ffc9152be9a86de6",
+      "seconds": 1.25
+    },
+    "en/11_sentence": {
+      "text": "Stop at the stop sign.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "91ef83c23cb7f48e",
+      "seconds": 1.71
+    },
+    "en/11_word": {
+      "text": "stop sign",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "fe17d71bc02b5519",
+      "seconds": 1.06
+    },
+    "en/12_phrase": {
+      "text": "a parking meter",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "222c5faea8dddc79",
+      "seconds": 1.19
+    },
+    "en/12_sentence": {
+      "text": "Pay at the parking meter.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "d10b583be3b0ddaf",
+      "seconds": 1.59
+    },
+    "en/12_word": {
+      "text": "parking meter",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "eeadc5c2ca283a88",
+      "seconds": 1.02
+    },
+    "en/13_phrase": {
+      "text": "a bench",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5b497def896ecd60",
+      "seconds": 0.89
+    },
+    "en/13_sentence": {
+      "text": "We sit on the bench.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "aeff2d40185c6687",
+      "seconds": 1.49
+    },
+    "en/13_word": {
+      "text": "bench",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "11ee22084884e17f",
+      "seconds": 0.63
+    },
+    "en/14_phrase": {
+      "text": "a bird",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "d08dd6c02ea5a1d2",
+      "seconds": 0.74
+    },
+    "en/14_sentence": {
+      "text": "The bird is singing.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "3e2c3069cd5e62d6",
+      "seconds": 1.08
+    },
+    "en/14_word": {
+      "text": "bird",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "bd76741cf3b5f46b",
+      "seconds": 0.56
+    },
+    "en/15_phrase": {
+      "text": "a cat",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a60c11af97d756e5",
+      "seconds": 0.75
+    },
+    "en/15_sentence": {
+      "text": "The cat is sleeping.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "deaba9971052202a",
+      "seconds": 1.25
+    },
+    "en/15_word": {
+      "text": "cat",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "8c1cb4952c8fa8d4",
+      "seconds": 0.41
+    },
+    "en/16_phrase": {
+      "text": "a dog",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "042c8a5da7b532ab",
+      "seconds": 0.79
+    },
+    "en/16_sentence": {
+      "text": "The dog wants to play.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b35777a0e99ed913",
+      "seconds": 1.63
+    },
+    "en/16_word": {
+      "text": "dog",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "383599d652507edd",
+      "seconds": 0.51
+    },
+    "en/17_phrase": {
+      "text": "a horse",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b61315affab0d6c1",
+      "seconds": 0.87
+    },
+    "en/17_sentence": {
+      "text": "The horse runs fast.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a4970ebfdf366702",
+      "seconds": 1.73
+    },
+    "en/17_word": {
+      "text": "horse",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a2b24c8cc2d7a16b",
+      "seconds": 0.67
+    },
+    "en/18_phrase": {
+      "text": "a sheep",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "1bff0ff5e0000530",
+      "seconds": 0.62
+    },
+    "en/18_sentence": {
+      "text": "The sheep eats grass.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2169271931cc9e87",
+      "seconds": 1.78
+    },
+    "en/18_word": {
+      "text": "sheep",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "9c40d0cd66a67c45",
+      "seconds": 0.58
+    },
+    "en/19_phrase": {
+      "text": "a cow",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "6f6bc271e9252d7f",
+      "seconds": 0.7
+    },
+    "en/19_sentence": {
+      "text": "The cow gives us milk.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "e1e373ff6e1f9c9f",
+      "seconds": 1.45
+    },
+    "en/19_word": {
+      "text": "cow",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "bdf650edf5a2386f",
+      "seconds": 0.52
+    },
+    "en/1_phrase": {
+      "text": "a bicycle",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f5dba0a117901bd4",
+      "seconds": 0.9
+    },
+    "en/1_sentence": {
+      "text": "I ride my bicycle to work.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "da5d64c4a708a2ec",
+      "seconds": 1.96
+    },
+    "en/1_word": {
+      "text": "bicycle",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5b25ec90a6c3889a",
+      "seconds": 0.76
+    },
+    "en/20_phrase": {
+      "text": "an elephant",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b78c8b093c6cf18c",
+      "seconds": 0.91
+    },
+    "en/20_sentence": {
+      "text": "The elephant is very big.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f0ba7632124e1835",
+      "seconds": 1.79
+    },
+    "en/20_word": {
+      "text": "elephant",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "80153456509f8505",
+      "seconds": 0.71
+    },
+    "en/21_phrase": {
+      "text": "a bear",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "04ade65f93daf9bd",
+      "seconds": 0.72
+    },
+    "en/21_sentence": {
+      "text": "The bear lives in the forest.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "66f618f48002954e",
+      "seconds": 1.95
+    },
+    "en/21_word": {
+      "text": "bear",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "9a8e228f53d2dd70",
+      "seconds": 0.56
+    },
+    "en/22_phrase": {
+      "text": "a zebra",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "70849dc7ff97bbdb",
+      "seconds": 0.76
+    },
+    "en/22_sentence": {
+      "text": "The zebra has stripes.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "1e3e4ee7a678de3d",
+      "seconds": 1.63
+    },
+    "en/22_word": {
+      "text": "zebra",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "46203a6b3e82193b",
+      "seconds": 0.6
+    },
+    "en/23_phrase": {
+      "text": "a giraffe",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "811bf8db88e823e9",
+      "seconds": 0.84
+    },
+    "en/23_sentence": {
+      "text": "The giraffe has a long neck.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "33e2cb2580333eb7",
+      "seconds": 1.73
+    },
+    "en/23_word": {
+      "text": "giraffe",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "824bf377c49100b3",
+      "seconds": 0.74
+    },
+    "en/24_phrase": {
+      "text": "a backpack",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c9d1e56e369c4d7d",
+      "seconds": 0.91
+    },
+    "en/24_sentence": {
+      "text": "My backpack is heavy.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "73521d2c0cc8a09a",
+      "seconds": 1.57
+    },
+    "en/24_word": {
+      "text": "backpack",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a508d200ad1f76e3",
+      "seconds": 0.72
+    },
+    "en/25_phrase": {
+      "text": "an umbrella",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c7aad2ffffb90596",
+      "seconds": 0.79
+    },
+    "en/25_sentence": {
+      "text": "It's raining. Take an umbrella.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "d5a56a5acb9ccd86",
+      "seconds": 1.84
+    },
+    "en/25_word": {
+      "text": "umbrella",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "275636cc774ed2ea",
+      "seconds": 0.71
+    },
+    "en/26_phrase": {
+      "text": "a handbag",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "fae2632327d68d02",
+      "seconds": 0.93
+    },
+    "en/26_sentence": {
+      "text": "My keys are in the handbag.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "522f366b383f5017",
+      "seconds": 1.85
+    },
+    "en/26_word": {
+      "text": "handbag",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "e2905f021283af9d",
+      "seconds": 0.73
+    },
+    "en/27_phrase": {
+      "text": "a tie",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "fa056cbb9c6af49d",
+      "seconds": 0.65
+    },
+    "en/27_sentence": {
+      "text": "He wears a tie to work.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "e96a1c3499c9efab",
+      "seconds": 1.62
+    },
+    "en/27_word": {
+      "text": "tie",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c47aa1bad876c591",
+      "seconds": 0.61
+    },
+    "en/28_phrase": {
+      "text": "a suitcase",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "406a0721fe85a291",
+      "seconds": 1.04
+    },
+    "en/28_sentence": {
+      "text": "The suitcase is ready.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5a0d8f039e1ca17b",
+      "seconds": 1.42
+    },
+    "en/28_word": {
+      "text": "suitcase",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "4faeee0df95f3cb3",
+      "seconds": 0.94
+    },
+    "en/29_phrase": {
+      "text": "a frisbee",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2e1406c88c2a2920",
+      "seconds": 0.85
+    },
+    "en/29_sentence": {
+      "text": "Throw me the frisbee!",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a7ec56b0e0568d81",
+      "seconds": 1.25
+    },
+    "en/29_word": {
+      "text": "frisbee",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b20db5387bf2799e",
+      "seconds": 0.67
+    },
+    "en/2_phrase": {
+      "text": "a car",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5d598dda3259ae21",
+      "seconds": 0.7
+    },
+    "en/2_sentence": {
+      "text": "The car is very fast.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "6e9752c7c0c08f42",
+      "seconds": 1.9
+    },
+    "en/2_word": {
+      "text": "car",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ee84e397ddf70828",
+      "seconds": 0.5
+    },
+    "en/30_phrase": {
+      "text": "a pair of skis",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "37f18c3d640c219e",
+      "seconds": 1.36
+    },
+    "en/30_sentence": {
+      "text": "My skis are by the door.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2e660f70e283bd6c",
+      "seconds": 1.84
+    },
+    "en/30_word": {
+      "text": "skis",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f14320dcb1ac0ead",
+      "seconds": 0.78
+    },
+    "en/31_phrase": {
+      "text": "a snowboard",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "0b98c77246ef8d3d",
+      "seconds": 1.0
+    },
+    "en/31_sentence": {
+      "text": "I ride a snowboard in winter.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b1c1c36d439200f8",
+      "seconds": 1.76
+    },
+    "en/31_word": {
+      "text": "snowboard",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ca7cea5d8644904e",
+      "seconds": 0.81
+    },
+    "en/32_phrase": {
+      "text": "a ball",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f7d427c08909e3bb",
+      "seconds": 0.71
+    },
+    "en/32_sentence": {
+      "text": "Pass me the ball.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c56c81fe121c5fca",
+      "seconds": 1.23
+    },
+    "en/32_word": {
+      "text": "ball",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "99c31e17b041731c",
+      "seconds": 0.44
+    },
+    "en/33_phrase": {
+      "text": "a kite",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "3688bd1741a08cd3",
+      "seconds": 0.71
+    },
+    "en/33_sentence": {
+      "text": "The kite flies high.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "69fb143caa164230",
+      "seconds": 1.43
+    },
+    "en/33_word": {
+      "text": "kite",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "6214744980ed5aea",
+      "seconds": 0.55
+    },
+    "en/34_phrase": {
+      "text": "a baseball bat",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c7cefc4bfbfc7c9a",
+      "seconds": 1.3
+    },
+    "en/34_sentence": {
+      "text": "The baseball bat is heavy.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "1488197033c0f1ea",
+      "seconds": 1.81
+    },
+    "en/34_word": {
+      "text": "baseball bat",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "faf310d874b5c3ba",
+      "seconds": 1.09
+    },
+    "en/35_phrase": {
+      "text": "a baseball glove",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b24a8fd133b5f85e",
+      "seconds": 1.45
+    },
+    "en/35_sentence": {
+      "text": "My baseball glove is old.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "391852e5cae885a4",
+      "seconds": 2.07
+    },
+    "en/35_word": {
+      "text": "baseball glove",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "0f904a885a2fcf87",
+      "seconds": 1.24
+    },
+    "en/36_phrase": {
+      "text": "a skateboard",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "d2e0ee72b87c224a",
+      "seconds": 1.07
+    },
+    "en/36_sentence": {
+      "text": "She rides a skateboard.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5c0b88a64b803752",
+      "seconds": 1.69
+    },
+    "en/36_word": {
+      "text": "skateboard",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "8480779e26a70178",
+      "seconds": 0.9
+    },
+    "en/37_phrase": {
+      "text": "a surfboard",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f6a822a5ff99fb22",
+      "seconds": 0.97
+    },
+    "en/37_sentence": {
+      "text": "The surfboard is on the beach.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "89d9866ad644a056",
+      "seconds": 1.82
+    },
+    "en/37_word": {
+      "text": "surfboard",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "cbae67c50dd4201b",
+      "seconds": 0.9
+    },
+    "en/38_phrase": {
+      "text": "a tennis racket",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "72b209de832fdeb6",
+      "seconds": 1.28
+    },
+    "en/38_sentence": {
+      "text": "The tennis racket is new.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "8c3cf26ea024f320",
+      "seconds": 1.6
+    },
+    "en/38_word": {
+      "text": "tennis racket",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "062b8588abaac44c",
+      "seconds": 1.13
+    },
+    "en/39_phrase": {
+      "text": "a bottle",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "3e1b7036cfe78ef9",
+      "seconds": 0.7
+    },
+    "en/39_sentence": {
+      "text": "The bottle is empty.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "4bbbb64cee46203a",
+      "seconds": 1.27
+    },
+    "en/39_word": {
+      "text": "bottle",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "8973068ff71d43c3",
+      "seconds": 0.56
+    },
+    "en/3_phrase": {
+      "text": "a motorcycle",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "445d9b7e9b6c2f2e",
+      "seconds": 1.06
+    },
+    "en/3_sentence": {
+      "text": "He rides a motorcycle.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "7b9017237e71335a",
+      "seconds": 1.55
+    },
+    "en/3_word": {
+      "text": "motorcycle",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "066d2823b0ee4832",
+      "seconds": 0.91
+    },
+    "en/40_phrase": {
+      "text": "a wine glass",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "7b30bab2ba2e188d",
+      "seconds": 1.39
+    },
+    "en/40_sentence": {
+      "text": "The wine glass is full.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "88ceb8d9d0201b5e",
+      "seconds": 1.6
+    },
+    "en/40_word": {
+      "text": "wine glass",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2cb365e18a55bb99",
+      "seconds": 1.22
+    },
+    "en/41_phrase": {
+      "text": "a cup",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "cd1066c4ae6e3ceb",
+      "seconds": 0.55
+    },
+    "en/41_sentence": {
+      "text": "I drink coffee from this cup.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "59a79752df2d7b0c",
+      "seconds": 1.91
+    },
+    "en/41_word": {
+      "text": "cup",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "586dde7215f42a55",
+      "seconds": 0.42
+    },
+    "en/42_phrase": {
+      "text": "a fork",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b1df3b8e31a7a7f8",
+      "seconds": 0.66
+    },
+    "en/42_sentence": {
+      "text": "I eat with a fork.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "21ee7f4a00cddc30",
+      "seconds": 1.54
+    },
+    "en/42_word": {
+      "text": "fork",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b2d5b4fbefe647da",
+      "seconds": 0.42
+    },
+    "en/43_phrase": {
+      "text": "a knife",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "05f3903875c81e61",
+      "seconds": 0.7
+    },
+    "en/43_sentence": {
+      "text": "Be careful, the knife is sharp.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b20215111b774f86",
+      "seconds": 2.01
+    },
+    "en/43_word": {
+      "text": "knife",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "200702e0fac55702",
+      "seconds": 0.54
+    },
+    "en/44_phrase": {
+      "text": "a spoon",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2343c794904a2a0b",
+      "seconds": 0.76
+    },
+    "en/44_sentence": {
+      "text": "I eat soup with a spoon.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "6431d7fdf0d64df6",
+      "seconds": 1.91
+    },
+    "en/44_word": {
+      "text": "spoon",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f95992b1e2a5d1fb",
+      "seconds": 0.8
+    },
+    "en/45_phrase": {
+      "text": "a bowl",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b5add8efa274ca2c",
+      "seconds": 0.65
+    },
+    "en/45_sentence": {
+      "text": "The bowl is full of rice.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ffb6bba88ace1fd1",
+      "seconds": 1.81
+    },
+    "en/45_word": {
+      "text": "bowl",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "063286ded8e1919e",
+      "seconds": 0.45
+    },
+    "en/46_phrase": {
+      "text": "a banana",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "29a37dad0c8cf3f5",
+      "seconds": 0.76
+    },
+    "en/46_sentence": {
+      "text": "The banana is yellow.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "549a85b36f7b3935",
+      "seconds": 1.33
+    },
+    "en/46_word": {
+      "text": "banana",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b75d450fe2ce7604",
+      "seconds": 0.61
+    },
+    "en/47_phrase": {
+      "text": "an apple",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b70408d3a48cd844",
+      "seconds": 0.7
+    },
+    "en/47_sentence": {
+      "text": "I eat an apple every day.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "55f0efb61fab1362",
+      "seconds": 2.09
+    },
+    "en/47_word": {
+      "text": "apple",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "d5f7e423ca2dcc96",
+      "seconds": 0.51
+    },
+    "en/48_phrase": {
+      "text": "a sandwich",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b69fe0a288eb9d6f",
+      "seconds": 1.1
+    },
+    "en/48_sentence": {
+      "text": "I'm making a sandwich.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "24ce16a074f446b3",
+      "seconds": 1.66
+    },
+    "en/48_word": {
+      "text": "sandwich",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a5dc09a0820b7bf9",
+      "seconds": 0.95
+    },
+    "en/49_phrase": {
+      "text": "an orange",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "4cd5c940d38098a7",
+      "seconds": 0.97
+    },
+    "en/49_sentence": {
+      "text": "I peel the orange.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f0a01e32ec714f24",
+      "seconds": 1.66
+    },
+    "en/49_word": {
+      "text": "orange",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "26c433d56f6f30ee",
+      "seconds": 0.75
+    },
+    "en/4_phrase": {
+      "text": "an airplane",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ae3f954563316f0e",
+      "seconds": 0.94
+    },
+    "en/4_sentence": {
+      "text": "The airplane is in the sky.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "dddc531a7df9faa5",
+      "seconds": 1.94
+    },
+    "en/4_word": {
+      "text": "airplane",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ba557bb80453efd9",
+      "seconds": 0.75
+    },
+    "en/50_phrase": {
+      "text": "a broccoli",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "15b7f29df1274e55",
+      "seconds": 0.84
+    },
+    "en/50_sentence": {
+      "text": "Broccoli is good for you.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c32acb9c315add76",
+      "seconds": 1.76
+    },
+    "en/50_word": {
+      "text": "broccoli",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "04b8f71266205c6d",
+      "seconds": 0.69
+    },
+    "en/51_phrase": {
+      "text": "a carrot",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5962151093daea7b",
+      "seconds": 0.82
+    },
+    "en/51_sentence": {
+      "text": "The rabbit eats a carrot.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "af8bc7182ad908a2",
+      "seconds": 1.76
+    },
+    "en/51_word": {
+      "text": "carrot",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c146745c07baea70",
+      "seconds": 0.69
+    },
+    "en/52_phrase": {
+      "text": "a hot dog",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a4617485c735d93b",
+      "seconds": 0.96
+    },
+    "en/52_sentence": {
+      "text": "A hot dog, please.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c4052786d6c91b4b",
+      "seconds": 1.83
+    },
+    "en/52_word": {
+      "text": "hot dog",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f794d36fe2932380",
+      "seconds": 0.83
+    },
+    "en/53_phrase": {
+      "text": "a pizza",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "128603b38b242e7b",
+      "seconds": 0.81
+    },
+    "en/53_sentence": {
+      "text": "Let's order a pizza tonight.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "43979982316890aa",
+      "seconds": 2.12
+    },
+    "en/53_word": {
+      "text": "pizza",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f14086175b302f5b",
+      "seconds": 0.72
+    },
+    "en/54_phrase": {
+      "text": "a donut",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5ff59fdae53901c9",
+      "seconds": 0.79
+    },
+    "en/54_sentence": {
+      "text": "This donut is very sweet.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a3e30e2985876a50",
+      "seconds": 1.99
+    },
+    "en/54_word": {
+      "text": "donut",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "43d088a6720d0d02",
+      "seconds": 0.63
+    },
+    "en/55_phrase": {
+      "text": "a cake",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "dbf5b41f9c09a7a8",
+      "seconds": 0.63
+    },
+    "en/55_sentence": {
+      "text": "I baked a cake.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "927ff4ec3af56b0a",
+      "seconds": 1.08
+    },
+    "en/55_word": {
+      "text": "cake",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a344740951e5fbc0",
+      "seconds": 0.52
+    },
+    "en/56_phrase": {
+      "text": "a chair",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "9908d7b59f614abd",
+      "seconds": 0.75
+    },
+    "en/56_sentence": {
+      "text": "Please sit on the chair.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "21bf5ca269f120fd",
+      "seconds": 1.46
+    },
+    "en/56_word": {
+      "text": "chair",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "8be819a057f22998",
+      "seconds": 0.57
+    },
+    "en/57_phrase": {
+      "text": "a couch",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "4ce8c97e6b8a5826",
+      "seconds": 0.85
+    },
+    "en/57_sentence": {
+      "text": "I relax on the couch.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "48886613752a9122",
+      "seconds": 1.66
+    },
+    "en/57_word": {
+      "text": "couch",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "04dded543be6cf15",
+      "seconds": 0.64
+    },
+    "en/58_phrase": {
+      "text": "a plant",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "67b42754eac689fa",
+      "seconds": 0.78
+    },
+    "en/58_sentence": {
+      "text": "Water the plant every week.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ea5d6b1b459a1217",
+      "seconds": 2.1
+    },
+    "en/58_word": {
+      "text": "plant",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "441c0c86c012b983",
+      "seconds": 0.63
+    },
+    "en/59_phrase": {
+      "text": "a bed",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "11a0691e8fe0db3f",
+      "seconds": 0.62
+    },
+    "en/59_sentence": {
+      "text": "My bed is very comfortable.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "473cb54e5cd3ccfc",
+      "seconds": 2.09
+    },
+    "en/59_word": {
+      "text": "bed",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b1340e42d73d729d",
+      "seconds": 0.52
+    },
+    "en/5_phrase": {
+      "text": "a bus",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "8b48544689d9dc7f",
+      "seconds": 0.81
+    },
+    "en/5_sentence": {
+      "text": "I take the bus to school.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "dc55e96a75ab646a",
+      "seconds": 1.6
+    },
+    "en/5_word": {
+      "text": "bus",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "0f753df9c14c5f5c",
+      "seconds": 0.62
+    },
+    "en/60_phrase": {
+      "text": "a table",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "6bb16f82bc602feb",
+      "seconds": 0.75
+    },
+    "en/60_sentence": {
+      "text": "Dinner is on the table.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ed6797dc473706a0",
+      "seconds": 1.32
+    },
+    "en/60_word": {
+      "text": "table",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "970b6d5c480c1ac6",
+      "seconds": 0.53
+    },
+    "en/61_phrase": {
+      "text": "a toilet",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "1e0a0887c0bc1238",
+      "seconds": 0.86
+    },
+    "en/61_sentence": {
+      "text": "Where is the toilet?",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "e6916560990b628e",
+      "seconds": 1.39
+    },
+    "en/61_word": {
+      "text": "toilet",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "3370fca874d24757",
+      "seconds": 0.7
+    },
+    "en/62_phrase": {
+      "text": "a TV",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b94464dd1f300c85",
+      "seconds": 0.95
+    },
+    "en/62_sentence": {
+      "text": "The TV is on.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "0c3821a854990919",
+      "seconds": 1.28
+    },
+    "en/62_word": {
+      "text": "TV",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "3a6af133b5c625a0",
+      "seconds": 0.78
+    },
+    "en/63_phrase": {
+      "text": "a laptop",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "d5f84346776a23ad",
+      "seconds": 0.85
+    },
+    "en/63_sentence": {
+      "text": "I work on my laptop.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a296c3ee76c85c4c",
+      "seconds": 1.45
+    },
+    "en/63_word": {
+      "text": "laptop",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a00cd57e7e437d15",
+      "seconds": 0.77
+    },
+    "en/64_phrase": {
+      "text": "a mouse",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2541dea82dc21a97",
+      "seconds": 0.85
+    },
+    "en/64_sentence": {
+      "text": "Click with the mouse.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f8aed5c8a5dbfce0",
+      "seconds": 1.28
+    },
+    "en/64_word": {
+      "text": "mouse",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "675327830eabacfd",
+      "seconds": 0.63
+    },
+    "en/65_phrase": {
+      "text": "a remote",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "0c0f46cc07651fd6",
+      "seconds": 0.82
+    },
+    "en/65_sentence": {
+      "text": "Where is the remote?",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "dc0e3920cfd1c14c",
+      "seconds": 1.27
+    },
+    "en/65_word": {
+      "text": "remote",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "8905bfc1c6e90363",
+      "seconds": 0.64
+    },
+    "en/66_phrase": {
+      "text": "a keyboard",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "3149f7a8baed5608",
+      "seconds": 0.89
+    },
+    "en/66_sentence": {
+      "text": "I type on the keyboard.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "0240a07ab8113ca7",
+      "seconds": 1.42
+    },
+    "en/66_word": {
+      "text": "keyboard",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "accb013b500fa316",
+      "seconds": 0.73
+    },
+    "en/67_phrase": {
+      "text": "a phone",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "eb76cdfc0439cfea",
+      "seconds": 0.73
+    },
+    "en/67_sentence": {
+      "text": "My phone is ringing!",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "bd771e8c8b293011",
+      "seconds": 1.26
+    },
+    "en/67_word": {
+      "text": "phone",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "26b6eb10f562ef10",
+      "seconds": 0.52
+    },
+    "en/68_phrase": {
+      "text": "a microwave",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c43318c7e87ad03f",
+      "seconds": 1.08
+    },
+    "en/68_sentence": {
+      "text": "Heat the food in the microwave.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2d7f5cd7953afa8d",
+      "seconds": 2.33
+    },
+    "en/68_word": {
+      "text": "microwave",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f433c4031a7edafc",
+      "seconds": 0.93
+    },
+    "en/69_phrase": {
+      "text": "an oven",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "b89bbf8d01b7ba75",
+      "seconds": 0.66
+    },
+    "en/69_sentence": {
+      "text": "The pizza is in the oven.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "dcc945c88c4fc6c4",
+      "seconds": 1.68
+    },
+    "en/69_word": {
+      "text": "oven",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "0875a25397960b68",
+      "seconds": 0.51
+    },
+    "en/6_phrase": {
+      "text": "a train",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "4cc63318a8b4f8a9",
+      "seconds": 0.8
+    },
+    "en/6_sentence": {
+      "text": "The train leaves at nine.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ce5526e9f25e93ca",
+      "seconds": 1.63
+    },
+    "en/6_word": {
+      "text": "train",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "23b168bd4e00e580",
+      "seconds": 0.6
+    },
+    "en/70_phrase": {
+      "text": "a toaster",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "48f36baf177766d8",
+      "seconds": 0.78
+    },
+    "en/70_sentence": {
+      "text": "I put bread in the toaster.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "7b27ab010479a2b4",
+      "seconds": 1.61
+    },
+    "en/70_word": {
+      "text": "toaster",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "6a097e5337794141",
+      "seconds": 0.68
+    },
+    "en/71_phrase": {
+      "text": "a sink",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "cf26c848ca4aeb50",
+      "seconds": 0.64
+    },
+    "en/71_sentence": {
+      "text": "Wash the dishes in the sink.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "8f0775d4dd9f7546",
+      "seconds": 1.78
+    },
+    "en/71_word": {
+      "text": "sink",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5c99b063427fa03c",
+      "seconds": 0.58
+    },
+    "en/72_phrase": {
+      "text": "a refrigerator",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ea3105d3fc44cd39",
+      "seconds": 1.17
+    },
+    "en/72_sentence": {
+      "text": "The milk is in the refrigerator.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f75ef58a5fca31d2",
+      "seconds": 1.9
+    },
+    "en/72_word": {
+      "text": "refrigerator",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "88e626ebafe969d6",
+      "seconds": 0.96
+    },
+    "en/73_phrase": {
+      "text": "a book",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "36a31a1b862e4e62",
+      "seconds": 0.59
+    },
+    "en/73_sentence": {
+      "text": "I'm reading a good book.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c35476828b59e0c5",
+      "seconds": 1.46
+    },
+    "en/73_word": {
+      "text": "book",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "1845b626529c2975",
+      "seconds": 0.38
+    },
+    "en/74_phrase": {
+      "text": "a clock",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "96bd5753782ab7f3",
+      "seconds": 0.68
+    },
+    "en/74_sentence": {
+      "text": "Look at the clock. It's late.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "1f064d8a869b5903",
+      "seconds": 2.15
+    },
+    "en/74_word": {
+      "text": "clock",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "e6016184889ab030",
+      "seconds": 0.49
+    },
+    "en/75_phrase": {
+      "text": "a vase",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c88bf9da6e932eda",
+      "seconds": 0.92
+    },
+    "en/75_sentence": {
+      "text": "Put the flowers in the vase.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "fa4b1f627538667e",
+      "seconds": 2.08
+    },
+    "en/75_word": {
+      "text": "vase",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2c8362b4b966b220",
+      "seconds": 0.79
+    },
+    "en/76_phrase": {
+      "text": "a pair of scissors",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5cdf58b0c094f224",
+      "seconds": 1.36
+    },
+    "en/76_sentence": {
+      "text": "Cut the paper with scissors.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "e52104496f48a30a",
+      "seconds": 1.72
+    },
+    "en/76_word": {
+      "text": "scissors",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "d009d68c7246e15a",
+      "seconds": 0.92
+    },
+    "en/77_phrase": {
+      "text": "a teddy bear",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "ba9214de533ded9f",
+      "seconds": 1.03
+    },
+    "en/77_sentence": {
+      "text": "The baby hugs the teddy bear.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c4a83d5d7e2b99e8",
+      "seconds": 1.74
+    },
+    "en/77_word": {
+      "text": "teddy bear",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "10e8565410b555c9",
+      "seconds": 0.85
+    },
+    "en/78_phrase": {
+      "text": "a hair dryer",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a2cf960b01e6a9e8",
+      "seconds": 1.12
+    },
+    "en/78_sentence": {
+      "text": "The hair dryer is hot.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "e96484a508aa02d6",
+      "seconds": 1.82
+    },
+    "en/78_word": {
+      "text": "hair dryer",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c99c91d1c2b30248",
+      "seconds": 0.97
+    },
+    "en/79_phrase": {
+      "text": "a toothbrush",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "fec36907964869b2",
+      "seconds": 1.1
+    },
+    "en/79_sentence": {
+      "text": "I need a new toothbrush.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "2e9a0300628d1139",
+      "seconds": 1.86
+    },
+    "en/79_word": {
+      "text": "toothbrush",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "3ca4abefa2521688",
+      "seconds": 0.95
+    },
+    "en/7_phrase": {
+      "text": "a truck",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c159f9ff37911dc3",
+      "seconds": 0.65
+    },
+    "en/7_sentence": {
+      "text": "The truck carries boxes.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "c36d9eec92976feb",
+      "seconds": 2.02
+    },
+    "en/7_word": {
+      "text": "truck",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "077da2004ea81694",
+      "seconds": 0.43
+    },
+    "en/8_phrase": {
+      "text": "a boat",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "fb4e4891d01b45ea",
+      "seconds": 0.66
+    },
+    "en/8_sentence": {
+      "text": "We take the boat on the lake.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "a5ebad55728f218e",
+      "seconds": 1.8
+    },
+    "en/8_word": {
+      "text": "boat",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "98f530ff2ec8e85e",
+      "seconds": 0.47
+    },
+    "en/9_phrase": {
+      "text": "a traffic light",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "f06445b97ac1b348",
+      "seconds": 1.18
+    },
+    "en/9_sentence": {
+      "text": "The traffic light is red.",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "5af2694fa41e6f7a",
+      "seconds": 1.57
+    },
+    "en/9_word": {
+      "text": "traffic light",
+      "voice": "en_US-ljspeech-medium",
+      "hash": "de4dfb3c0e3aba1f",
+      "seconds": 1.01
+    },
+    "es/0_phrase": {
+      "text": "una persona",
+      "voice": "es_MX-claude-high",
+      "hash": "77e439c3006ebbe2",
+      "seconds": 1.0
+    },
+    "es/0_sentence": {
+      "text": "Hay una persona aquí.",
+      "voice": "es_MX-claude-high",
+      "hash": "5025ee9417afc822",
+      "seconds": 1.59
+    },
+    "es/0_word": {
+      "text": "la persona",
+      "voice": "es_MX-claude-high",
+      "hash": "f7591daacc06d761",
+      "seconds": 0.82
+    },
+    "es/10_phrase": {
+      "text": "un hidrante",
+      "voice": "es_MX-claude-high",
+      "hash": "00579e79dfbc3feb",
+      "seconds": 0.93
+    },
+    "es/10_sentence": {
+      "text": "El hidrante es amarillo.",
+      "voice": "es_MX-claude-high",
+      "hash": "18af4202d1aa7c36",
+      "seconds": 1.81
+    },
+    "es/10_word": {
+      "text": "el hidrante",
+      "voice": "es_MX-claude-high",
+      "hash": "36a0b8ab01854224",
+      "seconds": 0.84
+    },
+    "es/11_phrase": {
+      "text": "una señal de alto",
+      "voice": "es_MX-claude-high",
+      "hash": "a0922aaa092c92ac",
+      "seconds": 1.45
+    },
+    "es/11_sentence": {
+      "text": "Detente en la señal de alto.",
+      "voice": "es_MX-claude-high",
+      "hash": "061181f4f424f52d",
+      "seconds": 2.44
+    },
+    "es/11_word": {
+      "text": "la señal de alto",
+      "voice": "es_MX-claude-high",
+      "hash": "b4e008857e1011cd",
+      "seconds": 1.3
+    },
+    "es/12_phrase": {
+      "text": "un parquímetro",
+      "voice": "es_MX-claude-high",
+      "hash": "fcfc71da3ce7bcbe",
+      "seconds": 1.07
+    },
+    "es/12_sentence": {
+      "text": "Paga en el parquímetro.",
+      "voice": "es_MX-claude-high",
+      "hash": "28529cda0c7a1676",
+      "seconds": 1.93
+    },
+    "es/12_word": {
+      "text": "el parquímetro",
+      "voice": "es_MX-claude-high",
+      "hash": "dc7737accf177f20",
+      "seconds": 1.05
+    },
+    "es/13_phrase": {
+      "text": "un banco",
+      "voice": "es_MX-claude-high",
+      "hash": "0093a3fb05e704c3",
+      "seconds": 0.82
+    },
+    "es/13_sentence": {
+      "text": "Nos sentamos en el banco.",
+      "voice": "es_MX-claude-high",
+      "hash": "743c0cb8b272679c",
+      "seconds": 1.69
+    },
+    "es/13_word": {
+      "text": "el banco",
+      "voice": "es_MX-claude-high",
+      "hash": "8048c6d765c0d939",
+      "seconds": 0.83
+    },
+    "es/14_phrase": {
+      "text": "un pájaro",
+      "voice": "es_MX-claude-high",
+      "hash": "e9f28e2ddc47a356",
+      "seconds": 0.87
+    },
+    "es/14_sentence": {
+      "text": "El pájaro está cantando.",
+      "voice": "es_MX-claude-high",
+      "hash": "7449633c24adc138",
+      "seconds": 1.88
+    },
+    "es/14_word": {
+      "text": "el pájaro",
+      "voice": "es_MX-claude-high",
+      "hash": "03609b7df881d6fd",
+      "seconds": 0.9
+    },
+    "es/15_phrase": {
+      "text": "un gato",
+      "voice": "es_MX-claude-high",
+      "hash": "39e5f1e1da173482",
+      "seconds": 0.77
+    },
+    "es/15_sentence": {
+      "text": "El gato está durmiendo.",
+      "voice": "es_MX-claude-high",
+      "hash": "03afbaa258032e43",
+      "seconds": 1.65
+    },
+    "es/15_word": {
+      "text": "el gato",
+      "voice": "es_MX-claude-high",
+      "hash": "dff7a59157c184cf",
+      "seconds": 0.72
+    },
+    "es/16_phrase": {
+      "text": "un perro",
+      "voice": "es_MX-claude-high",
+      "hash": "06ffac8d5afa4814",
+      "seconds": 0.72
+    },
+    "es/16_sentence": {
+      "text": "El perro quiere jugar.",
+      "voice": "es_MX-claude-high",
+      "hash": "6cee6fa3a42f2ba5",
+      "seconds": 1.73
+    },
+    "es/16_word": {
+      "text": "el perro",
+      "voice": "es_MX-claude-high",
+      "hash": "0b7e2efdce2a0ca5",
+      "seconds": 0.68
+    },
+    "es/17_phrase": {
+      "text": "un caballo",
+      "voice": "es_MX-claude-high",
+      "hash": "f3c358f46ac17169",
+      "seconds": 0.89
+    },
+    "es/17_sentence": {
+      "text": "El caballo corre rápido.",
+      "voice": "es_MX-claude-high",
+      "hash": "d1db6f4275ec72e3",
+      "seconds": 1.86
+    },
+    "es/17_word": {
+      "text": "el caballo",
+      "voice": "es_MX-claude-high",
+      "hash": "54bef2de105473dc",
+      "seconds": 0.92
+    },
+    "es/18_phrase": {
+      "text": "una oveja",
+      "voice": "es_MX-claude-high",
+      "hash": "816cdd7bd81ba311",
+      "seconds": 0.94
+    },
+    "es/18_sentence": {
+      "text": "La oveja come pasto.",
+      "voice": "es_MX-claude-high",
+      "hash": "9c690f330078d552",
+      "seconds": 1.92
+    },
+    "es/18_word": {
+      "text": "la oveja",
+      "voice": "es_MX-claude-high",
+      "hash": "55718769f06131b0",
+      "seconds": 0.84
+    },
+    "es/19_phrase": {
+      "text": "una vaca",
+      "voice": "es_MX-claude-high",
+      "hash": "932f0ea7a0bcbc1a",
+      "seconds": 0.82
+    },
+    "es/19_sentence": {
+      "text": "La vaca nos da leche.",
+      "voice": "es_MX-claude-high",
+      "hash": "3674902371405ca9",
+      "seconds": 1.6
+    },
+    "es/19_word": {
+      "text": "la vaca",
+      "voice": "es_MX-claude-high",
+      "hash": "3595655c5caabd6b",
+      "seconds": 0.7
+    },
+    "es/1_phrase": {
+      "text": "una bicicleta",
+      "voice": "es_MX-claude-high",
+      "hash": "84d24d52743d885b",
+      "seconds": 1.19
+    },
+    "es/1_sentence": {
+      "text": "Voy al trabajo en bicicleta.",
+      "voice": "es_MX-claude-high",
+      "hash": "6b402c1f4efcddcd",
+      "seconds": 2.18
+    },
+    "es/1_word": {
+      "text": "la bicicleta",
+      "voice": "es_MX-claude-high",
+      "hash": "1c197a86abc83b5a",
+      "seconds": 1.06
+    },
+    "es/20_phrase": {
+      "text": "un elefante",
+      "voice": "es_MX-claude-high",
+      "hash": "3b15997bf6498acb",
+      "seconds": 1.0
+    },
+    "es/20_sentence": {
+      "text": "El elefante es muy grande.",
+      "voice": "es_MX-claude-high",
+      "hash": "3c47f0029547705a",
+      "seconds": 2.26
+    },
+    "es/20_word": {
+      "text": "el elefante",
+      "voice": "es_MX-claude-high",
+      "hash": "ddc690dc31030ec3",
+      "seconds": 0.99
+    },
+    "es/21_phrase": {
+      "text": "un oso",
+      "voice": "es_MX-claude-high",
+      "hash": "2ad92a5870fe13a5",
+      "seconds": 0.66
+    },
+    "es/21_sentence": {
+      "text": "El oso vive en el bosque.",
+      "voice": "es_MX-claude-high",
+      "hash": "c752ac15e2d32be8",
+      "seconds": 1.65
+    },
+    "es/21_word": {
+      "text": "el oso",
+      "voice": "es_MX-claude-high",
+      "hash": "a45129ddfa2e9b75",
+      "seconds": 0.67
+    },
+    "es/22_phrase": {
+      "text": "una cebra",
+      "voice": "es_MX-claude-high",
+      "hash": "68c1c1af8e9f3633",
+      "seconds": 0.92
+    },
+    "es/22_sentence": {
+      "text": "La cebra tiene rayas.",
+      "voice": "es_MX-claude-high",
+      "hash": "9d678cfc887c397c",
+      "seconds": 1.67
+    },
+    "es/22_word": {
+      "text": "la cebra",
+      "voice": "es_MX-claude-high",
+      "hash": "b6a2bb20e8396027",
+      "seconds": 0.8
+    },
+    "es/23_phrase": {
+      "text": "una jirafa",
+      "voice": "es_MX-claude-high",
+      "hash": "65fef72d44bcad56",
+      "seconds": 1.06
+    },
+    "es/23_sentence": {
+      "text": "La jirafa tiene el cuello largo.",
+      "voice": "es_MX-claude-high",
+      "hash": "3b5d95a081298054",
+      "seconds": 2.37
+    },
+    "es/23_word": {
+      "text": "la jirafa",
+      "voice": "es_MX-claude-high",
+      "hash": "8ebdf163ecbb0761",
+      "seconds": 0.91
+    },
+    "es/24_phrase": {
+      "text": "una mochila",
+      "voice": "es_MX-claude-high",
+      "hash": "ba40478621f09aad",
+      "seconds": 0.97
+    },
+    "es/24_sentence": {
+      "text": "Mi mochila pesa mucho.",
+      "voice": "es_MX-claude-high",
+      "hash": "0ea90662da1c9b2b",
+      "seconds": 1.67
+    },
+    "es/24_word": {
+      "text": "la mochila",
+      "voice": "es_MX-claude-high",
+      "hash": "7d065e22e2b9b8ab",
+      "seconds": 0.84
+    },
+    "es/25_phrase": {
+      "text": "un paraguas",
+      "voice": "es_MX-claude-high",
+      "hash": "5c2602e88a1429cf",
+      "seconds": 0.88
+    },
+    "es/25_sentence": {
+      "text": "Llueve. Lleva el paraguas.",
+      "voice": "es_MX-claude-high",
+      "hash": "65f6f2cbb16c609b",
+      "seconds": 2.27
+    },
+    "es/25_word": {
+      "text": "el paraguas",
+      "voice": "es_MX-claude-high",
+      "hash": "79bb9fbfac17256e",
+      "seconds": 0.92
+    },
+    "es/26_phrase": {
+      "text": "una bolsa",
+      "voice": "es_MX-claude-high",
+      "hash": "16c3e30fbdbf37b2",
+      "seconds": 0.9
+    },
+    "es/26_sentence": {
+      "text": "Mis llaves están en la bolsa.",
+      "voice": "es_MX-claude-high",
+      "hash": "c1a7e63bccaba5e1",
+      "seconds": 2.01
+    },
+    "es/26_word": {
+      "text": "la bolsa",
+      "voice": "es_MX-claude-high",
+      "hash": "42c76f382da3ef2d",
+      "seconds": 0.82
+    },
+    "es/27_phrase": {
+      "text": "una corbata",
+      "voice": "es_MX-claude-high",
+      "hash": "320de08b0fff8ad7",
+      "seconds": 1.06
+    },
+    "es/27_sentence": {
+      "text": "Lleva corbata al trabajo.",
+      "voice": "es_MX-claude-high",
+      "hash": "136a6c481e8536aa",
+      "seconds": 2.19
+    },
+    "es/27_word": {
+      "text": "la corbata",
+      "voice": "es_MX-claude-high",
+      "hash": "a7ffc5aed689da26",
+      "seconds": 0.89
+    },
+    "es/28_phrase": {
+      "text": "una maleta",
+      "voice": "es_MX-claude-high",
+      "hash": "482b73a64e0a9f24",
+      "seconds": 0.92
+    },
+    "es/28_sentence": {
+      "text": "La maleta está lista.",
+      "voice": "es_MX-claude-high",
+      "hash": "b925c75f02503a7d",
+      "seconds": 1.57
+    },
+    "es/28_word": {
+      "text": "la maleta",
+      "voice": "es_MX-claude-high",
+      "hash": "43f63a6398338324",
+      "seconds": 0.79
+    },
+    "es/29_phrase": {
+      "text": "un frisbee",
+      "voice": "es_MX-claude-high",
+      "hash": "3d97105777daa769",
+      "seconds": 0.94
+    },
+    "es/29_sentence": {
+      "text": "¡Lánzame el frisbee!",
+      "voice": "es_MX-claude-high",
+      "hash": "5e7cdf259774c569",
+      "seconds": 1.43
+    },
+    "es/29_word": {
+      "text": "el frisbee",
+      "voice": "es_MX-claude-high",
+      "hash": "514a6494f257f7ed",
+      "seconds": 0.94
+    },
+    "es/2_phrase": {
+      "text": "un carro",
+      "voice": "es_MX-claude-high",
+      "hash": "7c396f3c756ff473",
+      "seconds": 0.8
+    },
+    "es/2_sentence": {
+      "text": "El carro es muy rápido.",
+      "voice": "es_MX-claude-high",
+      "hash": "c118d176a0fc8b58",
+      "seconds": 2.26
+    },
+    "es/2_word": {
+      "text": "el carro",
+      "voice": "es_MX-claude-high",
+      "hash": "302d26a5e42c6ed2",
+      "seconds": 0.73
+    },
+    "es/30_phrase": {
+      "text": "unos esquís",
+      "voice": "es_MX-claude-high",
+      "hash": "bd9555a5e59d33a6",
+      "seconds": 0.99
+    },
+    "es/30_sentence": {
+      "text": "Mis esquís están junto a la puerta.",
+      "voice": "es_MX-claude-high",
+      "hash": "f3ff31f823ac6b0d",
+      "seconds": 2.54
+    },
+    "es/30_word": {
+      "text": "los esquís",
+      "voice": "es_MX-claude-high",
+      "hash": "21da779f3b55087b",
+      "seconds": 0.85
+    },
+    "es/31_phrase": {
+      "text": "una tabla de snowboard",
+      "voice": "es_MX-claude-high",
+      "hash": "0fca58f5a3f5064f",
+      "seconds": 1.57
+    },
+    "es/31_sentence": {
+      "text": "En invierno voy en snowboard.",
+      "voice": "es_MX-claude-high",
+      "hash": "d4311a60accf1624",
+      "seconds": 1.85
+    },
+    "es/31_word": {
+      "text": "la tabla de snowboard",
+      "voice": "es_MX-claude-high",
+      "hash": "5cd6d5f9f98c250c",
+      "seconds": 1.42
+    },
+    "es/32_phrase": {
+      "text": "una pelota",
+      "voice": "es_MX-claude-high",
+      "hash": "fc7166d7bd6db941",
+      "seconds": 0.93
+    },
+    "es/32_sentence": {
+      "text": "Pásame la pelota.",
+      "voice": "es_MX-claude-high",
+      "hash": "3a075d9a2576af0f",
+      "seconds": 1.38
+    },
+    "es/32_word": {
+      "text": "la pelota",
+      "voice": "es_MX-claude-high",
+      "hash": "4132048714de194c",
+      "seconds": 0.84
+    },
+    "es/33_phrase": {
+      "text": "un papalote",
+      "voice": "es_MX-claude-high",
+      "hash": "9da5386042c3f569",
+      "seconds": 1.0
+    },
+    "es/33_sentence": {
+      "text": "El papalote vuela alto.",
+      "voice": "es_MX-claude-high",
+      "hash": "d19d9865bda0be37",
+      "seconds": 1.83
+    },
+    "es/33_word": {
+      "text": "el papalote",
+      "voice": "es_MX-claude-high",
+      "hash": "54cb3eb8c9cab30a",
+      "seconds": 0.99
+    },
+    "es/34_phrase": {
+      "text": "un bate de béisbol",
+      "voice": "es_MX-claude-high",
+      "hash": "d5b1e4d2aef93524",
+      "seconds": 1.32
+    },
+    "es/34_sentence": {
+      "text": "El bate de béisbol pesa.",
+      "voice": "es_MX-claude-high",
+      "hash": "6c9a235d1d3cf8fa",
+      "seconds": 1.72
+    },
+    "es/34_word": {
+      "text": "el bate de béisbol",
+      "voice": "es_MX-claude-high",
+      "hash": "20fb4534f9fa39ed",
+      "seconds": 1.27
+    },
+    "es/35_phrase": {
+      "text": "un guante de béisbol",
+      "voice": "es_MX-claude-high",
+      "hash": "9e4881f40edecb69",
+      "seconds": 1.42
+    },
+    "es/35_sentence": {
+      "text": "Mi guante de béisbol es viejo.",
+      "voice": "es_MX-claude-high",
+      "hash": "cb69e36b6a57d6c7",
+      "seconds": 2.05
+    },
+    "es/35_word": {
+      "text": "el guante de béisbol",
+      "voice": "es_MX-claude-high",
+      "hash": "1532e03a27c4c2c9",
+      "seconds": 1.33
+    },
+    "es/36_phrase": {
+      "text": "una patineta",
+      "voice": "es_MX-claude-high",
+      "hash": "e461b9000c7f2c0a",
+      "seconds": 1.12
+    },
+    "es/36_sentence": {
+      "text": "Ella anda en patineta.",
+      "voice": "es_MX-claude-high",
+      "hash": "ee41163f012ecaa5",
+      "seconds": 2.07
+    },
+    "es/36_word": {
+      "text": "la patineta",
+      "voice": "es_MX-claude-high",
+      "hash": "27fcf31eb1c83213",
+      "seconds": 0.94
+    },
+    "es/37_phrase": {
+      "text": "una tabla de surf",
+      "voice": "es_MX-claude-high",
+      "hash": "d77ea66085c3a1dc",
+      "seconds": 1.28
+    },
+    "es/37_sentence": {
+      "text": "La tabla de surf está en la playa.",
+      "voice": "es_MX-claude-high",
+      "hash": "fd3844257a9902bc",
+      "seconds": 2.35
+    },
+    "es/37_word": {
+      "text": "la tabla de surf",
+      "voice": "es_MX-claude-high",
+      "hash": "e7b97fb5440edf19",
+      "seconds": 1.19
+    },
+    "es/38_phrase": {
+      "text": "una raqueta de tenis",
+      "voice": "es_MX-claude-high",
+      "hash": "87ba27dcd8371fb0",
+      "seconds": 1.52
+    },
+    "es/38_sentence": {
+      "text": "La raqueta de tenis es nueva.",
+      "voice": "es_MX-claude-high",
+      "hash": "ad15a8b93c669374",
+      "seconds": 2.1
+    },
+    "es/38_word": {
+      "text": "la raqueta de tenis",
+      "voice": "es_MX-claude-high",
+      "hash": "ff4bddcc9d09d329",
+      "seconds": 1.5
+    },
+    "es/39_phrase": {
+      "text": "una botella",
+      "voice": "es_MX-claude-high",
+      "hash": "ea1bbb848b865f89",
+      "seconds": 1.0
+    },
+    "es/39_sentence": {
+      "text": "La botella está vacía.",
+      "voice": "es_MX-claude-high",
+      "hash": "419cd28cdfa0e478",
+      "seconds": 2.14
+    },
+    "es/39_word": {
+      "text": "la botella",
+      "voice": "es_MX-claude-high",
+      "hash": "c6ae626ca84e4a79",
+      "seconds": 0.89
+    },
+    "es/3_phrase": {
+      "text": "una moto",
+      "voice": "es_MX-claude-high",
+      "hash": "c10ed72a0d6f5951",
+      "seconds": 0.86
+    },
+    "es/3_sentence": {
+      "text": "Él anda en moto.",
+      "voice": "es_MX-claude-high",
+      "hash": "4ecef556822c38a4",
+      "seconds": 1.29
+    },
+    "es/3_word": {
+      "text": "la moto",
+      "voice": "es_MX-claude-high",
+      "hash": "68cb3b8685fb49ec",
+      "seconds": 0.7
+    },
+    "es/40_phrase": {
+      "text": "una copa de vino",
+      "voice": "es_MX-claude-high",
+      "hash": "851903aca62842df",
+      "seconds": 1.24
+    },
+    "es/40_sentence": {
+      "text": "La copa de vino está llena.",
+      "voice": "es_MX-claude-high",
+      "hash": "36e0dc13656248fb",
+      "seconds": 2.03
+    },
+    "es/40_word": {
+      "text": "la copa de vino",
+      "voice": "es_MX-claude-high",
+      "hash": "a57aeef4325de0f6",
+      "seconds": 1.15
+    },
+    "es/41_phrase": {
+      "text": "una taza",
+      "voice": "es_MX-claude-high",
+      "hash": "93302c04101a66e8",
+      "seconds": 0.84
+    },
+    "es/41_sentence": {
+      "text": "Tomo café en esta taza.",
+      "voice": "es_MX-claude-high",
+      "hash": "308b725b795dccc1",
+      "seconds": 2.3
+    },
+    "es/41_word": {
+      "text": "la taza",
+      "voice": "es_MX-claude-high",
+      "hash": "3e63b47dba733beb",
+      "seconds": 0.73
+    },
+    "es/42_phrase": {
+      "text": "un tenedor",
+      "voice": "es_MX-claude-high",
+      "hash": "5328716d78c6ed82",
+      "seconds": 0.82
+    },
+    "es/42_sentence": {
+      "text": "Como con el tenedor.",
+      "voice": "es_MX-claude-high",
+      "hash": "05bbe49b92219633",
+      "seconds": 1.31
+    },
+    "es/42_word": {
+      "text": "el tenedor",
+      "voice": "es_MX-claude-high",
+      "hash": "2f2de771c86fd0eb",
+      "seconds": 0.82
+    },
+    "es/43_phrase": {
+      "text": "un cuchillo",
+      "voice": "es_MX-claude-high",
+      "hash": "1383db8199d49402",
+      "seconds": 0.95
+    },
+    "es/43_sentence": {
+      "text": "Cuidado, el cuchillo corta.",
+      "voice": "es_MX-claude-high",
+      "hash": "58d460e037c125b2",
+      "seconds": 2.47
+    },
+    "es/43_word": {
+      "text": "el cuchillo",
+      "voice": "es_MX-claude-high",
+      "hash": "26b3d848d9b94594",
+      "seconds": 0.91
+    },
+    "es/44_phrase": {
+      "text": "una cuchara",
+      "voice": "es_MX-claude-high",
+      "hash": "3023a433b4472931",
+      "seconds": 1.0
+    },
+    "es/44_sentence": {
+      "text": "Tomo la sopa con la cuchara.",
+      "voice": "es_MX-claude-high",
+      "hash": "6c09aefa2d38782d",
+      "seconds": 2.11
+    },
+    "es/44_word": {
+      "text": "la cuchara",
+      "voice": "es_MX-claude-high",
+      "hash": "6ae8e03fb62285e6",
+      "seconds": 0.83
+    },
+    "es/45_phrase": {
+      "text": "un tazón",
+      "voice": "es_MX-claude-high",
+      "hash": "5fea224b4b5e3ac8",
+      "seconds": 0.75
+    },
+    "es/45_sentence": {
+      "text": "El tazón está lleno de arroz.",
+      "voice": "es_MX-claude-high",
+      "hash": "7f2b0776551fd2fc",
+      "seconds": 1.9
+    },
+    "es/45_word": {
+      "text": "el tazón",
+      "voice": "es_MX-claude-high",
+      "hash": "c673abd4c2f5629b",
+      "seconds": 0.78
+    },
+    "es/46_phrase": {
+      "text": "un plátano",
+      "voice": "es_MX-claude-high",
+      "hash": "9508fc73843aaec7",
+      "seconds": 0.81
+    },
+    "es/46_sentence": {
+      "text": "El plátano es amarillo.",
+      "voice": "es_MX-claude-high",
+      "hash": "2a12b877bdb08fda",
+      "seconds": 1.92
+    },
+    "es/46_word": {
+      "text": "el plátano",
+      "voice": "es_MX-claude-high",
+      "hash": "b07b8769acef3edf",
+      "seconds": 0.82
+    },
+    "es/47_phrase": {
+      "text": "una manzana",
+      "voice": "es_MX-claude-high",
+      "hash": "0c88b5d74799efd1",
+      "seconds": 0.92
+    },
+    "es/47_sentence": {
+      "text": "Como una manzana todos los días.",
+      "voice": "es_MX-claude-high",
+      "hash": "0d628e451ed14cb6",
+      "seconds": 2.4
+    },
+    "es/47_word": {
+      "text": "la manzana",
+      "voice": "es_MX-claude-high",
+      "hash": "2fa049fbe1c429d8",
+      "seconds": 0.83
+    },
+    "es/48_phrase": {
+      "text": "un sándwich",
+      "voice": "es_MX-claude-high",
+      "hash": "2001627723901aff",
+      "seconds": 0.91
+    },
+    "es/48_sentence": {
+      "text": "Estoy haciendo un sándwich.",
+      "voice": "es_MX-claude-high",
+      "hash": "d894bdaef4dc30e0",
+      "seconds": 1.91
+    },
+    "es/48_word": {
+      "text": "el sándwich",
+      "voice": "es_MX-claude-high",
+      "hash": "2437dc4964736a03",
+      "seconds": 0.91
+    },
+    "es/49_phrase": {
+      "text": "una naranja",
+      "voice": "es_MX-claude-high",
+      "hash": "5aff56b2efb3f942",
+      "seconds": 0.99
+    },
+    "es/49_sentence": {
+      "text": "Pelo la naranja.",
+      "voice": "es_MX-claude-high",
+      "hash": "a1d07658a2e6d42f",
+      "seconds": 1.27
+    },
+    "es/49_word": {
+      "text": "la naranja",
+      "voice": "es_MX-claude-high",
+      "hash": "1c672b50caefeecb",
+      "seconds": 0.93
+    },
+    "es/4_phrase": {
+      "text": "un avión",
+      "voice": "es_MX-claude-high",
+      "hash": "222e963ac73959fc",
+      "seconds": 0.78
+    },
+    "es/4_sentence": {
+      "text": "El avión está en el cielo.",
+      "voice": "es_MX-claude-high",
+      "hash": "f9a452306be7a7f7",
+      "seconds": 1.89
+    },
+    "es/4_word": {
+      "text": "el avión",
+      "voice": "es_MX-claude-high",
+      "hash": "c785e4d2ecb3ecb5",
+      "seconds": 0.74
+    },
+    "es/50_phrase": {
+      "text": "un brócoli",
+      "voice": "es_MX-claude-high",
+      "hash": "80a0c7a7939cc82f",
+      "seconds": 0.89
+    },
+    "es/50_sentence": {
+      "text": "El brócoli es saludable.",
+      "voice": "es_MX-claude-high",
+      "hash": "7af66bbf9a5673c9",
+      "seconds": 1.79
+    },
+    "es/50_word": {
+      "text": "el brócoli",
+      "voice": "es_MX-claude-high",
+      "hash": "46c0dafa581d0783",
+      "seconds": 0.86
+    },
+    "es/51_phrase": {
+      "text": "una zanahoria",
+      "voice": "es_MX-claude-high",
+      "hash": "49ef8121319b6d3c",
+      "seconds": 1.11
+    },
+    "es/51_sentence": {
+      "text": "El conejo come una zanahoria.",
+      "voice": "es_MX-claude-high",
+      "hash": "ab6ea30c266e8d6c",
+      "seconds": 2.18
+    },
+    "es/51_word": {
+      "text": "la zanahoria",
+      "voice": "es_MX-claude-high",
+      "hash": "2fcd75b29bb41f52",
+      "seconds": 1.0
+    },
+    "es/52_phrase": {
+      "text": "un hot dog",
+      "voice": "es_MX-claude-high",
+      "hash": "934c714e1efc4e7a",
+      "seconds": 0.78
+    },
+    "es/52_sentence": {
+      "text": "Un hot dog, por favor.",
+      "voice": "es_MX-claude-high",
+      "hash": "3002e5f90e9c0e1a",
+      "seconds": 1.76
+    },
+    "es/52_word": {
+      "text": "el hot dog",
+      "voice": "es_MX-claude-high",
+      "hash": "591926d5e50c4f97",
+      "seconds": 0.72
+    },
+    "es/53_phrase": {
+      "text": "una pizza",
+      "voice": "es_MX-claude-high",
+      "hash": "b0fe419c27f00822",
+      "seconds": 0.85
+    },
+    "es/53_sentence": {
+      "text": "Pidamos una pizza esta noche.",
+      "voice": "es_MX-claude-high",
+      "hash": "5e35b6a939061f69",
+      "seconds": 2.22
+    },
+    "es/53_word": {
+      "text": "la pizza",
+      "voice": "es_MX-claude-high",
+      "hash": "4bf4370932a5c318",
+      "seconds": 0.69
+    },
+    "es/54_phrase": {
+      "text": "una dona",
+      "voice": "es_MX-claude-high",
+      "hash": "6b3ffbe1b0c0c24b",
+      "seconds": 0.82
+    },
+    "es/54_sentence": {
+      "text": "Esta dona es muy dulce.",
+      "voice": "es_MX-claude-high",
+      "hash": "633ef4b05441f508",
+      "seconds": 1.92
+    },
+    "es/54_word": {
+      "text": "la dona",
+      "voice": "es_MX-claude-high",
+      "hash": "50bdadc42abe0b70",
+      "seconds": 0.69
+    },
+    "es/55_phrase": {
+      "text": "un pastel",
+      "voice": "es_MX-claude-high",
+      "hash": "af1870ba2da9870b",
+      "seconds": 0.82
+    },
+    "es/55_sentence": {
+      "text": "Hice un pastel.",
+      "voice": "es_MX-claude-high",
+      "hash": "a11e0ea27ded7b4f",
+      "seconds": 1.2
+    },
+    "es/55_word": {
+      "text": "el pastel",
+      "voice": "es_MX-claude-high",
+      "hash": "c8fe3a6ecb295183",
+      "seconds": 0.82
+    },
+    "es/56_phrase": {
+      "text": "una silla",
+      "voice": "es_MX-claude-high",
+      "hash": "81664b47db0fabf6",
+      "seconds": 0.91
+    },
+    "es/56_sentence": {
+      "text": "Siéntate en la silla, por favor.",
+      "voice": "es_MX-claude-high",
+      "hash": "99f9173a6cc0d557",
+      "seconds": 2.64
+    },
+    "es/56_word": {
+      "text": "la silla",
+      "voice": "es_MX-claude-high",
+      "hash": "4c5ec5c07e26af0f",
+      "seconds": 0.77
+    },
+    "es/57_phrase": {
+      "text": "un sofá",
+      "voice": "es_MX-claude-high",
+      "hash": "d2c102c851591f4c",
+      "seconds": 0.74
+    },
+    "es/57_sentence": {
+      "text": "Descanso en el sofá.",
+      "voice": "es_MX-claude-high",
+      "hash": "109b16fa221a40d9",
+      "seconds": 1.53
+    },
+    "es/57_word": {
+      "text": "el sofá",
+      "voice": "es_MX-claude-high",
+      "hash": "c6e503d29fdce32d",
+      "seconds": 0.74
+    },
+    "es/58_phrase": {
+      "text": "una planta",
+      "voice": "es_MX-claude-high",
+      "hash": "d5a0196e1c5e788d",
+      "seconds": 0.93
+    },
+    "es/58_sentence": {
+      "text": "Riega la planta cada semana.",
+      "voice": "es_MX-claude-high",
+      "hash": "39ed5f92af5471f1",
+      "seconds": 2.96
+    },
+    "es/58_word": {
+      "text": "la planta",
+      "voice": "es_MX-claude-high",
+      "hash": "7f2a81e50bff5fc3",
+      "seconds": 0.77
+    },
+    "es/59_phrase": {
+      "text": "una cama",
+      "voice": "es_MX-claude-high",
+      "hash": "a48dc8417587a4f6",
+      "seconds": 1.0
+    },
+    "es/59_sentence": {
+      "text": "Mi cama es muy cómoda.",
+      "voice": "es_MX-claude-high",
+      "hash": "1e9dd27e7cd28828",
+      "seconds": 2.24
+    },
+    "es/59_word": {
+      "text": "la cama",
+      "voice": "es_MX-claude-high",
+      "hash": "036adaf8cbcc0f95",
+      "seconds": 0.75
+    },
+    "es/5_phrase": {
+      "text": "un autobús",
+      "voice": "es_MX-claude-high",
+      "hash": "585376080774c190",
+      "seconds": 0.89
+    },
+    "es/5_sentence": {
+      "text": "Voy a la escuela en autobús.",
+      "voice": "es_MX-claude-high",
+      "hash": "9c396be0ffeaf2bd",
+      "seconds": 2.01
+    },
+    "es/5_word": {
+      "text": "el autobús",
+      "voice": "es_MX-claude-high",
+      "hash": "826cdfab29f855b7",
+      "seconds": 0.9
+    },
+    "es/60_phrase": {
+      "text": "una mesa",
+      "voice": "es_MX-claude-high",
+      "hash": "e18b7eebf1fd42c0",
+      "seconds": 0.86
+    },
+    "es/60_sentence": {
+      "text": "La cena está en la mesa.",
+      "voice": "es_MX-claude-high",
+      "hash": "140ce1f9bf92f64c",
+      "seconds": 1.77
+    },
+    "es/60_word": {
+      "text": "la mesa",
+      "voice": "es_MX-claude-high",
+      "hash": "ea94d9b784b03d84",
+      "seconds": 0.67
+    },
+    "es/61_phrase": {
+      "text": "un inodoro",
+      "voice": "es_MX-claude-high",
+      "hash": "af2cfcb47f9994bd",
+      "seconds": 0.87
+    },
+    "es/61_sentence": {
+      "text": "El inodoro está en el baño.",
+      "voice": "es_MX-claude-high",
+      "hash": "36c02b5de46c6d1d",
+      "seconds": 1.85
+    },
+    "es/61_word": {
+      "text": "el inodoro",
+      "voice": "es_MX-claude-high",
+      "hash": "6e82709c7d541623",
+      "seconds": 0.81
+    },
+    "es/62_phrase": {
+      "text": "una televisión",
+      "voice": "es_MX-claude-high",
+      "hash": "68ca974f819b08b7",
+      "seconds": 1.14
+    },
+    "es/62_sentence": {
+      "text": "La televisión está prendida.",
+      "voice": "es_MX-claude-high",
+      "hash": "6a0d10fd14884293",
+      "seconds": 1.95
+    },
+    "es/62_word": {
+      "text": "la televisión",
+      "voice": "es_MX-claude-high",
+      "hash": "d88f6518620794e8",
+      "seconds": 1.0
+    },
+    "es/63_phrase": {
+      "text": "una laptop",
+      "voice": "es_MX-claude-high",
+      "hash": "79a6af1401d51aa1",
+      "seconds": 0.92
+    },
+    "es/63_sentence": {
+      "text": "Trabajo en mi laptop.",
+      "voice": "es_MX-claude-high",
+      "hash": "7a14897a4681be48",
+      "seconds": 1.55
+    },
+    "es/63_word": {
+      "text": "la laptop",
+      "voice": "es_MX-claude-high",
+      "hash": "8be59bbf0b016e5a",
+      "seconds": 0.79
+    },
+    "es/64_phrase": {
+      "text": "un mouse",
+      "voice": "es_MX-claude-high",
+      "hash": "f0e643593b10c2fe",
+      "seconds": 0.81
+    },
+    "es/64_sentence": {
+      "text": "Haz clic con el mouse.",
+      "voice": "es_MX-claude-high",
+      "hash": "609a1bdb54e77093",
+      "seconds": 1.59
+    },
+    "es/64_word": {
+      "text": "el mouse",
+      "voice": "es_MX-claude-high",
+      "hash": "a98c99410f1bfc16",
+      "seconds": 0.78
+    },
+    "es/65_phrase": {
+      "text": "un control remoto",
+      "voice": "es_MX-claude-high",
+      "hash": "1cc3021164801a72",
+      "seconds": 1.23
+    },
+    "es/65_sentence": {
+      "text": "¿Dónde está el control remoto?",
+      "voice": "es_MX-claude-high",
+      "hash": "aeea1759f1fe5d9b",
+      "seconds": 1.94
+    },
+    "es/65_word": {
+      "text": "el control remoto",
+      "voice": "es_MX-claude-high",
+      "hash": "23c1e75151094dd6",
+      "seconds": 1.29
+    },
+    "es/66_phrase": {
+      "text": "un teclado",
+      "voice": "es_MX-claude-high",
+      "hash": "1ab76eb4ac1a28ed",
+      "seconds": 0.94
+    },
+    "es/66_sentence": {
+      "text": "Escribo en el teclado.",
+      "voice": "es_MX-claude-high",
+      "hash": "b19d23fc9a4b2e5c",
+      "seconds": 1.56
+    },
+    "es/66_word": {
+      "text": "el teclado",
+      "voice": "es_MX-claude-high",
+      "hash": "8affe451137053da",
+      "seconds": 0.91
+    },
+    "es/67_phrase": {
+      "text": "un celular",
+      "voice": "es_MX-claude-high",
+      "hash": "dd2a0726d2a954eb",
+      "seconds": 0.95
+    },
+    "es/67_sentence": {
+      "text": "¡Mi celular está sonando!",
+      "voice": "es_MX-claude-high",
+      "hash": "07863f51848f1f9d",
+      "seconds": 1.75
+    },
+    "es/67_word": {
+      "text": "el celular",
+      "voice": "es_MX-claude-high",
+      "hash": "2a587b28957cfb56",
+      "seconds": 0.89
+    },
+    "es/68_phrase": {
+      "text": "un microondas",
+      "voice": "es_MX-claude-high",
+      "hash": "4fad71822523e6a0",
+      "seconds": 1.08
+    },
+    "es/68_sentence": {
+      "text": "Calienta la comida en el microondas.",
+      "voice": "es_MX-claude-high",
+      "hash": "44c31d8c1070f934",
+      "seconds": 2.14
+    },
+    "es/68_word": {
+      "text": "el microondas",
+      "voice": "es_MX-claude-high",
+      "hash": "d76a603b95d1e064",
+      "seconds": 0.99
+    },
+    "es/69_phrase": {
+      "text": "un horno",
+      "voice": "es_MX-claude-high",
+      "hash": "14cdcbc5d5374734",
+      "seconds": 0.66
+    },
+    "es/69_sentence": {
+      "text": "La pizza está en el horno.",
+      "voice": "es_MX-claude-high",
+      "hash": "82c046df615ed0ef",
+      "seconds": 1.75
+    },
+    "es/69_word": {
+      "text": "el horno",
+      "voice": "es_MX-claude-high",
+      "hash": "35c60b7282d60451",
+      "seconds": 0.74
+    },
+    "es/6_phrase": {
+      "text": "un tren",
+      "voice": "es_MX-claude-high",
+      "hash": "e12b2c204b2688bd",
+      "seconds": 0.66
+    },
+    "es/6_sentence": {
+      "text": "El tren sale a las nueve.",
+      "voice": "es_MX-claude-high",
+      "hash": "57ba5ab9adf386e0",
+      "seconds": 1.74
+    },
+    "es/6_word": {
+      "text": "el tren",
+      "voice": "es_MX-claude-high",
+      "hash": "69da62487886a9f0",
+      "seconds": 0.66
+    },
+    "es/70_phrase": {
+      "text": "un tostador",
+      "voice": "es_MX-claude-high",
+      "hash": "45119a8c17a15f26",
+      "seconds": 0.87
+    },
+    "es/70_sentence": {
+      "text": "Pongo pan en el tostador.",
+      "voice": "es_MX-claude-high",
+      "hash": "61ec4d7921c6191e",
+      "seconds": 1.58
+    },
+    "es/70_word": {
+      "text": "el tostador",
+      "voice": "es_MX-claude-high",
+      "hash": "cb92ecc4d5901f41",
+      "seconds": 0.87
+    },
+    "es/71_phrase": {
+      "text": "un fregadero",
+      "voice": "es_MX-claude-high",
+      "hash": "bcaf632dcb15a3a0",
+      "seconds": 0.98
+    },
+    "es/71_sentence": {
+      "text": "Lava los platos en el fregadero.",
+      "voice": "es_MX-claude-high",
+      "hash": "b1c47f47b1332712",
+      "seconds": 2.11
+    },
+    "es/71_word": {
+      "text": "el fregadero",
+      "voice": "es_MX-claude-high",
+      "hash": "33a7a34ec94772c4",
+      "seconds": 0.97
+    },
+    "es/72_phrase": {
+      "text": "un refrigerador",
+      "voice": "es_MX-claude-high",
+      "hash": "725ff6ae82a2f905",
+      "seconds": 1.29
+    },
+    "es/72_sentence": {
+      "text": "La leche está en el refrigerador.",
+      "voice": "es_MX-claude-high",
+      "hash": "a235670055ee42fc",
+      "seconds": 2.22
+    },
+    "es/72_word": {
+      "text": "el refrigerador",
+      "voice": "es_MX-claude-high",
+      "hash": "16a6e6d0b7083b1d",
+      "seconds": 1.21
+    },
+    "es/73_phrase": {
+      "text": "un libro",
+      "voice": "es_MX-claude-high",
+      "hash": "225d956aceb83aac",
+      "seconds": 0.82
+    },
+    "es/73_sentence": {
+      "text": "Estoy leyendo un buen libro.",
+      "voice": "es_MX-claude-high",
+      "hash": "b83992d7b219db87",
+      "seconds": 1.88
+    },
+    "es/73_word": {
+      "text": "el libro",
+      "voice": "es_MX-claude-high",
+      "hash": "8e3460573e53530b",
+      "seconds": 0.71
+    },
+    "es/74_phrase": {
+      "text": "un reloj",
+      "voice": "es_MX-claude-high",
+      "hash": "cc2210eb1f645fd6",
+      "seconds": 0.83
+    },
+    "es/74_sentence": {
+      "text": "Mira el reloj. Es tarde.",
+      "voice": "es_MX-claude-high",
+      "hash": "7289bb091bfce5a3",
+      "seconds": 2.39
+    },
+    "es/74_word": {
+      "text": "el reloj",
+      "voice": "es_MX-claude-high",
+      "hash": "9f582df2ac11c8b8",
+      "seconds": 0.74
+    },
+    "es/75_phrase": {
+      "text": "un florero",
+      "voice": "es_MX-claude-high",
+      "hash": "9ef517fbe49a51e0",
+      "seconds": 0.81
+    },
+    "es/75_sentence": {
+      "text": "Pon las flores en el florero.",
+      "voice": "es_MX-claude-high",
+      "hash": "1e086dcc138076e8",
+      "seconds": 1.88
+    },
+    "es/75_word": {
+      "text": "el florero",
+      "voice": "es_MX-claude-high",
+      "hash": "75e5b2aa8d8a9ad5",
+      "seconds": 0.84
+    },
+    "es/76_phrase": {
+      "text": "unas tijeras",
+      "voice": "es_MX-claude-high",
+      "hash": "47bd25234819e4e4",
+      "seconds": 1.16
+    },
+    "es/76_sentence": {
+      "text": "Corta el papel con las tijeras.",
+      "voice": "es_MX-claude-high",
+      "hash": "53dcb1ac269af020",
+      "seconds": 2.21
+    },
+    "es/76_word": {
+      "text": "las tijeras",
+      "voice": "es_MX-claude-high",
+      "hash": "caa0d259b92b84ae",
+      "seconds": 1.03
+    },
+    "es/77_phrase": {
+      "text": "un osito de peluche",
+      "voice": "es_MX-claude-high",
+      "hash": "3fe2639712e0c934",
+      "seconds": 1.44
+    },
+    "es/77_sentence": {
+      "text": "El bebé abraza el osito de peluche.",
+      "voice": "es_MX-claude-high",
+      "hash": "dc88d960654cc21e",
+      "seconds": 2.51
+    },
+    "es/77_word": {
+      "text": "el osito de peluche",
+      "voice": "es_MX-claude-high",
+      "hash": "dcb0e2e3f24401e9",
+      "seconds": 1.41
+    },
+    "es/78_phrase": {
+      "text": "una secadora de pelo",
+      "voice": "es_MX-claude-high",
+      "hash": "e8d00815c8626fb6",
+      "seconds": 1.55
+    },
+    "es/78_sentence": {
+      "text": "La secadora de pelo está caliente.",
+      "voice": "es_MX-claude-high",
+      "hash": "7f519d2fd776a6b1",
+      "seconds": 2.36
+    },
+    "es/78_word": {
+      "text": "la secadora de pelo",
+      "voice": "es_MX-claude-high",
+      "hash": "261d6819b333122d",
+      "seconds": 1.47
+    },
+    "es/79_phrase": {
+      "text": "un cepillo de dientes",
+      "voice": "es_MX-claude-high",
+      "hash": "b1da744a298ac839",
+      "seconds": 1.47
+    },
+    "es/79_sentence": {
+      "text": "Necesito un cepillo de dientes nuevo.",
+      "voice": "es_MX-claude-high",
+      "hash": "7858955bcd18a807",
+      "seconds": 2.39
+    },
+    "es/79_word": {
+      "text": "el cepillo de dientes",
+      "voice": "es_MX-claude-high",
+      "hash": "4a2927b1a956fe4e",
+      "seconds": 1.39
+    },
+    "es/7_phrase": {
+      "text": "un camión",
+      "voice": "es_MX-claude-high",
+      "hash": "e4cb2cb15671ef9a",
+      "seconds": 0.87
+    },
+    "es/7_sentence": {
+      "text": "El camión lleva cajas.",
+      "voice": "es_MX-claude-high",
+      "hash": "1eddf3217dead0d9",
+      "seconds": 1.9
+    },
+    "es/7_word": {
+      "text": "el camión",
+      "voice": "es_MX-claude-high",
+      "hash": "d52dd9eb834296d9",
+      "seconds": 0.86
+    },
+    "es/8_phrase": {
+      "text": "un barco",
+      "voice": "es_MX-claude-high",
+      "hash": "2004e67f4e4e29b7",
+      "seconds": 0.81
+    },
+    "es/8_sentence": {
+      "text": "Vamos en barco por el lago.",
+      "voice": "es_MX-claude-high",
+      "hash": "01553960ec2692eb",
+      "seconds": 1.98
+    },
+    "es/8_word": {
+      "text": "el barco",
+      "voice": "es_MX-claude-high",
+      "hash": "842be642fbe1ad0a",
+      "seconds": 0.8
+    },
+    "es/9_phrase": {
+      "text": "un semáforo",
+      "voice": "es_MX-claude-high",
+      "hash": "108da7333bacbba2",
+      "seconds": 1.01
+    },
+    "es/9_sentence": {
+      "text": "El semáforo está en rojo.",
+      "voice": "es_MX-claude-high",
+      "hash": "00ae4a7a0fa8106f",
+      "seconds": 1.7
+    },
+    "es/9_word": {
+      "text": "el semáforo",
+      "voice": "es_MX-claude-high",
+      "hash": "18fd66fe6acc2e3f",
+      "seconds": 0.93
+    },
+    "fr/0_phrase": {
+      "text": "une personne",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8608e61343af2e00",
+      "seconds": 1.12
+    },
+    "fr/0_sentence": {
+      "text": "Il y a une personne ici.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6c9691e2ece8888d",
+      "seconds": 1.3
+    },
+    "fr/0_word": {
+      "text": "la personne",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "7a50650c02c11ae9",
+      "seconds": 1.0
+    },
+    "fr/10_phrase": {
+      "text": "une bouche d'incendie",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "7c5df983b7eb198c",
+      "seconds": 1.26
+    },
+    "fr/10_sentence": {
+      "text": "La bouche d'incendie est jaune.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "343c3269cb65d0ae",
+      "seconds": 1.95
+    },
+    "fr/10_word": {
+      "text": "la bouche d'incendie",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1fadf95437113cf2",
+      "seconds": 1.15
+    },
+    "fr/11_phrase": {
+      "text": "un panneau stop",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "201253cc9cd2a51c",
+      "seconds": 1.16
+    },
+    "fr/11_sentence": {
+      "text": "Arrête-toi au panneau stop.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "439e6ea61c6397d3",
+      "seconds": 1.58
+    },
+    "fr/11_word": {
+      "text": "le panneau stop",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "a07f684427d54554",
+      "seconds": 1.2
+    },
+    "fr/12_phrase": {
+      "text": "un parcmètre",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b8909c2b25817880",
+      "seconds": 1.1
+    },
+    "fr/12_sentence": {
+      "text": "Paie au parcmètre.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "eb724a734eedea2f",
+      "seconds": 1.17
+    },
+    "fr/12_word": {
+      "text": "le parcmètre",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "859ab6d8c6f0ce41",
+      "seconds": 1.09
+    },
+    "fr/13_phrase": {
+      "text": "un banc",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "4e1819fc997300a3",
+      "seconds": 0.65
+    },
+    "fr/13_sentence": {
+      "text": "On s'assoit sur le banc.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "dad6034d265475a3",
+      "seconds": 1.27
+    },
+    "fr/13_word": {
+      "text": "le banc",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "2e638b31f8eca94f",
+      "seconds": 0.65
+    },
+    "fr/14_phrase": {
+      "text": "un oiseau",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c104a6c808a9032d",
+      "seconds": 0.81
+    },
+    "fr/14_sentence": {
+      "text": "L'oiseau chante.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "bb0fe7af1d816157",
+      "seconds": 1.12
+    },
+    "fr/14_word": {
+      "text": "l'oiseau",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "0962c0cfd88051d2",
+      "seconds": 0.74
+    },
+    "fr/15_phrase": {
+      "text": "un chat",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8d97d597ac67946b",
+      "seconds": 0.62
+    },
+    "fr/15_sentence": {
+      "text": "Le chat dort.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6a2cab4beafaed20",
+      "seconds": 0.9
+    },
+    "fr/15_word": {
+      "text": "le chat",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1294034474915333",
+      "seconds": 0.67
+    },
+    "fr/16_phrase": {
+      "text": "un chien",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "110d07e536797a4d",
+      "seconds": 0.65
+    },
+    "fr/16_sentence": {
+      "text": "Le chien veut jouer.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8a8b6ed0cf5f4a3a",
+      "seconds": 1.01
+    },
+    "fr/16_word": {
+      "text": "le chien",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9dd6a2ee7a6017f0",
+      "seconds": 0.71
+    },
+    "fr/17_phrase": {
+      "text": "un cheval",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d5fb57f696c8cbcc",
+      "seconds": 0.93
+    },
+    "fr/17_sentence": {
+      "text": "Le cheval court vite.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "e87be48ac6b12cff",
+      "seconds": 1.37
+    },
+    "fr/17_word": {
+      "text": "le cheval",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "00c8d48690dacab7",
+      "seconds": 0.91
+    },
+    "fr/18_phrase": {
+      "text": "un mouton",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "780af5219cce98dc",
+      "seconds": 0.82
+    },
+    "fr/18_sentence": {
+      "text": "Le mouton mange de l'herbe.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "16bd40113701d231",
+      "seconds": 1.53
+    },
+    "fr/18_word": {
+      "text": "le mouton",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "e48651717f6fc5b9",
+      "seconds": 0.76
+    },
+    "fr/19_phrase": {
+      "text": "une vache",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ead0534d9afe1b1d",
+      "seconds": 0.85
+    },
+    "fr/19_sentence": {
+      "text": "La vache nous donne du lait.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8970d4b9ad778295",
+      "seconds": 1.34
+    },
+    "fr/19_word": {
+      "text": "la vache",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "fd6a7e4ce9971a61",
+      "seconds": 0.82
+    },
+    "fr/1_phrase": {
+      "text": "un vélo",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9bc8bbc3680a172d",
+      "seconds": 0.77
+    },
+    "fr/1_sentence": {
+      "text": "Je vais au travail à vélo.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c7049168bea3e9fc",
+      "seconds": 1.54
+    },
+    "fr/1_word": {
+      "text": "le vélo",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "cb8eaa045ac6cdb9",
+      "seconds": 0.73
+    },
+    "fr/20_phrase": {
+      "text": "un éléphant",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1eefe166e724e052",
+      "seconds": 0.91
+    },
+    "fr/20_sentence": {
+      "text": "L'éléphant est très grand.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "7b562006f53e6ac2",
+      "seconds": 1.36
+    },
+    "fr/20_word": {
+      "text": "l'éléphant",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f923a29e2a7f33fd",
+      "seconds": 0.83
+    },
+    "fr/21_phrase": {
+      "text": "un ours",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "cdbfbb5a0bc1fb6f",
+      "seconds": 0.79
+    },
+    "fr/21_sentence": {
+      "text": "L'ours vit dans la forêt.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c5c9ac867bf61e8d",
+      "seconds": 1.54
+    },
+    "fr/21_word": {
+      "text": "l'ours",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f12a23985d01791c",
+      "seconds": 0.71
+    },
+    "fr/22_phrase": {
+      "text": "un zèbre",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "3688d2983ba439a5",
+      "seconds": 0.85
+    },
+    "fr/22_sentence": {
+      "text": "Le zèbre a des rayures.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1153ed7303881f05",
+      "seconds": 1.48
+    },
+    "fr/22_word": {
+      "text": "le zèbre",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d703a6bef7c9393a",
+      "seconds": 0.88
+    },
+    "fr/23_phrase": {
+      "text": "une girafe",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "41534b9da1f10073",
+      "seconds": 0.87
+    },
+    "fr/23_sentence": {
+      "text": "La girafe a un long cou.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "602fa0cc001122e8",
+      "seconds": 1.81
+    },
+    "fr/23_word": {
+      "text": "la girafe",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b7181f2495d4c83d",
+      "seconds": 0.84
+    },
+    "fr/24_phrase": {
+      "text": "un sac à dos",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8324ad39ea0fabea",
+      "seconds": 0.93
+    },
+    "fr/24_sentence": {
+      "text": "Mon sac à dos est lourd.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "27d2d3fcc3b2eb93",
+      "seconds": 1.47
+    },
+    "fr/24_word": {
+      "text": "le sac à dos",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c71af858cc7c74b4",
+      "seconds": 0.9
+    },
+    "fr/25_phrase": {
+      "text": "un parapluie",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "de15a164c5bf55b8",
+      "seconds": 0.92
+    },
+    "fr/25_sentence": {
+      "text": "Il pleut. Prends le parapluie.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8088d6b7c7d0cb77",
+      "seconds": 1.98
+    },
+    "fr/25_word": {
+      "text": "le parapluie",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ae3bd00f0c295077",
+      "seconds": 0.85
+    },
+    "fr/26_phrase": {
+      "text": "un sac à main",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "0f2f4e97df08a693",
+      "seconds": 0.9
+    },
+    "fr/26_sentence": {
+      "text": "Mes clés sont dans le sac à main.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "cc0a606f96068508",
+      "seconds": 1.53
+    },
+    "fr/26_word": {
+      "text": "le sac à main",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "89bd9085810fc7b9",
+      "seconds": 0.86
+    },
+    "fr/27_phrase": {
+      "text": "une cravate",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d89eac1cf9b4e157",
+      "seconds": 1.15
+    },
+    "fr/27_sentence": {
+      "text": "Il porte une cravate au travail.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "103f757431a1b93e",
+      "seconds": 1.99
+    },
+    "fr/27_word": {
+      "text": "la cravate",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "e454fb767bea58bb",
+      "seconds": 1.04
+    },
+    "fr/28_phrase": {
+      "text": "une valise",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "e4705493ce084d02",
+      "seconds": 1.06
+    },
+    "fr/28_sentence": {
+      "text": "La valise est prête.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "76f0dd255f32c288",
+      "seconds": 1.24
+    },
+    "fr/28_word": {
+      "text": "la valise",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "be84fba53e24c43a",
+      "seconds": 0.91
+    },
+    "fr/29_phrase": {
+      "text": "un frisbee",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "475322038552dbab",
+      "seconds": 0.95
+    },
+    "fr/29_sentence": {
+      "text": "Lance-moi le frisbee !",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "89b57a9448b7bb00",
+      "seconds": 1.3
+    },
+    "fr/29_word": {
+      "text": "le frisbee",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "fddb3200867d6c13",
+      "seconds": 0.96
+    },
+    "fr/2_phrase": {
+      "text": "une voiture",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "e7a9513a10317a68",
+      "seconds": 0.99
+    },
+    "fr/2_sentence": {
+      "text": "La voiture est très rapide.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "37cc0254ade5f444",
+      "seconds": 1.62
+    },
+    "fr/2_word": {
+      "text": "la voiture",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "65496a4163b040fe",
+      "seconds": 1.16
+    },
+    "fr/30_phrase": {
+      "text": "des skis",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "135820a475b4fd58",
+      "seconds": 0.77
+    },
+    "fr/30_sentence": {
+      "text": "Mes skis sont près de la porte.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d29bfecc6678f424",
+      "seconds": 1.84
+    },
+    "fr/30_word": {
+      "text": "les skis",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d8e5596fa32e3ace",
+      "seconds": 0.68
+    },
+    "fr/31_phrase": {
+      "text": "un snowboard",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "0c8d00f81d3819df",
+      "seconds": 1.08
+    },
+    "fr/31_sentence": {
+      "text": "L'hiver, je fais du snowboard.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f7ea6375d5a22ba1",
+      "seconds": 2.24
+    },
+    "fr/31_word": {
+      "text": "le snowboard",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "988b9a802e9518fe",
+      "seconds": 1.17
+    },
+    "fr/32_phrase": {
+      "text": "un ballon",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "01e530c136b13379",
+      "seconds": 0.72
+    },
+    "fr/32_sentence": {
+      "text": "Passe-moi le ballon.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d72a65b64e81c9e3",
+      "seconds": 0.99
+    },
+    "fr/32_word": {
+      "text": "le ballon",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "761b3616170f46ce",
+      "seconds": 0.66
+    },
+    "fr/33_phrase": {
+      "text": "un cerf-volant",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d58c9f2d38090dd2",
+      "seconds": 0.97
+    },
+    "fr/33_sentence": {
+      "text": "Le cerf-volant vole haut.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "876e8bbff08c270c",
+      "seconds": 1.48
+    },
+    "fr/33_word": {
+      "text": "le cerf-volant",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6cbcc801b71bfb94",
+      "seconds": 1.08
+    },
+    "fr/34_phrase": {
+      "text": "une batte de baseball",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "4ed45152c015cd9c",
+      "seconds": 1.48
+    },
+    "fr/34_sentence": {
+      "text": "La batte de baseball est lourde.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "3829b74448eea366",
+      "seconds": 2.03
+    },
+    "fr/34_word": {
+      "text": "la batte de baseball",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "093e75c166fee092",
+      "seconds": 1.58
+    },
+    "fr/35_phrase": {
+      "text": "un gant de baseball",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9ccfacc2e4c9f626",
+      "seconds": 1.37
+    },
+    "fr/35_sentence": {
+      "text": "Mon gant de baseball est vieux.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "eeeaf81b0c1a189a",
+      "seconds": 1.49
+    },
+    "fr/35_word": {
+      "text": "le gant de baseball",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b1a8ea6d77b8fcb0",
+      "seconds": 1.32
+    },
+    "fr/36_phrase": {
+      "text": "un skateboard",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "765c5dc7af19d9e7",
+      "seconds": 1.14
+    },
+    "fr/36_sentence": {
+      "text": "Elle fait du skateboard.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "cb4dbdf5bb74ed16",
+      "seconds": 1.41
+    },
+    "fr/36_word": {
+      "text": "le skateboard",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b0890aa830131be6",
+      "seconds": 1.08
+    },
+    "fr/37_phrase": {
+      "text": "une planche de surf",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "aa30de8c349ce839",
+      "seconds": 1.38
+    },
+    "fr/37_sentence": {
+      "text": "La planche de surf est sur la plage.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9dc79c1cd592116a",
+      "seconds": 1.96
+    },
+    "fr/37_word": {
+      "text": "la planche de surf",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "11cdef6f116194f6",
+      "seconds": 1.27
+    },
+    "fr/38_phrase": {
+      "text": "une raquette de tennis",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f51557942f8f7193",
+      "seconds": 1.55
+    },
+    "fr/38_sentence": {
+      "text": "La raquette de tennis est neuve.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "a2e00d5db2bb9600",
+      "seconds": 1.82
+    },
+    "fr/38_word": {
+      "text": "la raquette de tennis",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "190ba0a613f80392",
+      "seconds": 1.61
+    },
+    "fr/39_phrase": {
+      "text": "une bouteille",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "bcc140ca6b08cb31",
+      "seconds": 1.04
+    },
+    "fr/39_sentence": {
+      "text": "La bouteille est vide.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "96e33ab3da7b3733",
+      "seconds": 1.37
+    },
+    "fr/39_word": {
+      "text": "la bouteille",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "bdb6bb941e5c1a1c",
+      "seconds": 0.97
+    },
+    "fr/3_phrase": {
+      "text": "une moto",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6af5da5b157d408b",
+      "seconds": 0.88
+    },
+    "fr/3_sentence": {
+      "text": "Il roule à moto.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6bdff092a6d9ebe8",
+      "seconds": 1.04
+    },
+    "fr/3_word": {
+      "text": "la moto",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "dc067585f168240e",
+      "seconds": 0.78
+    },
+    "fr/40_phrase": {
+      "text": "un verre à vin",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "0faf16a362d24602",
+      "seconds": 0.9
+    },
+    "fr/40_sentence": {
+      "text": "Le verre à vin est plein.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "fec2d744c7d7bbc1",
+      "seconds": 1.33
+    },
+    "fr/40_word": {
+      "text": "le verre à vin",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "09ba8c4092b14d20",
+      "seconds": 0.89
+    },
+    "fr/41_phrase": {
+      "text": "une tasse",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ed9e0c75b6a8ef36",
+      "seconds": 0.85
+    },
+    "fr/41_sentence": {
+      "text": "Je bois du café dans cette tasse.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6351e5e0c7079a76",
+      "seconds": 1.84
+    },
+    "fr/41_word": {
+      "text": "la tasse",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c2c1466fe2edfb39",
+      "seconds": 0.85
+    },
+    "fr/42_phrase": {
+      "text": "une fourchette",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "222c058dabaa2b6c",
+      "seconds": 0.95
+    },
+    "fr/42_sentence": {
+      "text": "Je mange avec une fourchette.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "36f79500e0474c65",
+      "seconds": 1.58
+    },
+    "fr/42_word": {
+      "text": "la fourchette",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c8d520fd8257c674",
+      "seconds": 1.07
+    },
+    "fr/43_phrase": {
+      "text": "un couteau",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "0802862147ec8917",
+      "seconds": 0.76
+    },
+    "fr/43_sentence": {
+      "text": "Attention, le couteau coupe.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "4b68648a3d5318db",
+      "seconds": 2.05
+    },
+    "fr/43_word": {
+      "text": "le couteau",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f12a2259ef23068e",
+      "seconds": 0.74
+    },
+    "fr/44_phrase": {
+      "text": "une cuillère",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ec1ca2431fadb001",
+      "seconds": 1.01
+    },
+    "fr/44_sentence": {
+      "text": "Je mange la soupe avec une cuillère.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b3f9aadb5612c56c",
+      "seconds": 2.06
+    },
+    "fr/44_word": {
+      "text": "la cuillère",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "dd33db8cc2003780",
+      "seconds": 1.01
+    },
+    "fr/45_phrase": {
+      "text": "un bol",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "2198b209e6d0d345",
+      "seconds": 0.8
+    },
+    "fr/45_sentence": {
+      "text": "Le bol est plein de riz.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "778ef247d188498f",
+      "seconds": 1.36
+    },
+    "fr/45_word": {
+      "text": "le bol",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c05ff20790e4d366",
+      "seconds": 0.8
+    },
+    "fr/46_phrase": {
+      "text": "une banane",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "51a54f0f93cbe338",
+      "seconds": 0.99
+    },
+    "fr/46_sentence": {
+      "text": "La banane est jaune.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6a930dbfcb2ddb66",
+      "seconds": 1.15
+    },
+    "fr/46_word": {
+      "text": "la banane",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9174b2fa5ff49809",
+      "seconds": 0.94
+    },
+    "fr/47_phrase": {
+      "text": "une pomme",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "700f9575525ccb81",
+      "seconds": 0.83
+    },
+    "fr/47_sentence": {
+      "text": "Je mange une pomme chaque jour.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "fc988d5572cce84a",
+      "seconds": 1.78
+    },
+    "fr/47_word": {
+      "text": "la pomme",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "90e6a7567f0aa847",
+      "seconds": 0.81
+    },
+    "fr/48_phrase": {
+      "text": "un sandwich",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d9e568cbecefe151",
+      "seconds": 1.09
+    },
+    "fr/48_sentence": {
+      "text": "Je prépare un sandwich.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "638b3979402930ee",
+      "seconds": 1.54
+    },
+    "fr/48_word": {
+      "text": "le sandwich",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "14340e1bda2b6004",
+      "seconds": 1.02
+    },
+    "fr/49_phrase": {
+      "text": "une orange",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "fbf6379833e46356",
+      "seconds": 1.02
+    },
+    "fr/49_sentence": {
+      "text": "J'épluche l'orange.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9503a7a28289f931",
+      "seconds": 1.3
+    },
+    "fr/49_word": {
+      "text": "l'orange",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "7547952c38829ce1",
+      "seconds": 0.85
+    },
+    "fr/4_phrase": {
+      "text": "un avion",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f6c05c453bdcd5aa",
+      "seconds": 0.74
+    },
+    "fr/4_sentence": {
+      "text": "L'avion est dans le ciel.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "345089fb7ca7c666",
+      "seconds": 1.36
+    },
+    "fr/4_word": {
+      "text": "l'avion",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "67cf6938dfaacba4",
+      "seconds": 0.76
+    },
+    "fr/50_phrase": {
+      "text": "un brocoli",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9216e7517267d60f",
+      "seconds": 0.88
+    },
+    "fr/50_sentence": {
+      "text": "Le brocoli est bon pour la santé.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "4a8ccbbfef03fff5",
+      "seconds": 2.03
+    },
+    "fr/50_word": {
+      "text": "le brocoli",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "a7d9ee9266ddebd2",
+      "seconds": 0.91
+    },
+    "fr/51_phrase": {
+      "text": "une carotte",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "49d584a207b8213a",
+      "seconds": 1.11
+    },
+    "fr/51_sentence": {
+      "text": "Le lapin mange une carotte.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d5647e4f520a2f46",
+      "seconds": 1.45
+    },
+    "fr/51_word": {
+      "text": "la carotte",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c1244f7136811c55",
+      "seconds": 1.0
+    },
+    "fr/52_phrase": {
+      "text": "un hot-dog",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "718bad6f373fa58d",
+      "seconds": 1.21
+    },
+    "fr/52_sentence": {
+      "text": "Un hot-dog, s'il vous plaît.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "977bd3a0c9c5dfa7",
+      "seconds": 2.14
+    },
+    "fr/52_word": {
+      "text": "le hot-dog",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "db84ab7e846dfa64",
+      "seconds": 1.22
+    },
+    "fr/53_phrase": {
+      "text": "une pizza",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "bb9323e9bf1b3db6",
+      "seconds": 0.87
+    },
+    "fr/53_sentence": {
+      "text": "Commandons une pizza ce soir.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f4babb1e3e0fb281",
+      "seconds": 1.62
+    },
+    "fr/53_word": {
+      "text": "la pizza",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "a715bc1cd54798bd",
+      "seconds": 0.78
+    },
+    "fr/54_phrase": {
+      "text": "un beignet",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "2bd4f22765576fdd",
+      "seconds": 0.75
+    },
+    "fr/54_sentence": {
+      "text": "Ce beignet est très sucré.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ef74a5e3249834f0",
+      "seconds": 1.82
+    },
+    "fr/54_word": {
+      "text": "le beignet",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "2e1c1035f25981ab",
+      "seconds": 0.73
+    },
+    "fr/55_phrase": {
+      "text": "un gâteau",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "3b46943a5973a92b",
+      "seconds": 0.79
+    },
+    "fr/55_sentence": {
+      "text": "J'ai fait un gâteau.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b479bf8f907cfbc7",
+      "seconds": 1.17
+    },
+    "fr/55_word": {
+      "text": "le gâteau",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b3439b36fdf67b26",
+      "seconds": 0.8
+    },
+    "fr/56_phrase": {
+      "text": "une chaise",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8574c3aebe128bf5",
+      "seconds": 0.91
+    },
+    "fr/56_sentence": {
+      "text": "Assieds-toi sur la chaise.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "4e8b6635d5bcc498",
+      "seconds": 1.59
+    },
+    "fr/56_word": {
+      "text": "la chaise",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8b9f465f5be11bde",
+      "seconds": 0.95
+    },
+    "fr/57_phrase": {
+      "text": "un canapé",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "bbfe4be8ebf4552a",
+      "seconds": 0.93
+    },
+    "fr/57_sentence": {
+      "text": "Je me repose sur le canapé.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1ce1bcde6b24cc1d",
+      "seconds": 1.68
+    },
+    "fr/57_word": {
+      "text": "le canapé",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "591c04f5c51edc74",
+      "seconds": 0.92
+    },
+    "fr/58_phrase": {
+      "text": "une plante en pot",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "30de7b929ddc32d3",
+      "seconds": 1.18
+    },
+    "fr/58_sentence": {
+      "text": "Arrose la plante en pot.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b7f8d7d820c84d8e",
+      "seconds": 1.41
+    },
+    "fr/58_word": {
+      "text": "la plante en pot",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8ec69749383a7bd8",
+      "seconds": 1.15
+    },
+    "fr/59_phrase": {
+      "text": "un lit",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "75811885b97a68b5",
+      "seconds": 0.56
+    },
+    "fr/59_sentence": {
+      "text": "Mon lit est très confortable.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "235a3223825796b8",
+      "seconds": 2.27
+    },
+    "fr/59_word": {
+      "text": "le lit",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "872d10b0c6e7043f",
+      "seconds": 0.58
+    },
+    "fr/5_phrase": {
+      "text": "un bus",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "bfc5cdd0433d36ea",
+      "seconds": 0.78
+    },
+    "fr/5_sentence": {
+      "text": "Je prends le bus pour l'école.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "2201aab91d589298",
+      "seconds": 1.6
+    },
+    "fr/5_word": {
+      "text": "le bus",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "e7b066bfbb39091a",
+      "seconds": 0.76
+    },
+    "fr/60_phrase": {
+      "text": "une table",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "2588341abeb82d7f",
+      "seconds": 0.94
+    },
+    "fr/60_sentence": {
+      "text": "Le dîner est sur la table.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1ed2507e4ca47d9a",
+      "seconds": 1.62
+    },
+    "fr/60_word": {
+      "text": "la table",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "cecad2e17d366076",
+      "seconds": 0.91
+    },
+    "fr/61_phrase": {
+      "text": "des toilettes",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1572611065f331d8",
+      "seconds": 0.99
+    },
+    "fr/61_sentence": {
+      "text": "Où sont les toilettes ?",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "8e13dfc617c9a86b",
+      "seconds": 1.17
+    },
+    "fr/61_word": {
+      "text": "les toilettes",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "67a4625aa6e105e5",
+      "seconds": 0.98
+    },
+    "fr/62_phrase": {
+      "text": "une télévision",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c0e226aaf6f4bd22",
+      "seconds": 1.13
+    },
+    "fr/62_sentence": {
+      "text": "La télévision est allumée.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "7676ec09b2ec6a8b",
+      "seconds": 1.43
+    },
+    "fr/62_word": {
+      "text": "la télévision",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "fe74c4e01d4310cd",
+      "seconds": 1.1
+    },
+    "fr/63_phrase": {
+      "text": "un ordinateur portable",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "765ccc43bdfc49f3",
+      "seconds": 1.75
+    },
+    "fr/63_sentence": {
+      "text": "J'utilise mon ordinateur portable.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "97c45dc2fa8a0d76",
+      "seconds": 2.3
+    },
+    "fr/63_word": {
+      "text": "l'ordinateur portable",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "a8a614af2f012e5e",
+      "seconds": 1.61
+    },
+    "fr/64_phrase": {
+      "text": "une souris",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "84be34c5c1bdb271",
+      "seconds": 0.77
+    },
+    "fr/64_sentence": {
+      "text": "Clique avec la souris.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c6a4b45b80d9b337",
+      "seconds": 1.16
+    },
+    "fr/64_word": {
+      "text": "la souris",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "727238cd1113e07e",
+      "seconds": 0.75
+    },
+    "fr/65_phrase": {
+      "text": "une télécommande",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "437e99733ed5bd11",
+      "seconds": 1.25
+    },
+    "fr/65_sentence": {
+      "text": "Où est la télécommande ?",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "911bdd80f0d6e6ac",
+      "seconds": 1.32
+    },
+    "fr/65_word": {
+      "text": "la télécommande",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b3c896c79f2f9554",
+      "seconds": 1.26
+    },
+    "fr/66_phrase": {
+      "text": "un clavier",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "fe79c13fcb9d4e18",
+      "seconds": 0.86
+    },
+    "fr/66_sentence": {
+      "text": "Je tape sur le clavier.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "960738a2e3f03dce",
+      "seconds": 1.41
+    },
+    "fr/66_word": {
+      "text": "le clavier",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "06608d096dac3a10",
+      "seconds": 0.85
+    },
+    "fr/67_phrase": {
+      "text": "un téléphone portable",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "7a3c016a55d7a266",
+      "seconds": 1.52
+    },
+    "fr/67_sentence": {
+      "text": "Mon téléphone portable sonne !",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9a7e7715b69dd735",
+      "seconds": 2.06
+    },
+    "fr/67_word": {
+      "text": "le téléphone portable",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "0d275d1f4ca231b5",
+      "seconds": 1.57
+    },
+    "fr/68_phrase": {
+      "text": "un micro-ondes",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "89fc083cbc751322",
+      "seconds": 1.07
+    },
+    "fr/68_sentence": {
+      "text": "Réchauffe le repas au micro-ondes.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "95cf504c3bb5d835",
+      "seconds": 1.93
+    },
+    "fr/68_word": {
+      "text": "le micro-ondes",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f50dd983e0279ee1",
+      "seconds": 1.04
+    },
+    "fr/69_phrase": {
+      "text": "un four",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "bd8e5e82eaf2c01e",
+      "seconds": 0.78
+    },
+    "fr/69_sentence": {
+      "text": "La pizza est au four.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "751e103014769446",
+      "seconds": 1.43
+    },
+    "fr/69_word": {
+      "text": "le four",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "7fcb6e5a4ae15615",
+      "seconds": 0.89
+    },
+    "fr/6_phrase": {
+      "text": "un train",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "cadb35ec10e9f715",
+      "seconds": 0.75
+    },
+    "fr/6_sentence": {
+      "text": "Le train part à neuf heures.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "51d795c9f23793e8",
+      "seconds": 1.43
+    },
+    "fr/6_word": {
+      "text": "le train",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "31ee25154669374c",
+      "seconds": 0.68
+    },
+    "fr/70_phrase": {
+      "text": "un grille-pain",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "03f42aeda1c7e492",
+      "seconds": 0.99
+    },
+    "fr/70_sentence": {
+      "text": "Je mets du pain dans le grille-pain.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "efd9901b2cc5bd2e",
+      "seconds": 1.64
+    },
+    "fr/70_word": {
+      "text": "le grille-pain",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "14547f3709279538",
+      "seconds": 0.98
+    },
+    "fr/71_phrase": {
+      "text": "un évier",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "922a3139c93b3758",
+      "seconds": 0.72
+    },
+    "fr/71_sentence": {
+      "text": "Lave la vaisselle dans l'évier.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c50b55eb64f0001e",
+      "seconds": 1.62
+    },
+    "fr/71_word": {
+      "text": "l'évier",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ac1da8f0790c55be",
+      "seconds": 0.68
+    },
+    "fr/72_phrase": {
+      "text": "un réfrigérateur",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "b36132e49694ea06",
+      "seconds": 1.3
+    },
+    "fr/72_sentence": {
+      "text": "Le lait est dans le réfrigérateur.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ab95f4e8c5ea7fea",
+      "seconds": 1.8
+    },
+    "fr/72_word": {
+      "text": "le réfrigérateur",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "3f1bc25c80017c21",
+      "seconds": 1.42
+    },
+    "fr/73_phrase": {
+      "text": "un livre",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "5c0d9d99dde29804",
+      "seconds": 0.82
+    },
+    "fr/73_sentence": {
+      "text": "Je lis un bon livre.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "85a70b92a4cef432",
+      "seconds": 1.53
+    },
+    "fr/73_word": {
+      "text": "le livre",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6aed2bfd905ca629",
+      "seconds": 0.89
+    },
+    "fr/74_phrase": {
+      "text": "une horloge",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "3df65a2ff1cf31dc",
+      "seconds": 1.04
+    },
+    "fr/74_sentence": {
+      "text": "Regarde l'horloge. Il est tard.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "7e53d25c01577f83",
+      "seconds": 2.67
+    },
+    "fr/74_word": {
+      "text": "l'horloge",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "23dbddc273948515",
+      "seconds": 0.93
+    },
+    "fr/75_phrase": {
+      "text": "un vase",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "37a6f8a7b0232221",
+      "seconds": 0.77
+    },
+    "fr/75_sentence": {
+      "text": "Mets les fleurs dans le vase.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "306e57642cbc9d06",
+      "seconds": 1.63
+    },
+    "fr/75_word": {
+      "text": "le vase",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "d10a50dc2ae67c39",
+      "seconds": 0.86
+    },
+    "fr/76_phrase": {
+      "text": "des ciseaux",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "dea4018ce1c6c4cc",
+      "seconds": 0.85
+    },
+    "fr/76_sentence": {
+      "text": "Coupe le papier avec les ciseaux.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "bddfdd3834cbcb91",
+      "seconds": 1.57
+    },
+    "fr/76_word": {
+      "text": "les ciseaux",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "960c470527676295",
+      "seconds": 0.81
+    },
+    "fr/77_phrase": {
+      "text": "un ours en peluche",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f0a6c328439a27c6",
+      "seconds": 1.43
+    },
+    "fr/77_sentence": {
+      "text": "Le bébé serre l'ours en peluche.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "6339a36316a7f58c",
+      "seconds": 2.25
+    },
+    "fr/77_word": {
+      "text": "l'ours en peluche",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f75236531ffd811e",
+      "seconds": 1.19
+    },
+    "fr/78_phrase": {
+      "text": "un sèche-cheveux",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "5ee31750bef53c89",
+      "seconds": 0.92
+    },
+    "fr/78_sentence": {
+      "text": "Le sèche-cheveux est chaud.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1aea77d0e1e600c2",
+      "seconds": 1.29
+    },
+    "fr/78_word": {
+      "text": "le sèche-cheveux",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ea1d5d6c066bf77b",
+      "seconds": 0.88
+    },
+    "fr/79_phrase": {
+      "text": "une brosse à dents",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "9fa4c5b412f3c61d",
+      "seconds": 1.07
+    },
+    "fr/79_sentence": {
+      "text": "Il me faut une brosse à dents.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "90b19e697c987ab5",
+      "seconds": 1.47
+    },
+    "fr/79_word": {
+      "text": "la brosse à dents",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "ea420a8a91dbe5f7",
+      "seconds": 1.02
+    },
+    "fr/7_phrase": {
+      "text": "un camion",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "55167084284fbd81",
+      "seconds": 0.92
+    },
+    "fr/7_sentence": {
+      "text": "Le camion transporte des boîtes.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "c5954548c669b21e",
+      "seconds": 1.76
+    },
+    "fr/7_word": {
+      "text": "le camion",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "1236cd984d7136d6",
+      "seconds": 0.84
+    },
+    "fr/8_phrase": {
+      "text": "un bateau",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "81a5f6ef83c8800f",
+      "seconds": 0.82
+    },
+    "fr/8_sentence": {
+      "text": "On fait du bateau sur le lac.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "12da3ea6c1fe3881",
+      "seconds": 1.61
+    },
+    "fr/8_word": {
+      "text": "le bateau",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "59a7b224b1c23acd",
+      "seconds": 0.8
+    },
+    "fr/9_phrase": {
+      "text": "un feu de circulation",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "382865b0aeaecb61",
+      "seconds": 1.41
+    },
+    "fr/9_sentence": {
+      "text": "Le feu de circulation est rouge.",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "f1c78b758e02a13d",
+      "seconds": 1.89
+    },
+    "fr/9_word": {
+      "text": "le feu de circulation",
+      "voice": "fr_FR-siwis-medium",
+      "hash": "50aaa4e5d32f9d13",
+      "seconds": 1.45
+    },
+    "zh/0_phrase": {
+      "text": "一个人",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b9f6bdd36a1e05c1",
+      "seconds": 0.81
+    },
+    "zh/0_sentence": {
+      "text": "这里有一个人。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "53a8d2cf3bd6a7e4",
+      "seconds": 1.4
+    },
+    "zh/0_word": {
+      "text": "人",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e331c573552b7aaa",
+      "seconds": 0.46
+    },
+    "zh/10_phrase": {
+      "text": "一个消防栓",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "7192ae5ebee91c33",
+      "seconds": 1.29
+    },
+    "zh/10_sentence": {
+      "text": "消防栓是黄色的。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "daae82ede21f8936",
+      "seconds": 1.93
+    },
+    "zh/10_word": {
+      "text": "消防栓",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f81be7bd768b6bd7",
+      "seconds": 1.09
+    },
+    "zh/11_phrase": {
+      "text": "一个停车标志",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "8d7a7564a3fb8213",
+      "seconds": 1.55
+    },
+    "zh/11_sentence": {
+      "text": "在停车标志前停车。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "420ea6d8fef881dc",
+      "seconds": 2.25
+    },
+    "zh/11_word": {
+      "text": "停车标志",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3b31706cec3a42b9",
+      "seconds": 1.2
+    },
+    "zh/12_phrase": {
+      "text": "一个停车计时器",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "52a21efa3b3ecf75",
+      "seconds": 1.93
+    },
+    "zh/12_sentence": {
+      "text": "在停车计时器付费。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "7b56c02f76ad9de1",
+      "seconds": 2.24
+    },
+    "zh/12_word": {
+      "text": "停车计时器",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "efa0fcd3bd83c852",
+      "seconds": 1.61
+    },
+    "zh/13_phrase": {
+      "text": "一张长椅",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3cc8961f2199eb90",
+      "seconds": 1.09
+    },
+    "zh/13_sentence": {
+      "text": "我们坐在长椅上。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "dba640992f8ecf8b",
+      "seconds": 1.73
+    },
+    "zh/13_word": {
+      "text": "长椅",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "238ce794d1932c7e",
+      "seconds": 0.7
+    },
+    "zh/14_phrase": {
+      "text": "一只鸟",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f0a89a73ca6703ba",
+      "seconds": 0.81
+    },
+    "zh/14_sentence": {
+      "text": "小鸟在唱歌。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "350b5e17454369cb",
+      "seconds": 1.56
+    },
+    "zh/14_word": {
+      "text": "鸟",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fd9cbf6cd9811483",
+      "seconds": 0.47
+    },
+    "zh/15_phrase": {
+      "text": "一只猫",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "7a839f269fdacd60",
+      "seconds": 0.81
+    },
+    "zh/15_sentence": {
+      "text": "猫在睡觉。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fc012cb475b3ba3a",
+      "seconds": 1.21
+    },
+    "zh/15_word": {
+      "text": "猫",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ddd102148077530a",
+      "seconds": 0.47
+    },
+    "zh/16_phrase": {
+      "text": "一只狗",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "a3306f22e983c7f9",
+      "seconds": 0.79
+    },
+    "zh/16_sentence": {
+      "text": "狗想出去玩。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ac31bef492ffda4b",
+      "seconds": 1.29
+    },
+    "zh/16_word": {
+      "text": "狗",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9065c8d7ae5fc2f5",
+      "seconds": 0.43
+    },
+    "zh/17_phrase": {
+      "text": "一匹马",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3c28e224813465fd",
+      "seconds": 0.91
+    },
+    "zh/17_sentence": {
+      "text": "马跑得很快。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "2d3fe8866e11e508",
+      "seconds": 1.3
+    },
+    "zh/17_word": {
+      "text": "马",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "24133e8b50126f08",
+      "seconds": 0.41
+    },
+    "zh/18_phrase": {
+      "text": "一只羊",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "39877d081a62e9ba",
+      "seconds": 0.81
+    },
+    "zh/18_sentence": {
+      "text": "羊在吃草。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "6410492fcbf89d0e",
+      "seconds": 1.18
+    },
+    "zh/18_word": {
+      "text": "羊",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e55f356a09c4dd79",
+      "seconds": 0.45
+    },
+    "zh/19_phrase": {
+      "text": "一头牛",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "714f03291e8d3a07",
+      "seconds": 0.91
+    },
+    "zh/19_sentence": {
+      "text": "牛给我们牛奶。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d9a25d5aa7ee0975",
+      "seconds": 1.31
+    },
+    "zh/19_word": {
+      "text": "牛",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "98c345fb4759f1fe",
+      "seconds": 0.47
+    },
+    "zh/1_phrase": {
+      "text": "一辆自行车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "74513cd76d6cecf9",
+      "seconds": 1.43
+    },
+    "zh/1_sentence": {
+      "text": "我骑自行车上班。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "4ea58e0b87f8beb6",
+      "seconds": 1.84
+    },
+    "zh/1_word": {
+      "text": "自行车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "635f3b2c68c1649d",
+      "seconds": 1.0
+    },
+    "zh/20_phrase": {
+      "text": "一头大象",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "88727902701c7dec",
+      "seconds": 1.07
+    },
+    "zh/20_sentence": {
+      "text": "大象很大。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ed1cc3e427a11c0b",
+      "seconds": 1.17
+    },
+    "zh/20_word": {
+      "text": "大象",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d8ed39fc3ccb9b6d",
+      "seconds": 0.75
+    },
+    "zh/21_phrase": {
+      "text": "一只熊",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f98d3adf9ca1e8df",
+      "seconds": 0.83
+    },
+    "zh/21_sentence": {
+      "text": "熊住在森林里。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "19804550e394d240",
+      "seconds": 1.62
+    },
+    "zh/21_word": {
+      "text": "熊",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "1968ddd64a6c972d",
+      "seconds": 0.42
+    },
+    "zh/22_phrase": {
+      "text": "一匹斑马",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e82ddf8075e229f9",
+      "seconds": 0.95
+    },
+    "zh/22_sentence": {
+      "text": "斑马身上有条纹。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c4d934db9d128218",
+      "seconds": 1.9
+    },
+    "zh/22_word": {
+      "text": "斑马",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "8afcbf948c4e3d8f",
+      "seconds": 0.62
+    },
+    "zh/23_phrase": {
+      "text": "一只长颈鹿",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "6cf2d1947d521031",
+      "seconds": 1.34
+    },
+    "zh/23_sentence": {
+      "text": "长颈鹿的脖子很长。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "2fcc6fe811aa3e3f",
+      "seconds": 2.09
+    },
+    "zh/23_word": {
+      "text": "长颈鹿",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "170476358ec16813",
+      "seconds": 1.02
+    },
+    "zh/24_phrase": {
+      "text": "一个背包",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f9c3ef287909de15",
+      "seconds": 0.97
+    },
+    "zh/24_sentence": {
+      "text": "我的背包很重。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ddb363b97e9a117b",
+      "seconds": 1.37
+    },
+    "zh/24_word": {
+      "text": "背包",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "5bb40214b1292331",
+      "seconds": 0.64
+    },
+    "zh/25_phrase": {
+      "text": "一把雨伞",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d36f39be5fa48d0c",
+      "seconds": 1.09
+    },
+    "zh/25_sentence": {
+      "text": "下雨了，带上雨伞。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "60a2b2e7a7febde9",
+      "seconds": 2.31
+    },
+    "zh/25_word": {
+      "text": "雨伞",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "4ede70a916a523da",
+      "seconds": 0.68
+    },
+    "zh/26_phrase": {
+      "text": "一个手提包",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "1f7e6faecd88b312",
+      "seconds": 1.28
+    },
+    "zh/26_sentence": {
+      "text": "我的钥匙在手提包里。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "74cfdad4731e6870",
+      "seconds": 2.1
+    },
+    "zh/26_word": {
+      "text": "手提包",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d7ba96eea3b44aec",
+      "seconds": 0.95
+    },
+    "zh/27_phrase": {
+      "text": "一条领带",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "714eb8cfee0489e9",
+      "seconds": 1.12
+    },
+    "zh/27_sentence": {
+      "text": "他上班戴领带。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "eec4c02d8c719b27",
+      "seconds": 1.66
+    },
+    "zh/27_word": {
+      "text": "领带",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "033986244f128008",
+      "seconds": 0.64
+    },
+    "zh/28_phrase": {
+      "text": "一个行李箱",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "1f80fcc365293a27",
+      "seconds": 1.3
+    },
+    "zh/28_sentence": {
+      "text": "行李箱已经收拾好了。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "5f8f9805d58628d3",
+      "seconds": 2.12
+    },
+    "zh/28_word": {
+      "text": "行李箱",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "6cde1593bb58f908",
+      "seconds": 0.88
+    },
+    "zh/29_phrase": {
+      "text": "一个飞盘",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3e390d2eb31be528",
+      "seconds": 1.11
+    },
+    "zh/29_sentence": {
+      "text": "把飞盘扔给我！",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "39b03a196297b3ca",
+      "seconds": 1.56
+    },
+    "zh/29_word": {
+      "text": "飞盘",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ecac75631696920d",
+      "seconds": 0.8
+    },
+    "zh/2_phrase": {
+      "text": "一辆汽车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9c38d73d1cd1f34f",
+      "seconds": 1.16
+    },
+    "zh/2_sentence": {
+      "text": "这辆汽车很快。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0c4609514a84f162",
+      "seconds": 1.65
+    },
+    "zh/2_word": {
+      "text": "汽车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ab884cbb5aae307f",
+      "seconds": 0.78
+    },
+    "zh/30_phrase": {
+      "text": "一副滑雪板",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "880bad6f20b1c4ad",
+      "seconds": 1.28
+    },
+    "zh/30_sentence": {
+      "text": "我的滑雪板在门边。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f808009564cf2693",
+      "seconds": 1.97
+    },
+    "zh/30_word": {
+      "text": "滑雪板",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "cfac6d2d49be8218",
+      "seconds": 0.93
+    },
+    "zh/31_phrase": {
+      "text": "一块单板滑雪板",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "95f21506542fb66e",
+      "seconds": 1.84
+    },
+    "zh/31_sentence": {
+      "text": "冬天我用单板滑雪板滑雪。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f14e64921b127ba7",
+      "seconds": 2.74
+    },
+    "zh/31_word": {
+      "text": "单板滑雪板",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "59b7bfc69182f6ae",
+      "seconds": 1.33
+    },
+    "zh/32_phrase": {
+      "text": "一个球",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "15597769363ff5c4",
+      "seconds": 0.94
+    },
+    "zh/32_sentence": {
+      "text": "把球传给我。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ca0a09d22602f23e",
+      "seconds": 1.39
+    },
+    "zh/32_word": {
+      "text": "球",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "74b2f8d7e40fccb6",
+      "seconds": 0.46
+    },
+    "zh/33_phrase": {
+      "text": "一只风筝",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9dafaac9ea777410",
+      "seconds": 1.09
+    },
+    "zh/33_sentence": {
+      "text": "风筝飞得很高。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "5343bc6ef96129a7",
+      "seconds": 1.69
+    },
+    "zh/33_word": {
+      "text": "风筝",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "5cf73ec4525104b6",
+      "seconds": 0.76
+    },
+    "zh/34_phrase": {
+      "text": "一根棒球棒",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e9cfb9c8bc714d6a",
+      "seconds": 1.32
+    },
+    "zh/34_sentence": {
+      "text": "棒球棒很重。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b51827cf712bc55b",
+      "seconds": 1.45
+    },
+    "zh/34_word": {
+      "text": "棒球棒",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e0768f5e8d620e2f",
+      "seconds": 0.86
+    },
+    "zh/35_phrase": {
+      "text": "一只棒球手套",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b1272681cc8227bb",
+      "seconds": 1.55
+    },
+    "zh/35_sentence": {
+      "text": "我的棒球手套很旧。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "57839612625b605b",
+      "seconds": 2.03
+    },
+    "zh/35_word": {
+      "text": "棒球手套",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "19158c9831979c34",
+      "seconds": 1.17
+    },
+    "zh/36_phrase": {
+      "text": "一块滑板",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f6ae18b746276b08",
+      "seconds": 1.08
+    },
+    "zh/36_sentence": {
+      "text": "她在玩滑板。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c596959aef6189ce",
+      "seconds": 1.4
+    },
+    "zh/36_word": {
+      "text": "滑板",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b2b3a2f890cf00a4",
+      "seconds": 0.68
+    },
+    "zh/37_phrase": {
+      "text": "一块冲浪板",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c10351978508817f",
+      "seconds": 1.27
+    },
+    "zh/37_sentence": {
+      "text": "冲浪板在海滩上。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e3d50c375e0ce683",
+      "seconds": 2.01
+    },
+    "zh/37_word": {
+      "text": "冲浪板",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "98fe1334cd210c27",
+      "seconds": 0.92
+    },
+    "zh/38_phrase": {
+      "text": "一把网球拍",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b726e7953190e931",
+      "seconds": 1.34
+    },
+    "zh/38_sentence": {
+      "text": "这把网球拍是新的。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "bed42490b335b26b",
+      "seconds": 2.12
+    },
+    "zh/38_word": {
+      "text": "网球拍",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "58b3234f953ea453",
+      "seconds": 1.0
+    },
+    "zh/39_phrase": {
+      "text": "一个瓶子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "840fde52638bb0f5",
+      "seconds": 1.1
+    },
+    "zh/39_sentence": {
+      "text": "瓶子是空的。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c2b5d011f70e3d48",
+      "seconds": 1.47
+    },
+    "zh/39_word": {
+      "text": "瓶子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "5d7b8b123fd007c6",
+      "seconds": 0.73
+    },
+    "zh/3_phrase": {
+      "text": "一辆摩托车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "4583c50605b62d62",
+      "seconds": 1.3
+    },
+    "zh/3_sentence": {
+      "text": "他骑摩托车。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fb5c979eaf1291c4",
+      "seconds": 1.46
+    },
+    "zh/3_word": {
+      "text": "摩托车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c6aa19dbd4ae508d",
+      "seconds": 0.98
+    },
+    "zh/40_phrase": {
+      "text": "一个酒杯",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "4740323653c44be5",
+      "seconds": 1.03
+    },
+    "zh/40_sentence": {
+      "text": "酒杯满了。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b5ce04cd1c50f258",
+      "seconds": 1.13
+    },
+    "zh/40_word": {
+      "text": "酒杯",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "5ece376fdd45d8be",
+      "seconds": 0.62
+    },
+    "zh/41_phrase": {
+      "text": "一个杯子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fc2ad7d27e66caeb",
+      "seconds": 0.99
+    },
+    "zh/41_sentence": {
+      "text": "我用这个杯子喝咖啡。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "49a7d793f0ff4fab",
+      "seconds": 2.24
+    },
+    "zh/41_word": {
+      "text": "杯子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0e2226fd9c86c843",
+      "seconds": 0.68
+    },
+    "zh/42_phrase": {
+      "text": "一把叉子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c3c2e89362546465",
+      "seconds": 1.12
+    },
+    "zh/42_sentence": {
+      "text": "我用叉子吃饭。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9c0d1fe56ab79e98",
+      "seconds": 1.53
+    },
+    "zh/42_word": {
+      "text": "叉子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ae3c3edb8af686fa",
+      "seconds": 0.8
+    },
+    "zh/43_phrase": {
+      "text": "一把刀",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "1333ff696ca02687",
+      "seconds": 0.83
+    },
+    "zh/43_sentence": {
+      "text": "小心，刀很锋利。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "72aed15d7f86e237",
+      "seconds": 2.21
+    },
+    "zh/43_word": {
+      "text": "刀",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "056fdc37dbd41073",
+      "seconds": 0.46
+    },
+    "zh/44_phrase": {
+      "text": "一把勺子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "865827406ceb1d26",
+      "seconds": 1.14
+    },
+    "zh/44_sentence": {
+      "text": "我用勺子喝汤。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "eb0a95d0f12ebbb9",
+      "seconds": 1.59
+    },
+    "zh/44_word": {
+      "text": "勺子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "2ada2a4da32924fc",
+      "seconds": 0.78
+    },
+    "zh/45_phrase": {
+      "text": "一个碗",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e1a9c38e60a45cea",
+      "seconds": 0.81
+    },
+    "zh/45_sentence": {
+      "text": "碗里装满了米饭。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "002921bb5c3ab401",
+      "seconds": 1.64
+    },
+    "zh/45_word": {
+      "text": "碗",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "125c784fe85f86b8",
+      "seconds": 0.5
+    },
+    "zh/46_phrase": {
+      "text": "一根香蕉",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "8cfc772719a247cc",
+      "seconds": 1.09
+    },
+    "zh/46_sentence": {
+      "text": "香蕉是黄色的。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "323485fe9ecc4f4f",
+      "seconds": 1.62
+    },
+    "zh/46_word": {
+      "text": "香蕉",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ba709121eea61804",
+      "seconds": 0.8
+    },
+    "zh/47_phrase": {
+      "text": "一个苹果",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9a73b6c3c7c6d5f0",
+      "seconds": 1.1
+    },
+    "zh/47_sentence": {
+      "text": "我每天吃一个苹果。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "99e32a9de65ee797",
+      "seconds": 1.84
+    },
+    "zh/47_word": {
+      "text": "苹果",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "702dc99655356bda",
+      "seconds": 0.75
+    },
+    "zh/48_phrase": {
+      "text": "一个三明治",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "eeca017fc26d1602",
+      "seconds": 1.33
+    },
+    "zh/48_sentence": {
+      "text": "我在做三明治。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "2a0e9cc4f328c8bc",
+      "seconds": 1.55
+    },
+    "zh/48_word": {
+      "text": "三明治",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c92b6439d5747355",
+      "seconds": 0.9
+    },
+    "zh/49_phrase": {
+      "text": "一个橙子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "a98a3c48df5b7303",
+      "seconds": 1.1
+    },
+    "zh/49_sentence": {
+      "text": "我在剥橙子。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "142aa9ca97d996f0",
+      "seconds": 1.34
+    },
+    "zh/49_word": {
+      "text": "橙子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ae9081e386b3fded",
+      "seconds": 0.81
+    },
+    "zh/4_phrase": {
+      "text": "一架飞机",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "bddad76c47249f5d",
+      "seconds": 1.19
+    },
+    "zh/4_sentence": {
+      "text": "飞机在天上。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "4ba127eb93907229",
+      "seconds": 1.52
+    },
+    "zh/4_word": {
+      "text": "飞机",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "25baac5d77cfa263",
+      "seconds": 0.78
+    },
+    "zh/50_phrase": {
+      "text": "一棵西兰花",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "162e429f065ffc06",
+      "seconds": 1.32
+    },
+    "zh/50_sentence": {
+      "text": "西兰花很健康。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3d6508d0ba75c349",
+      "seconds": 1.84
+    },
+    "zh/50_word": {
+      "text": "西兰花",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "1002e995f3634f6f",
+      "seconds": 1.05
+    },
+    "zh/51_phrase": {
+      "text": "一根胡萝卜",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "dc358342a07acc64",
+      "seconds": 1.29
+    },
+    "zh/51_sentence": {
+      "text": "兔子在吃胡萝卜。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "550e0e43a29035cd",
+      "seconds": 1.9
+    },
+    "zh/51_word": {
+      "text": "胡萝卜",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ae6932e379d3ffe3",
+      "seconds": 0.95
+    },
+    "zh/52_phrase": {
+      "text": "一个热狗",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9ba7b68da64642b9",
+      "seconds": 1.01
+    },
+    "zh/52_sentence": {
+      "text": "请给我一个热狗。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3a1293f36993b8a4",
+      "seconds": 1.49
+    },
+    "zh/52_word": {
+      "text": "热狗",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "caa6021b29e53dd9",
+      "seconds": 0.68
+    },
+    "zh/53_phrase": {
+      "text": "一块披萨",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "8936bff9abc5bd06",
+      "seconds": 1.1
+    },
+    "zh/53_sentence": {
+      "text": "今晚我们点披萨吧。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0cbdaf40ce0f019d",
+      "seconds": 1.85
+    },
+    "zh/53_word": {
+      "text": "披萨",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "4638175836d16d3c",
+      "seconds": 0.65
+    },
+    "zh/54_phrase": {
+      "text": "一个甜甜圈",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e0c0dc88e48b2cb8",
+      "seconds": 1.36
+    },
+    "zh/54_sentence": {
+      "text": "这个甜甜圈很甜。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f14828d01b2a9bed",
+      "seconds": 1.86
+    },
+    "zh/54_word": {
+      "text": "甜甜圈",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "8c63f4266ed13eb1",
+      "seconds": 0.96
+    },
+    "zh/55_phrase": {
+      "text": "一块蛋糕",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "560de81b818d8a3a",
+      "seconds": 1.1
+    },
+    "zh/55_sentence": {
+      "text": "我烤了一个蛋糕。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fddec5282b6ad280",
+      "seconds": 1.61
+    },
+    "zh/55_word": {
+      "text": "蛋糕",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "bd824373bc3ae0c5",
+      "seconds": 0.67
+    },
+    "zh/56_phrase": {
+      "text": "一把椅子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "abd9635bd5bc3d4c",
+      "seconds": 1.02
+    },
+    "zh/56_sentence": {
+      "text": "请坐在椅子上。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9210816b301b4a69",
+      "seconds": 1.43
+    },
+    "zh/56_word": {
+      "text": "椅子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "f294159155e16d21",
+      "seconds": 0.64
+    },
+    "zh/57_phrase": {
+      "text": "一张沙发",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0603e2724b323f9a",
+      "seconds": 1.15
+    },
+    "zh/57_sentence": {
+      "text": "我在沙发上休息。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "15ccb7970d3da232",
+      "seconds": 1.89
+    },
+    "zh/57_word": {
+      "text": "沙发",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fe7d58a7e4f0c099",
+      "seconds": 0.72
+    },
+    "zh/58_phrase": {
+      "text": "一盆盆栽",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "986fb81d39be7339",
+      "seconds": 1.17
+    },
+    "zh/58_sentence": {
+      "text": "每周给盆栽浇水。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "2d1466757dd827f5",
+      "seconds": 1.85
+    },
+    "zh/58_word": {
+      "text": "盆栽",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "5181bd1313210298",
+      "seconds": 0.7
+    },
+    "zh/59_phrase": {
+      "text": "一张床",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "74aefb113d306ecb",
+      "seconds": 0.93
+    },
+    "zh/59_sentence": {
+      "text": "我的床很舒服。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "6d3c794eaae5be41",
+      "seconds": 1.59
+    },
+    "zh/59_word": {
+      "text": "床",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "212fee6a514f3c31",
+      "seconds": 0.48
+    },
+    "zh/5_phrase": {
+      "text": "一辆公交车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3c3a62b146307998",
+      "seconds": 1.42
+    },
+    "zh/5_sentence": {
+      "text": "我坐公交车上学。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b78b0a2350b50b15",
+      "seconds": 1.99
+    },
+    "zh/5_word": {
+      "text": "公交车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "1fa600256c6f0140",
+      "seconds": 0.99
+    },
+    "zh/60_phrase": {
+      "text": "一张桌子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "a4687797445ec28b",
+      "seconds": 1.11
+    },
+    "zh/60_sentence": {
+      "text": "饭菜在桌子上。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "648349b0021d3968",
+      "seconds": 1.71
+    },
+    "zh/60_word": {
+      "text": "桌子",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "ca6fe99661c92116",
+      "seconds": 0.68
+    },
+    "zh/61_phrase": {
+      "text": "一个马桶",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "8145592f044a0651",
+      "seconds": 1.01
+    },
+    "zh/61_sentence": {
+      "text": "马桶在卫生间里。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "2f20bd45b123fcf4",
+      "seconds": 1.9
+    },
+    "zh/61_word": {
+      "text": "马桶",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "46004b861b30adfe",
+      "seconds": 0.74
+    },
+    "zh/62_phrase": {
+      "text": "一台电视",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "006815bbefb40df2",
+      "seconds": 1.03
+    },
+    "zh/62_sentence": {
+      "text": "电视开着。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "07f803fe87b20c29",
+      "seconds": 1.09
+    },
+    "zh/62_word": {
+      "text": "电视",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "8cc0e34537872cec",
+      "seconds": 0.7
+    },
+    "zh/63_phrase": {
+      "text": "一台笔记本电脑",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0b0e9c22750ad6e9",
+      "seconds": 1.52
+    },
+    "zh/63_sentence": {
+      "text": "我用笔记本电脑工作。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "58ec729ea8a20a9e",
+      "seconds": 2.13
+    },
+    "zh/63_word": {
+      "text": "笔记本电脑",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fbcd73eb7eebb583",
+      "seconds": 1.12
+    },
+    "zh/64_phrase": {
+      "text": "一个鼠标",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "474f36b13d90b06c",
+      "seconds": 1.05
+    },
+    "zh/64_sentence": {
+      "text": "用鼠标点击。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "536dac8ba0a30f1d",
+      "seconds": 1.41
+    },
+    "zh/64_word": {
+      "text": "鼠标",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3fcec0dd5b208153",
+      "seconds": 0.75
+    },
+    "zh/65_phrase": {
+      "text": "一个遥控器",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e01f462f2ef060c0",
+      "seconds": 1.39
+    },
+    "zh/65_sentence": {
+      "text": "遥控器在哪儿？",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "cd78e0ceef34b65e",
+      "seconds": 1.6
+    },
+    "zh/65_word": {
+      "text": "遥控器",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "dc5dddda857007a1",
+      "seconds": 0.97
+    },
+    "zh/66_phrase": {
+      "text": "一个键盘",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "1ec158c89675de8b",
+      "seconds": 1.06
+    },
+    "zh/66_sentence": {
+      "text": "我在键盘上打字。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "917738b4b6560d79",
+      "seconds": 1.83
+    },
+    "zh/66_word": {
+      "text": "键盘",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b9fb22ce4b383770",
+      "seconds": 0.76
+    },
+    "zh/67_phrase": {
+      "text": "一部手机",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9647e49aece37d47",
+      "seconds": 1.09
+    },
+    "zh/67_sentence": {
+      "text": "我的手机响了！",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "a9d7e3ddc430acb5",
+      "seconds": 1.47
+    },
+    "zh/67_word": {
+      "text": "手机",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b37e75d10113baa3",
+      "seconds": 0.77
+    },
+    "zh/68_phrase": {
+      "text": "一台微波炉",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d00ba81b85016256",
+      "seconds": 1.29
+    },
+    "zh/68_sentence": {
+      "text": "用微波炉热饭。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d7b3460d5ed16898",
+      "seconds": 1.62
+    },
+    "zh/68_word": {
+      "text": "微波炉",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0224df229c352c66",
+      "seconds": 0.9
+    },
+    "zh/69_phrase": {
+      "text": "一台烤箱",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0ca57104e5b09adc",
+      "seconds": 1.12
+    },
+    "zh/69_sentence": {
+      "text": "披萨在烤箱里。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "a2f1ddc5a4f1fa82",
+      "seconds": 1.67
+    },
+    "zh/69_word": {
+      "text": "烤箱",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "6aa2af415f033c8d",
+      "seconds": 0.81
+    },
+    "zh/6_phrase": {
+      "text": "一列火车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "13a46d850a2915ff",
+      "seconds": 1.17
+    },
+    "zh/6_sentence": {
+      "text": "火车九点出发。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c4b116bfc3d267b0",
+      "seconds": 1.67
+    },
+    "zh/6_word": {
+      "text": "火车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fbe501fe8476cba1",
+      "seconds": 0.82
+    },
+    "zh/70_phrase": {
+      "text": "一台烤面包机",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "14ecd11334c82824",
+      "seconds": 1.58
+    },
+    "zh/70_sentence": {
+      "text": "我把面包放进烤面包机。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9008339869adf344",
+      "seconds": 2.52
+    },
+    "zh/70_word": {
+      "text": "烤面包机",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "aee10b2cc5f0947b",
+      "seconds": 1.11
+    },
+    "zh/71_phrase": {
+      "text": "一个水槽",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9605c77d0cfbdfe4",
+      "seconds": 1.12
+    },
+    "zh/71_sentence": {
+      "text": "在水槽里洗碗。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "b6ba1405a69200b0",
+      "seconds": 1.65
+    },
+    "zh/71_word": {
+      "text": "水槽",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "a92506a63f4576ba",
+      "seconds": 0.88
+    },
+    "zh/72_phrase": {
+      "text": "一台冰箱",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "39b10fa66e00b390",
+      "seconds": 1.13
+    },
+    "zh/72_sentence": {
+      "text": "牛奶在冰箱里。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d8b993cb981dd2c2",
+      "seconds": 1.59
+    },
+    "zh/72_word": {
+      "text": "冰箱",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "23e0e4b2f7aa79c8",
+      "seconds": 0.67
+    },
+    "zh/73_phrase": {
+      "text": "一本书",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0193bf85f758ce65",
+      "seconds": 0.87
+    },
+    "zh/73_sentence": {
+      "text": "我在看一本好书。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d710f3000a420eb7",
+      "seconds": 1.73
+    },
+    "zh/73_word": {
+      "text": "书",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "e791c352d7bf4666",
+      "seconds": 0.44
+    },
+    "zh/74_phrase": {
+      "text": "一个钟",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "2147626448a2999b",
+      "seconds": 0.84
+    },
+    "zh/74_sentence": {
+      "text": "看看钟，已经很晚了。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0bab61f80e385abf",
+      "seconds": 2.64
+    },
+    "zh/74_word": {
+      "text": "钟",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "5026faca871eedf5",
+      "seconds": 0.45
+    },
+    "zh/75_phrase": {
+      "text": "一个花瓶",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "cf710b5f29a2c73f",
+      "seconds": 1.12
+    },
+    "zh/75_sentence": {
+      "text": "把花放进花瓶里。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9c47f4876c54d905",
+      "seconds": 1.87
+    },
+    "zh/75_word": {
+      "text": "花瓶",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "da25409705eaf219",
+      "seconds": 0.74
+    },
+    "zh/76_phrase": {
+      "text": "一把剪刀",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d1edbe51059c2d47",
+      "seconds": 1.11
+    },
+    "zh/76_sentence": {
+      "text": "用剪刀剪纸。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "9e797a7d7142176b",
+      "seconds": 1.54
+    },
+    "zh/76_word": {
+      "text": "剪刀",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "408ac93efb34498d",
+      "seconds": 0.74
+    },
+    "zh/77_phrase": {
+      "text": "一只泰迪熊",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c754dac62ce8db2c",
+      "seconds": 1.31
+    },
+    "zh/77_sentence": {
+      "text": "宝宝抱着泰迪熊。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "1598417197ca429b",
+      "seconds": 1.81
+    },
+    "zh/77_word": {
+      "text": "泰迪熊",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "189b55353e5ba1c7",
+      "seconds": 0.97
+    },
+    "zh/78_phrase": {
+      "text": "一个吹风机",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "130a3ef5e98f8e0e",
+      "seconds": 1.35
+    },
+    "zh/78_sentence": {
+      "text": "吹风机很热。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "85b8e80c2cddd66f",
+      "seconds": 1.61
+    },
+    "zh/78_word": {
+      "text": "吹风机",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "af338144ffa9e040",
+      "seconds": 0.96
+    },
+    "zh/79_phrase": {
+      "text": "一支牙刷",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "96205a9337bb9d8b",
+      "seconds": 1.05
+    },
+    "zh/79_sentence": {
+      "text": "我需要一支新牙刷。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "0f06e8e73f754e12",
+      "seconds": 1.99
+    },
+    "zh/79_word": {
+      "text": "牙刷",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fa5351117cf2b3dd",
+      "seconds": 0.71
+    },
+    "zh/7_phrase": {
+      "text": "一辆卡车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "fba9fc26fe55044c",
+      "seconds": 1.23
+    },
+    "zh/7_sentence": {
+      "text": "卡车在运箱子。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "c248c605533be76f",
+      "seconds": 1.78
+    },
+    "zh/7_word": {
+      "text": "卡车",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "40284b2cb957d0b0",
+      "seconds": 0.79
+    },
+    "zh/8_phrase": {
+      "text": "一艘船",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "4439a081749853b9",
+      "seconds": 0.91
+    },
+    "zh/8_sentence": {
+      "text": "我们在湖上划船。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "757ed3ea7c9b7e24",
+      "seconds": 1.81
+    },
+    "zh/8_word": {
+      "text": "船",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "3f3db8dd4c32fd72",
+      "seconds": 0.47
+    },
+    "zh/9_phrase": {
+      "text": "一个红绿灯",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "8ad85f40d664e9f0",
+      "seconds": 1.23
+    },
+    "zh/9_sentence": {
+      "text": "红绿灯变红了。",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "d5800b705c0680a2",
+      "seconds": 1.6
+    },
+    "zh/9_word": {
+      "text": "红绿灯",
+      "voice": "zh_CN-chaowen-medium",
+      "hash": "2f23ad4eb8a52c1b",
+      "seconds": 0.89
+    }
+  }
+}

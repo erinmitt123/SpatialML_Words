@@ -1,0 +1,550 @@
+{
+  "tensors": {
+    "vst_left": {
+      "dimensions": [
+        640,
+        640
+      ],
+      "channels": 3,
+      "data_type": 1,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "vst_right": {
+      "dimensions": [
+        640,
+        640
+      ],
+      "channels": 3,
+      "data_type": 1,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "vst_timestamp": {
+      "tensor_type": "timestamp",
+      "is_placeholder": false,
+      "value": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "vst_camera_matrix": {
+      "dimensions": [
+        3,
+        3
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "image_f32": {
+      "dimensions": [
+        640,
+        640
+      ],
+      "channels": 3,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "model_output": {
+      "dimensions": [
+        8400,
+        85
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "candidate_scores": {
+      "dimensions": [
+        128,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "candidate_boxes": {
+      "dimensions": [
+        128,
+        4
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "candidate_classes": {
+      "dimensions": [
+        128,
+        1
+      ],
+      "channels": 1,
+      "data_type": 5,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "boxes_for_nms": {
+      "dimensions": [
+        128,
+        4
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "offset_nms_boxes": {
+      "dimensions": [
+        32,
+        4
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "nms_scores": {
+      "dimensions": [
+        32,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "nms_indices": {
+      "dimensions": [
+        32,
+        1
+      ],
+      "channels": 1,
+      "data_type": 5,
+      "is_placeholder": false,
+      "usage": 6
+    },
+    "image_points_mat": {
+      "dimensions": [
+        160,
+        2
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "usage": 6,
+      "is_placeholder": false
+    },
+    "image_points": {
+      "dimensions": [
+        160
+      ],
+      "channels": 2,
+      "data_type": 5,
+      "usage": 1,
+      "is_placeholder": false
+    },
+    "point_xyz": {
+      "dimensions": [
+        160,
+        3
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "usage": 6,
+      "is_placeholder": false
+    },
+    "right_eye_transform": {
+      "dimensions": [
+        4,
+        4
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "usage": 6,
+      "is_placeholder": false
+    },
+    "left_eye_transform": {
+      "dimensions": [
+        4,
+        4
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "usage": 6,
+      "is_placeholder": false
+    },
+    "frame_counter": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "usage": 6,
+      "is_placeholder": false,
+      "data": [
+        0
+      ]
+    },
+    "next_counter": {
+      "dimensions": [
+        1,
+        1
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "usage": 6,
+      "is_placeholder": false
+    },
+    "detections": {
+      "dimensions": [
+        33,
+        20
+      ],
+      "channels": 1,
+      "data_type": 6,
+      "usage": 6,
+      "is_placeholder": true
+    }
+  },
+  "operators": [
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_RECTIFIED_VST_ACCESS_PICO",
+      "inputs": [],
+      "outputs": [
+        "vst_right",
+        "vst_left",
+        "vst_timestamp",
+        "vst_camera_matrix"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        {
+          "tensor": "vst_left"
+        }
+      ],
+      "outputs": [
+        {
+          "tensor": "image_f32"
+        }
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_RUN_MODEL_INFERENCE_PICO",
+      "inputs": [
+        {
+          "name": "images",
+          "tensor": "image_f32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output0",
+          "tensor": "model_output"
+        }
+      ],
+      "model": {
+        "bin_path": "model/yolox_m.tflite",
+        "model_name": "yolox_m",
+        "model_type": "tflite",
+        "model_target": "gpu",
+        "input": [
+          {
+            "name": "images",
+            "shape": [
+              1,
+              640,
+              640,
+              3
+            ],
+            "encoding_type": "FP32"
+          }
+        ],
+        "output": [
+          {
+            "name": "output0",
+            "shape": [
+              1,
+              8400,
+              85
+            ],
+            "encoding_type": "FP32"
+          }
+        ]
+      }
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_RUN_MODEL_INFERENCE_PICO",
+      "inputs": [
+        {
+          "name": "predictions",
+          "tensor": "model_output"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "candidate_scores",
+          "tensor": "candidate_scores"
+        },
+        {
+          "name": "candidate_boxes",
+          "tensor": "candidate_boxes"
+        },
+        {
+          "name": "candidate_classes",
+          "tensor": "candidate_classes"
+        }
+      ],
+      "model": {
+        "bin_path": "model/yolox_postprocess.tflite",
+        "model_name": "yolox_postprocess",
+        "model_type": "tflite",
+        "model_target": "cpu",
+        "cpu_target_num_threads": 4,
+        "input": [
+          {
+            "name": "predictions",
+            "shape": [
+              1,
+              8400,
+              85
+            ],
+            "encoding_type": "FP32"
+          }
+        ],
+        "output": [
+          {
+            "name": "candidate_scores",
+            "shape": [
+              128,
+              1
+            ],
+            "encoding_type": "FP32"
+          },
+          {
+            "name": "candidate_boxes",
+            "shape": [
+              128,
+              4
+            ],
+            "encoding_type": "FP32"
+          },
+          {
+            "name": "candidate_classes",
+            "shape": [
+              128,
+              1
+            ],
+            "encoding_type": "INT32"
+          }
+        ]
+      }
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_JS_SCRIPTING_PICO",
+      "inputs": [
+        {
+          "name": "candidate_boxes",
+          "tensor": "candidate_boxes"
+        },
+        {
+          "name": "candidate_classes",
+          "tensor": "candidate_classes"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "boxes_for_nms",
+          "tensor": "boxes_for_nms"
+        }
+      ],
+      "attrs": [
+        "var candidate_boxes;var candidate_classes;var boxes_for_nms;for(var i=0;i<128;i++){var offset=candidate_classes[i]*1000.0;for(var c=0;c<4;c++)boxes_for_nms[i*4+c]=candidate_boxes[i*4+c]+offset;}"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_NMS_PICO",
+      "attrs": [
+        "0.5"
+      ],
+      "inputs": [
+        {
+          "tensor": "candidate_scores"
+        },
+        {
+          "tensor": "boxes_for_nms"
+        }
+      ],
+      "outputs": [
+        {
+          "tensor": "nms_scores"
+        },
+        {
+          "tensor": "offset_nms_boxes"
+        },
+        {
+          "tensor": "nms_indices"
+        }
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_JS_SCRIPTING_PICO",
+      "inputs": [
+        {
+          "name": "candidate_boxes",
+          "tensor": "candidate_boxes"
+        },
+        {
+          "name": "nms_indices",
+          "tensor": "nms_indices"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image_points_mat",
+          "tensor": "image_points_mat"
+        }
+      ],
+      "attrs": [
+        "// Sample the central area at five points; a hole or another object's edge must not own the depth.\nvar candidate_boxes;var nms_indices;var image_points_mat;\nfunction clip(x){return Math.max(0,Math.min(639,x));}\nvar offsets=[0.5,0.5,0.35,0.35,0.65,0.35,0.35,0.65,0.65,0.65];\nfor(var i=0;i<32;i++){var index=nms_indices[i];var b=index*4;var valid=index>=0&&index<128;\nvar x1=valid?clip(candidate_boxes[b]):0;var y1=valid?clip(candidate_boxes[b+1]):0;\nvar x2=valid?clip(candidate_boxes[b+2]):0;var y2=valid?clip(candidate_boxes[b+3]):0;\nfor(var s=0;s<5;s++){var p=(i*5+s)*2;\nimage_points_mat[p]=x1+(x2-x1)*offsets[s*2];\nimage_points_mat[p+1]=y1+(y2-y1)*offsets[s*2+1];}}"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        {
+          "tensor": "image_points_mat"
+        }
+      ],
+      "outputs": [
+        {
+          "tensor": "image_points"
+        }
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_UV_TO_3D_IN_CAM_SPACE_PICO",
+      "inputs": [
+        {
+          "tensor": "image_points"
+        },
+        {
+          "tensor": "vst_timestamp"
+        },
+        {
+          "tensor": "vst_camera_matrix"
+        },
+        {
+          "tensor": "vst_left"
+        },
+        {
+          "tensor": "vst_right"
+        }
+      ],
+      "outputs": [
+        {
+          "tensor": "point_xyz"
+        }
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_CAMERA_SPACE_TO_WORLD_PICO",
+      "inputs": [
+        {
+          "tensor": "vst_timestamp"
+        }
+      ],
+      "outputs": [
+        {
+          "tensor": "right_eye_transform"
+        },
+        {
+          "tensor": "left_eye_transform"
+        }
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_JS_SCRIPTING_PICO",
+      "inputs": [
+        {
+          "name": "candidate_boxes",
+          "tensor": "candidate_boxes"
+        },
+        {
+          "name": "candidate_classes",
+          "tensor": "candidate_classes"
+        },
+        {
+          "name": "nms_indices",
+          "tensor": "nms_indices"
+        },
+        {
+          "name": "nms_scores",
+          "tensor": "nms_scores"
+        },
+        {
+          "name": "point_xyz",
+          "tensor": "point_xyz"
+        },
+        {
+          "name": "vst_camera_matrix",
+          "tensor": "vst_camera_matrix"
+        },
+        {
+          "name": "left_eye_transform",
+          "tensor": "left_eye_transform"
+        },
+        {
+          "name": "frame_counter",
+          "tensor": "frame_counter"
+        },
+        {
+          "name": "vst_timestamp",
+          "tensor": "vst_timestamp"
+        },
+        {
+          "name": "candidate_scores",
+          "tensor": "candidate_scores"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "detections",
+          "tensor": "detections"
+        },
+        {
+          "name": "next_counter",
+          "tensor": "next_counter"
+        }
+      ],
+      "attrs": [
+        "// Word World detection packet: PICO yolo-mesh's live ray packet plus the stereo depth from its\n// original packing script (both from source B; see docs/porting-notes.md).\n// Row layout (20 floats): score, class, box width and height on the LEFT camera's one-metre plane,\n// then a row-major 4x4 HEAD-local pose whose translation is the box centre on that plane.\n// Lanes 16-18 (the pose's bottom row, always 0 in a rigid transform) carry extras:\n//   16: stereo axial depth in metres, or 0 when the five central samples do not agree. The app\n//       prefers the room mesh and falls back to this depth when the mesh has no surface there.\n//   17: candidate index, 18: the score NMS reported for the slot (diagnostics).\n// NMS output is fixed-size: on Swan, the trailing slots are padding that points at suppressed\n// candidates (overlapping copies of real detections) with an NMS score of 1.0 or 0.0. A real NMS\n// slot reports its candidate's own score, so only slots whose scores agree are packed, and each\n// candidate at most once. Lanes 17-18 keep the evidence visible in the app's raw-slot log.\nvar candidate_boxes;\nvar candidate_classes;\nvar nms_indices;\nvar nms_scores;\nvar candidate_scores;\nvar point_xyz;\nvar vst_camera_matrix;\nvar left_eye_transform;\nvar detections;\nvar frame_counter;\nvar next_counter;\nvar vst_timestamp;\nfor (var m = 0; m < 660; m++) detections[m] = 0;\nnext_counter[0] = frame_counter[0] + 1;\ndetections[640] = next_counter[0];\nfor (var k = 0; k < 16; k++) detections[641 + k] = left_eye_transform[k];\ndetections[657] = vst_timestamp[1];\ndetections[658] = Math.floor(vst_timestamp[3] / 1000000);\ndetections[659] = vst_timestamp[3] % 1000000;\nvar packed = [];\nfor (var i = 0; i < 32; i++) {\n    var index = nms_indices[i];\n    if (index < 0 || index >= 128 || packed.indexOf(index) >= 0) continue;\n    var score = candidate_scores[index];\n    if (!(score >= 0.5) || score > 1 || Math.abs(nms_scores[i] - score) > 0.001) continue;\n    packed.push(index);\n    var b = index * 4, out = i * 20;\n    var x1 = Math.max(0, Math.min(639, candidate_boxes[b]));\n    var y1 = Math.max(0, Math.min(639, candidate_boxes[b + 1]));\n    var x2 = Math.max(0, Math.min(639, candidate_boxes[b + 2]));\n    var y2 = Math.max(0, Math.min(639, candidate_boxes[b + 3]));\n    var fx = vst_camera_matrix[0], fy = vst_camera_matrix[4];\n    if (fx <= 0 || fy <= 0 || !isFinite(x1 + y1 + x2 + y2 + fx + fy) || x2 <= x1 || y2 <= y1) continue;\n    var x = ((x1 + x2) * 0.5 - vst_camera_matrix[2]) / fx;\n    var y = -((y1 + y2) * 0.5 - vst_camera_matrix[5]) / fy;\n    detections[out] = score;\n    detections[out + 1] = candidate_classes[index];\n    detections[out + 2] = (x2 - x1) / fx;\n    detections[out + 3] = (y2 - y1) / fy;\n    for (var r = 0; r < 4; r++) {\n        for (var c = 0; c < 3; c++) detections[out + 4 + r * 4 + c] = left_eye_transform[r * 4 + c];\n        detections[out + 7 + r * 4] = left_eye_transform[r * 4] * x +\n            left_eye_transform[r * 4 + 1] * y - left_eye_transform[r * 4 + 2] + left_eye_transform[r * 4 + 3];\n    }\n    // After the pose loop, which writes the bottom row.\n    detections[out + 17] = index;\n    detections[out + 18] = nms_scores[i];\n    // Stereo depth: a hole or another object's edge must not own the depth, so require 3 of the\n    // 5 central samples to agree with their median.\n    var depths = [];\n    for (var s = 0; s < 5; s++) {\n        var measured = -point_xyz[(i * 5 + s) * 3 + 2];\n        if (isFinite(measured) && measured >= 0.2 && measured <= 10) depths.push(measured);\n    }\n    if (depths.length < 3) continue;\n    depths.sort(function (a, b) { return a - b; });\n    var depth = depths[Math.floor(depths.length / 2)];\n    var tolerance = Math.max(0.1, depth * 0.05), supporting = 0;\n    for (var d = 0; d < depths.length; d++) if (Math.abs(depths[d] - depth) <= tolerance) supporting++;\n    if (supporting >= 3) detections[out + 16] = depth;\n}\n"
+      ]
+    },
+    {
+      "type": "XR_SECURE_MR_OPERATOR_TYPE_ASSIGNMENT_PICO",
+      "inputs": [
+        {
+          "tensor": "next_counter"
+        }
+      ],
+      "outputs": [
+        {
+          "tensor": "frame_counter"
+        }
+      ]
+    }
+  ],
+  "inputs": [],
+  "outputs": [
+    "detections"
+  ]
+}

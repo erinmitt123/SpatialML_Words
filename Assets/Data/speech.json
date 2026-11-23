@@ -1,0 +1,3988 @@
+{
+ "notes": "Built from Assets/Languages/vocabulary.csv by tools/build_speech.py; do not edit by hand. Each line is split into the words its Vosk model knows.",
+ "models": {
+  "zh": "vosk-model-small-cn-0.22",
+  "es": "vosk-model-small-es-0.42",
+  "fr": "vosk-model-small-fr-0.22",
+  "de": "vosk-model-small-de-0.15",
+  "en": "vosk-model-small-en-us-0.15"
+ },
+ "languages": [
+  {
+   "language": "zh",
+   "model": "vosk-model-small-cn-0.22",
+   "entries": [
+    {
+     "classIndex": 0,
+     "word": "人",
+     "phrase": "一个人",
+     "sentence": "这里 有一个人",
+     "phraseKey": "人",
+     "sentenceKey": "人",
+     "unknown": ""
+    },
+    {
+     "classIndex": 1,
+     "word": "自行车",
+     "phrase": "一辆 自行车",
+     "sentence": "我 骑 自行车 上班",
+     "phraseKey": "自行车",
+     "sentenceKey": "自行车",
+     "unknown": ""
+    },
+    {
+     "classIndex": 2,
+     "word": "汽车",
+     "phrase": "一辆 汽车",
+     "sentence": "这 辆 汽车 很快",
+     "phraseKey": "汽车",
+     "sentenceKey": "汽车",
+     "unknown": ""
+    },
+    {
+     "classIndex": 3,
+     "word": "摩托车",
+     "phrase": "一辆 摩托车",
+     "sentence": "他 骑 摩托车",
+     "phraseKey": "摩托车",
+     "sentenceKey": "摩托车",
+     "unknown": ""
+    },
+    {
+     "classIndex": 4,
+     "word": "飞机",
+     "phrase": "一架 飞机",
+     "sentence": "飞机 在天 上",
+     "phraseKey": "飞机",
+     "sentenceKey": "飞机",
+     "unknown": ""
+    },
+    {
+     "classIndex": 5,
+     "word": "公交车",
+     "phrase": "一辆 公交车",
+     "sentence": "我 坐 公交车上 学",
+     "phraseKey": "公交车",
+     "sentenceKey": "公交车",
+     "unknown": ""
+    },
+    {
+     "classIndex": 6,
+     "word": "火车",
+     "phrase": "一列 火车",
+     "sentence": "火车 九点 出发",
+     "phraseKey": "火车",
+     "sentenceKey": "火车",
+     "unknown": ""
+    },
+    {
+     "classIndex": 7,
+     "word": "卡车",
+     "phrase": "一辆 卡车",
+     "sentence": "卡车 在 运 箱子",
+     "phraseKey": "卡车",
+     "sentenceKey": "卡车",
+     "unknown": ""
+    },
+    {
+     "classIndex": 8,
+     "word": "船",
+     "phrase": "一艘船",
+     "sentence": "我们 在 湖上 划船",
+     "phraseKey": "船",
+     "sentenceKey": "船",
+     "unknown": ""
+    },
+    {
+     "classIndex": 9,
+     "word": "红绿灯",
+     "phrase": "一个 红绿灯",
+     "sentence": "红绿灯 变 红 了",
+     "phraseKey": "红绿灯",
+     "sentenceKey": "红绿灯",
+     "unknown": ""
+    },
+    {
+     "classIndex": 10,
+     "word": "消防栓",
+     "phrase": "一个 消防栓",
+     "sentence": "消防栓 是 黄色 的",
+     "phraseKey": "消防栓",
+     "sentenceKey": "消防栓",
+     "unknown": ""
+    },
+    {
+     "classIndex": 11,
+     "word": "停车 标志",
+     "phrase": "一个 停车 标志",
+     "sentence": "在 停车 标志 前 停车",
+     "phraseKey": "停车 标志",
+     "sentenceKey": "停车 标志",
+     "unknown": ""
+    },
+    {
+     "classIndex": 12,
+     "word": "停车 计时器",
+     "phrase": "一个 停车 计时器",
+     "sentence": "在 停车 计时器 付费",
+     "phraseKey": "停车 计时器",
+     "sentenceKey": "停车 计时器",
+     "unknown": ""
+    },
+    {
+     "classIndex": 13,
+     "word": "长椅",
+     "phrase": "一张 长椅",
+     "sentence": "我们 坐 在 长椅 上",
+     "phraseKey": "长椅",
+     "sentenceKey": "长椅",
+     "unknown": ""
+    },
+    {
+     "classIndex": 14,
+     "word": "鸟",
+     "phrase": "一只 鸟",
+     "sentence": "小鸟 在 唱歌",
+     "phraseKey": "鸟",
+     "sentenceKey": "鸟",
+     "unknown": ""
+    },
+    {
+     "classIndex": 15,
+     "word": "猫",
+     "phrase": "一只猫",
+     "sentence": "猫 在 睡觉",
+     "phraseKey": "猫",
+     "sentenceKey": "猫",
+     "unknown": ""
+    },
+    {
+     "classIndex": 16,
+     "word": "狗",
+     "phrase": "一只狗",
+     "sentence": "狗 想出 去 玩",
+     "phraseKey": "狗",
+     "sentenceKey": "狗",
+     "unknown": ""
+    },
+    {
+     "classIndex": 17,
+     "word": "马",
+     "phrase": "一匹马",
+     "sentence": "马 跑 得 很快",
+     "phraseKey": "马",
+     "sentenceKey": "马",
+     "unknown": ""
+    },
+    {
+     "classIndex": 18,
+     "word": "羊",
+     "phrase": "一只 羊",
+     "sentence": "羊 在 吃 草",
+     "phraseKey": "羊",
+     "sentenceKey": "羊",
+     "unknown": ""
+    },
+    {
+     "classIndex": 19,
+     "word": "牛",
+     "phrase": "一头牛",
+     "sentence": "牛 给我 们 牛奶",
+     "phraseKey": "牛",
+     "sentenceKey": "牛",
+     "unknown": ""
+    },
+    {
+     "classIndex": 20,
+     "word": "大象",
+     "phrase": "一头 大象",
+     "sentence": "大象 很大",
+     "phraseKey": "大象",
+     "sentenceKey": "大象",
+     "unknown": ""
+    },
+    {
+     "classIndex": 21,
+     "word": "熊",
+     "phrase": "一只 熊",
+     "sentence": "熊 住在 森林里",
+     "phraseKey": "熊",
+     "sentenceKey": "熊",
+     "unknown": ""
+    },
+    {
+     "classIndex": 22,
+     "word": "斑马",
+     "phrase": "一匹 斑马",
+     "sentence": "斑马 身上 有 条纹",
+     "phraseKey": "斑马",
+     "sentenceKey": "斑马",
+     "unknown": ""
+    },
+    {
+     "classIndex": 23,
+     "word": "长颈鹿",
+     "phrase": "一只 长颈鹿",
+     "sentence": "长颈鹿 的 脖子 很 长",
+     "phraseKey": "长颈鹿",
+     "sentenceKey": "长颈鹿",
+     "unknown": ""
+    },
+    {
+     "classIndex": 24,
+     "word": "背包",
+     "phrase": "一个 背包",
+     "sentence": "我 的 背包 很 重",
+     "phraseKey": "背包",
+     "sentenceKey": "背包",
+     "unknown": ""
+    },
+    {
+     "classIndex": 25,
+     "word": "雨伞",
+     "phrase": "一把 雨伞",
+     "sentence": "下雨 了 带 上 雨伞",
+     "phraseKey": "雨伞",
+     "sentenceKey": "雨伞",
+     "unknown": ""
+    },
+    {
+     "classIndex": 26,
+     "word": "手提包",
+     "phrase": "一个 手提包",
+     "sentence": "我 的 钥匙 在 手提包 里",
+     "phraseKey": "手提包",
+     "sentenceKey": "手提包",
+     "unknown": ""
+    },
+    {
+     "classIndex": 27,
+     "word": "领带",
+     "phrase": "一条 领带",
+     "sentence": "他 上班 戴 领带",
+     "phraseKey": "领带",
+     "sentenceKey": "领带",
+     "unknown": ""
+    },
+    {
+     "classIndex": 28,
+     "word": "行李箱",
+     "phrase": "一个 行李箱",
+     "sentence": "行李箱 已经 收拾 好 了",
+     "phraseKey": "行李箱",
+     "sentenceKey": "行李箱",
+     "unknown": ""
+    },
+    {
+     "classIndex": 29,
+     "word": "飞盘",
+     "phrase": "一个 飞盘",
+     "sentence": "把 飞盘 扔 给我",
+     "phraseKey": "飞盘",
+     "sentenceKey": "飞盘",
+     "unknown": ""
+    },
+    {
+     "classIndex": 30,
+     "word": "滑雪板",
+     "phrase": "一副 滑雪板",
+     "sentence": "我 的 滑雪板 在 门边",
+     "phraseKey": "滑雪板",
+     "sentenceKey": "滑雪板",
+     "unknown": ""
+    },
+    {
+     "classIndex": 31,
+     "word": "单板 滑雪板",
+     "phrase": "一块 单板 滑雪板",
+     "sentence": "冬天 我 用 单板 滑雪板 滑雪",
+     "phraseKey": "单板 滑雪板",
+     "sentenceKey": "单板 滑雪板",
+     "unknown": ""
+    },
+    {
+     "classIndex": 32,
+     "word": "球",
+     "phrase": "一个 球",
+     "sentence": "把 球 传 给我",
+     "phraseKey": "球",
+     "sentenceKey": "球",
+     "unknown": ""
+    },
+    {
+     "classIndex": 33,
+     "word": "风筝",
+     "phrase": "一只 风筝",
+     "sentence": "风筝 飞 得 很高",
+     "phraseKey": "风筝",
+     "sentenceKey": "风筝",
+     "unknown": ""
+    },
+    {
+     "classIndex": 34,
+     "word": "棒球 棒",
+     "phrase": "一根 棒球 棒",
+     "sentence": "棒球 棒 很 重",
+     "phraseKey": "棒球 棒",
+     "sentenceKey": "棒球 棒",
+     "unknown": ""
+    },
+    {
+     "classIndex": 35,
+     "word": "棒球 手套",
+     "phrase": "一只 棒球 手套",
+     "sentence": "我 的 棒球 手套 很 旧",
+     "phraseKey": "棒球 手套",
+     "sentenceKey": "棒球 手套",
+     "unknown": ""
+    },
+    {
+     "classIndex": 36,
+     "word": "滑板",
+     "phrase": "一块 滑板",
+     "sentence": "她 在 玩 滑板",
+     "phraseKey": "滑板",
+     "sentenceKey": "滑板",
+     "unknown": ""
+    },
+    {
+     "classIndex": 37,
+     "word": "冲浪 板",
+     "phrase": "一块 冲浪 板",
+     "sentence": "冲浪 板 在 海滩 上",
+     "phraseKey": "冲浪 板",
+     "sentenceKey": "冲浪 板",
+     "unknown": ""
+    },
+    {
+     "classIndex": 38,
+     "word": "网球 拍",
+     "phrase": "一把 网球 拍",
+     "sentence": "这 把 网球 拍 是 新 的",
+     "phraseKey": "网球 拍",
+     "sentenceKey": "网球 拍",
+     "unknown": ""
+    },
+    {
+     "classIndex": 39,
+     "word": "瓶子",
+     "phrase": "一个 瓶子",
+     "sentence": "瓶子 是 空 的",
+     "phraseKey": "瓶子",
+     "sentenceKey": "瓶子",
+     "unknown": ""
+    },
+    {
+     "classIndex": 40,
+     "word": "酒杯",
+     "phrase": "一个 酒杯",
+     "sentence": "酒杯 满 了",
+     "phraseKey": "酒杯",
+     "sentenceKey": "酒杯",
+     "unknown": ""
+    },
+    {
+     "classIndex": 41,
+     "word": "杯子",
+     "phrase": "一个 杯子",
+     "sentence": "我 用 这个 杯子 喝咖啡",
+     "phraseKey": "杯子",
+     "sentenceKey": "杯子",
+     "unknown": ""
+    },
+    {
+     "classIndex": 42,
+     "word": "叉子",
+     "phrase": "一把 叉子",
+     "sentence": "我 用 叉子 吃饭",
+     "phraseKey": "叉子",
+     "sentenceKey": "叉子",
+     "unknown": ""
+    },
+    {
+     "classIndex": 43,
+     "word": "刀",
+     "phrase": "一把 刀",
+     "sentence": "小心 刀 很 锋利",
+     "phraseKey": "刀",
+     "sentenceKey": "刀",
+     "unknown": ""
+    },
+    {
+     "classIndex": 44,
+     "word": "勺子",
+     "phrase": "一把 勺子",
+     "sentence": "我 用 勺子 喝汤",
+     "phraseKey": "勺子",
+     "sentenceKey": "勺子",
+     "unknown": ""
+    },
+    {
+     "classIndex": 45,
+     "word": "碗",
+     "phrase": "一个 碗",
+     "sentence": "碗 里 装满 了 米饭",
+     "phraseKey": "碗",
+     "sentenceKey": "碗",
+     "unknown": ""
+    },
+    {
+     "classIndex": 46,
+     "word": "香蕉",
+     "phrase": "一根 香蕉",
+     "sentence": "香蕉 是 黄色 的",
+     "phraseKey": "香蕉",
+     "sentenceKey": "香蕉",
+     "unknown": ""
+    },
+    {
+     "classIndex": 47,
+     "word": "苹果",
+     "phrase": "一个 苹果",
+     "sentence": "我 每天 吃 一个 苹果",
+     "phraseKey": "苹果",
+     "sentenceKey": "苹果",
+     "unknown": ""
+    },
+    {
+     "classIndex": 48,
+     "word": "三明治",
+     "phrase": "一个三 明治",
+     "sentence": "我 在 做 三明治",
+     "phraseKey": "三明治",
+     "sentenceKey": "三明治",
+     "unknown": ""
+    },
+    {
+     "classIndex": 49,
+     "word": "橙子",
+     "phrase": "一个 橙子",
+     "sentence": "我 在 剥 橙子",
+     "phraseKey": "橙子",
+     "sentenceKey": "橙子",
+     "unknown": ""
+    },
+    {
+     "classIndex": 50,
+     "word": "西兰花",
+     "phrase": "一棵 西兰花",
+     "sentence": "西兰花 很 健康",
+     "phraseKey": "西兰花",
+     "sentenceKey": "西兰花",
+     "unknown": ""
+    },
+    {
+     "classIndex": 51,
+     "word": "胡萝卜",
+     "phrase": "一根 胡萝卜",
+     "sentence": "兔子 在 吃 胡萝卜",
+     "phraseKey": "胡萝卜",
+     "sentenceKey": "胡萝卜",
+     "unknown": ""
+    },
+    {
+     "classIndex": 52,
+     "word": "热狗",
+     "phrase": "一个 热狗",
+     "sentence": "请 给我 一个 热狗",
+     "phraseKey": "热狗",
+     "sentenceKey": "热狗",
+     "unknown": ""
+    },
+    {
+     "classIndex": 53,
+     "word": "披萨",
+     "phrase": "一块 披萨",
+     "sentence": "今晚 我们 点 披萨 吧",
+     "phraseKey": "披萨",
+     "sentenceKey": "披萨",
+     "unknown": ""
+    },
+    {
+     "classIndex": 54,
+     "word": "甜甜圈",
+     "phrase": "一个 甜甜圈",
+     "sentence": "这个 甜甜圈 很 甜",
+     "phraseKey": "甜甜圈",
+     "sentenceKey": "甜甜圈",
+     "unknown": ""
+    },
+    {
+     "classIndex": 55,
+     "word": "蛋糕",
+     "phrase": "一块 蛋糕",
+     "sentence": "我 烤 了 一个 蛋糕",
+     "phraseKey": "蛋糕",
+     "sentenceKey": "蛋糕",
+     "unknown": ""
+    },
+    {
+     "classIndex": 56,
+     "word": "椅子",
+     "phrase": "一把 椅子",
+     "sentence": "请坐 在 椅子 上",
+     "phraseKey": "椅子",
+     "sentenceKey": "椅子",
+     "unknown": ""
+    },
+    {
+     "classIndex": 57,
+     "word": "沙发",
+     "phrase": "一张 沙发",
+     "sentence": "我 在 沙发 上 休息",
+     "phraseKey": "沙发",
+     "sentenceKey": "沙发",
+     "unknown": ""
+    },
+    {
+     "classIndex": 58,
+     "word": "盆栽",
+     "phrase": "一盆盆 栽",
+     "sentence": "每周 给 盆栽 浇水",
+     "phraseKey": "盆栽",
+     "sentenceKey": "盆栽",
+     "unknown": ""
+    },
+    {
+     "classIndex": 59,
+     "word": "床",
+     "phrase": "一张 床",
+     "sentence": "我 的 床 很舒服",
+     "phraseKey": "床",
+     "sentenceKey": "床",
+     "unknown": ""
+    },
+    {
+     "classIndex": 60,
+     "word": "桌子",
+     "phrase": "一张 桌子",
+     "sentence": "饭菜 在 桌子 上",
+     "phraseKey": "桌子",
+     "sentenceKey": "桌子",
+     "unknown": ""
+    },
+    {
+     "classIndex": 61,
+     "word": "马桶",
+     "phrase": "一个 马桶",
+     "sentence": "马桶 在 卫生间 里",
+     "phraseKey": "马桶",
+     "sentenceKey": "马桶",
+     "unknown": ""
+    },
+    {
+     "classIndex": 62,
+     "word": "电视",
+     "phrase": "一台 电视",
+     "sentence": "电视 开 着",
+     "phraseKey": "电视",
+     "sentenceKey": "电视",
+     "unknown": ""
+    },
+    {
+     "classIndex": 63,
+     "word": "笔记本 电脑",
+     "phrase": "一台 笔记本 电脑",
+     "sentence": "我 用笔 记 本 电脑 工作",
+     "phraseKey": "笔记本 电脑",
+     "sentenceKey": "笔记本 电脑",
+     "unknown": ""
+    },
+    {
+     "classIndex": 64,
+     "word": "鼠标",
+     "phrase": "一个 鼠标",
+     "sentence": "用 鼠标 点击",
+     "phraseKey": "鼠标",
+     "sentenceKey": "鼠标",
+     "unknown": ""
+    },
+    {
+     "classIndex": 65,
+     "word": "遥控器",
+     "phrase": "一个 遥控器",
+     "sentence": "遥控器 在 哪儿",
+     "phraseKey": "遥控器",
+     "sentenceKey": "遥控器",
+     "unknown": ""
+    },
+    {
+     "classIndex": 66,
+     "word": "键盘",
+     "phrase": "一个 键盘",
+     "sentence": "我 在 键盘 上 打字",
+     "phraseKey": "键盘",
+     "sentenceKey": "键盘",
+     "unknown": ""
+    },
+    {
+     "classIndex": 67,
+     "word": "手机",
+     "phrase": "一部 手机",
+     "sentence": "我的手 机 响 了",
+     "phraseKey": "手机",
+     "sentenceKey": "手机",
+     "unknown": ""
+    },
+    {
+     "classIndex": 68,
+     "word": "微波炉",
+     "phrase": "一台 微波炉",
+     "sentence": "用 微波炉 热饭",
+     "phraseKey": "微波炉",
+     "sentenceKey": "微波炉",
+     "unknown": ""
+    },
+    {
+     "classIndex": 69,
+     "word": "烤箱",
+     "phrase": "一台 烤箱",
+     "sentence": "披萨 在 烤箱 里",
+     "phraseKey": "烤箱",
+     "sentenceKey": "烤箱",
+     "unknown": ""
+    },
+    {
+     "classIndex": 70,
+     "word": "烤 面包机",
+     "phrase": "一台 烤 面包机",
+     "sentence": "我 把 面包 放 进 烤 面包机",
+     "phraseKey": "烤 面包机",
+     "sentenceKey": "烤 面包机",
+     "unknown": ""
+    },
+    {
+     "classIndex": 71,
+     "word": "水槽",
+     "phrase": "一个 水槽",
+     "sentence": "在 水槽 里 洗碗",
+     "phraseKey": "水槽",
+     "sentenceKey": "水槽",
+     "unknown": ""
+    },
+    {
+     "classIndex": 72,
+     "word": "冰箱",
+     "phrase": "一台 冰箱",
+     "sentence": "牛奶 在 冰箱 里",
+     "phraseKey": "冰箱",
+     "sentenceKey": "冰箱",
+     "unknown": ""
+    },
+    {
+     "classIndex": 73,
+     "word": "书",
+     "phrase": "一本 书",
+     "sentence": "我 在 看 一本 好书",
+     "phraseKey": "书",
+     "sentenceKey": "书",
+     "unknown": ""
+    },
+    {
+     "classIndex": 74,
+     "word": "钟",
+     "phrase": "一个 钟",
+     "sentence": "看看 钟 已经 很 晚 了",
+     "phraseKey": "钟",
+     "sentenceKey": "钟",
+     "unknown": ""
+    },
+    {
+     "classIndex": 75,
+     "word": "花瓶",
+     "phrase": "一个 花瓶",
+     "sentence": "把 花 放 进 花瓶 里",
+     "phraseKey": "花瓶",
+     "sentenceKey": "花瓶",
+     "unknown": ""
+    },
+    {
+     "classIndex": 76,
+     "word": "剪刀",
+     "phrase": "一把 剪刀",
+     "sentence": "用 剪刀 剪纸",
+     "phraseKey": "剪刀",
+     "sentenceKey": "剪刀",
+     "unknown": ""
+    },
+    {
+     "classIndex": 77,
+     "word": "泰迪熊",
+     "phrase": "一只 泰迪熊",
+     "sentence": "宝宝 抱着 泰迪熊",
+     "phraseKey": "泰迪熊",
+     "sentenceKey": "泰迪熊",
+     "unknown": ""
+    },
+    {
+     "classIndex": 78,
+     "word": "吹风机",
+     "phrase": "一个 吹风机",
+     "sentence": "吹风机 很 热",
+     "phraseKey": "吹风机",
+     "sentenceKey": "吹风机",
+     "unknown": ""
+    },
+    {
+     "classIndex": 79,
+     "word": "牙刷",
+     "phrase": "一支 牙刷",
+     "sentence": "我需要 一支 新 牙刷",
+     "phraseKey": "牙刷",
+     "sentenceKey": "牙刷",
+     "unknown": ""
+    }
+   ]
+  },
+  {
+   "language": "es",
+   "model": "vosk-model-small-es-0.42",
+   "entries": [
+    {
+     "classIndex": 0,
+     "word": "la persona",
+     "phrase": "una persona",
+     "sentence": "hay una persona aquí",
+     "noun": "persona",
+     "phraseKey": "persona",
+     "sentenceKey": "persona",
+     "unknown": ""
+    },
+    {
+     "classIndex": 1,
+     "word": "la bicicleta",
+     "phrase": "una bicicleta",
+     "sentence": "voy al trabajo en bicicleta",
+     "noun": "bicicleta",
+     "phraseKey": "bicicleta",
+     "sentenceKey": "bicicleta",
+     "unknown": ""
+    },
+    {
+     "classIndex": 2,
+     "word": "el carro",
+     "phrase": "un carro",
+     "sentence": "el carro es muy rápido",
+     "noun": "carro",
+     "phraseKey": "carro",
+     "sentenceKey": "carro",
+     "unknown": ""
+    },
+    {
+     "classIndex": 3,
+     "word": "la moto",
+     "phrase": "una moto",
+     "sentence": "él anda en moto",
+     "noun": "moto",
+     "phraseKey": "moto",
+     "sentenceKey": "moto",
+     "unknown": ""
+    },
+    {
+     "classIndex": 4,
+     "word": "el avión",
+     "phrase": "un avión",
+     "sentence": "el avión está en el cielo",
+     "noun": "avión",
+     "phraseKey": "avión",
+     "sentenceKey": "avión",
+     "unknown": ""
+    },
+    {
+     "classIndex": 5,
+     "word": "el autobús",
+     "phrase": "un autobús",
+     "sentence": "voy a la escuela en autobús",
+     "noun": "autobús",
+     "phraseKey": "autobús",
+     "sentenceKey": "autobús",
+     "unknown": ""
+    },
+    {
+     "classIndex": 6,
+     "word": "el tren",
+     "phrase": "un tren",
+     "sentence": "el tren sale a las nueve",
+     "noun": "tren",
+     "phraseKey": "tren",
+     "sentenceKey": "tren",
+     "unknown": ""
+    },
+    {
+     "classIndex": 7,
+     "word": "el camión",
+     "phrase": "un camión",
+     "sentence": "el camión lleva cajas",
+     "noun": "camión",
+     "phraseKey": "camión",
+     "sentenceKey": "camión",
+     "unknown": ""
+    },
+    {
+     "classIndex": 8,
+     "word": "el barco",
+     "phrase": "un barco",
+     "sentence": "vamos en barco por el lago",
+     "noun": "barco",
+     "phraseKey": "barco",
+     "sentenceKey": "barco",
+     "unknown": ""
+    },
+    {
+     "classIndex": 9,
+     "word": "el semáforo",
+     "phrase": "un semáforo",
+     "sentence": "el semáforo está en rojo",
+     "noun": "semáforo",
+     "phraseKey": "semáforo",
+     "sentenceKey": "semáforo",
+     "unknown": ""
+    },
+    {
+     "classIndex": 10,
+     "word": "el hidrante",
+     "phrase": "un hidrante",
+     "sentence": "el hidrante es amarillo",
+     "noun": "hidrante",
+     "phraseKey": "hidrante",
+     "sentenceKey": "hidrante",
+     "unknown": "hidrante"
+    },
+    {
+     "classIndex": 11,
+     "word": "la señal de alto",
+     "phrase": "una señal de alto",
+     "sentence": "detente en la señal de alto",
+     "noun": "señal de alto",
+     "phraseKey": "alto",
+     "sentenceKey": "alto",
+     "unknown": ""
+    },
+    {
+     "classIndex": 12,
+     "word": "el parquímetro",
+     "phrase": "un parquímetro",
+     "sentence": "paga en el parquímetro",
+     "noun": "parquímetro",
+     "phraseKey": "parquímetro",
+     "sentenceKey": "parquímetro",
+     "unknown": "parquímetro"
+    },
+    {
+     "classIndex": 13,
+     "word": "el banco",
+     "phrase": "un banco",
+     "sentence": "nos sentamos en el banco",
+     "noun": "banco",
+     "phraseKey": "banco",
+     "sentenceKey": "banco",
+     "unknown": ""
+    },
+    {
+     "classIndex": 14,
+     "word": "el pájaro",
+     "phrase": "un pájaro",
+     "sentence": "el pájaro está cantando",
+     "noun": "pájaro",
+     "phraseKey": "pájaro",
+     "sentenceKey": "pájaro",
+     "unknown": ""
+    },
+    {
+     "classIndex": 15,
+     "word": "el gato",
+     "phrase": "un gato",
+     "sentence": "el gato está durmiendo",
+     "noun": "gato",
+     "phraseKey": "gato",
+     "sentenceKey": "gato",
+     "unknown": ""
+    },
+    {
+     "classIndex": 16,
+     "word": "el perro",
+     "phrase": "un perro",
+     "sentence": "el perro quiere jugar",
+     "noun": "perro",
+     "phraseKey": "perro",
+     "sentenceKey": "perro",
+     "unknown": ""
+    },
+    {
+     "classIndex": 17,
+     "word": "el caballo",
+     "phrase": "un caballo",
+     "sentence": "el caballo corre rápido",
+     "noun": "caballo",
+     "phraseKey": "caballo",
+     "sentenceKey": "caballo",
+     "unknown": ""
+    },
+    {
+     "classIndex": 18,
+     "word": "la oveja",
+     "phrase": "una oveja",
+     "sentence": "la oveja come pasto",
+     "noun": "oveja",
+     "phraseKey": "oveja",
+     "sentenceKey": "oveja",
+     "unknown": ""
+    },
+    {
+     "classIndex": 19,
+     "word": "la vaca",
+     "phrase": "una vaca",
+     "sentence": "la vaca nos da leche",
+     "noun": "vaca",
+     "phraseKey": "vaca",
+     "sentenceKey": "vaca",
+     "unknown": ""
+    },
+    {
+     "classIndex": 20,
+     "word": "el elefante",
+     "phrase": "un elefante",
+     "sentence": "el elefante es muy grande",
+     "noun": "elefante",
+     "phraseKey": "elefante",
+     "sentenceKey": "elefante",
+     "unknown": ""
+    },
+    {
+     "classIndex": 21,
+     "word": "el oso",
+     "phrase": "un oso",
+     "sentence": "el oso vive en el bosque",
+     "noun": "oso",
+     "phraseKey": "oso",
+     "sentenceKey": "oso",
+     "unknown": ""
+    },
+    {
+     "classIndex": 22,
+     "word": "la cebra",
+     "phrase": "una cebra",
+     "sentence": "la cebra tiene rayas",
+     "noun": "cebra",
+     "phraseKey": "cebra",
+     "sentenceKey": "cebra",
+     "unknown": ""
+    },
+    {
+     "classIndex": 23,
+     "word": "la jirafa",
+     "phrase": "una jirafa",
+     "sentence": "la jirafa tiene el cuello largo",
+     "noun": "jirafa",
+     "phraseKey": "jirafa",
+     "sentenceKey": "jirafa",
+     "unknown": ""
+    },
+    {
+     "classIndex": 24,
+     "word": "la mochila",
+     "phrase": "una mochila",
+     "sentence": "mi mochila pesa mucho",
+     "noun": "mochila",
+     "phraseKey": "mochila",
+     "sentenceKey": "mochila",
+     "unknown": ""
+    },
+    {
+     "classIndex": 25,
+     "word": "el paraguas",
+     "phrase": "un paraguas",
+     "sentence": "llueve lleva el paraguas",
+     "noun": "paraguas",
+     "phraseKey": "paraguas",
+     "sentenceKey": "paraguas",
+     "unknown": ""
+    },
+    {
+     "classIndex": 26,
+     "word": "la bolsa",
+     "phrase": "una bolsa",
+     "sentence": "mis llaves están en la bolsa",
+     "noun": "bolsa",
+     "phraseKey": "bolsa",
+     "sentenceKey": "bolsa",
+     "unknown": ""
+    },
+    {
+     "classIndex": 27,
+     "word": "la corbata",
+     "phrase": "una corbata",
+     "sentence": "lleva corbata al trabajo",
+     "noun": "corbata",
+     "phraseKey": "corbata",
+     "sentenceKey": "corbata",
+     "unknown": ""
+    },
+    {
+     "classIndex": 28,
+     "word": "la maleta",
+     "phrase": "una maleta",
+     "sentence": "la maleta está lista",
+     "noun": "maleta",
+     "phraseKey": "maleta",
+     "sentenceKey": "maleta",
+     "unknown": ""
+    },
+    {
+     "classIndex": 29,
+     "word": "el frisbee",
+     "phrase": "un frisbee",
+     "sentence": "lánzame el frisbee",
+     "noun": "frisbee",
+     "phraseKey": "frisbee",
+     "sentenceKey": "frisbee",
+     "unknown": "frisbee lánzame"
+    },
+    {
+     "classIndex": 30,
+     "word": "los esquís",
+     "phrase": "unos esquís",
+     "sentence": "mis esquís están junto a la puerta",
+     "noun": "esquís",
+     "phraseKey": "esquís",
+     "sentenceKey": "esquís",
+     "unknown": ""
+    },
+    {
+     "classIndex": 31,
+     "word": "la tabla de snowboard",
+     "phrase": "una tabla de snowboard",
+     "sentence": "en invierno voy en snowboard",
+     "noun": "tabla de snowboard",
+     "phraseKey": "snowboard",
+     "sentenceKey": "snowboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 32,
+     "word": "la pelota",
+     "phrase": "una pelota",
+     "sentence": "pásame la pelota",
+     "noun": "pelota",
+     "phraseKey": "pelota",
+     "sentenceKey": "pelota",
+     "unknown": ""
+    },
+    {
+     "classIndex": 33,
+     "word": "el papalote",
+     "phrase": "un papalote",
+     "sentence": "el papalote vuela alto",
+     "noun": "papalote",
+     "phraseKey": "papalote",
+     "sentenceKey": "papalote",
+     "unknown": ""
+    },
+    {
+     "classIndex": 34,
+     "word": "el bate de béisbol",
+     "phrase": "un bate de béisbol",
+     "sentence": "el bate de béisbol pesa",
+     "noun": "bate de béisbol",
+     "phraseKey": "béisbol",
+     "sentenceKey": "béisbol",
+     "unknown": ""
+    },
+    {
+     "classIndex": 35,
+     "word": "el guante de béisbol",
+     "phrase": "un guante de béisbol",
+     "sentence": "mi guante de béisbol es viejo",
+     "noun": "guante de béisbol",
+     "phraseKey": "béisbol",
+     "sentenceKey": "béisbol",
+     "unknown": ""
+    },
+    {
+     "classIndex": 36,
+     "word": "la patineta",
+     "phrase": "una patineta",
+     "sentence": "ella anda en patineta",
+     "noun": "patineta",
+     "phraseKey": "patineta",
+     "sentenceKey": "patineta",
+     "unknown": ""
+    },
+    {
+     "classIndex": 37,
+     "word": "la tabla de surf",
+     "phrase": "una tabla de surf",
+     "sentence": "la tabla de surf está en la playa",
+     "noun": "tabla de surf",
+     "phraseKey": "surf",
+     "sentenceKey": "surf",
+     "unknown": ""
+    },
+    {
+     "classIndex": 38,
+     "word": "la raqueta de tenis",
+     "phrase": "una raqueta de tenis",
+     "sentence": "la raqueta de tenis es nueva",
+     "noun": "raqueta de tenis",
+     "phraseKey": "tenis",
+     "sentenceKey": "tenis",
+     "unknown": ""
+    },
+    {
+     "classIndex": 39,
+     "word": "la botella",
+     "phrase": "una botella",
+     "sentence": "la botella está vacía",
+     "noun": "botella",
+     "phraseKey": "botella",
+     "sentenceKey": "botella",
+     "unknown": ""
+    },
+    {
+     "classIndex": 40,
+     "word": "la copa de vino",
+     "phrase": "una copa de vino",
+     "sentence": "la copa de vino está llena",
+     "noun": "copa de vino",
+     "phraseKey": "vino",
+     "sentenceKey": "vino",
+     "unknown": ""
+    },
+    {
+     "classIndex": 41,
+     "word": "la taza",
+     "phrase": "una taza",
+     "sentence": "tomo café en esta taza",
+     "noun": "taza",
+     "phraseKey": "taza",
+     "sentenceKey": "taza",
+     "unknown": ""
+    },
+    {
+     "classIndex": 42,
+     "word": "el tenedor",
+     "phrase": "un tenedor",
+     "sentence": "como con el tenedor",
+     "noun": "tenedor",
+     "phraseKey": "tenedor",
+     "sentenceKey": "tenedor",
+     "unknown": ""
+    },
+    {
+     "classIndex": 43,
+     "word": "el cuchillo",
+     "phrase": "un cuchillo",
+     "sentence": "cuidado el cuchillo corta",
+     "noun": "cuchillo",
+     "phraseKey": "cuchillo",
+     "sentenceKey": "cuchillo",
+     "unknown": ""
+    },
+    {
+     "classIndex": 44,
+     "word": "la cuchara",
+     "phrase": "una cuchara",
+     "sentence": "tomo la sopa con la cuchara",
+     "noun": "cuchara",
+     "phraseKey": "cuchara",
+     "sentenceKey": "cuchara",
+     "unknown": ""
+    },
+    {
+     "classIndex": 45,
+     "word": "el tazón",
+     "phrase": "un tazón",
+     "sentence": "el tazón está lleno de arroz",
+     "noun": "tazón",
+     "phraseKey": "tazón",
+     "sentenceKey": "tazón",
+     "unknown": ""
+    },
+    {
+     "classIndex": 46,
+     "word": "el plátano",
+     "phrase": "un plátano",
+     "sentence": "el plátano es amarillo",
+     "noun": "plátano",
+     "phraseKey": "plátano",
+     "sentenceKey": "plátano",
+     "unknown": ""
+    },
+    {
+     "classIndex": 47,
+     "word": "la manzana",
+     "phrase": "una manzana",
+     "sentence": "como una manzana todos los días",
+     "noun": "manzana",
+     "phraseKey": "manzana",
+     "sentenceKey": "manzana",
+     "unknown": ""
+    },
+    {
+     "classIndex": 48,
+     "word": "el sándwich",
+     "phrase": "un sándwich",
+     "sentence": "estoy haciendo un sándwich",
+     "noun": "sándwich",
+     "phraseKey": "sándwich",
+     "sentenceKey": "sándwich",
+     "unknown": ""
+    },
+    {
+     "classIndex": 49,
+     "word": "la naranja",
+     "phrase": "una naranja",
+     "sentence": "pelo la naranja",
+     "noun": "naranja",
+     "phraseKey": "naranja",
+     "sentenceKey": "naranja",
+     "unknown": ""
+    },
+    {
+     "classIndex": 50,
+     "word": "el brócoli",
+     "phrase": "un brócoli",
+     "sentence": "el brócoli es saludable",
+     "noun": "brócoli",
+     "phraseKey": "brócoli",
+     "sentenceKey": "brócoli",
+     "unknown": ""
+    },
+    {
+     "classIndex": 51,
+     "word": "la zanahoria",
+     "phrase": "una zanahoria",
+     "sentence": "el conejo come una zanahoria",
+     "noun": "zanahoria",
+     "phraseKey": "zanahoria",
+     "sentenceKey": "zanahoria",
+     "unknown": ""
+    },
+    {
+     "classIndex": 52,
+     "word": "el hot dog",
+     "phrase": "un hot dog",
+     "sentence": "un hot dog por favor",
+     "noun": "hot dog",
+     "phraseKey": "dog",
+     "sentenceKey": "dog",
+     "unknown": ""
+    },
+    {
+     "classIndex": 53,
+     "word": "la pizza",
+     "phrase": "una pizza",
+     "sentence": "pidamos una pizza esta noche",
+     "noun": "pizza",
+     "phraseKey": "pizza",
+     "sentenceKey": "pizza",
+     "unknown": ""
+    },
+    {
+     "classIndex": 54,
+     "word": "la dona",
+     "phrase": "una dona",
+     "sentence": "esta dona es muy dulce",
+     "noun": "dona",
+     "phraseKey": "dona",
+     "sentenceKey": "dona",
+     "unknown": ""
+    },
+    {
+     "classIndex": 55,
+     "word": "el pastel",
+     "phrase": "un pastel",
+     "sentence": "hice un pastel",
+     "noun": "pastel",
+     "phraseKey": "pastel",
+     "sentenceKey": "pastel",
+     "unknown": ""
+    },
+    {
+     "classIndex": 56,
+     "word": "la silla",
+     "phrase": "una silla",
+     "sentence": "siéntate en la silla por favor",
+     "noun": "silla",
+     "phraseKey": "silla",
+     "sentenceKey": "silla",
+     "unknown": ""
+    },
+    {
+     "classIndex": 57,
+     "word": "el sofá",
+     "phrase": "un sofá",
+     "sentence": "descanso en el sofá",
+     "noun": "sofá",
+     "phraseKey": "sofá",
+     "sentenceKey": "sofá",
+     "unknown": ""
+    },
+    {
+     "classIndex": 58,
+     "word": "la planta",
+     "phrase": "una planta",
+     "sentence": "riega la planta cada semana",
+     "noun": "planta",
+     "phraseKey": "planta",
+     "sentenceKey": "planta",
+     "unknown": ""
+    },
+    {
+     "classIndex": 59,
+     "word": "la cama",
+     "phrase": "una cama",
+     "sentence": "mi cama es muy cómoda",
+     "noun": "cama",
+     "phraseKey": "cama",
+     "sentenceKey": "cama",
+     "unknown": ""
+    },
+    {
+     "classIndex": 60,
+     "word": "la mesa",
+     "phrase": "una mesa",
+     "sentence": "la cena está en la mesa",
+     "noun": "mesa",
+     "phraseKey": "mesa",
+     "sentenceKey": "mesa",
+     "unknown": ""
+    },
+    {
+     "classIndex": 61,
+     "word": "el inodoro",
+     "phrase": "un inodoro",
+     "sentence": "el inodoro está en el baño",
+     "noun": "inodoro",
+     "phraseKey": "inodoro",
+     "sentenceKey": "inodoro",
+     "unknown": ""
+    },
+    {
+     "classIndex": 62,
+     "word": "la televisión",
+     "phrase": "una televisión",
+     "sentence": "la televisión está prendida",
+     "noun": "televisión",
+     "phraseKey": "televisión",
+     "sentenceKey": "televisión",
+     "unknown": ""
+    },
+    {
+     "classIndex": 63,
+     "word": "la laptop",
+     "phrase": "una laptop",
+     "sentence": "trabajo en mi laptop",
+     "noun": "laptop",
+     "phraseKey": "laptop",
+     "sentenceKey": "laptop",
+     "unknown": ""
+    },
+    {
+     "classIndex": 64,
+     "word": "el mouse",
+     "phrase": "un mouse",
+     "sentence": "haz clic con el mouse",
+     "noun": "mouse",
+     "phraseKey": "mouse",
+     "sentenceKey": "mouse",
+     "unknown": ""
+    },
+    {
+     "classIndex": 65,
+     "word": "el control remoto",
+     "phrase": "un control remoto",
+     "sentence": "dónde está el control remoto",
+     "noun": "control remoto",
+     "phraseKey": "remoto",
+     "sentenceKey": "remoto",
+     "unknown": ""
+    },
+    {
+     "classIndex": 66,
+     "word": "el teclado",
+     "phrase": "un teclado",
+     "sentence": "escribo en el teclado",
+     "noun": "teclado",
+     "phraseKey": "teclado",
+     "sentenceKey": "teclado",
+     "unknown": ""
+    },
+    {
+     "classIndex": 67,
+     "word": "el celular",
+     "phrase": "un celular",
+     "sentence": "mi celular está sonando",
+     "noun": "celular",
+     "phraseKey": "celular",
+     "sentenceKey": "celular",
+     "unknown": ""
+    },
+    {
+     "classIndex": 68,
+     "word": "el microondas",
+     "phrase": "un microondas",
+     "sentence": "calienta la comida en el microondas",
+     "noun": "microondas",
+     "phraseKey": "microondas",
+     "sentenceKey": "microondas",
+     "unknown": ""
+    },
+    {
+     "classIndex": 69,
+     "word": "el horno",
+     "phrase": "un horno",
+     "sentence": "la pizza está en el horno",
+     "noun": "horno",
+     "phraseKey": "horno",
+     "sentenceKey": "horno",
+     "unknown": ""
+    },
+    {
+     "classIndex": 70,
+     "word": "el tostador",
+     "phrase": "un tostador",
+     "sentence": "pongo pan en el tostador",
+     "noun": "tostador",
+     "phraseKey": "tostador",
+     "sentenceKey": "tostador",
+     "unknown": ""
+    },
+    {
+     "classIndex": 71,
+     "word": "el fregadero",
+     "phrase": "un fregadero",
+     "sentence": "lava los platos en el fregadero",
+     "noun": "fregadero",
+     "phraseKey": "fregadero",
+     "sentenceKey": "fregadero",
+     "unknown": ""
+    },
+    {
+     "classIndex": 72,
+     "word": "el refrigerador",
+     "phrase": "un refrigerador",
+     "sentence": "la leche está en el refrigerador",
+     "noun": "refrigerador",
+     "phraseKey": "refrigerador",
+     "sentenceKey": "refrigerador",
+     "unknown": ""
+    },
+    {
+     "classIndex": 73,
+     "word": "el libro",
+     "phrase": "un libro",
+     "sentence": "estoy leyendo un buen libro",
+     "noun": "libro",
+     "phraseKey": "libro",
+     "sentenceKey": "libro",
+     "unknown": ""
+    },
+    {
+     "classIndex": 74,
+     "word": "el reloj",
+     "phrase": "un reloj",
+     "sentence": "mira el reloj es tarde",
+     "noun": "reloj",
+     "phraseKey": "reloj",
+     "sentenceKey": "reloj",
+     "unknown": ""
+    },
+    {
+     "classIndex": 75,
+     "word": "el florero",
+     "phrase": "un florero",
+     "sentence": "pon las flores en el florero",
+     "noun": "florero",
+     "phraseKey": "florero",
+     "sentenceKey": "flores florero",
+     "unknown": ""
+    },
+    {
+     "classIndex": 76,
+     "word": "las tijeras",
+     "phrase": "unas tijeras",
+     "sentence": "corta el papel con las tijeras",
+     "noun": "tijeras",
+     "phraseKey": "tijeras",
+     "sentenceKey": "tijeras",
+     "unknown": ""
+    },
+    {
+     "classIndex": 77,
+     "word": "el osito de peluche",
+     "phrase": "un osito de peluche",
+     "sentence": "el bebé abraza el osito de peluche",
+     "noun": "osito de peluche",
+     "phraseKey": "peluche",
+     "sentenceKey": "peluche",
+     "unknown": ""
+    },
+    {
+     "classIndex": 78,
+     "word": "la secadora de pelo",
+     "phrase": "una secadora de pelo",
+     "sentence": "la secadora de pelo está caliente",
+     "noun": "secadora de pelo",
+     "phraseKey": "pelo",
+     "sentenceKey": "pelo",
+     "unknown": ""
+    },
+    {
+     "classIndex": 79,
+     "word": "el cepillo de dientes",
+     "phrase": "un cepillo de dientes",
+     "sentence": "necesito un cepillo de dientes nuevo",
+     "noun": "cepillo de dientes",
+     "phraseKey": "dientes",
+     "sentenceKey": "dientes",
+     "unknown": ""
+    }
+   ]
+  },
+  {
+   "language": "fr",
+   "model": "vosk-model-small-fr-0.22",
+   "entries": [
+    {
+     "classIndex": 0,
+     "word": "la personne",
+     "phrase": "une personne",
+     "sentence": "il y a une personne ici",
+     "noun": "personne",
+     "phraseKey": "personne",
+     "sentenceKey": "personne",
+     "unknown": ""
+    },
+    {
+     "classIndex": 1,
+     "word": "le vélo",
+     "phrase": "un vélo",
+     "sentence": "je vais au travail à vélo",
+     "noun": "vélo",
+     "phraseKey": "vélo",
+     "sentenceKey": "vélo",
+     "unknown": ""
+    },
+    {
+     "classIndex": 2,
+     "word": "la voiture",
+     "phrase": "une voiture",
+     "sentence": "la voiture est très rapide",
+     "noun": "voiture",
+     "phraseKey": "voiture",
+     "sentenceKey": "voiture",
+     "unknown": ""
+    },
+    {
+     "classIndex": 3,
+     "word": "la moto",
+     "phrase": "une moto",
+     "sentence": "il roule à moto",
+     "noun": "moto",
+     "phraseKey": "moto",
+     "sentenceKey": "moto",
+     "unknown": ""
+    },
+    {
+     "classIndex": 4,
+     "word": "l'avion",
+     "phrase": "un avion",
+     "sentence": "l'avion est dans le ciel",
+     "noun": "avion",
+     "phraseKey": "avion",
+     "sentenceKey": "l'avion",
+     "unknown": ""
+    },
+    {
+     "classIndex": 5,
+     "word": "le bus",
+     "phrase": "un bus",
+     "sentence": "je prends le bus pour l'école",
+     "noun": "bus",
+     "phraseKey": "bus",
+     "sentenceKey": "bus",
+     "unknown": ""
+    },
+    {
+     "classIndex": 6,
+     "word": "le train",
+     "phrase": "un train",
+     "sentence": "le train part à neuf heures",
+     "noun": "train",
+     "phraseKey": "train",
+     "sentenceKey": "train",
+     "unknown": ""
+    },
+    {
+     "classIndex": 7,
+     "word": "le camion",
+     "phrase": "un camion",
+     "sentence": "le camion transporte des boîtes",
+     "noun": "camion",
+     "phraseKey": "camion",
+     "sentenceKey": "camion",
+     "unknown": ""
+    },
+    {
+     "classIndex": 8,
+     "word": "le bateau",
+     "phrase": "un bateau",
+     "sentence": "on fait du bateau sur le lac",
+     "noun": "bateau",
+     "phraseKey": "bateau",
+     "sentenceKey": "bateau",
+     "unknown": ""
+    },
+    {
+     "classIndex": 9,
+     "word": "le feu de circulation",
+     "phrase": "un feu de circulation",
+     "sentence": "le feu de circulation est rouge",
+     "noun": "feu de circulation",
+     "phraseKey": "circulation",
+     "sentenceKey": "circulation",
+     "unknown": ""
+    },
+    {
+     "classIndex": 10,
+     "word": "la bouche d'incendie",
+     "phrase": "une bouche d'incendie",
+     "sentence": "la bouche d'incendie est jaune",
+     "noun": "bouche d'incendie",
+     "phraseKey": "",
+     "sentenceKey": "",
+     "unknown": ""
+    },
+    {
+     "classIndex": 11,
+     "word": "le panneau stop",
+     "phrase": "un panneau stop",
+     "sentence": "arrête-toi au panneau stop",
+     "noun": "panneau stop",
+     "phraseKey": "stop",
+     "sentenceKey": "stop",
+     "unknown": ""
+    },
+    {
+     "classIndex": 12,
+     "word": "le parcmètre",
+     "phrase": "un parcmètre",
+     "sentence": "paie au parcmètre",
+     "noun": "parcmètre",
+     "phraseKey": "parcmètre",
+     "sentenceKey": "parcmètre",
+     "unknown": ""
+    },
+    {
+     "classIndex": 13,
+     "word": "le banc",
+     "phrase": "un banc",
+     "sentence": "on s'assoit sur le banc",
+     "noun": "banc",
+     "phraseKey": "banc",
+     "sentenceKey": "banc",
+     "unknown": ""
+    },
+    {
+     "classIndex": 14,
+     "word": "l'oiseau",
+     "phrase": "un oiseau",
+     "sentence": "l'oiseau chante",
+     "noun": "oiseau",
+     "phraseKey": "oiseau",
+     "sentenceKey": "l'oiseau",
+     "unknown": ""
+    },
+    {
+     "classIndex": 15,
+     "word": "le chat",
+     "phrase": "un chat",
+     "sentence": "le chat dort",
+     "noun": "chat",
+     "phraseKey": "chat",
+     "sentenceKey": "chat",
+     "unknown": ""
+    },
+    {
+     "classIndex": 16,
+     "word": "le chien",
+     "phrase": "un chien",
+     "sentence": "le chien veut jouer",
+     "noun": "chien",
+     "phraseKey": "chien",
+     "sentenceKey": "chien",
+     "unknown": ""
+    },
+    {
+     "classIndex": 17,
+     "word": "le cheval",
+     "phrase": "un cheval",
+     "sentence": "le cheval court vite",
+     "noun": "cheval",
+     "phraseKey": "cheval",
+     "sentenceKey": "cheval",
+     "unknown": ""
+    },
+    {
+     "classIndex": 18,
+     "word": "le mouton",
+     "phrase": "un mouton",
+     "sentence": "le mouton mange de l'herbe",
+     "noun": "mouton",
+     "phraseKey": "mouton",
+     "sentenceKey": "mouton",
+     "unknown": ""
+    },
+    {
+     "classIndex": 19,
+     "word": "la vache",
+     "phrase": "une vache",
+     "sentence": "la vache nous donne du lait",
+     "noun": "vache",
+     "phraseKey": "vache",
+     "sentenceKey": "vache",
+     "unknown": ""
+    },
+    {
+     "classIndex": 20,
+     "word": "l'éléphant",
+     "phrase": "un éléphant",
+     "sentence": "l'éléphant est très grand",
+     "noun": "éléphant",
+     "phraseKey": "éléphant",
+     "sentenceKey": "l'éléphant",
+     "unknown": ""
+    },
+    {
+     "classIndex": 21,
+     "word": "l'ours",
+     "phrase": "un ours",
+     "sentence": "l'ours vit dans la forêt",
+     "noun": "ours",
+     "phraseKey": "ours",
+     "sentenceKey": "l'ours",
+     "unknown": ""
+    },
+    {
+     "classIndex": 22,
+     "word": "le zèbre",
+     "phrase": "un zèbre",
+     "sentence": "le zèbre a des rayures",
+     "noun": "zèbre",
+     "phraseKey": "zèbre",
+     "sentenceKey": "zèbre",
+     "unknown": ""
+    },
+    {
+     "classIndex": 23,
+     "word": "la girafe",
+     "phrase": "une girafe",
+     "sentence": "la girafe a un long cou",
+     "noun": "girafe",
+     "phraseKey": "girafe",
+     "sentenceKey": "girafe",
+     "unknown": ""
+    },
+    {
+     "classIndex": 24,
+     "word": "le sac à dos",
+     "phrase": "un sac à dos",
+     "sentence": "mon sac à dos est lourd",
+     "noun": "sac à dos",
+     "phraseKey": "dos",
+     "sentenceKey": "dos",
+     "unknown": ""
+    },
+    {
+     "classIndex": 25,
+     "word": "le parapluie",
+     "phrase": "un parapluie",
+     "sentence": "il pleut prends le parapluie",
+     "noun": "parapluie",
+     "phraseKey": "parapluie",
+     "sentenceKey": "parapluie",
+     "unknown": ""
+    },
+    {
+     "classIndex": 26,
+     "word": "le sac à main",
+     "phrase": "un sac à main",
+     "sentence": "mes clés sont dans le sac à main",
+     "noun": "sac à main",
+     "phraseKey": "main",
+     "sentenceKey": "main",
+     "unknown": ""
+    },
+    {
+     "classIndex": 27,
+     "word": "la cravate",
+     "phrase": "une cravate",
+     "sentence": "il porte une cravate au travail",
+     "noun": "cravate",
+     "phraseKey": "cravate",
+     "sentenceKey": "cravate",
+     "unknown": ""
+    },
+    {
+     "classIndex": 28,
+     "word": "la valise",
+     "phrase": "une valise",
+     "sentence": "la valise est prête",
+     "noun": "valise",
+     "phraseKey": "valise",
+     "sentenceKey": "valise",
+     "unknown": ""
+    },
+    {
+     "classIndex": 29,
+     "word": "le frisbee",
+     "phrase": "un frisbee",
+     "sentence": "lance moi le frisbee",
+     "noun": "frisbee",
+     "phraseKey": "frisbee",
+     "sentenceKey": "frisbee",
+     "unknown": ""
+    },
+    {
+     "classIndex": 30,
+     "word": "les skis",
+     "phrase": "des skis",
+     "sentence": "mes skis sont près de la porte",
+     "noun": "skis",
+     "phraseKey": "skis",
+     "sentenceKey": "skis",
+     "unknown": ""
+    },
+    {
+     "classIndex": 31,
+     "word": "le snowboard",
+     "phrase": "un snowboard",
+     "sentence": "l'hiver je fais du snowboard",
+     "noun": "snowboard",
+     "phraseKey": "snowboard",
+     "sentenceKey": "snowboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 32,
+     "word": "le ballon",
+     "phrase": "un ballon",
+     "sentence": "passe-moi le ballon",
+     "noun": "ballon",
+     "phraseKey": "ballon",
+     "sentenceKey": "ballon",
+     "unknown": ""
+    },
+    {
+     "classIndex": 33,
+     "word": "le cerf-volant",
+     "phrase": "un cerf-volant",
+     "sentence": "le cerf-volant vole haut",
+     "noun": "cerf-volant",
+     "phraseKey": "cerf-volant",
+     "sentenceKey": "cerf-volant",
+     "unknown": ""
+    },
+    {
+     "classIndex": 34,
+     "word": "la batte de baseball",
+     "phrase": "une batte de baseball",
+     "sentence": "la batte de baseball est lourde",
+     "noun": "batte de baseball",
+     "phraseKey": "baseball",
+     "sentenceKey": "baseball",
+     "unknown": ""
+    },
+    {
+     "classIndex": 35,
+     "word": "le gant de baseball",
+     "phrase": "un gant de baseball",
+     "sentence": "mon gant de baseball est vieux",
+     "noun": "gant de baseball",
+     "phraseKey": "baseball",
+     "sentenceKey": "baseball",
+     "unknown": ""
+    },
+    {
+     "classIndex": 36,
+     "word": "le skateboard",
+     "phrase": "un skateboard",
+     "sentence": "elle fait du skateboard",
+     "noun": "skateboard",
+     "phraseKey": "skateboard",
+     "sentenceKey": "skateboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 37,
+     "word": "la planche de surf",
+     "phrase": "une planche de surf",
+     "sentence": "la planche de surf est sur la plage",
+     "noun": "planche de surf",
+     "phraseKey": "surf",
+     "sentenceKey": "surf sur",
+     "unknown": ""
+    },
+    {
+     "classIndex": 38,
+     "word": "la raquette de tennis",
+     "phrase": "une raquette de tennis",
+     "sentence": "la raquette de tennis est neuve",
+     "noun": "raquette de tennis",
+     "phraseKey": "tennis",
+     "sentenceKey": "tennis",
+     "unknown": ""
+    },
+    {
+     "classIndex": 39,
+     "word": "la bouteille",
+     "phrase": "une bouteille",
+     "sentence": "la bouteille est vide",
+     "noun": "bouteille",
+     "phraseKey": "bouteille",
+     "sentenceKey": "bouteille",
+     "unknown": ""
+    },
+    {
+     "classIndex": 40,
+     "word": "le verre à vin",
+     "phrase": "un verre à vin",
+     "sentence": "le verre à vin est plein",
+     "noun": "verre à vin",
+     "phraseKey": "vin",
+     "sentenceKey": "vin",
+     "unknown": ""
+    },
+    {
+     "classIndex": 41,
+     "word": "la tasse",
+     "phrase": "une tasse",
+     "sentence": "je bois du café dans cette tasse",
+     "noun": "tasse",
+     "phraseKey": "tasse",
+     "sentenceKey": "tasse",
+     "unknown": ""
+    },
+    {
+     "classIndex": 42,
+     "word": "la fourchette",
+     "phrase": "une fourchette",
+     "sentence": "je mange avec une fourchette",
+     "noun": "fourchette",
+     "phraseKey": "fourchette",
+     "sentenceKey": "fourchette",
+     "unknown": ""
+    },
+    {
+     "classIndex": 43,
+     "word": "le couteau",
+     "phrase": "un couteau",
+     "sentence": "attention le couteau coupe",
+     "noun": "couteau",
+     "phraseKey": "couteau",
+     "sentenceKey": "couteau coupe",
+     "unknown": ""
+    },
+    {
+     "classIndex": 44,
+     "word": "la cuillère",
+     "phrase": "une cuillère",
+     "sentence": "je mange la soupe avec une cuillère",
+     "noun": "cuillère",
+     "phraseKey": "cuillère",
+     "sentenceKey": "cuillère",
+     "unknown": ""
+    },
+    {
+     "classIndex": 45,
+     "word": "le bol",
+     "phrase": "un bol",
+     "sentence": "le bol est plein de riz",
+     "noun": "bol",
+     "phraseKey": "bol",
+     "sentenceKey": "bol",
+     "unknown": ""
+    },
+    {
+     "classIndex": 46,
+     "word": "la banane",
+     "phrase": "une banane",
+     "sentence": "la banane est jaune",
+     "noun": "banane",
+     "phraseKey": "banane",
+     "sentenceKey": "banane",
+     "unknown": ""
+    },
+    {
+     "classIndex": 47,
+     "word": "la pomme",
+     "phrase": "une pomme",
+     "sentence": "je mange une pomme chaque jour",
+     "noun": "pomme",
+     "phraseKey": "pomme",
+     "sentenceKey": "pomme",
+     "unknown": ""
+    },
+    {
+     "classIndex": 48,
+     "word": "le sandwich",
+     "phrase": "un sandwich",
+     "sentence": "je prépare un sandwich",
+     "noun": "sandwich",
+     "phraseKey": "sandwich",
+     "sentenceKey": "sandwich",
+     "unknown": ""
+    },
+    {
+     "classIndex": 49,
+     "word": "l'orange",
+     "phrase": "une orange",
+     "sentence": "j'épluche l'orange",
+     "noun": "orange",
+     "phraseKey": "orange",
+     "sentenceKey": "l'orange",
+     "unknown": "j'épluche"
+    },
+    {
+     "classIndex": 50,
+     "word": "le brocoli",
+     "phrase": "un brocoli",
+     "sentence": "le brocoli est bon pour la santé",
+     "noun": "brocoli",
+     "phraseKey": "brocoli",
+     "sentenceKey": "brocoli",
+     "unknown": ""
+    },
+    {
+     "classIndex": 51,
+     "word": "la carotte",
+     "phrase": "une carotte",
+     "sentence": "le lapin mange une carotte",
+     "noun": "carotte",
+     "phraseKey": "carotte",
+     "sentenceKey": "carotte",
+     "unknown": ""
+    },
+    {
+     "classIndex": 52,
+     "word": "le hot-dog",
+     "phrase": "un hot-dog",
+     "sentence": "un hot-dog s'il vous plaît",
+     "noun": "hot-dog",
+     "phraseKey": "hot-dog",
+     "sentenceKey": "hot-dog",
+     "unknown": ""
+    },
+    {
+     "classIndex": 53,
+     "word": "la pizza",
+     "phrase": "une pizza",
+     "sentence": "commandons une pizza ce soir",
+     "noun": "pizza",
+     "phraseKey": "pizza",
+     "sentenceKey": "pizza",
+     "unknown": ""
+    },
+    {
+     "classIndex": 54,
+     "word": "le beignet",
+     "phrase": "un beignet",
+     "sentence": "ce beignet est très sucré",
+     "noun": "beignet",
+     "phraseKey": "beignet",
+     "sentenceKey": "beignet",
+     "unknown": ""
+    },
+    {
+     "classIndex": 55,
+     "word": "le gâteau",
+     "phrase": "un gâteau",
+     "sentence": "j'ai fait un gâteau",
+     "noun": "gâteau",
+     "phraseKey": "gâteau",
+     "sentenceKey": "gâteau",
+     "unknown": ""
+    },
+    {
+     "classIndex": 56,
+     "word": "la chaise",
+     "phrase": "une chaise",
+     "sentence": "assieds-toi sur la chaise",
+     "noun": "chaise",
+     "phraseKey": "chaise",
+     "sentenceKey": "chaise",
+     "unknown": ""
+    },
+    {
+     "classIndex": 57,
+     "word": "le canapé",
+     "phrase": "un canapé",
+     "sentence": "je me repose sur le canapé",
+     "noun": "canapé",
+     "phraseKey": "canapé",
+     "sentenceKey": "canapé",
+     "unknown": ""
+    },
+    {
+     "classIndex": 58,
+     "word": "la plante en pot",
+     "phrase": "une plante en pot",
+     "sentence": "arrose la plante en pot",
+     "noun": "plante en pot",
+     "phraseKey": "pot",
+     "sentenceKey": "pot",
+     "unknown": ""
+    },
+    {
+     "classIndex": 59,
+     "word": "le lit",
+     "phrase": "un lit",
+     "sentence": "mon lit est très confortable",
+     "noun": "lit",
+     "phraseKey": "lit",
+     "sentenceKey": "lit",
+     "unknown": ""
+    },
+    {
+     "classIndex": 60,
+     "word": "la table",
+     "phrase": "une table",
+     "sentence": "le dîner est sur la table",
+     "noun": "table",
+     "phraseKey": "table",
+     "sentenceKey": "table",
+     "unknown": ""
+    },
+    {
+     "classIndex": 61,
+     "word": "les toilettes",
+     "phrase": "des toilettes",
+     "sentence": "où sont les toilettes",
+     "noun": "toilettes",
+     "phraseKey": "toilettes",
+     "sentenceKey": "toilettes",
+     "unknown": ""
+    },
+    {
+     "classIndex": 62,
+     "word": "la télévision",
+     "phrase": "une télévision",
+     "sentence": "la télévision est allumée",
+     "noun": "télévision",
+     "phraseKey": "télévision",
+     "sentenceKey": "télévision",
+     "unknown": ""
+    },
+    {
+     "classIndex": 63,
+     "word": "l'ordinateur portable",
+     "phrase": "un ordinateur portable",
+     "sentence": "j'utilise mon ordinateur portable",
+     "noun": "ordinateur portable",
+     "phraseKey": "portable",
+     "sentenceKey": "portable",
+     "unknown": ""
+    },
+    {
+     "classIndex": 64,
+     "word": "la souris",
+     "phrase": "une souris",
+     "sentence": "clique avec la souris",
+     "noun": "souris",
+     "phraseKey": "souris",
+     "sentenceKey": "souris",
+     "unknown": ""
+    },
+    {
+     "classIndex": 65,
+     "word": "la télécommande",
+     "phrase": "une télécommande",
+     "sentence": "où est la télécommande",
+     "noun": "télécommande",
+     "phraseKey": "télécommande",
+     "sentenceKey": "télécommande",
+     "unknown": ""
+    },
+    {
+     "classIndex": 66,
+     "word": "le clavier",
+     "phrase": "un clavier",
+     "sentence": "je tape sur le clavier",
+     "noun": "clavier",
+     "phraseKey": "clavier",
+     "sentenceKey": "clavier",
+     "unknown": ""
+    },
+    {
+     "classIndex": 67,
+     "word": "le téléphone portable",
+     "phrase": "un téléphone portable",
+     "sentence": "mon téléphone portable sonne",
+     "noun": "téléphone portable",
+     "phraseKey": "portable",
+     "sentenceKey": "portable",
+     "unknown": ""
+    },
+    {
+     "classIndex": 68,
+     "word": "le micro-ondes",
+     "phrase": "un micro-ondes",
+     "sentence": "réchauffe le repas au micro-ondes",
+     "noun": "micro-ondes",
+     "phraseKey": "micro-ondes",
+     "sentenceKey": "micro-ondes",
+     "unknown": ""
+    },
+    {
+     "classIndex": 69,
+     "word": "le four",
+     "phrase": "un four",
+     "sentence": "la pizza est au four",
+     "noun": "four",
+     "phraseKey": "four",
+     "sentenceKey": "four",
+     "unknown": ""
+    },
+    {
+     "classIndex": 70,
+     "word": "le grille-pain",
+     "phrase": "un grille-pain",
+     "sentence": "je mets du pain dans le grille-pain",
+     "noun": "grille-pain",
+     "phraseKey": "grille-pain",
+     "sentenceKey": "grille-pain",
+     "unknown": ""
+    },
+    {
+     "classIndex": 71,
+     "word": "l'évier",
+     "phrase": "un évier",
+     "sentence": "lave la vaisselle dans l'évier",
+     "noun": "évier",
+     "phraseKey": "évier",
+     "sentenceKey": "l'évier",
+     "unknown": ""
+    },
+    {
+     "classIndex": 72,
+     "word": "le réfrigérateur",
+     "phrase": "un réfrigérateur",
+     "sentence": "le lait est dans le réfrigérateur",
+     "noun": "réfrigérateur",
+     "phraseKey": "réfrigérateur",
+     "sentenceKey": "réfrigérateur",
+     "unknown": ""
+    },
+    {
+     "classIndex": 73,
+     "word": "le livre",
+     "phrase": "un livre",
+     "sentence": "je lis un bon livre",
+     "noun": "livre",
+     "phraseKey": "livre",
+     "sentenceKey": "livre",
+     "unknown": ""
+    },
+    {
+     "classIndex": 74,
+     "word": "l'horloge",
+     "phrase": "une horloge",
+     "sentence": "regarde l'horloge il est tard",
+     "noun": "horloge",
+     "phraseKey": "horloge",
+     "sentenceKey": "l'horloge",
+     "unknown": ""
+    },
+    {
+     "classIndex": 75,
+     "word": "le vase",
+     "phrase": "un vase",
+     "sentence": "mets les fleurs dans le vase",
+     "noun": "vase",
+     "phraseKey": "vase",
+     "sentenceKey": "vase",
+     "unknown": ""
+    },
+    {
+     "classIndex": 76,
+     "word": "les ciseaux",
+     "phrase": "des ciseaux",
+     "sentence": "coupe le papier avec les ciseaux",
+     "noun": "ciseaux",
+     "phraseKey": "ciseaux",
+     "sentenceKey": "ciseaux",
+     "unknown": ""
+    },
+    {
+     "classIndex": 77,
+     "word": "l'ours en peluche",
+     "phrase": "un ours en peluche",
+     "sentence": "le bébé serre l'ours en peluche",
+     "noun": "ours en peluche",
+     "phraseKey": "peluche",
+     "sentenceKey": "peluche",
+     "unknown": ""
+    },
+    {
+     "classIndex": 78,
+     "word": "le sèche-cheveux",
+     "phrase": "un sèche-cheveux",
+     "sentence": "le sèche-cheveux est chaud",
+     "noun": "sèche-cheveux",
+     "phraseKey": "sèche-cheveux",
+     "sentenceKey": "sèche-cheveux",
+     "unknown": ""
+    },
+    {
+     "classIndex": 79,
+     "word": "la brosse à dents",
+     "phrase": "une brosse à dents",
+     "sentence": "il me faut une brosse à dents",
+     "noun": "brosse à dents",
+     "phraseKey": "dents",
+     "sentenceKey": "dents",
+     "unknown": ""
+    }
+   ]
+  },
+  {
+   "language": "de",
+   "model": "vosk-model-small-de-0.15",
+   "entries": [
+    {
+     "classIndex": 0,
+     "word": "die person",
+     "phrase": "eine person",
+     "sentence": "hier ist eine person",
+     "noun": "person",
+     "phraseKey": "person",
+     "sentenceKey": "person",
+     "unknown": ""
+    },
+    {
+     "classIndex": 1,
+     "word": "das fahrrad",
+     "phrase": "ein fahrrad",
+     "sentence": "ich fahre mit dem fahrrad",
+     "noun": "fahrrad",
+     "phraseKey": "fahrrad",
+     "sentenceKey": "fahre fahrrad",
+     "unknown": ""
+    },
+    {
+     "classIndex": 2,
+     "word": "das auto",
+     "phrase": "ein auto",
+     "sentence": "das auto ist sehr schnell",
+     "noun": "auto",
+     "phraseKey": "auto",
+     "sentenceKey": "auto",
+     "unknown": ""
+    },
+    {
+     "classIndex": 3,
+     "word": "das motorrad",
+     "phrase": "ein motorrad",
+     "sentence": "er fährt motorrad",
+     "noun": "motorrad",
+     "phraseKey": "motorrad",
+     "sentenceKey": "motorrad",
+     "unknown": ""
+    },
+    {
+     "classIndex": 4,
+     "word": "das flugzeug",
+     "phrase": "ein flugzeug",
+     "sentence": "das flugzeug ist am himmel",
+     "noun": "flugzeug",
+     "phraseKey": "flugzeug",
+     "sentenceKey": "flugzeug",
+     "unknown": ""
+    },
+    {
+     "classIndex": 5,
+     "word": "der bus",
+     "phrase": "ein bus",
+     "sentence": "ich fahre mit dem bus zur schule",
+     "noun": "bus",
+     "phraseKey": "bus",
+     "sentenceKey": "bus",
+     "unknown": ""
+    },
+    {
+     "classIndex": 6,
+     "word": "der zug",
+     "phrase": "ein zug",
+     "sentence": "der zug fährt um neun ab",
+     "noun": "zug",
+     "phraseKey": "zug",
+     "sentenceKey": "zug",
+     "unknown": ""
+    },
+    {
+     "classIndex": 7,
+     "word": "der lastwagen",
+     "phrase": "ein lastwagen",
+     "sentence": "der lastwagen bringt kisten",
+     "noun": "lastwagen",
+     "phraseKey": "lastwagen",
+     "sentenceKey": "lastwagen",
+     "unknown": ""
+    },
+    {
+     "classIndex": 8,
+     "word": "das boot",
+     "phrase": "ein boot",
+     "sentence": "wir fahren boot auf dem see",
+     "noun": "boot",
+     "phraseKey": "boot",
+     "sentenceKey": "boot",
+     "unknown": ""
+    },
+    {
+     "classIndex": 9,
+     "word": "die ampel",
+     "phrase": "eine ampel",
+     "sentence": "die ampel ist rot",
+     "noun": "ampel",
+     "phraseKey": "ampel",
+     "sentenceKey": "ampel",
+     "unknown": ""
+    },
+    {
+     "classIndex": 10,
+     "word": "der hydrant",
+     "phrase": "ein hydrant",
+     "sentence": "der hydrant ist gelb",
+     "noun": "hydrant",
+     "phraseKey": "hydrant",
+     "sentenceKey": "hydrant",
+     "unknown": ""
+    },
+    {
+     "classIndex": 11,
+     "word": "das stoppschild",
+     "phrase": "ein stoppschild",
+     "sentence": "halt am stoppschild an",
+     "noun": "stoppschild",
+     "phraseKey": "stoppschild",
+     "sentenceKey": "stoppschild",
+     "unknown": ""
+    },
+    {
+     "classIndex": 12,
+     "word": "die parkuhr",
+     "phrase": "eine parkuhr",
+     "sentence": "bezahl an der parkuhr",
+     "noun": "parkuhr",
+     "phraseKey": "parkuhr",
+     "sentenceKey": "parkuhr",
+     "unknown": ""
+    },
+    {
+     "classIndex": 13,
+     "word": "die bank",
+     "phrase": "eine bank",
+     "sentence": "wir sitzen auf der bank",
+     "noun": "bank",
+     "phraseKey": "bank",
+     "sentenceKey": "bank",
+     "unknown": ""
+    },
+    {
+     "classIndex": 14,
+     "word": "der vogel",
+     "phrase": "ein vogel",
+     "sentence": "der vogel singt",
+     "noun": "vogel",
+     "phraseKey": "vogel",
+     "sentenceKey": "vogel",
+     "unknown": ""
+    },
+    {
+     "classIndex": 15,
+     "word": "die katze",
+     "phrase": "eine katze",
+     "sentence": "die katze schläft",
+     "noun": "katze",
+     "phraseKey": "katze",
+     "sentenceKey": "katze",
+     "unknown": ""
+    },
+    {
+     "classIndex": 16,
+     "word": "der hund",
+     "phrase": "ein hund",
+     "sentence": "der hund will spielen",
+     "noun": "hund",
+     "phraseKey": "hund",
+     "sentenceKey": "hund",
+     "unknown": ""
+    },
+    {
+     "classIndex": 17,
+     "word": "das pferd",
+     "phrase": "ein pferd",
+     "sentence": "das pferd läuft schnell",
+     "noun": "pferd",
+     "phraseKey": "pferd",
+     "sentenceKey": "pferd",
+     "unknown": ""
+    },
+    {
+     "classIndex": 18,
+     "word": "das schaf",
+     "phrase": "ein schaf",
+     "sentence": "das schaf frisst gras",
+     "noun": "schaf",
+     "phraseKey": "schaf",
+     "sentenceKey": "schaf",
+     "unknown": ""
+    },
+    {
+     "classIndex": 19,
+     "word": "die kuh",
+     "phrase": "eine kuh",
+     "sentence": "die kuh gibt uns milch",
+     "noun": "kuh",
+     "phraseKey": "kuh",
+     "sentenceKey": "kuh",
+     "unknown": ""
+    },
+    {
+     "classIndex": 20,
+     "word": "der elefant",
+     "phrase": "ein elefant",
+     "sentence": "der elefant ist sehr groß",
+     "noun": "elefant",
+     "phraseKey": "elefant",
+     "sentenceKey": "elefant",
+     "unknown": ""
+    },
+    {
+     "classIndex": 21,
+     "word": "der bär",
+     "phrase": "ein bär",
+     "sentence": "der bär lebt im wald",
+     "noun": "bär",
+     "phraseKey": "bär",
+     "sentenceKey": "bär",
+     "unknown": ""
+    },
+    {
+     "classIndex": 22,
+     "word": "das zebra",
+     "phrase": "ein zebra",
+     "sentence": "das zebra hat streifen",
+     "noun": "zebra",
+     "phraseKey": "zebra",
+     "sentenceKey": "zebra",
+     "unknown": ""
+    },
+    {
+     "classIndex": 23,
+     "word": "die giraffe",
+     "phrase": "eine giraffe",
+     "sentence": "die giraffe hat einen langen hals",
+     "noun": "giraffe",
+     "phraseKey": "giraffe",
+     "sentenceKey": "giraffe",
+     "unknown": ""
+    },
+    {
+     "classIndex": 24,
+     "word": "der rucksack",
+     "phrase": "ein rucksack",
+     "sentence": "mein rucksack ist schwer",
+     "noun": "rucksack",
+     "phraseKey": "rucksack",
+     "sentenceKey": "rucksack",
+     "unknown": ""
+    },
+    {
+     "classIndex": 25,
+     "word": "der regenschirm",
+     "phrase": "ein regenschirm",
+     "sentence": "es regnet nimm den regenschirm",
+     "noun": "regenschirm",
+     "phraseKey": "regenschirm",
+     "sentenceKey": "regenschirm",
+     "unknown": ""
+    },
+    {
+     "classIndex": 26,
+     "word": "die handtasche",
+     "phrase": "eine handtasche",
+     "sentence": "die schlüssel sind in der handtasche",
+     "noun": "handtasche",
+     "phraseKey": "handtasche",
+     "sentenceKey": "handtasche",
+     "unknown": ""
+    },
+    {
+     "classIndex": 27,
+     "word": "die krawatte",
+     "phrase": "eine krawatte",
+     "sentence": "er trägt eine krawatte",
+     "noun": "krawatte",
+     "phraseKey": "krawatte",
+     "sentenceKey": "krawatte",
+     "unknown": ""
+    },
+    {
+     "classIndex": 28,
+     "word": "der koffer",
+     "phrase": "ein koffer",
+     "sentence": "der koffer ist gepackt",
+     "noun": "koffer",
+     "phraseKey": "koffer",
+     "sentenceKey": "koffer",
+     "unknown": ""
+    },
+    {
+     "classIndex": 29,
+     "word": "die frisbeescheibe",
+     "phrase": "eine frisbeescheibe",
+     "sentence": "wirf mir die frisbeescheibe zu",
+     "noun": "frisbeescheibe",
+     "phraseKey": "frisbeescheibe",
+     "sentenceKey": "frisbeescheibe",
+     "unknown": "frisbeescheibe"
+    },
+    {
+     "classIndex": 30,
+     "word": "die skier",
+     "phrase": "skier",
+     "sentence": "meine skier stehen an der tür",
+     "noun": "skier",
+     "phraseKey": "skier",
+     "sentenceKey": "skier",
+     "unknown": ""
+    },
+    {
+     "classIndex": 31,
+     "word": "das snowboard",
+     "phrase": "ein snowboard",
+     "sentence": "im winter fahre ich snowboard",
+     "noun": "snowboard",
+     "phraseKey": "snowboard",
+     "sentenceKey": "snowboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 32,
+     "word": "der ball",
+     "phrase": "ein ball",
+     "sentence": "spiel mir den ball zu",
+     "noun": "ball",
+     "phraseKey": "ball",
+     "sentenceKey": "ball",
+     "unknown": ""
+    },
+    {
+     "classIndex": 33,
+     "word": "der drachen",
+     "phrase": "ein drachen",
+     "sentence": "der drachen fliegt hoch",
+     "noun": "drachen",
+     "phraseKey": "drachen",
+     "sentenceKey": "drachen",
+     "unknown": ""
+    },
+    {
+     "classIndex": 34,
+     "word": "der baseballschläger",
+     "phrase": "ein baseballschläger",
+     "sentence": "der baseballschläger ist schwer",
+     "noun": "baseballschläger",
+     "phraseKey": "baseballschläger",
+     "sentenceKey": "baseballschläger",
+     "unknown": ""
+    },
+    {
+     "classIndex": 35,
+     "word": "der baseballhandschuh",
+     "phrase": "ein baseballhandschuh",
+     "sentence": "mein baseballhandschuh ist alt",
+     "noun": "baseballhandschuh",
+     "phraseKey": "baseballhandschuh",
+     "sentenceKey": "baseballhandschuh",
+     "unknown": "baseballhandschuh"
+    },
+    {
+     "classIndex": 36,
+     "word": "das skateboard",
+     "phrase": "ein skateboard",
+     "sentence": "sie fährt skateboard",
+     "noun": "skateboard",
+     "phraseKey": "skateboard",
+     "sentenceKey": "skateboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 37,
+     "word": "das surfbrett",
+     "phrase": "ein surfbrett",
+     "sentence": "das surfbrett liegt am strand",
+     "noun": "surfbrett",
+     "phraseKey": "surfbrett",
+     "sentenceKey": "surfbrett",
+     "unknown": ""
+    },
+    {
+     "classIndex": 38,
+     "word": "der tennisschläger",
+     "phrase": "ein tennisschläger",
+     "sentence": "der tennisschläger ist neu",
+     "noun": "tennisschläger",
+     "phraseKey": "tennisschläger",
+     "sentenceKey": "tennisschläger",
+     "unknown": ""
+    },
+    {
+     "classIndex": 39,
+     "word": "die flasche",
+     "phrase": "eine flasche",
+     "sentence": "die flasche ist leer",
+     "noun": "flasche",
+     "phraseKey": "flasche",
+     "sentenceKey": "flasche",
+     "unknown": ""
+    },
+    {
+     "classIndex": 40,
+     "word": "das weinglas",
+     "phrase": "ein weinglas",
+     "sentence": "das weinglas ist voll",
+     "noun": "weinglas",
+     "phraseKey": "weinglas",
+     "sentenceKey": "weinglas",
+     "unknown": ""
+    },
+    {
+     "classIndex": 41,
+     "word": "die tasse",
+     "phrase": "eine tasse",
+     "sentence": "ich trinke kaffee aus der tasse",
+     "noun": "tasse",
+     "phraseKey": "tasse",
+     "sentenceKey": "tasse",
+     "unknown": ""
+    },
+    {
+     "classIndex": 42,
+     "word": "die gabel",
+     "phrase": "eine gabel",
+     "sentence": "ich esse mit der gabel",
+     "noun": "gabel",
+     "phraseKey": "gabel",
+     "sentenceKey": "gabel",
+     "unknown": ""
+    },
+    {
+     "classIndex": 43,
+     "word": "das messer",
+     "phrase": "ein messer",
+     "sentence": "vorsicht das messer ist scharf",
+     "noun": "messer",
+     "phraseKey": "messer",
+     "sentenceKey": "messer",
+     "unknown": ""
+    },
+    {
+     "classIndex": 44,
+     "word": "der löffel",
+     "phrase": "ein löffel",
+     "sentence": "ich esse suppe mit dem löffel",
+     "noun": "löffel",
+     "phraseKey": "löffel",
+     "sentenceKey": "löffel",
+     "unknown": ""
+    },
+    {
+     "classIndex": 45,
+     "word": "die schüssel",
+     "phrase": "eine schüssel",
+     "sentence": "die schüssel ist voller reis",
+     "noun": "schüssel",
+     "phraseKey": "schüssel",
+     "sentenceKey": "schüssel",
+     "unknown": ""
+    },
+    {
+     "classIndex": 46,
+     "word": "die banane",
+     "phrase": "eine banane",
+     "sentence": "die banane ist gelb",
+     "noun": "banane",
+     "phraseKey": "banane",
+     "sentenceKey": "banane",
+     "unknown": ""
+    },
+    {
+     "classIndex": 47,
+     "word": "der apfel",
+     "phrase": "ein apfel",
+     "sentence": "ich esse jeden tag einen apfel",
+     "noun": "apfel",
+     "phraseKey": "apfel",
+     "sentenceKey": "apfel",
+     "unknown": ""
+    },
+    {
+     "classIndex": 48,
+     "word": "das sandwich",
+     "phrase": "ein sandwich",
+     "sentence": "ich mache ein sandwich",
+     "noun": "sandwich",
+     "phraseKey": "sandwich",
+     "sentenceKey": "sandwich",
+     "unknown": ""
+    },
+    {
+     "classIndex": 49,
+     "word": "die orange",
+     "phrase": "eine orange",
+     "sentence": "ich schäle die orange",
+     "noun": "orange",
+     "phraseKey": "orange",
+     "sentenceKey": "orange",
+     "unknown": ""
+    },
+    {
+     "classIndex": 50,
+     "word": "der brokkoli",
+     "phrase": "ein brokkoli",
+     "sentence": "brokkoli ist gesund",
+     "noun": "brokkoli",
+     "phraseKey": "brokkoli",
+     "sentenceKey": "brokkoli",
+     "unknown": ""
+    },
+    {
+     "classIndex": 51,
+     "word": "die karotte",
+     "phrase": "eine karotte",
+     "sentence": "der hase frisst eine karotte",
+     "noun": "karotte",
+     "phraseKey": "karotte",
+     "sentenceKey": "karotte",
+     "unknown": ""
+    },
+    {
+     "classIndex": 52,
+     "word": "der hotdog",
+     "phrase": "ein hotdog",
+     "sentence": "einen hotdog bitte",
+     "noun": "hotdog",
+     "phraseKey": "hotdog",
+     "sentenceKey": "hotdog",
+     "unknown": ""
+    },
+    {
+     "classIndex": 53,
+     "word": "die pizza",
+     "phrase": "eine pizza",
+     "sentence": "bestellen wir heute eine pizza",
+     "noun": "pizza",
+     "phraseKey": "pizza",
+     "sentenceKey": "pizza",
+     "unknown": ""
+    },
+    {
+     "classIndex": 54,
+     "word": "der donut",
+     "phrase": "ein donut",
+     "sentence": "dieser donut ist sehr süß",
+     "noun": "donut",
+     "phraseKey": "donut",
+     "sentenceKey": "donut",
+     "unknown": ""
+    },
+    {
+     "classIndex": 55,
+     "word": "der kuchen",
+     "phrase": "ein kuchen",
+     "sentence": "ich habe einen kuchen gebacken",
+     "noun": "kuchen",
+     "phraseKey": "kuchen",
+     "sentenceKey": "kuchen",
+     "unknown": ""
+    },
+    {
+     "classIndex": 56,
+     "word": "der stuhl",
+     "phrase": "ein stuhl",
+     "sentence": "setz dich auf den stuhl",
+     "noun": "stuhl",
+     "phraseKey": "stuhl",
+     "sentenceKey": "stuhl",
+     "unknown": ""
+    },
+    {
+     "classIndex": 57,
+     "word": "das sofa",
+     "phrase": "ein sofa",
+     "sentence": "ich entspanne mich auf dem sofa",
+     "noun": "sofa",
+     "phraseKey": "sofa",
+     "sentenceKey": "sofa",
+     "unknown": ""
+    },
+    {
+     "classIndex": 58,
+     "word": "die topfpflanze",
+     "phrase": "eine topfpflanze",
+     "sentence": "gieß die topfpflanze jede woche",
+     "noun": "topfpflanze",
+     "phraseKey": "topfpflanze",
+     "sentenceKey": "topfpflanze",
+     "unknown": ""
+    },
+    {
+     "classIndex": 59,
+     "word": "das bett",
+     "phrase": "ein bett",
+     "sentence": "mein bett ist sehr bequem",
+     "noun": "bett",
+     "phraseKey": "bett",
+     "sentenceKey": "bett",
+     "unknown": ""
+    },
+    {
+     "classIndex": 60,
+     "word": "der tisch",
+     "phrase": "ein tisch",
+     "sentence": "das essen steht auf dem tisch",
+     "noun": "tisch",
+     "phraseKey": "tisch",
+     "sentenceKey": "tisch",
+     "unknown": ""
+    },
+    {
+     "classIndex": 61,
+     "word": "die toilette",
+     "phrase": "eine toilette",
+     "sentence": "wo ist die toilette",
+     "noun": "toilette",
+     "phraseKey": "toilette",
+     "sentenceKey": "toilette",
+     "unknown": ""
+    },
+    {
+     "classIndex": 62,
+     "word": "der fernseher",
+     "phrase": "ein fernseher",
+     "sentence": "der fernseher ist an",
+     "noun": "fernseher",
+     "phraseKey": "fernseher",
+     "sentenceKey": "fernseher",
+     "unknown": ""
+    },
+    {
+     "classIndex": 63,
+     "word": "der laptop",
+     "phrase": "ein laptop",
+     "sentence": "ich arbeite am laptop",
+     "noun": "laptop",
+     "phraseKey": "laptop",
+     "sentenceKey": "laptop",
+     "unknown": ""
+    },
+    {
+     "classIndex": 64,
+     "word": "die maus",
+     "phrase": "eine maus",
+     "sentence": "klick mit der maus",
+     "noun": "maus",
+     "phraseKey": "maus",
+     "sentenceKey": "maus",
+     "unknown": ""
+    },
+    {
+     "classIndex": 65,
+     "word": "die fernbedienung",
+     "phrase": "eine fernbedienung",
+     "sentence": "wo ist die fernbedienung",
+     "noun": "fernbedienung",
+     "phraseKey": "fernbedienung",
+     "sentenceKey": "fernbedienung",
+     "unknown": ""
+    },
+    {
+     "classIndex": 66,
+     "word": "die tastatur",
+     "phrase": "eine tastatur",
+     "sentence": "ich tippe auf der tastatur",
+     "noun": "tastatur",
+     "phraseKey": "tastatur",
+     "sentenceKey": "tastatur",
+     "unknown": ""
+    },
+    {
+     "classIndex": 67,
+     "word": "das handy",
+     "phrase": "ein handy",
+     "sentence": "mein handy klingelt",
+     "noun": "handy",
+     "phraseKey": "handy",
+     "sentenceKey": "handy",
+     "unknown": ""
+    },
+    {
+     "classIndex": 68,
+     "word": "die mikrowelle",
+     "phrase": "eine mikrowelle",
+     "sentence": "wärme das essen in der mikrowelle",
+     "noun": "mikrowelle",
+     "phraseKey": "mikrowelle",
+     "sentenceKey": "mikrowelle",
+     "unknown": ""
+    },
+    {
+     "classIndex": 69,
+     "word": "der backofen",
+     "phrase": "ein backofen",
+     "sentence": "die pizza ist im backofen",
+     "noun": "backofen",
+     "phraseKey": "backofen",
+     "sentenceKey": "backofen",
+     "unknown": ""
+    },
+    {
+     "classIndex": 70,
+     "word": "der toaster",
+     "phrase": "ein toaster",
+     "sentence": "ich stecke brot in den toaster",
+     "noun": "toaster",
+     "phraseKey": "toaster",
+     "sentenceKey": "toaster",
+     "unknown": ""
+    },
+    {
+     "classIndex": 71,
+     "word": "die spüle",
+     "phrase": "eine spüle",
+     "sentence": "spül das geschirr in der spüle",
+     "noun": "spüle",
+     "phraseKey": "spüle",
+     "sentenceKey": "spül spüle",
+     "unknown": ""
+    },
+    {
+     "classIndex": 72,
+     "word": "der kühlschrank",
+     "phrase": "ein kühlschrank",
+     "sentence": "die milch ist im kühlschrank",
+     "noun": "kühlschrank",
+     "phraseKey": "kühlschrank",
+     "sentenceKey": "kühlschrank",
+     "unknown": ""
+    },
+    {
+     "classIndex": 73,
+     "word": "das buch",
+     "phrase": "ein buch",
+     "sentence": "ich lese ein gutes buch",
+     "noun": "buch",
+     "phraseKey": "buch",
+     "sentenceKey": "buch",
+     "unknown": ""
+    },
+    {
+     "classIndex": 74,
+     "word": "die uhr",
+     "phrase": "eine uhr",
+     "sentence": "schau auf die uhr es ist spät",
+     "noun": "uhr",
+     "phraseKey": "uhr",
+     "sentenceKey": "uhr",
+     "unknown": ""
+    },
+    {
+     "classIndex": 75,
+     "word": "die vase",
+     "phrase": "eine vase",
+     "sentence": "stell die blumen in die vase",
+     "noun": "vase",
+     "phraseKey": "vase",
+     "sentenceKey": "vase",
+     "unknown": ""
+    },
+    {
+     "classIndex": 76,
+     "word": "die schere",
+     "phrase": "eine schere",
+     "sentence": "schneid das papier mit der schere",
+     "noun": "schere",
+     "phraseKey": "schere",
+     "sentenceKey": "schere",
+     "unknown": ""
+    },
+    {
+     "classIndex": 77,
+     "word": "der teddybär",
+     "phrase": "ein teddybär",
+     "sentence": "das baby umarmt den teddybären",
+     "noun": "teddybär",
+     "phraseKey": "teddybär",
+     "sentenceKey": "teddybären",
+     "unknown": ""
+    },
+    {
+     "classIndex": 78,
+     "word": "der föhn",
+     "phrase": "ein föhn",
+     "sentence": "der föhn ist heiß",
+     "noun": "föhn",
+     "phraseKey": "föhn",
+     "sentenceKey": "föhn",
+     "unknown": ""
+    },
+    {
+     "classIndex": 79,
+     "word": "die zahnbürste",
+     "phrase": "eine zahnbürste",
+     "sentence": "ich brauche eine neue zahnbürste",
+     "noun": "zahnbürste",
+     "phraseKey": "zahnbürste",
+     "sentenceKey": "zahnbürste",
+     "unknown": ""
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "model": "vosk-model-small-en-us-0.15",
+   "entries": [
+    {
+     "classIndex": 0,
+     "word": "person",
+     "phrase": "a person",
+     "sentence": "there is a person here",
+     "noun": "person",
+     "phraseKey": "person",
+     "sentenceKey": "person",
+     "unknown": ""
+    },
+    {
+     "classIndex": 1,
+     "word": "bicycle",
+     "phrase": "a bicycle",
+     "sentence": "i ride my bicycle to work",
+     "noun": "bicycle",
+     "phraseKey": "bicycle",
+     "sentenceKey": "bicycle",
+     "unknown": ""
+    },
+    {
+     "classIndex": 2,
+     "word": "car",
+     "phrase": "a car",
+     "sentence": "the car is very fast",
+     "noun": "car",
+     "phraseKey": "car",
+     "sentenceKey": "car",
+     "unknown": ""
+    },
+    {
+     "classIndex": 3,
+     "word": "motorcycle",
+     "phrase": "a motorcycle",
+     "sentence": "he rides a motorcycle",
+     "noun": "motorcycle",
+     "phraseKey": "motorcycle",
+     "sentenceKey": "motorcycle",
+     "unknown": ""
+    },
+    {
+     "classIndex": 4,
+     "word": "airplane",
+     "phrase": "an airplane",
+     "sentence": "the airplane is in the sky",
+     "noun": "airplane",
+     "phraseKey": "airplane",
+     "sentenceKey": "airplane",
+     "unknown": ""
+    },
+    {
+     "classIndex": 5,
+     "word": "bus",
+     "phrase": "a bus",
+     "sentence": "i take the bus to school",
+     "noun": "bus",
+     "phraseKey": "bus",
+     "sentenceKey": "bus",
+     "unknown": ""
+    },
+    {
+     "classIndex": 6,
+     "word": "train",
+     "phrase": "a train",
+     "sentence": "the train leaves at nine",
+     "noun": "train",
+     "phraseKey": "train",
+     "sentenceKey": "train",
+     "unknown": ""
+    },
+    {
+     "classIndex": 7,
+     "word": "truck",
+     "phrase": "a truck",
+     "sentence": "the truck carries boxes",
+     "noun": "truck",
+     "phraseKey": "truck",
+     "sentenceKey": "truck",
+     "unknown": ""
+    },
+    {
+     "classIndex": 8,
+     "word": "boat",
+     "phrase": "a boat",
+     "sentence": "we take the boat on the lake",
+     "noun": "boat",
+     "phraseKey": "boat",
+     "sentenceKey": "boat",
+     "unknown": ""
+    },
+    {
+     "classIndex": 9,
+     "word": "traffic light",
+     "phrase": "a traffic light",
+     "sentence": "the traffic light is red",
+     "noun": "traffic light",
+     "phraseKey": "light",
+     "sentenceKey": "light",
+     "unknown": ""
+    },
+    {
+     "classIndex": 10,
+     "word": "fire hydrant",
+     "phrase": "a fire hydrant",
+     "sentence": "the fire hydrant is yellow",
+     "noun": "fire hydrant",
+     "phraseKey": "hydrant",
+     "sentenceKey": "hydrant",
+     "unknown": ""
+    },
+    {
+     "classIndex": 11,
+     "word": "stop sign",
+     "phrase": "a stop sign",
+     "sentence": "stop at the stop sign",
+     "noun": "stop sign",
+     "phraseKey": "sign",
+     "sentenceKey": "sign",
+     "unknown": ""
+    },
+    {
+     "classIndex": 12,
+     "word": "parking meter",
+     "phrase": "a parking meter",
+     "sentence": "pay at the parking meter",
+     "noun": "parking meter",
+     "phraseKey": "meter",
+     "sentenceKey": "meter",
+     "unknown": ""
+    },
+    {
+     "classIndex": 13,
+     "word": "bench",
+     "phrase": "a bench",
+     "sentence": "we sit on the bench",
+     "noun": "bench",
+     "phraseKey": "bench",
+     "sentenceKey": "bench",
+     "unknown": ""
+    },
+    {
+     "classIndex": 14,
+     "word": "bird",
+     "phrase": "a bird",
+     "sentence": "the bird is singing",
+     "noun": "bird",
+     "phraseKey": "bird",
+     "sentenceKey": "bird",
+     "unknown": ""
+    },
+    {
+     "classIndex": 15,
+     "word": "cat",
+     "phrase": "a cat",
+     "sentence": "the cat is sleeping",
+     "noun": "cat",
+     "phraseKey": "cat",
+     "sentenceKey": "cat",
+     "unknown": ""
+    },
+    {
+     "classIndex": 16,
+     "word": "dog",
+     "phrase": "a dog",
+     "sentence": "the dog wants to play",
+     "noun": "dog",
+     "phraseKey": "dog",
+     "sentenceKey": "dog",
+     "unknown": ""
+    },
+    {
+     "classIndex": 17,
+     "word": "horse",
+     "phrase": "a horse",
+     "sentence": "the horse runs fast",
+     "noun": "horse",
+     "phraseKey": "horse",
+     "sentenceKey": "horse",
+     "unknown": ""
+    },
+    {
+     "classIndex": 18,
+     "word": "sheep",
+     "phrase": "a sheep",
+     "sentence": "the sheep eats grass",
+     "noun": "sheep",
+     "phraseKey": "sheep",
+     "sentenceKey": "sheep",
+     "unknown": ""
+    },
+    {
+     "classIndex": 19,
+     "word": "cow",
+     "phrase": "a cow",
+     "sentence": "the cow gives us milk",
+     "noun": "cow",
+     "phraseKey": "cow",
+     "sentenceKey": "cow",
+     "unknown": ""
+    },
+    {
+     "classIndex": 20,
+     "word": "elephant",
+     "phrase": "an elephant",
+     "sentence": "the elephant is very big",
+     "noun": "elephant",
+     "phraseKey": "elephant",
+     "sentenceKey": "elephant",
+     "unknown": ""
+    },
+    {
+     "classIndex": 21,
+     "word": "bear",
+     "phrase": "a bear",
+     "sentence": "the bear lives in the forest",
+     "noun": "bear",
+     "phraseKey": "bear",
+     "sentenceKey": "bear",
+     "unknown": ""
+    },
+    {
+     "classIndex": 22,
+     "word": "zebra",
+     "phrase": "a zebra",
+     "sentence": "the zebra has stripes",
+     "noun": "zebra",
+     "phraseKey": "zebra",
+     "sentenceKey": "zebra",
+     "unknown": ""
+    },
+    {
+     "classIndex": 23,
+     "word": "giraffe",
+     "phrase": "a giraffe",
+     "sentence": "the giraffe has a long neck",
+     "noun": "giraffe",
+     "phraseKey": "giraffe",
+     "sentenceKey": "giraffe",
+     "unknown": ""
+    },
+    {
+     "classIndex": 24,
+     "word": "backpack",
+     "phrase": "a backpack",
+     "sentence": "my backpack is heavy",
+     "noun": "backpack",
+     "phraseKey": "backpack",
+     "sentenceKey": "backpack",
+     "unknown": ""
+    },
+    {
+     "classIndex": 25,
+     "word": "umbrella",
+     "phrase": "an umbrella",
+     "sentence": "it's raining take an umbrella",
+     "noun": "umbrella",
+     "phraseKey": "umbrella",
+     "sentenceKey": "umbrella",
+     "unknown": ""
+    },
+    {
+     "classIndex": 26,
+     "word": "handbag",
+     "phrase": "a handbag",
+     "sentence": "my keys are in the handbag",
+     "noun": "handbag",
+     "phraseKey": "handbag",
+     "sentenceKey": "handbag",
+     "unknown": ""
+    },
+    {
+     "classIndex": 27,
+     "word": "tie",
+     "phrase": "a tie",
+     "sentence": "he wears a tie to work",
+     "noun": "tie",
+     "phraseKey": "tie",
+     "sentenceKey": "tie",
+     "unknown": ""
+    },
+    {
+     "classIndex": 28,
+     "word": "suitcase",
+     "phrase": "a suitcase",
+     "sentence": "the suitcase is ready",
+     "noun": "suitcase",
+     "phraseKey": "suitcase",
+     "sentenceKey": "suitcase",
+     "unknown": ""
+    },
+    {
+     "classIndex": 29,
+     "word": "frisbee",
+     "phrase": "a frisbee",
+     "sentence": "throw me the frisbee",
+     "noun": "frisbee",
+     "phraseKey": "frisbee",
+     "sentenceKey": "frisbee",
+     "unknown": ""
+    },
+    {
+     "classIndex": 30,
+     "word": "skis",
+     "phrase": "a pair of skis",
+     "sentence": "my skis are by the door",
+     "noun": "skis",
+     "phraseKey": "skis",
+     "sentenceKey": "skis",
+     "unknown": ""
+    },
+    {
+     "classIndex": 31,
+     "word": "snowboard",
+     "phrase": "a snowboard",
+     "sentence": "i ride a snowboard in winter",
+     "noun": "snowboard",
+     "phraseKey": "snowboard",
+     "sentenceKey": "snowboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 32,
+     "word": "ball",
+     "phrase": "a ball",
+     "sentence": "pass me the ball",
+     "noun": "ball",
+     "phraseKey": "ball",
+     "sentenceKey": "ball",
+     "unknown": ""
+    },
+    {
+     "classIndex": 33,
+     "word": "kite",
+     "phrase": "a kite",
+     "sentence": "the kite flies high",
+     "noun": "kite",
+     "phraseKey": "kite",
+     "sentenceKey": "kite",
+     "unknown": ""
+    },
+    {
+     "classIndex": 34,
+     "word": "baseball bat",
+     "phrase": "a baseball bat",
+     "sentence": "the baseball bat is heavy",
+     "noun": "baseball bat",
+     "phraseKey": "bat",
+     "sentenceKey": "bat",
+     "unknown": ""
+    },
+    {
+     "classIndex": 35,
+     "word": "baseball glove",
+     "phrase": "a baseball glove",
+     "sentence": "my baseball glove is old",
+     "noun": "baseball glove",
+     "phraseKey": "glove",
+     "sentenceKey": "glove",
+     "unknown": ""
+    },
+    {
+     "classIndex": 36,
+     "word": "skateboard",
+     "phrase": "a skateboard",
+     "sentence": "she rides a skateboard",
+     "noun": "skateboard",
+     "phraseKey": "skateboard",
+     "sentenceKey": "skateboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 37,
+     "word": "surfboard",
+     "phrase": "a surfboard",
+     "sentence": "the surfboard is on the beach",
+     "noun": "surfboard",
+     "phraseKey": "surfboard",
+     "sentenceKey": "surfboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 38,
+     "word": "tennis racket",
+     "phrase": "a tennis racket",
+     "sentence": "the tennis racket is new",
+     "noun": "tennis racket",
+     "phraseKey": "racket",
+     "sentenceKey": "racket",
+     "unknown": ""
+    },
+    {
+     "classIndex": 39,
+     "word": "bottle",
+     "phrase": "a bottle",
+     "sentence": "the bottle is empty",
+     "noun": "bottle",
+     "phraseKey": "bottle",
+     "sentenceKey": "bottle",
+     "unknown": ""
+    },
+    {
+     "classIndex": 40,
+     "word": "wine glass",
+     "phrase": "a wine glass",
+     "sentence": "the wine glass is full",
+     "noun": "wine glass",
+     "phraseKey": "glass",
+     "sentenceKey": "glass",
+     "unknown": ""
+    },
+    {
+     "classIndex": 41,
+     "word": "cup",
+     "phrase": "a cup",
+     "sentence": "i drink coffee from this cup",
+     "noun": "cup",
+     "phraseKey": "cup",
+     "sentenceKey": "cup",
+     "unknown": ""
+    },
+    {
+     "classIndex": 42,
+     "word": "fork",
+     "phrase": "a fork",
+     "sentence": "i eat with a fork",
+     "noun": "fork",
+     "phraseKey": "fork",
+     "sentenceKey": "fork",
+     "unknown": ""
+    },
+    {
+     "classIndex": 43,
+     "word": "knife",
+     "phrase": "a knife",
+     "sentence": "be careful the knife is sharp",
+     "noun": "knife",
+     "phraseKey": "knife",
+     "sentenceKey": "knife",
+     "unknown": ""
+    },
+    {
+     "classIndex": 44,
+     "word": "spoon",
+     "phrase": "a spoon",
+     "sentence": "i eat soup with a spoon",
+     "noun": "spoon",
+     "phraseKey": "spoon",
+     "sentenceKey": "spoon",
+     "unknown": ""
+    },
+    {
+     "classIndex": 45,
+     "word": "bowl",
+     "phrase": "a bowl",
+     "sentence": "the bowl is full of rice",
+     "noun": "bowl",
+     "phraseKey": "bowl",
+     "sentenceKey": "bowl",
+     "unknown": ""
+    },
+    {
+     "classIndex": 46,
+     "word": "banana",
+     "phrase": "a banana",
+     "sentence": "the banana is yellow",
+     "noun": "banana",
+     "phraseKey": "banana",
+     "sentenceKey": "banana",
+     "unknown": ""
+    },
+    {
+     "classIndex": 47,
+     "word": "apple",
+     "phrase": "an apple",
+     "sentence": "i eat an apple every day",
+     "noun": "apple",
+     "phraseKey": "apple",
+     "sentenceKey": "apple",
+     "unknown": ""
+    },
+    {
+     "classIndex": 48,
+     "word": "sandwich",
+     "phrase": "a sandwich",
+     "sentence": "i'm making a sandwich",
+     "noun": "sandwich",
+     "phraseKey": "sandwich",
+     "sentenceKey": "sandwich",
+     "unknown": ""
+    },
+    {
+     "classIndex": 49,
+     "word": "orange",
+     "phrase": "an orange",
+     "sentence": "i peel the orange",
+     "noun": "orange",
+     "phraseKey": "orange",
+     "sentenceKey": "orange",
+     "unknown": ""
+    },
+    {
+     "classIndex": 50,
+     "word": "broccoli",
+     "phrase": "a broccoli",
+     "sentence": "broccoli is good for you",
+     "noun": "broccoli",
+     "phraseKey": "broccoli",
+     "sentenceKey": "broccoli",
+     "unknown": ""
+    },
+    {
+     "classIndex": 51,
+     "word": "carrot",
+     "phrase": "a carrot",
+     "sentence": "the rabbit eats a carrot",
+     "noun": "carrot",
+     "phraseKey": "carrot",
+     "sentenceKey": "carrot",
+     "unknown": ""
+    },
+    {
+     "classIndex": 52,
+     "word": "hot dog",
+     "phrase": "a hot dog",
+     "sentence": "a hot dog please",
+     "noun": "hot dog",
+     "phraseKey": "dog",
+     "sentenceKey": "dog",
+     "unknown": ""
+    },
+    {
+     "classIndex": 53,
+     "word": "pizza",
+     "phrase": "a pizza",
+     "sentence": "let's order a pizza tonight",
+     "noun": "pizza",
+     "phraseKey": "pizza",
+     "sentenceKey": "pizza",
+     "unknown": ""
+    },
+    {
+     "classIndex": 54,
+     "word": "donut",
+     "phrase": "a donut",
+     "sentence": "this donut is very sweet",
+     "noun": "donut",
+     "phraseKey": "donut",
+     "sentenceKey": "donut",
+     "unknown": ""
+    },
+    {
+     "classIndex": 55,
+     "word": "cake",
+     "phrase": "a cake",
+     "sentence": "i baked a cake",
+     "noun": "cake",
+     "phraseKey": "cake",
+     "sentenceKey": "cake",
+     "unknown": ""
+    },
+    {
+     "classIndex": 56,
+     "word": "chair",
+     "phrase": "a chair",
+     "sentence": "please sit on the chair",
+     "noun": "chair",
+     "phraseKey": "chair",
+     "sentenceKey": "chair",
+     "unknown": ""
+    },
+    {
+     "classIndex": 57,
+     "word": "couch",
+     "phrase": "a couch",
+     "sentence": "i relax on the couch",
+     "noun": "couch",
+     "phraseKey": "couch",
+     "sentenceKey": "couch",
+     "unknown": ""
+    },
+    {
+     "classIndex": 58,
+     "word": "plant",
+     "phrase": "a plant",
+     "sentence": "water the plant every week",
+     "noun": "plant",
+     "phraseKey": "plant",
+     "sentenceKey": "plant",
+     "unknown": ""
+    },
+    {
+     "classIndex": 59,
+     "word": "bed",
+     "phrase": "a bed",
+     "sentence": "my bed is very comfortable",
+     "noun": "bed",
+     "phraseKey": "bed",
+     "sentenceKey": "bed",
+     "unknown": ""
+    },
+    {
+     "classIndex": 60,
+     "word": "table",
+     "phrase": "a table",
+     "sentence": "dinner is on the table",
+     "noun": "table",
+     "phraseKey": "table",
+     "sentenceKey": "table",
+     "unknown": ""
+    },
+    {
+     "classIndex": 61,
+     "word": "toilet",
+     "phrase": "a toilet",
+     "sentence": "where is the toilet",
+     "noun": "toilet",
+     "phraseKey": "toilet",
+     "sentenceKey": "toilet",
+     "unknown": ""
+    },
+    {
+     "classIndex": 62,
+     "word": "tv",
+     "phrase": "a tv",
+     "sentence": "the tv is on",
+     "noun": "tv",
+     "phraseKey": "tv",
+     "sentenceKey": "tv",
+     "unknown": ""
+    },
+    {
+     "classIndex": 63,
+     "word": "laptop",
+     "phrase": "a laptop",
+     "sentence": "i work on my laptop",
+     "noun": "laptop",
+     "phraseKey": "laptop",
+     "sentenceKey": "laptop",
+     "unknown": ""
+    },
+    {
+     "classIndex": 64,
+     "word": "mouse",
+     "phrase": "a mouse",
+     "sentence": "click with the mouse",
+     "noun": "mouse",
+     "phraseKey": "mouse",
+     "sentenceKey": "mouse",
+     "unknown": ""
+    },
+    {
+     "classIndex": 65,
+     "word": "remote",
+     "phrase": "a remote",
+     "sentence": "where is the remote",
+     "noun": "remote",
+     "phraseKey": "remote",
+     "sentenceKey": "remote",
+     "unknown": ""
+    },
+    {
+     "classIndex": 66,
+     "word": "keyboard",
+     "phrase": "a keyboard",
+     "sentence": "i type on the keyboard",
+     "noun": "keyboard",
+     "phraseKey": "keyboard",
+     "sentenceKey": "keyboard",
+     "unknown": ""
+    },
+    {
+     "classIndex": 67,
+     "word": "phone",
+     "phrase": "a phone",
+     "sentence": "my phone is ringing",
+     "noun": "phone",
+     "phraseKey": "phone",
+     "sentenceKey": "phone",
+     "unknown": ""
+    },
+    {
+     "classIndex": 68,
+     "word": "microwave",
+     "phrase": "a microwave",
+     "sentence": "heat the food in the microwave",
+     "noun": "microwave",
+     "phraseKey": "microwave",
+     "sentenceKey": "microwave",
+     "unknown": ""
+    },
+    {
+     "classIndex": 69,
+     "word": "oven",
+     "phrase": "an oven",
+     "sentence": "the pizza is in the oven",
+     "noun": "oven",
+     "phraseKey": "oven",
+     "sentenceKey": "oven",
+     "unknown": ""
+    },
+    {
+     "classIndex": 70,
+     "word": "toaster",
+     "phrase": "a toaster",
+     "sentence": "i put bread in the toaster",
+     "noun": "toaster",
+     "phraseKey": "toaster",
+     "sentenceKey": "toaster",
+     "unknown": ""
+    },
+    {
+     "classIndex": 71,
+     "word": "sink",
+     "phrase": "a sink",
+     "sentence": "wash the dishes in the sink",
+     "noun": "sink",
+     "phraseKey": "sink",
+     "sentenceKey": "sink",
+     "unknown": ""
+    },
+    {
+     "classIndex": 72,
+     "word": "refrigerator",
+     "phrase": "a refrigerator",
+     "sentence": "the milk is in the refrigerator",
+     "noun": "refrigerator",
+     "phraseKey": "refrigerator",
+     "sentenceKey": "refrigerator",
+     "unknown": ""
+    },
+    {
+     "classIndex": 73,
+     "word": "book",
+     "phrase": "a book",
+     "sentence": "i'm reading a good book",
+     "noun": "book",
+     "phraseKey": "book",
+     "sentenceKey": "book",
+     "unknown": ""
+    },
+    {
+     "classIndex": 74,
+     "word": "clock",
+     "phrase": "a clock",
+     "sentence": "look at the clock it's late",
+     "noun": "clock",
+     "phraseKey": "clock",
+     "sentenceKey": "clock",
+     "unknown": ""
+    },
+    {
+     "classIndex": 75,
+     "word": "vase",
+     "phrase": "a vase",
+     "sentence": "put the flowers in the vase",
+     "noun": "vase",
+     "phraseKey": "vase",
+     "sentenceKey": "vase",
+     "unknown": ""
+    },
+    {
+     "classIndex": 76,
+     "word": "scissors",
+     "phrase": "a pair of scissors",
+     "sentence": "cut the paper with scissors",
+     "noun": "scissors",
+     "phraseKey": "scissors",
+     "sentenceKey": "scissors",
+     "unknown": ""
+    },
+    {
+     "classIndex": 77,
+     "word": "teddy bear",
+     "phrase": "a teddy bear",
+     "sentence": "the baby hugs the teddy bear",
+     "noun": "teddy bear",
+     "phraseKey": "bear",
+     "sentenceKey": "bear",
+     "unknown": ""
+    },
+    {
+     "classIndex": 78,
+     "word": "hair dryer",
+     "phrase": "a hair dryer",
+     "sentence": "the hair dryer is hot",
+     "noun": "hair dryer",
+     "phraseKey": "dryer",
+     "sentenceKey": "dryer",
+     "unknown": ""
+    },
+    {
+     "classIndex": 79,
+     "word": "toothbrush",
+     "phrase": "a toothbrush",
+     "sentence": "i need a new toothbrush",
+     "noun": "toothbrush",
+     "phraseKey": "toothbrush",
+     "sentenceKey": "toothbrush",
+     "unknown": ""
+    }
+   ]
+  }
+ ],
+ "unknownWords": [
+  "es 10 fire hydrant word: 'hidrante'",
+  "es 10 fire hydrant phrase: 'hidrante'",
+  "es 10 fire hydrant sentence: 'hidrante'",
+  "es 10 fire hydrant noun: 'hidrante'",
+  "es 12 parking meter word: 'parquímetro'",
+  "es 12 parking meter phrase: 'parquímetro'",
+  "es 12 parking meter sentence: 'parquímetro'",
+  "es 12 parking meter noun: 'parquímetro'",
+  "es 29 frisbee word: 'frisbee'",
+  "es 29 frisbee phrase: 'frisbee'",
+  "es 29 frisbee sentence: 'lánzame'",
+  "es 29 frisbee sentence: 'frisbee'",
+  "es 29 frisbee noun: 'frisbee'",
+  "fr 10 fire hydrant phrase: no word names the object; check the sheet",
+  "fr 10 fire hydrant sentence: no word names the object; check the sheet",
+  "fr 49 orange sentence: 'j'épluche'",
+  "de 29 frisbee word: 'frisbeescheibe'",
+  "de 29 frisbee phrase: 'frisbeescheibe'",
+  "de 29 frisbee sentence: 'frisbeescheibe'",
+  "de 29 frisbee noun: 'frisbeescheibe'",
+  "de 35 baseball glove word: 'baseballhandschuh'",
+  "de 35 baseball glove phrase: 'baseballhandschuh'",
+  "de 35 baseball glove sentence: 'baseballhandschuh'",
+  "de 35 baseball glove noun: 'baseballhandschuh'"
+ ]
+}

@@ -31,14 +31,17 @@ namespace SpatialML.Samples.Editor
         private const string SpatialAdapterPackageName = "com.bytedance.pico.spatialadapter";
         private const string SpatialAdapterRuntimeSettingsPath = "Assets/Settings/SpatialAdapterRuntimeSettings.asset";
         private const string SpatialSceneRoot = "Assets/Scenes/Spatial/";
-        private const string XrSceneLoaderPath = "Assets/Scenes/SceneLoader.unity";
-        private const string SpatialSceneLoaderPath = "Assets/Scenes/Spatial/SpatialSceneLoader.unity";
+        // Word World is the only app this project ships, so Spatial builds contain just this scene
+        // and launch straight into it (PICO's sample selector and sample scenes were removed).
+        private const string WordWorldScenePath = "Assets/Scenes/Spatial/WordWorld.unity";
         private const string MainManifestPath = "Assets/Plugins/Android/AndroidManifest.xml";
         private const string LauncherManifestPath = "Assets/Plugins/Android/LauncherManifest.xml";
         private const string DefaultOutputRoot = "Builds";
         private const string DefaultProductName = "SpatialML_Samples";
         private const string XrApplicationIdentifier = "com.pico.spatialml.samples";
-        private const string SpatialApplicationIdentifier = "com.pico.spatialml.samples.spatial";
+        // Word World ships as its own app so it never overwrites the PICO samples on the headset.
+        private const string SpatialApplicationIdentifier = "com.wordworld.app";
+        private const string SpatialProductName = "Word World";
 
         [MenuItem("PICO/SpatialML/Build Variants/Configure XR", priority = 20)]
         public static void ConfigureXR()
@@ -104,21 +107,8 @@ namespace SpatialML.Samples.Editor
             {
                 throw new BuildFailedException(
                     mode == SpatialMLBuildMode.Spatial
-                        ? $"No Spatial scenes were found under {SpatialSceneRoot}. Add the first Spatial scene before building."
+                        ? $"Missing {WordWorldScenePath}. Run Word World > Rebuild Word World Scene."
                         : "No enabled XR scenes were found outside Assets/Scenes/Spatial.");
-            }
-
-            string sceneLoaderPath = GetSceneLoaderPath(mode);
-            if (!scenes.Contains(sceneLoaderPath, StringComparer.Ordinal))
-            {
-                throw new BuildFailedException(
-                    $"The {mode} scene selector is missing from Build Settings: {sceneLoaderPath}");
-            }
-
-            if (scenes.Length == 1)
-            {
-                throw new BuildFailedException(
-                    $"No enabled {mode} sample scenes were found alongside {sceneLoaderPath}.");
             }
 
             string defaultOutput = Path.Combine(DefaultOutputRoot, mode.ToString(), GetDefaultApkName(mode));
@@ -193,31 +183,17 @@ namespace SpatialML.Samples.Editor
 
         public static string[] GetBuildScenes(SpatialMLBuildMode mode)
         {
-            string[] scenes = EditorBuildSettings.scenes
-                .Where(scene => scene.enabled && IsSceneForMode(scene.path, mode))
-                .Select(scene => scene.path)
-                .OrderBy(path => string.Equals(
-                    path,
-                    GetSceneLoaderPath(mode),
-                    StringComparison.Ordinal) ? 0 : 1)
-                .ToArray();
-
-            string startScene = GetCommandLineArgument("-spatialmlStartScene");
-            if (string.IsNullOrEmpty(startScene))
+            if (mode == SpatialMLBuildMode.Spatial)
             {
-                return scenes;
+                // Ignore Build Settings so a stray enabled scene can never put a menu in front of
+                // Word World.
+                return File.Exists(WordWorldScenePath) ? new[] { WordWorldScenePath } : Array.Empty<string>();
             }
 
-            return scenes
-                .OrderBy(path => string.Equals(path, startScene, StringComparison.Ordinal) ? 0 : 1)
+            return EditorBuildSettings.scenes
+                .Where(scene => scene.enabled && IsSceneForMode(scene.path, mode))
+                .Select(scene => scene.path)
                 .ToArray();
-        }
-
-        private static string GetSceneLoaderPath(SpatialMLBuildMode mode)
-        {
-            return mode == SpatialMLBuildMode.Spatial
-                ? SpatialSceneLoaderPath
-                : XrSceneLoaderPath;
         }
 
         private static bool IsSceneForMode(string scenePath, SpatialMLBuildMode mode)
@@ -333,7 +309,7 @@ namespace SpatialML.Samples.Editor
         private static void ApplyModeIdentity(SpatialMLBuildMode mode)
         {
             bool spatial = mode == SpatialMLBuildMode.Spatial;
-            PlayerSettings.productName = spatial ? $"{DefaultProductName}_Spatial" : DefaultProductName;
+            PlayerSettings.productName = spatial ? SpatialProductName : DefaultProductName;
             PlayerSettings.SetApplicationIdentifier(
                 NamedBuildTarget.Android,
                 spatial ? SpatialApplicationIdentifier : XrApplicationIdentifier);
@@ -464,7 +440,7 @@ namespace SpatialML.Samples.Editor
         private static string GetDefaultApkName(SpatialMLBuildMode mode)
         {
             return mode == SpatialMLBuildMode.Spatial
-                ? "SpatialML-Samples-Spatial.apk"
+                ? "WordWorld.apk"
                 : "SpatialML-Samples-XR.apk";
         }
 
@@ -519,24 +495,23 @@ namespace SpatialML.Samples.Editor
             }
 
             string manifest = File.ReadAllText(manifestPath);
-            if (!manifest.Contains("com.unity3d.player.SpatialAdapterPlayerActivity", StringComparison.Ordinal) ||
-                !manifest.Contains("pico.spatial.windowcontainer.id", StringComparison.Ordinal))
+            if (!manifest.Contains("com.unity3d.player.SpatialAdapterPlayerActivity", StringComparison.Ordinal))
             {
                 return;
             }
 
-            if (!manifest.Contains(NumericContainerId, StringComparison.Ordinal))
-            {
-                if (!manifest.Contains(StringContainerId, StringComparison.Ordinal))
-                {
-                    throw new BuildFailedException(
-                        "Spatial Adapter emitted an unexpected pico.spatial.windowcontainer.id value. " +
-                        "Refusing to build an APK that may be classified as a 2D app.");
-                }
-            }
-            else
+            // Stage mode emits pico.spatial.stage.id and no windowcontainer.id. The permissions
+            // below are still required there, so only the container-id fix depends on that key.
+            if (manifest.Contains(NumericContainerId, StringComparison.Ordinal))
             {
                 manifest = manifest.Replace(NumericContainerId, StringContainerId, StringComparison.Ordinal);
+            }
+            else if (manifest.Contains("pico.spatial.windowcontainer.id", StringComparison.Ordinal) &&
+                     !manifest.Contains(StringContainerId, StringComparison.Ordinal))
+            {
+                throw new BuildFailedException(
+                    "Spatial Adapter emitted an unexpected pico.spatial.windowcontainer.id value. " +
+                    "Refusing to build an APK that may be classified as a 2D app.");
             }
 
             if (!manifest.Contains(SpatialApplicationMetadata, StringComparison.Ordinal))
