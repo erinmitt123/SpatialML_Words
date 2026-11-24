@@ -3,111 +3,111 @@
   "clips": {
     "en/detail": {
       "text": "Here are the meaning and an example. Close the card when you are done.",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "f4bce00def927db7",
-      "seconds": 4.0
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "7487a9a80b9b8fb8",
+      "seconds": 3.53
     },
     "en/home": {
       "text": "Home brings back the menu from anywhere. Tap it now.",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "223969dc689b4c65",
-      "seconds": 4.0
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "b79c3e8d4618b484",
+      "seconds": 3.0
     },
     "en/journey": {
       "text": "Journey guides you through each level, step by step.",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "d8c4231a916c34b1",
-      "seconds": 3.55
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "5827c14bb0ffb5ab",
+      "seconds": 2.79
     },
     "en/labels": {
       "text": "Words appear above objects in your room. Tap a glowing word to learn it.",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "5b2c531a2dde08d4",
-      "seconds": 4.47
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "2706b8c40cb99c33",
+      "seconds": 4.05
     },
     "en/practice": {
       "text": "Practice has Find It, Say It and your Word Bank.",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "f1b735e2508e1a83",
-      "seconds": 3.56
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "125ed2771a0cdd8c",
+      "seconds": 2.66
     },
     "en/replay": {
       "text": "Tap Tour any time to see this again. Have fun learning!",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "b40446b37a3164f5",
-      "seconds": 3.72
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "7be2da8cbd23fae6",
+      "seconds": 3.07
     },
     "en/settings": {
       "text": "Settings has your languages, reading level and label size.",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "552f0b54e5b18a7a",
-      "seconds": 4.28
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "30b3798bf7ea6fe6",
+      "seconds": 3.34
     },
     "en/status": {
       "text": "This shows the camera is finding objects. Tap it to pause or resume.",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "c77e1901f342492b",
-      "seconds": 4.89
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "8caf013058c9db8f",
+      "seconds": 4.08
     },
     "en/welcome": {
       "text": "Welcome to Word World! Let me show you around.",
-      "voice": "en_US-ljspeech-medium",
-      "hash": "4438a4fa7fbe7e76",
-      "seconds": 3.4
+      "voice": "kokoro:Kokoro-82M:af_heart:1.0",
+      "hash": "89a5da7fb3265d49",
+      "seconds": 2.75
     },
     "zh/detail": {
       "text": "这里有意思和例句。看完后关掉卡片。",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "f1d52b236150289c",
-      "seconds": 4.15
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "1593304087ea473b",
+      "seconds": 3.64
     },
     "zh/home": {
       "text": "主页按钮随时打开菜单。现在点一下。",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "2aa2ea143af1865e",
-      "seconds": 4.08
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "59c59dcc55974213",
+      "seconds": 3.65
     },
     "zh/journey": {
       "text": "学习之旅一步一步带你完成每个等级。",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "629f6e4c1ec36ba1",
-      "seconds": 3.61
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "4ba405c47bc92a33",
+      "seconds": 3.51
     },
     "zh/labels": {
       "text": "房间里的物品上方会出现单词。点一下发光的单词来学习。",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "d5f3d541d31bad2d",
-      "seconds": 6.45
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "2be78f47e67b8722",
+      "seconds": 5.21
     },
     "zh/practice": {
       "text": "练习里有找一找、说一说和你的单词本。",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "d08ad90fdb3f33a9",
-      "seconds": 3.95
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "9ffb47fb1a81fa49",
+      "seconds": 3.64
     },
     "zh/replay": {
       "text": "随时点“教程”可以再看一遍。学得开心！",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "d1248cbbf79e57e3",
-      "seconds": 3.75
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "a6f5081fe0e742f3",
+      "seconds": 3.49
     },
     "zh/settings": {
       "text": "设置里可以改语言、阅读等级和标签大小。",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "f832ff879bac00dc",
-      "seconds": 4.7
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "581c388d5ea0702f",
+      "seconds": 4.11
     },
     "zh/status": {
       "text": "这里显示正在识别物品。点它可以暂停或继续。",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "27baec2ff34c0fab",
-      "seconds": 5.07
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "c9f968e243671492",
+      "seconds": 4.51
     },
     "zh/welcome": {
       "text": "欢迎来到单词世界！我带你看一看。",
-      "voice": "zh_CN-chaowen-medium",
-      "hash": "06e333f690802656",
-      "seconds": 3.76
+      "voice": "kokoro:Kokoro-82M-v1.1-zh:zf_001:1.0",
+      "hash": "aa9894302a1c063d",
+      "seconds": 3.25
     }
   }
 }

@@ -215,6 +215,7 @@ namespace WordWorld.Editor
             status.transform.SetParent(app.transform, false);
             CreateStatusChip(status, theme);
             Set(status, "m_settings", settings);
+            Set(detail, "m_status", status);
             Set(status, "m_strings", strings);
             Set(status, "m_tracking", tracking);
             Set(status, "m_home", home);
@@ -344,6 +345,10 @@ namespace WordWorld.Editor
             SpatialAdapterNativeText backing = CreateChildText(go.transform, "Card", new Vector3(0f, 0f, 0.001f), "", 10,
                 theme.Ink, theme.Card, new Vector2(0.3f, 0.09f), theme.LabelCornerRadius);
             AddSyncCollider(backing.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
+            // Hover ring: an empty text behind the card, clear until the label is looked or pointed at.
+            SpatialAdapterNativeText ring = CreateChildText(go.transform, "Hover Ring", new Vector3(0f, 0f, 0.002f), "", 10,
+                Color.clear, Color.clear, new Vector2(0.31f, 0.1f), theme.LabelCornerRadius + 0.005f);
+            AddSyncCollider(ring.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
             SpatialAdapterNativeText gloss = CreateChildText(go.transform, "Meaning", new Vector3(0f, -0.04f, -0.001f), "", 54,
                 theme.InkMuted, theme.Card, new Vector2(0.2f, 0.025f), theme.LabelCornerRadius);
             AddSyncCollider(gloss.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
@@ -367,7 +372,7 @@ namespace WordWorld.Editor
             bounds.AddComponent<BoxCollider>().isTrigger = true;
 
             var view = go.AddComponent<LabelView>();
-            view.Bind(text, ruby, gloss, backing, leader, dot, go.GetComponent<BoxCollider>(), bounds.transform, theme);
+            view.Bind(text, ruby, gloss, backing, leader, dot, go.GetComponent<BoxCollider>(), bounds.transform, theme, ring);
             go.AddComponent<SpatialAdapterHoverEffect>();
             go.SetActive(false);
             return view;
@@ -418,30 +423,31 @@ namespace WordWorld.Editor
             return audio;
         }
 
-        // DESIGN.md section 4: about 25 cm wide; word, pinyin and meaning, grammar and example rows,
-        // then Save and Not right?, with a close button in the corner.
+        // DESIGN.md section 4: 36 x 28 cm; word, pinyin and meaning, grammar and example rows with
+        // the example's meaning, then Save and Not right?, with a close button in the corner.
         private static void CreateDetailCard(DetailCard detail, WordWorldTheme theme)
         {
-            GameObject card = CreateCard(detail.transform, "Card", theme, new Vector2(0.36f, 0.24f));
-            SpatialAdapterNativeText header = CreateChildText(card.transform, "Word", new Vector3(-0.08f, 0.08f, -0.005f),
+            GameObject card = CreateCard(detail.transform, "Card", theme, new Vector2(0.36f, 0.28f));
+            SpatialAdapterNativeText header = CreateChildText(card.transform, "Word", new Vector3(-0.08f, 0.1f, -0.005f),
                 "word", 44, theme.Ink, Color.clear, new Vector2(0.18f, 0.05f), 0f, TextJustification.Left);
-            SpatialAdapterNativeText sub = CreateChildText(card.transform, "Meaning", new Vector3(0f, 0.04f, -0.005f),
+            SpatialAdapterNativeText sub = CreateChildText(card.transform, "Meaning", new Vector3(0f, 0.06f, -0.005f),
                 "meaning", 26, theme.InkMuted, Color.clear, new Vector2(0.34f, 0.03f), 0f, TextJustification.Left);
-            SpatialAdapterNativeText body = CreateChildText(card.transform, "Body", new Vector3(0f, -0.025f, -0.005f),
-                "body", 22, theme.Ink, Color.clear, new Vector2(0.34f, 0.08f), 0f, TextJustification.Left);
-            SpatialButton close = CreateButton(card.transform, "Close", new Vector3(0.15f, 0.09f, -0.01f),
+            // Grammar, example and the example's meaning: up to five lines.
+            SpatialAdapterNativeText body = CreateChildText(card.transform, "Body", new Vector3(0f, -0.015f, -0.005f),
+                "body", 22, theme.Ink, Color.clear, new Vector2(0.34f, 0.11f), 0f, TextJustification.Left);
+            SpatialButton close = CreateButton(card.transform, "Close", new Vector3(0.15f, 0.11f, -0.01f),
                 "close", "×", 40, theme, new Vector2(0.04f, 0.04f));
             // Pronunciation (docs/audio-plan.md): Listen and Say it beside the word, the example
             // sentence in the bottom row. Everything plays or listens only on a tap.
-            SpatialButton listen = CreateButton(card.transform, "Listen", new Vector3(0.04f, 0.09f, -0.01f),
+            SpatialButton listen = CreateButton(card.transform, "Listen", new Vector3(0.04f, 0.11f, -0.01f),
                 "listen", "audio.listen", 20, theme, new Vector2(0.055f, 0.04f));
-            SpatialButton sayIt = CreateButton(card.transform, "Say It", new Vector3(0.1f, 0.09f, -0.01f),
+            SpatialButton sayIt = CreateButton(card.transform, "Say It", new Vector3(0.1f, 0.11f, -0.01f),
                 "say_it", "audio.say_it", 20, theme, new Vector2(0.055f, 0.04f));
-            SpatialButton example = CreateButton(card.transform, "Listen Example", new Vector3(0f, -0.093f, -0.01f),
+            SpatialButton example = CreateButton(card.transform, "Listen Example", new Vector3(0f, -0.113f, -0.01f),
                 "listen_example", "audio.example", 26, theme, new Vector2(0.11f, 0.04f));
-            SpatialButton save = CreateButton(card.transform, "Save", new Vector3(-0.12f, -0.093f, -0.01f),
+            SpatialButton save = CreateButton(card.transform, "Save", new Vector3(-0.12f, -0.113f, -0.01f),
                 "save", "detail.save", 26, theme, new Vector2(0.11f, 0.04f));
-            SpatialButton notRight = CreateButton(card.transform, "Not Right", new Vector3(0.12f, -0.093f, -0.01f),
+            SpatialButton notRight = CreateButton(card.transform, "Not Right", new Vector3(0.12f, -0.113f, -0.01f),
                 "not_right", "detail.not_right", 26, theme, new Vector2(0.11f, 0.04f));
 
             Set(detail, "m_card", card);
@@ -456,10 +462,11 @@ namespace WordWorld.Editor
             Set(detail, "m_sayItButton", sayIt);
         }
 
-        // DESIGN.md section 5.4: 40 x 50 cm (a little taller here to keep 1 cm between 4 cm buttons).
+        // DESIGN.md section 5.4: 42 x 72 cm (taller than the 40 x 50 cm sketch, to keep 1 cm between
+        // 4 cm buttons and to explain the reading levels under their title).
         private static void CreateSettingsWindow(SettingsWindow window, WordWorldTheme theme)
         {
-            GameObject card = CreateCard(window.transform, "Settings Window", theme, new Vector2(0.42f, 0.66f));
+            GameObject card = CreateCard(window.transform, "Settings Window", theme, new Vector2(0.42f, 0.72f));
             Transform t = card.transform;
             var rowSize = new Vector2(0.38f, 0.03f);
             var buttons = new List<Object>();
@@ -470,39 +477,42 @@ namespace WordWorld.Editor
                 CreateChildText(t, name, new Vector3(0f, y, -0.005f), name, points, theme.InkMuted, Color.clear, rowSize, 0f,
                     TextJustification.Left);
 
-            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(-0.03f, 0.295f, -0.005f), "settings.title",
+            SpatialAdapterNativeText title = CreateChildText(t, "Title", new Vector3(-0.03f, 0.325f, -0.005f), "settings.title",
                 44, theme.Ink, Color.clear, new Vector2(0.32f, 0.05f), 0f, TextJustification.Left);
-            buttons.Add(Button("close", 0.175f, 0.295f, 0.04f, 40));
+            buttons.Add(Button("close", 0.175f, 0.325f, 0.04f, 40));
 
-            SpatialAdapterNativeText learning = Row("I'm learning", 0.19f);
+            SpatialAdapterNativeText learning = Row("I'm learning", 0.225f);
             for (int i = 0; i < LearnerSettings.TargetLanguages.Length; i++)
-                buttons.Add(Button($"lang:{LearnerSettings.TargetLanguages[i]}", -0.16f + i * 0.08f, 0.15f, 0.07f, 24));
+                buttons.Add(Button($"lang:{LearnerSettings.TargetLanguages[i]}", -0.16f + i * 0.08f, 0.185f, 0.07f, 24));
 
-            SpatialAdapterNativeText ui = Row("Interface language", 0.1f);
-            buttons.Add(Button("ui:en", -0.125f, 0.06f, 0.12f));
-            buttons.Add(Button("ui:zh", 0.005f, 0.06f, 0.12f));
+            SpatialAdapterNativeText ui = Row("Interface language", 0.135f);
+            buttons.Add(Button("ui:en", -0.125f, 0.095f, 0.12f));
+            buttons.Add(Button("ui:zh", 0.005f, 0.095f, 0.12f));
 
-            SpatialAdapterNativeText level = Row("Reading level", 0.01f);
-            for (int i = 1; i <= 3; i++) buttons.Add(Button($"level:{i}", -0.165f + (i - 1) * 0.055f, -0.03f, 0.045f));
-            SpatialAdapterNativeText preview = CreateChildText(t, "Preview", new Vector3(0.09f, -0.03f, -0.005f), "preview",
+            SpatialAdapterNativeText level = Row("Reading level", 0.045f);
+            // What the levels change, in two short lines under the title.
+            SpatialAdapterNativeText levelHint = CreateChildText(t, "Level Hint", new Vector3(0f, 0.008f, -0.005f),
+                "settings.level_hint", 18, theme.InkMuted, Color.clear, new Vector2(0.38f, 0.04f), 0f, TextJustification.Left);
+            for (int i = 1; i <= 3; i++) buttons.Add(Button($"level:{i}", -0.165f + (i - 1) * 0.055f, -0.04f, 0.045f));
+            SpatialAdapterNativeText preview = CreateChildText(t, "Preview", new Vector3(0.09f, -0.04f, -0.005f), "preview",
                 32, theme.Ink, theme.AccentSoft, new Vector2(0.18f, 0.06f), theme.LabelCornerRadius);
 
-            buttons.Add(Button("meaning", -0.13f, -0.09f, 0.125f, 18));
-            buttons.Add(Button("pinyin", 0f, -0.09f, 0.125f, 18));
-            buttons.Add(Button("people", 0.13f, -0.09f, 0.125f, 18));
+            buttons.Add(Button("meaning", -0.13f, -0.1f, 0.125f, 18));
+            buttons.Add(Button("pinyin", 0f, -0.1f, 0.125f, 18));
+            buttons.Add(Button("people", 0.13f, -0.1f, 0.125f, 18));
 
-            SpatialAdapterNativeText size = Row("Label size", -0.15f);
-            for (int i = 0; i < 3; i++) buttons.Add(Button($"size:{"SML"[i]}", -0.005f + i * 0.08f, -0.15f, 0.07f, 32, 0.05f));
+            SpatialAdapterNativeText size = Row("Label size", -0.16f);
+            for (int i = 0; i < 3; i++) buttons.Add(Button($"size:{"SML"[i]}", -0.005f + i * 0.08f, -0.16f, 0.07f, 32, 0.05f));
 
-            SpatialAdapterNativeText confidence = Row("Detection confidence", -0.215f);
-            buttons.Add(Button("conf:-", 0.085f, -0.215f, 0.07f, 40, 0.05f));
-            buttons.Add(Button("conf:+", 0.165f, -0.215f, 0.07f, 40, 0.05f));
+            SpatialAdapterNativeText confidence = Row("Detection confidence", -0.225f);
+            buttons.Add(Button("conf:-", 0.085f, -0.225f, 0.07f, 40, 0.05f));
+            buttons.Add(Button("conf:+", 0.165f, -0.225f, 0.07f, 40, 0.05f));
 
-            buttons.Add(Button("audio", -0.13f, -0.27f, 0.125f, 18));
-            buttons.Add(Button("practice", 0f, -0.27f, 0.125f, 18));
-            buttons.Add(Button("practice:here", 0.13f, -0.27f, 0.125f, 18));
+            buttons.Add(Button("audio", -0.13f, -0.28f, 0.125f, 18));
+            buttons.Add(Button("practice", 0f, -0.28f, 0.125f, 18));
+            buttons.Add(Button("practice:here", 0.13f, -0.28f, 0.125f, 18));
 
-            SpatialAdapterNativeText privacy = Row("Privacy", -0.31f, 20);
+            SpatialAdapterNativeText privacy = Row("Privacy", -0.325f, 20);
 
             SetArray(window, "m_buttons", buttons.ToArray());
             Set(window, "m_window", card);
@@ -510,6 +520,7 @@ namespace WordWorld.Editor
             Set(window, "m_learningRow", learning);
             Set(window, "m_interfaceRow", ui);
             Set(window, "m_levelRow", level);
+            Set(window, "m_levelHint", levelHint);
             Set(window, "m_preview", preview);
             Set(window, "m_sizeRow", size);
             Set(window, "m_confidenceRow", confidence);
@@ -768,13 +779,17 @@ namespace WordWorld.Editor
             chip.transform.localPosition = new Vector3(0f, 0.9f, 1f);
             SpatialButton recognising = CreateButton(chip.transform, "Recognition", Vector3.zero, "pause",
                 "status.recognizing", 24, theme, new Vector2(0.26f, 0.062f));
-            SpatialButton home = CreateButton(chip.transform, "Home Button", new Vector3(0f, -0.085f, 0f), "home",
-                "dock.home", 28, theme, new Vector2(0.12f, 0.045f));
+            // Home and Move side by side under the pill, together as wide as it.
+            SpatialButton home = CreateButton(chip.transform, "Home Button", new Vector3(-0.0675f, -0.085f, 0f), "home",
+                "dock.home", 28, theme, new Vector2(0.125f, 0.045f));
+            SpatialButton move = CreateButton(chip.transform, "Move Button", new Vector3(0.0675f, -0.085f, 0f), "move",
+                "dock.move", 28, theme, new Vector2(0.125f, 0.045f));
             // The pill and the Home button under it.
             chip.AddComponent<PanelOccluder>().Configure(new Vector2(0.27f, 0.15f), new Vector2(0f, -0.04f));
             Set(status, "m_chip", chip);
             Set(status, "m_statusButton", recognising);
             Set(status, "m_homeButton", home);
+            Set(status, "m_moveButton", move);
         }
 
         // DESIGN.md section 5: the Journey card, low and to the right.
@@ -1065,17 +1080,14 @@ namespace WordWorld.Editor
             GameObject window = CreateCard(entry.transform, "Language Window", theme, new Vector2(0.42f, 0.66f));
             SpatialAdapterNativeText title = CreateChildText(window.transform, "Title", new Vector3(0f, 0.195f, -0.005f),
                 "picker.title", 40, theme.Ink, Color.clear, new Vector2(0.4f, 0.1f), theme.PanelCornerRadius);
-            // Moved and resized at runtime (one line or two), so it needs the sync collider too.
+            // Resized at runtime, so it needs the sync collider too.
             AddSyncCollider(title.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
-            SpatialAdapterNativeText titleZh = CreateChildText(window.transform, "Title zh", new Vector3(0f, 0.17f, -0.005f),
-                "onboarding.speak_title", 40, theme.Accent, Color.clear, new Vector2(0.4f, 0.05f), 0f);
-            AddSyncCollider(titleZh.gameObject, new Vector3(0.001f, 0.001f, 0.001f));
             var buttons = new List<Object>();
             for (int i = 0; i < LearnerSettings.TargetLanguages.Length; i++)
             {
                 string language = LearnerSettings.TargetLanguages[i];
                 buttons.Add(CreateButton(window.transform, $"Button {language}", new Vector3(0f, 0.1f - i * 0.095f, -0.01f),
-                    language, $"lang.{language}.endonym", 52, theme, new Vector2(0.34f, 0.075f)));
+                    language, $"lang.{language}", 52, theme, new Vector2(0.34f, 0.075f)));
             }
 
             // Breadcrumb across the top: 1 your language › 2 learn › 3 start.
@@ -1104,7 +1116,6 @@ namespace WordWorld.Editor
             Set(entry, "m_theme", theme);
             Set(entry, "m_languageWindow", window);
             Set(entry, "m_languageTitle", title);
-            Set(entry, "m_languageTitleZh", titleZh);
             SetArray(entry, "m_languageButtons", buttons.ToArray());
             SetArray(entry, "m_crumbs", crumbs.ToArray());
             Set(entry, "m_startButton", start);
@@ -1127,17 +1138,14 @@ namespace WordWorld.Editor
                 Color.black, new Vector2(4.2f, 3f), 0f);
             AddSyncCollider(veil, new Vector3(0.001f, 0.001f, 0.001f));
             GameObject titleCard = CreateCard(entry.transform, "Title Card", theme, new Vector2(0.66f, 0.3f));
-            SpatialAdapterNativeText titleName = CreateChildText(titleCard.transform, "Name", new Vector3(0f, 0.085f, -0.005f),
+            SpatialAdapterNativeText titleName = CreateChildText(titleCard.transform, "Name", new Vector3(0f, 0.05f, -0.005f),
                 "title.name", 96, theme.Ink, Color.clear, new Vector2(0.62f, 0.09f), 0f);
-            SpatialAdapterNativeText titleNameZh = CreateChildText(titleCard.transform, "Name zh", new Vector3(0f, 0.01f, -0.005f),
-                "title.name", 48, theme.Accent, Color.clear, new Vector2(0.62f, 0.05f), 0f);
-            SpatialAdapterNativeText tagline = CreateChildText(titleCard.transform, "Tagline", new Vector3(0f, -0.08f, -0.005f),
+            SpatialAdapterNativeText tagline = CreateChildText(titleCard.transform, "Tagline", new Vector3(0f, -0.065f, -0.005f),
                 "title.tagline", 28, theme.InkMuted, Color.clear, new Vector2(0.62f, 0.09f), 0f);
             Set(entry, "m_veil", veil);
             Set(entry, "m_veilText", veilText);
             Set(entry, "m_titleCard", titleCard);
             Set(entry, "m_titleName", titleName);
-            Set(entry, "m_titleNameZh", titleNameZh);
             Set(entry, "m_titleTagline", tagline);
 
             // Guided first word: the first object in all five languages.
@@ -1269,10 +1277,14 @@ namespace WordWorld.Editor
             GameObject go = text.gameObject;
             go.AddComponent<BoxCollider>().size = new Vector3(size.x, size.y, 0.02f);
             go.AddComponent<SpatialAdapterHoverEffect>();
+            // The hover ring: 6 mm wider on every side, just behind the button, invisible until hovered
+            // (4 mm was still hard to see past a gaze, Nov 23 review).
+            SpatialAdapterNativeText ring = CreateChildText(go.transform, "Hover Ring", new Vector3(0f, 0f, 0.003f), "", 10,
+                Color.clear, Color.clear, size + new Vector2(0.012f, 0.012f), theme.LabelCornerRadius + 0.006f);
             var button = go.AddComponent<SpatialButton>();
             // Same scaling CreateNativeText applied, so runtime fitting starts from the drawn size.
             button.Bind(value, text, points > 12 ? Mathf.RoundToInt(points * WindowTextScale) : points, size,
-                theme.Button, theme.Accent);
+                theme.Button, theme.Accent, ring);
             return button;
         }
 

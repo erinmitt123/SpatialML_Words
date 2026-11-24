@@ -284,8 +284,8 @@ namespace WordWorld.UI
                 {
                     case Detail:
                         Transform anchor = m_detail.Card;
-                        // DetailCard is 24 cm tall; nudged toward the learner so it never sinks into it.
-                        Vector3 above = anchor.position + anchor.up * (0.12f + m_cardSize.y * 0.5f + 0.02f) - anchor.forward * 0.01f;
+                        // DetailCard is 28 cm tall; nudged toward the learner so it never sinks into it.
+                        Vector3 above = anchor.position + anchor.up * (0.14f + m_cardSize.y * 0.5f + 0.02f) - anchor.forward * 0.01f;
                         m_card.transform.SetPositionAndRotation(above, anchor.rotation);
                         down = true;
                         break;

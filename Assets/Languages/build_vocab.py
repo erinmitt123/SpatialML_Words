@@ -7,6 +7,8 @@ converts it. One row per YOLOX class (0-79), one column per field.
   Level 1 (word):     <lang>_word        la silla        / zh_pinyin, zh_characters
   Level 2 (phrase):   <lang>_phrase      una silla       / zh_phrase + zh_phrasePinyin
   Level 3 (sentence): <lang>_sentence    Siéntate en la silla, por favor. / zh_sentence
+  Sentence meaning:   <lang>_sentenceMeaning  the example in the learner's own language (English
+                      for zh/es/fr/de, Chinese for en), shown under the example on the word card
 
 Editing: open vocabulary.csv in a spreadsheet, change cells, save as "CSV UTF-8" (keeps the
 accents, tone marks and characters), then run
@@ -17,12 +19,14 @@ import csv, json, os, sys
 
 SHEET = os.path.join(os.path.dirname(os.path.abspath(__file__)), "vocabulary.csv")
 
-LATIN = ["word", "article", "noun", "gender", "plural", "phrase", "sentence", "meaning", "alternatives"]
+LATIN = ["word", "article", "noun", "gender", "plural", "phrase", "sentence", "sentenceMeaning", "meaning", "alternatives"]
 ZH = ["characters", "pinyin", "measureWord", "measureWordPinyin", "phrase", "phrasePinyin",
-      "sentence", "sentencePinyin", "meaning"]
+      "sentence", "sentencePinyin", "sentenceMeaning", "meaning"]
 BOOLS = {"enabled", "reviewed", "plural"}
 # Cells that may be empty: English has no article or gender, and most words have no alternative.
 OPTIONAL = {"article", "noun", "gender", "alternatives"}
+# Needed only on enabled rows: disabled classes are never shown, so their meanings are not written yet.
+ENABLED_ONLY = {"sentenceMeaning"}
 
 
 def parse_bool(value, where):
@@ -34,7 +38,7 @@ def parse_bool(value, where):
     raise ValueError(f"{where}: expected TRUE or FALSE, got '{value}'")
 
 
-def read_block(row, lang, fields, number):
+def read_block(row, lang, fields, number, enabled):
     block = {}
     for field in fields:
         column = f"{lang}_{field}"
@@ -45,7 +49,7 @@ def read_block(row, lang, fields, number):
         if field in BOOLS:
             block[field] = parse_bool(value, where)
             continue
-        if not value and field not in OPTIONAL:
+        if not value and field not in OPTIONAL and (enabled or field not in ENABLED_ONLY):
             raise ValueError(f"{where} is empty; every word, phrase and sentence must be written in the sheet")
         block[field] = value
     return block
@@ -60,18 +64,19 @@ def main(out):
         if index in seen or not 0 <= index <= 79:
             raise ValueError(f"row {number}: classIndex {index} is duplicated or out of range")
         seen.add(index)
+        enabled = parse_bool(row["enabled"], f"row {number} enabled")
         entries.append({
             "classIndex": index,  # YOLOX output index (0-79)
             "cocoLabel": row["cocoLabel"].strip(),
             "category": row["category"].strip(),
             "roomFit": row["roomFit"].strip(),
-            "enabled": parse_bool(row["enabled"], f"row {number} enabled"),
+            "enabled": enabled,
             "reviewed": parse_bool(row["reviewed"], f"row {number} reviewed"),
-            "en": read_block(row, "en", LATIN, number),
-            "zh": read_block(row, "zh", ZH, number),
-            "es": read_block(row, "es", LATIN, number),
-            "fr": read_block(row, "fr", LATIN, number),
-            "de": read_block(row, "de", LATIN, number),
+            "en": read_block(row, "en", LATIN, number, enabled),
+            "zh": read_block(row, "zh", ZH, number, enabled),
+            "es": read_block(row, "es", LATIN, number, enabled),
+            "fr": read_block(row, "fr", LATIN, number, enabled),
+            "de": read_block(row, "de", LATIN, number, enabled),
         })
     entries.sort(key=lambda e: e["classIndex"])
     db = {

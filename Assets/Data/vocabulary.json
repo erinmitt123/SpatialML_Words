@@ -18,6 +18,7 @@
         "plural": false,
         "phrase": "a person",
         "sentence": "There is a person here.",
+        "sentenceMeaning": "这里有一个人。",
         "meaning": "人",
         "alternatives": ""
       },
@@ -30,6 +31,7 @@
         "phrasePinyin": "yí gè rén",
         "sentence": "这里有一个人。",
         "sentencePinyin": "Zhèlǐ yǒu yí gè rén.",
+        "sentenceMeaning": "There is a person here.",
         "meaning": "person"
       },
       "es": {
@@ -40,6 +42,7 @@
         "plural": false,
         "phrase": "una persona",
         "sentence": "Hay una persona aquí.",
+        "sentenceMeaning": "There is a person here.",
         "meaning": "person",
         "alternatives": ""
       },
@@ -51,6 +54,7 @@
         "plural": false,
         "phrase": "une personne",
         "sentence": "Il y a une personne ici.",
+        "sentenceMeaning": "There is a person here.",
         "meaning": "person",
         "alternatives": ""
       },
@@ -62,6 +66,7 @@
         "plural": false,
         "phrase": "eine Person",
         "sentence": "Hier ist eine Person.",
+        "sentenceMeaning": "There is a person here.",
         "meaning": "person",
         "alternatives": ""
       }
@@ -81,6 +86,7 @@
         "plural": false,
         "phrase": "a bicycle",
         "sentence": "I ride my bicycle to work.",
+        "sentenceMeaning": "我骑自行车上班。",
         "meaning": "自行车",
         "alternatives": ""
       },
@@ -93,6 +99,7 @@
         "phrasePinyin": "yí liàng zìxíngchē",
         "sentence": "我骑自行车上班。",
         "sentencePinyin": "Wǒ qí zìxíngchē shàngbān.",
+        "sentenceMeaning": "I ride a bike to work.",
         "meaning": "bicycle"
       },
       "es": {
@@ -103,6 +110,7 @@
         "plural": false,
         "phrase": "una bicicleta",
         "sentence": "Voy al trabajo en bicicleta.",
+        "sentenceMeaning": "I go to work by bike.",
         "meaning": "bicycle",
         "alternatives": ""
       },
@@ -114,6 +122,7 @@
         "plural": false,
         "phrase": "un vélo",
         "sentence": "Je vais au travail à vélo.",
+        "sentenceMeaning": "I go to work by bike.",
         "meaning": "bicycle",
         "alternatives": ""
       },
@@ -125,6 +134,7 @@
         "plural": false,
         "phrase": "ein Fahrrad",
         "sentence": "Ich fahre mit dem Fahrrad.",
+        "sentenceMeaning": "I ride my bike.",
         "meaning": "bicycle",
         "alternatives": ""
       }
@@ -144,6 +154,7 @@
         "plural": false,
         "phrase": "a car",
         "sentence": "The car is very fast.",
+        "sentenceMeaning": "",
         "meaning": "汽车",
         "alternatives": ""
       },
@@ -156,6 +167,7 @@
         "phrasePinyin": "yí liàng qìchē",
         "sentence": "这辆汽车很快。",
         "sentencePinyin": "Zhè liàng qìchē hěn kuài.",
+        "sentenceMeaning": "",
         "meaning": "car"
       },
       "es": {
@@ -166,6 +178,7 @@
         "plural": false,
         "phrase": "un carro",
         "sentence": "El carro es muy rápido.",
+        "sentenceMeaning": "",
         "meaning": "car",
         "alternatives": "el coche"
       },
@@ -177,6 +190,7 @@
         "plural": false,
         "phrase": "une voiture",
         "sentence": "La voiture est très rapide.",
+        "sentenceMeaning": "",
         "meaning": "car",
         "alternatives": ""
       },
@@ -188,6 +202,7 @@
         "plural": false,
         "phrase": "ein Auto",
         "sentence": "Das Auto ist sehr schnell.",
+        "sentenceMeaning": "",
         "meaning": "car",
         "alternatives": ""
       }
@@ -207,6 +222,7 @@
         "plural": false,
         "phrase": "a motorcycle",
         "sentence": "He rides a motorcycle.",
+        "sentenceMeaning": "",
         "meaning": "摩托车",
         "alternatives": ""
       },
@@ -219,6 +235,7 @@
         "phrasePinyin": "yí liàng mótuōchē",
         "sentence": "他骑摩托车。",
         "sentencePinyin": "Tā qí mótuōchē.",
+        "sentenceMeaning": "",
         "meaning": "motorcycle"
       },
       "es": {
@@ -229,6 +246,7 @@
         "plural": false,
         "phrase": "una moto",
         "sentence": "Él anda en moto.",
+        "sentenceMeaning": "",
         "meaning": "motorcycle",
         "alternatives": ""
       },
@@ -240,6 +258,7 @@
         "plural": false,
         "phrase": "une moto",
         "sentence": "Il roule à moto.",
+        "sentenceMeaning": "",
         "meaning": "motorcycle",
         "alternatives": ""
       },
@@ -251,6 +270,7 @@
         "plural": false,
         "phrase": "ein Motorrad",
         "sentence": "Er fährt Motorrad.",
+        "sentenceMeaning": "",
         "meaning": "motorcycle",
         "alternatives": ""
       }
@@ -270,6 +290,7 @@
         "plural": false,
         "phrase": "an airplane",
         "sentence": "The airplane is in the sky.",
+        "sentenceMeaning": "",
         "meaning": "飞机",
         "alternatives": ""
       },
@@ -282,6 +303,7 @@
         "phrasePinyin": "yí jià fēijī",
         "sentence": "飞机在天上。",
         "sentencePinyin": "Fēijī zài tiānshàng.",
+        "sentenceMeaning": "",
         "meaning": "airplane"
       },
       "es": {
@@ -292,6 +314,7 @@
         "plural": false,
         "phrase": "un avión",
         "sentence": "El avión está en el cielo.",
+        "sentenceMeaning": "",
         "meaning": "airplane",
         "alternatives": ""
       },
@@ -303,6 +326,7 @@
         "plural": false,
         "phrase": "un avion",
         "sentence": "L'avion est dans le ciel.",
+        "sentenceMeaning": "",
         "meaning": "airplane",
         "alternatives": ""
       },
@@ -314,6 +338,7 @@
         "plural": false,
         "phrase": "ein Flugzeug",
         "sentence": "Das Flugzeug ist am Himmel.",
+        "sentenceMeaning": "",
         "meaning": "airplane",
         "alternatives": ""
       }
@@ -333,6 +358,7 @@
         "plural": false,
         "phrase": "a bus",
         "sentence": "I take the bus to school.",
+        "sentenceMeaning": "",
         "meaning": "公交车",
         "alternatives": ""
       },
@@ -345,6 +371,7 @@
         "phrasePinyin": "yí liàng gōngjiāochē",
         "sentence": "我坐公交车上学。",
         "sentencePinyin": "Wǒ zuò gōngjiāochē shàngxué.",
+        "sentenceMeaning": "",
         "meaning": "bus"
       },
       "es": {
@@ -355,6 +382,7 @@
         "plural": false,
         "phrase": "un autobús",
         "sentence": "Voy a la escuela en autobús.",
+        "sentenceMeaning": "",
         "meaning": "bus",
         "alternatives": ""
       },
@@ -366,6 +394,7 @@
         "plural": false,
         "phrase": "un bus",
         "sentence": "Je prends le bus pour l'école.",
+        "sentenceMeaning": "",
         "meaning": "bus",
         "alternatives": ""
       },
@@ -377,6 +406,7 @@
         "plural": false,
         "phrase": "ein Bus",
         "sentence": "Ich fahre mit dem Bus zur Schule.",
+        "sentenceMeaning": "",
         "meaning": "bus",
         "alternatives": ""
       }
@@ -396,6 +426,7 @@
         "plural": false,
         "phrase": "a train",
         "sentence": "The train leaves at nine.",
+        "sentenceMeaning": "",
         "meaning": "火车",
         "alternatives": ""
       },
@@ -408,6 +439,7 @@
         "phrasePinyin": "yí liè huǒchē",
         "sentence": "火车九点出发。",
         "sentencePinyin": "Huǒchē jiǔ diǎn chūfā.",
+        "sentenceMeaning": "",
         "meaning": "train"
       },
       "es": {
@@ -418,6 +450,7 @@
         "plural": false,
         "phrase": "un tren",
         "sentence": "El tren sale a las nueve.",
+        "sentenceMeaning": "",
         "meaning": "train",
         "alternatives": ""
       },
@@ -429,6 +462,7 @@
         "plural": false,
         "phrase": "un train",
         "sentence": "Le train part à neuf heures.",
+        "sentenceMeaning": "",
         "meaning": "train",
         "alternatives": ""
       },
@@ -440,6 +474,7 @@
         "plural": false,
         "phrase": "ein Zug",
         "sentence": "Der Zug fährt um neun ab.",
+        "sentenceMeaning": "",
         "meaning": "train",
         "alternatives": ""
       }
@@ -459,6 +494,7 @@
         "plural": false,
         "phrase": "a truck",
         "sentence": "The truck carries boxes.",
+        "sentenceMeaning": "",
         "meaning": "卡车",
         "alternatives": ""
       },
@@ -471,6 +507,7 @@
         "phrasePinyin": "yí liàng kǎchē",
         "sentence": "卡车在运箱子。",
         "sentencePinyin": "Kǎchē zài yùn xiāngzi.",
+        "sentenceMeaning": "",
         "meaning": "truck"
       },
       "es": {
@@ -481,6 +518,7 @@
         "plural": false,
         "phrase": "un camión",
         "sentence": "El camión lleva cajas.",
+        "sentenceMeaning": "",
         "meaning": "truck",
         "alternatives": ""
       },
@@ -492,6 +530,7 @@
         "plural": false,
         "phrase": "un camion",
         "sentence": "Le camion transporte des boîtes.",
+        "sentenceMeaning": "",
         "meaning": "truck",
         "alternatives": ""
       },
@@ -503,6 +542,7 @@
         "plural": false,
         "phrase": "ein Lastwagen",
         "sentence": "Der Lastwagen bringt Kisten.",
+        "sentenceMeaning": "",
         "meaning": "truck",
         "alternatives": ""
       }
@@ -522,6 +562,7 @@
         "plural": false,
         "phrase": "a boat",
         "sentence": "We take the boat on the lake.",
+        "sentenceMeaning": "",
         "meaning": "船",
         "alternatives": ""
       },
@@ -534,6 +575,7 @@
         "phrasePinyin": "yì sōu chuán",
         "sentence": "我们在湖上划船。",
         "sentencePinyin": "Wǒmen zài hú shàng huá chuán.",
+        "sentenceMeaning": "",
         "meaning": "boat"
       },
       "es": {
@@ -544,6 +586,7 @@
         "plural": false,
         "phrase": "un barco",
         "sentence": "Vamos en barco por el lago.",
+        "sentenceMeaning": "",
         "meaning": "boat",
         "alternatives": ""
       },
@@ -555,6 +598,7 @@
         "plural": false,
         "phrase": "un bateau",
         "sentence": "On fait du bateau sur le lac.",
+        "sentenceMeaning": "",
         "meaning": "boat",
         "alternatives": ""
       },
@@ -566,6 +610,7 @@
         "plural": false,
         "phrase": "ein Boot",
         "sentence": "Wir fahren Boot auf dem See.",
+        "sentenceMeaning": "",
         "meaning": "boat",
         "alternatives": ""
       }
@@ -585,6 +630,7 @@
         "plural": false,
         "phrase": "a traffic light",
         "sentence": "The traffic light is red.",
+        "sentenceMeaning": "",
         "meaning": "红绿灯",
         "alternatives": ""
       },
@@ -597,6 +643,7 @@
         "phrasePinyin": "yí gè hónglǜdēng",
         "sentence": "红绿灯变红了。",
         "sentencePinyin": "Hónglǜdēng biàn hóng le.",
+        "sentenceMeaning": "",
         "meaning": "traffic light"
       },
       "es": {
@@ -607,6 +654,7 @@
         "plural": false,
         "phrase": "un semáforo",
         "sentence": "El semáforo está en rojo.",
+        "sentenceMeaning": "",
         "meaning": "traffic light",
         "alternatives": ""
       },
@@ -618,6 +666,7 @@
         "plural": false,
         "phrase": "un feu de circulation",
         "sentence": "Le feu de circulation est rouge.",
+        "sentenceMeaning": "",
         "meaning": "traffic light",
         "alternatives": ""
       },
@@ -629,6 +678,7 @@
         "plural": false,
         "phrase": "eine Ampel",
         "sentence": "Die Ampel ist rot.",
+        "sentenceMeaning": "",
         "meaning": "traffic light",
         "alternatives": ""
       }
@@ -648,6 +698,7 @@
         "plural": false,
         "phrase": "a fire hydrant",
         "sentence": "The fire hydrant is yellow.",
+        "sentenceMeaning": "",
         "meaning": "消防栓",
         "alternatives": ""
       },
@@ -660,6 +711,7 @@
         "phrasePinyin": "yí gè xiāofángshuān",
         "sentence": "消防栓是黄色的。",
         "sentencePinyin": "Xiāofángshuān shì huángsè de.",
+        "sentenceMeaning": "",
         "meaning": "fire hydrant"
       },
       "es": {
@@ -670,6 +722,7 @@
         "plural": false,
         "phrase": "un hidrante",
         "sentence": "El hidrante es amarillo.",
+        "sentenceMeaning": "",
         "meaning": "fire hydrant",
         "alternatives": "la boca de incendios"
       },
@@ -681,6 +734,7 @@
         "plural": false,
         "phrase": "une bouche d'incendie",
         "sentence": "La bouche d'incendie est jaune.",
+        "sentenceMeaning": "",
         "meaning": "fire hydrant",
         "alternatives": ""
       },
@@ -692,6 +746,7 @@
         "plural": false,
         "phrase": "ein Hydrant",
         "sentence": "Der Hydrant ist gelb.",
+        "sentenceMeaning": "",
         "meaning": "fire hydrant",
         "alternatives": ""
       }
@@ -711,6 +766,7 @@
         "plural": false,
         "phrase": "a stop sign",
         "sentence": "Stop at the stop sign.",
+        "sentenceMeaning": "",
         "meaning": "停车标志",
         "alternatives": ""
       },
@@ -723,6 +779,7 @@
         "phrasePinyin": "yí gè tíngchē biāozhì",
         "sentence": "在停车标志前停车。",
         "sentencePinyin": "Zài tíngchē biāozhì qián tíngchē.",
+        "sentenceMeaning": "",
         "meaning": "stop sign"
       },
       "es": {
@@ -733,6 +790,7 @@
         "plural": false,
         "phrase": "una señal de alto",
         "sentence": "Detente en la señal de alto.",
+        "sentenceMeaning": "",
         "meaning": "stop sign",
         "alternatives": "la señal de stop"
       },
@@ -744,6 +802,7 @@
         "plural": false,
         "phrase": "un panneau stop",
         "sentence": "Arrête-toi au panneau stop.",
+        "sentenceMeaning": "",
         "meaning": "stop sign",
         "alternatives": ""
       },
@@ -755,6 +814,7 @@
         "plural": false,
         "phrase": "ein Stoppschild",
         "sentence": "Halt am Stoppschild an.",
+        "sentenceMeaning": "",
         "meaning": "stop sign",
         "alternatives": ""
       }
@@ -774,6 +834,7 @@
         "plural": false,
         "phrase": "a parking meter",
         "sentence": "Pay at the parking meter.",
+        "sentenceMeaning": "",
         "meaning": "停车计时器",
         "alternatives": ""
       },
@@ -786,6 +847,7 @@
         "phrasePinyin": "yí gè tíngchē jìshíqì",
         "sentence": "在停车计时器付费。",
         "sentencePinyin": "Zài tíngchē jìshíqì fùfèi.",
+        "sentenceMeaning": "",
         "meaning": "parking meter"
       },
       "es": {
@@ -796,6 +858,7 @@
         "plural": false,
         "phrase": "un parquímetro",
         "sentence": "Paga en el parquímetro.",
+        "sentenceMeaning": "",
         "meaning": "parking meter",
         "alternatives": ""
       },
@@ -807,6 +870,7 @@
         "plural": false,
         "phrase": "un parcmètre",
         "sentence": "Paie au parcmètre.",
+        "sentenceMeaning": "",
         "meaning": "parking meter",
         "alternatives": ""
       },
@@ -818,6 +882,7 @@
         "plural": false,
         "phrase": "eine Parkuhr",
         "sentence": "Bezahl an der Parkuhr.",
+        "sentenceMeaning": "",
         "meaning": "parking meter",
         "alternatives": ""
       }
@@ -837,6 +902,7 @@
         "plural": false,
         "phrase": "a bench",
         "sentence": "We sit on the bench.",
+        "sentenceMeaning": "我们坐在长椅上。",
         "meaning": "长椅",
         "alternatives": ""
       },
@@ -849,6 +915,7 @@
         "phrasePinyin": "yì zhāng chángyǐ",
         "sentence": "我们坐在长椅上。",
         "sentencePinyin": "Wǒmen zuò zài chángyǐ shàng.",
+        "sentenceMeaning": "We are sitting on the bench.",
         "meaning": "bench"
       },
       "es": {
@@ -859,6 +926,7 @@
         "plural": false,
         "phrase": "un banco",
         "sentence": "Nos sentamos en el banco.",
+        "sentenceMeaning": "We sit on the bench.",
         "meaning": "bench",
         "alternatives": ""
       },
@@ -870,6 +938,7 @@
         "plural": false,
         "phrase": "un banc",
         "sentence": "On s'assoit sur le banc.",
+        "sentenceMeaning": "We sit down on the bench.",
         "meaning": "bench",
         "alternatives": ""
       },
@@ -881,6 +950,7 @@
         "plural": false,
         "phrase": "eine Bank",
         "sentence": "Wir sitzen auf der Bank.",
+        "sentenceMeaning": "We are sitting on the bench.",
         "meaning": "bench",
         "alternatives": ""
       }
@@ -900,6 +970,7 @@
         "plural": false,
         "phrase": "a bird",
         "sentence": "The bird is singing.",
+        "sentenceMeaning": "小鸟在唱歌。",
         "meaning": "鸟",
         "alternatives": ""
       },
@@ -912,6 +983,7 @@
         "phrasePinyin": "yì zhī niǎo",
         "sentence": "小鸟在唱歌。",
         "sentencePinyin": "Xiǎoniǎo zài chànggē.",
+        "sentenceMeaning": "The little bird is singing.",
         "meaning": "bird"
       },
       "es": {
@@ -922,6 +994,7 @@
         "plural": false,
         "phrase": "un pájaro",
         "sentence": "El pájaro está cantando.",
+        "sentenceMeaning": "The bird is singing.",
         "meaning": "bird",
         "alternatives": ""
       },
@@ -933,6 +1006,7 @@
         "plural": false,
         "phrase": "un oiseau",
         "sentence": "L'oiseau chante.",
+        "sentenceMeaning": "The bird is singing.",
         "meaning": "bird",
         "alternatives": ""
       },
@@ -944,6 +1018,7 @@
         "plural": false,
         "phrase": "ein Vogel",
         "sentence": "Der Vogel singt.",
+        "sentenceMeaning": "The bird is singing.",
         "meaning": "bird",
         "alternatives": ""
       }
@@ -963,6 +1038,7 @@
         "plural": false,
         "phrase": "a cat",
         "sentence": "The cat is sleeping.",
+        "sentenceMeaning": "猫在睡觉。",
         "meaning": "猫",
         "alternatives": ""
       },
@@ -975,6 +1051,7 @@
         "phrasePinyin": "yì zhī māo",
         "sentence": "猫在睡觉。",
         "sentencePinyin": "Māo zài shuìjiào.",
+        "sentenceMeaning": "The cat is sleeping.",
         "meaning": "cat"
       },
       "es": {
@@ -985,6 +1062,7 @@
         "plural": false,
         "phrase": "un gato",
         "sentence": "El gato está durmiendo.",
+        "sentenceMeaning": "The cat is sleeping.",
         "meaning": "cat",
         "alternatives": ""
       },
@@ -996,6 +1074,7 @@
         "plural": false,
         "phrase": "un chat",
         "sentence": "Le chat dort.",
+        "sentenceMeaning": "The cat is sleeping.",
         "meaning": "cat",
         "alternatives": ""
       },
@@ -1007,6 +1086,7 @@
         "plural": false,
         "phrase": "eine Katze",
         "sentence": "Die Katze schläft.",
+        "sentenceMeaning": "The cat is sleeping.",
         "meaning": "cat",
         "alternatives": ""
       }
@@ -1026,6 +1106,7 @@
         "plural": false,
         "phrase": "a dog",
         "sentence": "The dog wants to play.",
+        "sentenceMeaning": "狗想玩。",
         "meaning": "狗",
         "alternatives": ""
       },
@@ -1038,6 +1119,7 @@
         "phrasePinyin": "yì zhī gǒu",
         "sentence": "狗想出去玩。",
         "sentencePinyin": "Gǒu xiǎng chūqù wán.",
+        "sentenceMeaning": "The dog wants to go out and play.",
         "meaning": "dog"
       },
       "es": {
@@ -1048,6 +1130,7 @@
         "plural": false,
         "phrase": "un perro",
         "sentence": "El perro quiere jugar.",
+        "sentenceMeaning": "The dog wants to play.",
         "meaning": "dog",
         "alternatives": ""
       },
@@ -1059,6 +1142,7 @@
         "plural": false,
         "phrase": "un chien",
         "sentence": "Le chien veut jouer.",
+        "sentenceMeaning": "The dog wants to play.",
         "meaning": "dog",
         "alternatives": ""
       },
@@ -1070,6 +1154,7 @@
         "plural": false,
         "phrase": "ein Hund",
         "sentence": "Der Hund will spielen.",
+        "sentenceMeaning": "The dog wants to play.",
         "meaning": "dog",
         "alternatives": ""
       }
@@ -1089,6 +1174,7 @@
         "plural": false,
         "phrase": "a horse",
         "sentence": "The horse runs fast.",
+        "sentenceMeaning": "",
         "meaning": "马",
         "alternatives": ""
       },
@@ -1101,6 +1187,7 @@
         "phrasePinyin": "yì pǐ mǎ",
         "sentence": "马跑得很快。",
         "sentencePinyin": "Mǎ pǎo de hěn kuài.",
+        "sentenceMeaning": "",
         "meaning": "horse"
       },
       "es": {
@@ -1111,6 +1198,7 @@
         "plural": false,
         "phrase": "un caballo",
         "sentence": "El caballo corre rápido.",
+        "sentenceMeaning": "",
         "meaning": "horse",
         "alternatives": ""
       },
@@ -1122,6 +1210,7 @@
         "plural": false,
         "phrase": "un cheval",
         "sentence": "Le cheval court vite.",
+        "sentenceMeaning": "",
         "meaning": "horse",
         "alternatives": ""
       },
@@ -1133,6 +1222,7 @@
         "plural": false,
         "phrase": "ein Pferd",
         "sentence": "Das Pferd läuft schnell.",
+        "sentenceMeaning": "",
         "meaning": "horse",
         "alternatives": ""
       }
@@ -1152,6 +1242,7 @@
         "plural": false,
         "phrase": "a sheep",
         "sentence": "The sheep eats grass.",
+        "sentenceMeaning": "",
         "meaning": "羊",
         "alternatives": ""
       },
@@ -1164,6 +1255,7 @@
         "phrasePinyin": "yì zhī yáng",
         "sentence": "羊在吃草。",
         "sentencePinyin": "Yáng zài chī cǎo.",
+        "sentenceMeaning": "",
         "meaning": "sheep"
       },
       "es": {
@@ -1174,6 +1266,7 @@
         "plural": false,
         "phrase": "una oveja",
         "sentence": "La oveja come pasto.",
+        "sentenceMeaning": "",
         "meaning": "sheep",
         "alternatives": ""
       },
@@ -1185,6 +1278,7 @@
         "plural": false,
         "phrase": "un mouton",
         "sentence": "Le mouton mange de l'herbe.",
+        "sentenceMeaning": "",
         "meaning": "sheep",
         "alternatives": ""
       },
@@ -1196,6 +1290,7 @@
         "plural": false,
         "phrase": "ein Schaf",
         "sentence": "Das Schaf frisst Gras.",
+        "sentenceMeaning": "",
         "meaning": "sheep",
         "alternatives": ""
       }
@@ -1215,6 +1310,7 @@
         "plural": false,
         "phrase": "a cow",
         "sentence": "The cow gives us milk.",
+        "sentenceMeaning": "",
         "meaning": "牛",
         "alternatives": ""
       },
@@ -1227,6 +1323,7 @@
         "phrasePinyin": "yì tóu niú",
         "sentence": "牛给我们牛奶。",
         "sentencePinyin": "Niú gěi wǒmen niúnǎi.",
+        "sentenceMeaning": "",
         "meaning": "cow"
       },
       "es": {
@@ -1237,6 +1334,7 @@
         "plural": false,
         "phrase": "una vaca",
         "sentence": "La vaca nos da leche.",
+        "sentenceMeaning": "",
         "meaning": "cow",
         "alternatives": ""
       },
@@ -1248,6 +1346,7 @@
         "plural": false,
         "phrase": "une vache",
         "sentence": "La vache nous donne du lait.",
+        "sentenceMeaning": "",
         "meaning": "cow",
         "alternatives": ""
       },
@@ -1259,6 +1358,7 @@
         "plural": false,
         "phrase": "eine Kuh",
         "sentence": "Die Kuh gibt uns Milch.",
+        "sentenceMeaning": "",
         "meaning": "cow",
         "alternatives": ""
       }
@@ -1278,6 +1378,7 @@
         "plural": false,
         "phrase": "an elephant",
         "sentence": "The elephant is very big.",
+        "sentenceMeaning": "",
         "meaning": "大象",
         "alternatives": ""
       },
@@ -1290,6 +1391,7 @@
         "phrasePinyin": "yì tóu dàxiàng",
         "sentence": "大象很大。",
         "sentencePinyin": "Dàxiàng hěn dà.",
+        "sentenceMeaning": "",
         "meaning": "elephant"
       },
       "es": {
@@ -1300,6 +1402,7 @@
         "plural": false,
         "phrase": "un elefante",
         "sentence": "El elefante es muy grande.",
+        "sentenceMeaning": "",
         "meaning": "elephant",
         "alternatives": ""
       },
@@ -1311,6 +1414,7 @@
         "plural": false,
         "phrase": "un éléphant",
         "sentence": "L'éléphant est très grand.",
+        "sentenceMeaning": "",
         "meaning": "elephant",
         "alternatives": ""
       },
@@ -1322,6 +1426,7 @@
         "plural": false,
         "phrase": "ein Elefant",
         "sentence": "Der Elefant ist sehr groß.",
+        "sentenceMeaning": "",
         "meaning": "elephant",
         "alternatives": ""
       }
@@ -1341,6 +1446,7 @@
         "plural": false,
         "phrase": "a bear",
         "sentence": "The bear lives in the forest.",
+        "sentenceMeaning": "",
         "meaning": "熊",
         "alternatives": ""
       },
@@ -1353,6 +1459,7 @@
         "phrasePinyin": "yì zhī xióng",
         "sentence": "熊住在森林里。",
         "sentencePinyin": "Xióng zhù zài sēnlín lǐ.",
+        "sentenceMeaning": "",
         "meaning": "bear"
       },
       "es": {
@@ -1363,6 +1470,7 @@
         "plural": false,
         "phrase": "un oso",
         "sentence": "El oso vive en el bosque.",
+        "sentenceMeaning": "",
         "meaning": "bear",
         "alternatives": ""
       },
@@ -1374,6 +1482,7 @@
         "plural": false,
         "phrase": "un ours",
         "sentence": "L'ours vit dans la forêt.",
+        "sentenceMeaning": "",
         "meaning": "bear",
         "alternatives": ""
       },
@@ -1385,6 +1494,7 @@
         "plural": false,
         "phrase": "ein Bär",
         "sentence": "Der Bär lebt im Wald.",
+        "sentenceMeaning": "",
         "meaning": "bear",
         "alternatives": ""
       }
@@ -1404,6 +1514,7 @@
         "plural": false,
         "phrase": "a zebra",
         "sentence": "The zebra has stripes.",
+        "sentenceMeaning": "",
         "meaning": "斑马",
         "alternatives": ""
       },
@@ -1416,6 +1527,7 @@
         "phrasePinyin": "yì pǐ bānmǎ",
         "sentence": "斑马身上有条纹。",
         "sentencePinyin": "Bānmǎ shēnshang yǒu tiáowén.",
+        "sentenceMeaning": "",
         "meaning": "zebra"
       },
       "es": {
@@ -1426,6 +1538,7 @@
         "plural": false,
         "phrase": "una cebra",
         "sentence": "La cebra tiene rayas.",
+        "sentenceMeaning": "",
         "meaning": "zebra",
         "alternatives": ""
       },
@@ -1437,6 +1550,7 @@
         "plural": false,
         "phrase": "un zèbre",
         "sentence": "Le zèbre a des rayures.",
+        "sentenceMeaning": "",
         "meaning": "zebra",
         "alternatives": ""
       },
@@ -1448,6 +1562,7 @@
         "plural": false,
         "phrase": "ein Zebra",
         "sentence": "Das Zebra hat Streifen.",
+        "sentenceMeaning": "",
         "meaning": "zebra",
         "alternatives": ""
       }
@@ -1467,6 +1582,7 @@
         "plural": false,
         "phrase": "a giraffe",
         "sentence": "The giraffe has a long neck.",
+        "sentenceMeaning": "",
         "meaning": "长颈鹿",
         "alternatives": ""
       },
@@ -1479,6 +1595,7 @@
         "phrasePinyin": "yì zhī chángjǐnglù",
         "sentence": "长颈鹿的脖子很长。",
         "sentencePinyin": "Chángjǐnglù de bózi hěn cháng.",
+        "sentenceMeaning": "",
         "meaning": "giraffe"
       },
       "es": {
@@ -1489,6 +1606,7 @@
         "plural": false,
         "phrase": "una jirafa",
         "sentence": "La jirafa tiene el cuello largo.",
+        "sentenceMeaning": "",
         "meaning": "giraffe",
         "alternatives": ""
       },
@@ -1500,6 +1618,7 @@
         "plural": false,
         "phrase": "une girafe",
         "sentence": "La girafe a un long cou.",
+        "sentenceMeaning": "",
         "meaning": "giraffe",
         "alternatives": ""
       },
@@ -1511,6 +1630,7 @@
         "plural": false,
         "phrase": "eine Giraffe",
         "sentence": "Die Giraffe hat einen langen Hals.",
+        "sentenceMeaning": "",
         "meaning": "giraffe",
         "alternatives": ""
       }
@@ -1530,6 +1650,7 @@
         "plural": false,
         "phrase": "a backpack",
         "sentence": "My backpack is heavy.",
+        "sentenceMeaning": "我的背包很重。",
         "meaning": "背包",
         "alternatives": ""
       },
@@ -1542,6 +1663,7 @@
         "phrasePinyin": "yí gè bēibāo",
         "sentence": "我的背包很重。",
         "sentencePinyin": "Wǒ de bēibāo hěn zhòng.",
+        "sentenceMeaning": "My backpack is heavy.",
         "meaning": "backpack"
       },
       "es": {
@@ -1552,6 +1674,7 @@
         "plural": false,
         "phrase": "una mochila",
         "sentence": "Mi mochila pesa mucho.",
+        "sentenceMeaning": "My backpack is very heavy.",
         "meaning": "backpack",
         "alternatives": ""
       },
@@ -1563,6 +1686,7 @@
         "plural": false,
         "phrase": "un sac à dos",
         "sentence": "Mon sac à dos est lourd.",
+        "sentenceMeaning": "My backpack is heavy.",
         "meaning": "backpack",
         "alternatives": ""
       },
@@ -1574,6 +1698,7 @@
         "plural": false,
         "phrase": "ein Rucksack",
         "sentence": "Mein Rucksack ist schwer.",
+        "sentenceMeaning": "My backpack is heavy.",
         "meaning": "backpack",
         "alternatives": ""
       }
@@ -1593,6 +1718,7 @@
         "plural": false,
         "phrase": "an umbrella",
         "sentence": "It's raining. Take an umbrella.",
+        "sentenceMeaning": "下雨了，带上雨伞。",
         "meaning": "雨伞",
         "alternatives": ""
       },
@@ -1605,6 +1731,7 @@
         "phrasePinyin": "yì bǎ yǔsǎn",
         "sentence": "下雨了，带上雨伞。",
         "sentencePinyin": "Xià yǔ le, dàishàng yǔsǎn.",
+        "sentenceMeaning": "It's raining, take an umbrella.",
         "meaning": "umbrella"
       },
       "es": {
@@ -1615,6 +1742,7 @@
         "plural": false,
         "phrase": "un paraguas",
         "sentence": "Llueve. Lleva el paraguas.",
+        "sentenceMeaning": "It's raining. Take the umbrella.",
         "meaning": "umbrella",
         "alternatives": ""
       },
@@ -1626,6 +1754,7 @@
         "plural": false,
         "phrase": "un parapluie",
         "sentence": "Il pleut. Prends le parapluie.",
+        "sentenceMeaning": "It's raining. Take the umbrella.",
         "meaning": "umbrella",
         "alternatives": ""
       },
@@ -1637,6 +1766,7 @@
         "plural": false,
         "phrase": "ein Regenschirm",
         "sentence": "Es regnet. Nimm den Regenschirm.",
+        "sentenceMeaning": "It's raining. Take the umbrella.",
         "meaning": "umbrella",
         "alternatives": ""
       }
@@ -1656,6 +1786,7 @@
         "plural": false,
         "phrase": "a handbag",
         "sentence": "My keys are in the handbag.",
+        "sentenceMeaning": "我的钥匙在手提包里。",
         "meaning": "手提包",
         "alternatives": ""
       },
@@ -1668,6 +1799,7 @@
         "phrasePinyin": "yí gè shǒutíbāo",
         "sentence": "我的钥匙在手提包里。",
         "sentencePinyin": "Wǒ de yàoshi zài shǒutíbāo lǐ.",
+        "sentenceMeaning": "My keys are in the handbag.",
         "meaning": "handbag"
       },
       "es": {
@@ -1678,6 +1810,7 @@
         "plural": false,
         "phrase": "una bolsa",
         "sentence": "Mis llaves están en la bolsa.",
+        "sentenceMeaning": "My keys are in the bag.",
         "meaning": "handbag",
         "alternatives": "el bolso"
       },
@@ -1689,6 +1822,7 @@
         "plural": false,
         "phrase": "un sac à main",
         "sentence": "Mes clés sont dans le sac à main.",
+        "sentenceMeaning": "My keys are in the handbag.",
         "meaning": "handbag",
         "alternatives": ""
       },
@@ -1700,6 +1834,7 @@
         "plural": false,
         "phrase": "eine Handtasche",
         "sentence": "Die Schlüssel sind in der Handtasche.",
+        "sentenceMeaning": "The keys are in the handbag.",
         "meaning": "handbag",
         "alternatives": ""
       }
@@ -1719,6 +1854,7 @@
         "plural": false,
         "phrase": "a tie",
         "sentence": "He wears a tie to work.",
+        "sentenceMeaning": "他上班戴领带。",
         "meaning": "领带",
         "alternatives": ""
       },
@@ -1731,6 +1867,7 @@
         "phrasePinyin": "yì tiáo lǐngdài",
         "sentence": "他上班戴领带。",
         "sentencePinyin": "Tā shàngbān dài lǐngdài.",
+        "sentenceMeaning": "He wears a tie to work.",
         "meaning": "tie"
       },
       "es": {
@@ -1741,6 +1878,7 @@
         "plural": false,
         "phrase": "una corbata",
         "sentence": "Lleva corbata al trabajo.",
+        "sentenceMeaning": "He wears a tie to work.",
         "meaning": "tie",
         "alternatives": ""
       },
@@ -1752,6 +1890,7 @@
         "plural": false,
         "phrase": "une cravate",
         "sentence": "Il porte une cravate au travail.",
+        "sentenceMeaning": "He wears a tie at work.",
         "meaning": "tie",
         "alternatives": ""
       },
@@ -1763,6 +1902,7 @@
         "plural": false,
         "phrase": "eine Krawatte",
         "sentence": "Er trägt eine Krawatte.",
+        "sentenceMeaning": "He is wearing a tie.",
         "meaning": "tie",
         "alternatives": ""
       }
@@ -1782,6 +1922,7 @@
         "plural": false,
         "phrase": "a suitcase",
         "sentence": "The suitcase is ready.",
+        "sentenceMeaning": "行李箱准备好了。",
         "meaning": "行李箱",
         "alternatives": ""
       },
@@ -1794,6 +1935,7 @@
         "phrasePinyin": "yí gè xínglixiāng",
         "sentence": "行李箱已经收拾好了。",
         "sentencePinyin": "Xínglixiāng yǐjīng shōushi hǎo le.",
+        "sentenceMeaning": "The suitcase is already packed.",
         "meaning": "suitcase"
       },
       "es": {
@@ -1804,6 +1946,7 @@
         "plural": false,
         "phrase": "una maleta",
         "sentence": "La maleta está lista.",
+        "sentenceMeaning": "The suitcase is ready.",
         "meaning": "suitcase",
         "alternatives": ""
       },
@@ -1815,6 +1958,7 @@
         "plural": false,
         "phrase": "une valise",
         "sentence": "La valise est prête.",
+        "sentenceMeaning": "The suitcase is ready.",
         "meaning": "suitcase",
         "alternatives": ""
       },
@@ -1826,6 +1970,7 @@
         "plural": false,
         "phrase": "ein Koffer",
         "sentence": "Der Koffer ist gepackt.",
+        "sentenceMeaning": "The suitcase is packed.",
         "meaning": "suitcase",
         "alternatives": ""
       }
@@ -1845,6 +1990,7 @@
         "plural": false,
         "phrase": "a frisbee",
         "sentence": "Throw me the frisbee!",
+        "sentenceMeaning": "把飞盘扔给我！",
         "meaning": "飞盘",
         "alternatives": ""
       },
@@ -1857,6 +2003,7 @@
         "phrasePinyin": "yí gè fēipán",
         "sentence": "把飞盘扔给我！",
         "sentencePinyin": "Bǎ fēipán rēng gěi wǒ!",
+        "sentenceMeaning": "Throw me the frisbee!",
         "meaning": "frisbee"
       },
       "es": {
@@ -1867,6 +2014,7 @@
         "plural": false,
         "phrase": "un frisbee",
         "sentence": "¡Lánzame el frisbee!",
+        "sentenceMeaning": "Throw me the frisbee!",
         "meaning": "frisbee",
         "alternatives": "el frisbi"
       },
@@ -1878,6 +2026,7 @@
         "plural": false,
         "phrase": "un frisbee",
         "sentence": "Lance-moi le frisbee !",
+        "sentenceMeaning": "Throw me the frisbee!",
         "meaning": "frisbee",
         "alternatives": ""
       },
@@ -1889,6 +2038,7 @@
         "plural": false,
         "phrase": "eine Frisbeescheibe",
         "sentence": "Wirf mir die Frisbeescheibe zu!",
+        "sentenceMeaning": "Throw me the frisbee!",
         "meaning": "frisbee",
         "alternatives": ""
       }
@@ -1908,6 +2058,7 @@
         "plural": true,
         "phrase": "a pair of skis",
         "sentence": "My skis are by the door.",
+        "sentenceMeaning": "",
         "meaning": "滑雪板",
         "alternatives": ""
       },
@@ -1920,6 +2071,7 @@
         "phrasePinyin": "yí fù huáxuěbǎn",
         "sentence": "我的滑雪板在门边。",
         "sentencePinyin": "Wǒ de huáxuěbǎn zài mén biān.",
+        "sentenceMeaning": "",
         "meaning": "skis"
       },
       "es": {
@@ -1930,6 +2082,7 @@
         "plural": true,
         "phrase": "unos esquís",
         "sentence": "Mis esquís están junto a la puerta.",
+        "sentenceMeaning": "",
         "meaning": "skis",
         "alternatives": ""
       },
@@ -1941,6 +2094,7 @@
         "plural": true,
         "phrase": "des skis",
         "sentence": "Mes skis sont près de la porte.",
+        "sentenceMeaning": "",
         "meaning": "skis",
         "alternatives": ""
       },
@@ -1952,6 +2106,7 @@
         "plural": true,
         "phrase": "Skier",
         "sentence": "Meine Skier stehen an der Tür.",
+        "sentenceMeaning": "",
         "meaning": "skis",
         "alternatives": ""
       }
@@ -1971,6 +2126,7 @@
         "plural": false,
         "phrase": "a snowboard",
         "sentence": "I ride a snowboard in winter.",
+        "sentenceMeaning": "",
         "meaning": "单板滑雪板",
         "alternatives": ""
       },
@@ -1983,6 +2139,7 @@
         "phrasePinyin": "yí kuài dānbǎn huáxuěbǎn",
         "sentence": "冬天我用单板滑雪板滑雪。",
         "sentencePinyin": "Dōngtiān wǒ yòng dānbǎn huáxuěbǎn huáxuě.",
+        "sentenceMeaning": "",
         "meaning": "snowboard"
       },
       "es": {
@@ -1993,6 +2150,7 @@
         "plural": false,
         "phrase": "una tabla de snowboard",
         "sentence": "En invierno voy en snowboard.",
+        "sentenceMeaning": "",
         "meaning": "snowboard",
         "alternatives": ""
       },
@@ -2004,6 +2162,7 @@
         "plural": false,
         "phrase": "un snowboard",
         "sentence": "L'hiver, je fais du snowboard.",
+        "sentenceMeaning": "",
         "meaning": "snowboard",
         "alternatives": ""
       },
@@ -2015,6 +2174,7 @@
         "plural": false,
         "phrase": "ein Snowboard",
         "sentence": "Im Winter fahre ich Snowboard.",
+        "sentenceMeaning": "",
         "meaning": "snowboard",
         "alternatives": ""
       }
@@ -2034,6 +2194,7 @@
         "plural": false,
         "phrase": "a ball",
         "sentence": "Pass me the ball.",
+        "sentenceMeaning": "把球传给我。",
         "meaning": "球",
         "alternatives": ""
       },
@@ -2046,6 +2207,7 @@
         "phrasePinyin": "yí gè qiú",
         "sentence": "把球传给我。",
         "sentencePinyin": "Bǎ qiú chuán gěi wǒ.",
+        "sentenceMeaning": "Pass me the ball.",
         "meaning": "ball"
       },
       "es": {
@@ -2056,6 +2218,7 @@
         "plural": false,
         "phrase": "una pelota",
         "sentence": "Pásame la pelota.",
+        "sentenceMeaning": "Pass me the ball.",
         "meaning": "ball",
         "alternatives": ""
       },
@@ -2067,6 +2230,7 @@
         "plural": false,
         "phrase": "un ballon",
         "sentence": "Passe-moi le ballon.",
+        "sentenceMeaning": "Pass me the ball.",
         "meaning": "ball",
         "alternatives": ""
       },
@@ -2078,6 +2242,7 @@
         "plural": false,
         "phrase": "ein Ball",
         "sentence": "Spiel mir den Ball zu.",
+        "sentenceMeaning": "Pass me the ball.",
         "meaning": "ball",
         "alternatives": ""
       }
@@ -2097,6 +2262,7 @@
         "plural": false,
         "phrase": "a kite",
         "sentence": "The kite flies high.",
+        "sentenceMeaning": "",
         "meaning": "风筝",
         "alternatives": ""
       },
@@ -2109,6 +2275,7 @@
         "phrasePinyin": "yì zhī fēngzheng",
         "sentence": "风筝飞得很高。",
         "sentencePinyin": "Fēngzheng fēi de hěn gāo.",
+        "sentenceMeaning": "",
         "meaning": "kite"
       },
       "es": {
@@ -2119,6 +2286,7 @@
         "plural": false,
         "phrase": "un papalote",
         "sentence": "El papalote vuela alto.",
+        "sentenceMeaning": "",
         "meaning": "kite",
         "alternatives": "la cometa"
       },
@@ -2130,6 +2298,7 @@
         "plural": false,
         "phrase": "un cerf-volant",
         "sentence": "Le cerf-volant vole haut.",
+        "sentenceMeaning": "",
         "meaning": "kite",
         "alternatives": ""
       },
@@ -2141,6 +2310,7 @@
         "plural": false,
         "phrase": "ein Drachen",
         "sentence": "Der Drachen fliegt hoch.",
+        "sentenceMeaning": "",
         "meaning": "kite",
         "alternatives": ""
       }
@@ -2160,6 +2330,7 @@
         "plural": false,
         "phrase": "a baseball bat",
         "sentence": "The baseball bat is heavy.",
+        "sentenceMeaning": "棒球棒很重。",
         "meaning": "棒球棒",
         "alternatives": ""
       },
@@ -2172,6 +2343,7 @@
         "phrasePinyin": "yì gēn bàngqiúbàng",
         "sentence": "棒球棒很重。",
         "sentencePinyin": "Bàngqiúbàng hěn zhòng.",
+        "sentenceMeaning": "The baseball bat is heavy.",
         "meaning": "baseball bat"
       },
       "es": {
@@ -2182,6 +2354,7 @@
         "plural": false,
         "phrase": "un bate de béisbol",
         "sentence": "El bate de béisbol pesa.",
+        "sentenceMeaning": "The baseball bat is heavy.",
         "meaning": "baseball bat",
         "alternatives": ""
       },
@@ -2193,6 +2366,7 @@
         "plural": false,
         "phrase": "une batte de baseball",
         "sentence": "La batte de baseball est lourde.",
+        "sentenceMeaning": "The baseball bat is heavy.",
         "meaning": "baseball bat",
         "alternatives": ""
       },
@@ -2204,6 +2378,7 @@
         "plural": false,
         "phrase": "ein Baseballschläger",
         "sentence": "Der Baseballschläger ist schwer.",
+        "sentenceMeaning": "The baseball bat is heavy.",
         "meaning": "baseball bat",
         "alternatives": ""
       }
@@ -2223,6 +2398,7 @@
         "plural": false,
         "phrase": "a baseball glove",
         "sentence": "My baseball glove is old.",
+        "sentenceMeaning": "我的棒球手套很旧。",
         "meaning": "棒球手套",
         "alternatives": ""
       },
@@ -2235,6 +2411,7 @@
         "phrasePinyin": "yì zhī bàngqiú shǒutào",
         "sentence": "我的棒球手套很旧。",
         "sentencePinyin": "Wǒ de bàngqiú shǒutào hěn jiù.",
+        "sentenceMeaning": "My baseball glove is old.",
         "meaning": "baseball glove"
       },
       "es": {
@@ -2245,6 +2422,7 @@
         "plural": false,
         "phrase": "un guante de béisbol",
         "sentence": "Mi guante de béisbol es viejo.",
+        "sentenceMeaning": "My baseball glove is old.",
         "meaning": "baseball glove",
         "alternatives": ""
       },
@@ -2256,6 +2434,7 @@
         "plural": false,
         "phrase": "un gant de baseball",
         "sentence": "Mon gant de baseball est vieux.",
+        "sentenceMeaning": "My baseball glove is old.",
         "meaning": "baseball glove",
         "alternatives": ""
       },
@@ -2267,6 +2446,7 @@
         "plural": false,
         "phrase": "ein Baseballhandschuh",
         "sentence": "Mein Baseballhandschuh ist alt.",
+        "sentenceMeaning": "My baseball glove is old.",
         "meaning": "baseball glove",
         "alternatives": ""
       }
@@ -2286,6 +2466,7 @@
         "plural": false,
         "phrase": "a skateboard",
         "sentence": "She rides a skateboard.",
+        "sentenceMeaning": "她会玩滑板。",
         "meaning": "滑板",
         "alternatives": ""
       },
@@ -2298,6 +2479,7 @@
         "phrasePinyin": "yí kuài huábǎn",
         "sentence": "她在玩滑板。",
         "sentencePinyin": "Tā zài wán huábǎn.",
+        "sentenceMeaning": "She is skateboarding.",
         "meaning": "skateboard"
       },
       "es": {
@@ -2308,6 +2490,7 @@
         "plural": false,
         "phrase": "una patineta",
         "sentence": "Ella anda en patineta.",
+        "sentenceMeaning": "She rides a skateboard.",
         "meaning": "skateboard",
         "alternatives": "el monopatín"
       },
@@ -2319,6 +2502,7 @@
         "plural": false,
         "phrase": "un skateboard",
         "sentence": "Elle fait du skateboard.",
+        "sentenceMeaning": "She skateboards.",
         "meaning": "skateboard",
         "alternatives": ""
       },
@@ -2330,6 +2514,7 @@
         "plural": false,
         "phrase": "ein Skateboard",
         "sentence": "Sie fährt Skateboard.",
+        "sentenceMeaning": "She skateboards.",
         "meaning": "skateboard",
         "alternatives": ""
       }
@@ -2349,6 +2534,7 @@
         "plural": false,
         "phrase": "a surfboard",
         "sentence": "The surfboard is on the beach.",
+        "sentenceMeaning": "",
         "meaning": "冲浪板",
         "alternatives": ""
       },
@@ -2361,6 +2547,7 @@
         "phrasePinyin": "yí kuài chōnglàngbǎn",
         "sentence": "冲浪板在海滩上。",
         "sentencePinyin": "Chōnglàngbǎn zài hǎitān shàng.",
+        "sentenceMeaning": "",
         "meaning": "surfboard"
       },
       "es": {
@@ -2371,6 +2558,7 @@
         "plural": false,
         "phrase": "una tabla de surf",
         "sentence": "La tabla de surf está en la playa.",
+        "sentenceMeaning": "",
         "meaning": "surfboard",
         "alternatives": ""
       },
@@ -2382,6 +2570,7 @@
         "plural": false,
         "phrase": "une planche de surf",
         "sentence": "La planche de surf est sur la plage.",
+        "sentenceMeaning": "",
         "meaning": "surfboard",
         "alternatives": ""
       },
@@ -2393,6 +2582,7 @@
         "plural": false,
         "phrase": "ein Surfbrett",
         "sentence": "Das Surfbrett liegt am Strand.",
+        "sentenceMeaning": "",
         "meaning": "surfboard",
         "alternatives": ""
       }
@@ -2412,6 +2602,7 @@
         "plural": false,
         "phrase": "a tennis racket",
         "sentence": "The tennis racket is new.",
+        "sentenceMeaning": "网球拍是新的。",
         "meaning": "网球拍",
         "alternatives": ""
       },
@@ -2424,6 +2615,7 @@
         "phrasePinyin": "yì bǎ wǎngqiúpāi",
         "sentence": "这把网球拍是新的。",
         "sentencePinyin": "Zhè bǎ wǎngqiúpāi shì xīn de.",
+        "sentenceMeaning": "This tennis racket is new.",
         "meaning": "tennis racket"
       },
       "es": {
@@ -2434,6 +2626,7 @@
         "plural": false,
         "phrase": "una raqueta de tenis",
         "sentence": "La raqueta de tenis es nueva.",
+        "sentenceMeaning": "The tennis racket is new.",
         "meaning": "tennis racket",
         "alternatives": ""
       },
@@ -2445,6 +2638,7 @@
         "plural": false,
         "phrase": "une raquette de tennis",
         "sentence": "La raquette de tennis est neuve.",
+        "sentenceMeaning": "The tennis racket is new.",
         "meaning": "tennis racket",
         "alternatives": ""
       },
@@ -2456,6 +2650,7 @@
         "plural": false,
         "phrase": "ein Tennisschläger",
         "sentence": "Der Tennisschläger ist neu.",
+        "sentenceMeaning": "The tennis racket is new.",
         "meaning": "tennis racket",
         "alternatives": ""
       }
@@ -2475,6 +2670,7 @@
         "plural": false,
         "phrase": "a bottle",
         "sentence": "The bottle is empty.",
+        "sentenceMeaning": "瓶子是空的。",
         "meaning": "瓶子",
         "alternatives": ""
       },
@@ -2487,6 +2683,7 @@
         "phrasePinyin": "yí gè píngzi",
         "sentence": "瓶子是空的。",
         "sentencePinyin": "Píngzi shì kōng de.",
+        "sentenceMeaning": "The bottle is empty.",
         "meaning": "bottle"
       },
       "es": {
@@ -2497,6 +2694,7 @@
         "plural": false,
         "phrase": "una botella",
         "sentence": "La botella está vacía.",
+        "sentenceMeaning": "The bottle is empty.",
         "meaning": "bottle",
         "alternatives": ""
       },
@@ -2508,6 +2706,7 @@
         "plural": false,
         "phrase": "une bouteille",
         "sentence": "La bouteille est vide.",
+        "sentenceMeaning": "The bottle is empty.",
         "meaning": "bottle",
         "alternatives": ""
       },
@@ -2519,6 +2718,7 @@
         "plural": false,
         "phrase": "eine Flasche",
         "sentence": "Die Flasche ist leer.",
+        "sentenceMeaning": "The bottle is empty.",
         "meaning": "bottle",
         "alternatives": ""
       }
@@ -2538,6 +2738,7 @@
         "plural": false,
         "phrase": "a wine glass",
         "sentence": "The wine glass is full.",
+        "sentenceMeaning": "酒杯满了。",
         "meaning": "酒杯",
         "alternatives": ""
       },
@@ -2550,6 +2751,7 @@
         "phrasePinyin": "yí gè jiǔbēi",
         "sentence": "酒杯满了。",
         "sentencePinyin": "Jiǔbēi mǎn le.",
+        "sentenceMeaning": "The wine glass is full.",
         "meaning": "wine glass"
       },
       "es": {
@@ -2560,6 +2762,7 @@
         "plural": false,
         "phrase": "una copa de vino",
         "sentence": "La copa de vino está llena.",
+        "sentenceMeaning": "The wine glass is full.",
         "meaning": "wine glass",
         "alternatives": ""
       },
@@ -2571,6 +2774,7 @@
         "plural": false,
         "phrase": "un verre à vin",
         "sentence": "Le verre à vin est plein.",
+        "sentenceMeaning": "The wine glass is full.",
         "meaning": "wine glass",
         "alternatives": ""
       },
@@ -2582,6 +2786,7 @@
         "plural": false,
         "phrase": "ein Weinglas",
         "sentence": "Das Weinglas ist voll.",
+        "sentenceMeaning": "The wine glass is full.",
         "meaning": "wine glass",
         "alternatives": ""
       }
@@ -2601,6 +2806,7 @@
         "plural": false,
         "phrase": "a cup",
         "sentence": "I drink coffee from this cup.",
+        "sentenceMeaning": "我用这个杯子喝咖啡。",
         "meaning": "杯子",
         "alternatives": ""
       },
@@ -2613,6 +2819,7 @@
         "phrasePinyin": "yí gè bēizi",
         "sentence": "我用这个杯子喝咖啡。",
         "sentencePinyin": "Wǒ yòng zhège bēizi hē kāfēi.",
+        "sentenceMeaning": "I drink coffee from this cup.",
         "meaning": "cup"
       },
       "es": {
@@ -2623,6 +2830,7 @@
         "plural": false,
         "phrase": "una taza",
         "sentence": "Tomo café en esta taza.",
+        "sentenceMeaning": "I drink coffee from this cup.",
         "meaning": "cup",
         "alternatives": ""
       },
@@ -2634,6 +2842,7 @@
         "plural": false,
         "phrase": "une tasse",
         "sentence": "Je bois du café dans cette tasse.",
+        "sentenceMeaning": "I drink coffee from this cup.",
         "meaning": "cup",
         "alternatives": ""
       },
@@ -2645,6 +2854,7 @@
         "plural": false,
         "phrase": "eine Tasse",
         "sentence": "Ich trinke Kaffee aus der Tasse.",
+        "sentenceMeaning": "I drink coffee from the cup.",
         "meaning": "cup",
         "alternatives": ""
       }
@@ -2664,6 +2874,7 @@
         "plural": false,
         "phrase": "a fork",
         "sentence": "I eat with a fork.",
+        "sentenceMeaning": "我用叉子吃饭。",
         "meaning": "叉子",
         "alternatives": ""
       },
@@ -2676,6 +2887,7 @@
         "phrasePinyin": "yì bǎ chāzi",
         "sentence": "我用叉子吃饭。",
         "sentencePinyin": "Wǒ yòng chāzi chīfàn.",
+        "sentenceMeaning": "I eat with a fork.",
         "meaning": "fork"
       },
       "es": {
@@ -2686,6 +2898,7 @@
         "plural": false,
         "phrase": "un tenedor",
         "sentence": "Como con el tenedor.",
+        "sentenceMeaning": "I eat with the fork.",
         "meaning": "fork",
         "alternatives": ""
       },
@@ -2697,6 +2910,7 @@
         "plural": false,
         "phrase": "une fourchette",
         "sentence": "Je mange avec une fourchette.",
+        "sentenceMeaning": "I eat with a fork.",
         "meaning": "fork",
         "alternatives": ""
       },
@@ -2708,6 +2922,7 @@
         "plural": false,
         "phrase": "eine Gabel",
         "sentence": "Ich esse mit der Gabel.",
+        "sentenceMeaning": "I eat with the fork.",
         "meaning": "fork",
         "alternatives": ""
       }
@@ -2727,6 +2942,7 @@
         "plural": false,
         "phrase": "a knife",
         "sentence": "Be careful, the knife is sharp.",
+        "sentenceMeaning": "小心，刀很锋利。",
         "meaning": "刀",
         "alternatives": ""
       },
@@ -2739,6 +2955,7 @@
         "phrasePinyin": "yì bǎ dāo",
         "sentence": "小心，刀很锋利。",
         "sentencePinyin": "Xiǎoxīn, dāo hěn fēnglì.",
+        "sentenceMeaning": "Careful, the knife is sharp.",
         "meaning": "knife"
       },
       "es": {
@@ -2749,6 +2966,7 @@
         "plural": false,
         "phrase": "un cuchillo",
         "sentence": "Cuidado, el cuchillo corta.",
+        "sentenceMeaning": "Careful, the knife is sharp.",
         "meaning": "knife",
         "alternatives": ""
       },
@@ -2760,6 +2978,7 @@
         "plural": false,
         "phrase": "un couteau",
         "sentence": "Attention, le couteau coupe.",
+        "sentenceMeaning": "Careful, the knife is sharp.",
         "meaning": "knife",
         "alternatives": ""
       },
@@ -2771,6 +2990,7 @@
         "plural": false,
         "phrase": "ein Messer",
         "sentence": "Vorsicht, das Messer ist scharf.",
+        "sentenceMeaning": "Careful, the knife is sharp.",
         "meaning": "knife",
         "alternatives": ""
       }
@@ -2790,6 +3010,7 @@
         "plural": false,
         "phrase": "a spoon",
         "sentence": "I eat soup with a spoon.",
+        "sentenceMeaning": "我用勺子喝汤。",
         "meaning": "勺子",
         "alternatives": ""
       },
@@ -2802,6 +3023,7 @@
         "phrasePinyin": "yì bǎ sháozi",
         "sentence": "我用勺子喝汤。",
         "sentencePinyin": "Wǒ yòng sháozi hē tāng.",
+        "sentenceMeaning": "I eat soup with a spoon.",
         "meaning": "spoon"
       },
       "es": {
@@ -2812,6 +3034,7 @@
         "plural": false,
         "phrase": "una cuchara",
         "sentence": "Tomo la sopa con la cuchara.",
+        "sentenceMeaning": "I have the soup with the spoon.",
         "meaning": "spoon",
         "alternatives": ""
       },
@@ -2823,6 +3046,7 @@
         "plural": false,
         "phrase": "une cuillère",
         "sentence": "Je mange la soupe avec une cuillère.",
+        "sentenceMeaning": "I eat the soup with a spoon.",
         "meaning": "spoon",
         "alternatives": ""
       },
@@ -2834,6 +3058,7 @@
         "plural": false,
         "phrase": "ein Löffel",
         "sentence": "Ich esse Suppe mit dem Löffel.",
+        "sentenceMeaning": "I eat soup with the spoon.",
         "meaning": "spoon",
         "alternatives": ""
       }
@@ -2853,6 +3078,7 @@
         "plural": false,
         "phrase": "a bowl",
         "sentence": "The bowl is full of rice.",
+        "sentenceMeaning": "碗里装满了米饭。",
         "meaning": "碗",
         "alternatives": ""
       },
@@ -2865,6 +3091,7 @@
         "phrasePinyin": "yí gè wǎn",
         "sentence": "碗里装满了米饭。",
         "sentencePinyin": "Wǎn lǐ zhuāngmǎn le mǐfàn.",
+        "sentenceMeaning": "The bowl is full of rice.",
         "meaning": "bowl"
       },
       "es": {
@@ -2875,6 +3102,7 @@
         "plural": false,
         "phrase": "un tazón",
         "sentence": "El tazón está lleno de arroz.",
+        "sentenceMeaning": "The bowl is full of rice.",
         "meaning": "bowl",
         "alternatives": "el cuenco"
       },
@@ -2886,6 +3114,7 @@
         "plural": false,
         "phrase": "un bol",
         "sentence": "Le bol est plein de riz.",
+        "sentenceMeaning": "The bowl is full of rice.",
         "meaning": "bowl",
         "alternatives": ""
       },
@@ -2897,6 +3126,7 @@
         "plural": false,
         "phrase": "eine Schüssel",
         "sentence": "Die Schüssel ist voller Reis.",
+        "sentenceMeaning": "The bowl is full of rice.",
         "meaning": "bowl",
         "alternatives": ""
       }
@@ -2916,6 +3146,7 @@
         "plural": false,
         "phrase": "a banana",
         "sentence": "The banana is yellow.",
+        "sentenceMeaning": "香蕉是黄色的。",
         "meaning": "香蕉",
         "alternatives": ""
       },
@@ -2928,6 +3159,7 @@
         "phrasePinyin": "yì gēn xiāngjiāo",
         "sentence": "香蕉是黄色的。",
         "sentencePinyin": "Xiāngjiāo shì huángsè de.",
+        "sentenceMeaning": "The banana is yellow.",
         "meaning": "banana"
       },
       "es": {
@@ -2938,6 +3170,7 @@
         "plural": false,
         "phrase": "un plátano",
         "sentence": "El plátano es amarillo.",
+        "sentenceMeaning": "The banana is yellow.",
         "meaning": "banana",
         "alternatives": ""
       },
@@ -2949,6 +3182,7 @@
         "plural": false,
         "phrase": "une banane",
         "sentence": "La banane est jaune.",
+        "sentenceMeaning": "The banana is yellow.",
         "meaning": "banana",
         "alternatives": ""
       },
@@ -2960,6 +3194,7 @@
         "plural": false,
         "phrase": "eine Banane",
         "sentence": "Die Banane ist gelb.",
+        "sentenceMeaning": "The banana is yellow.",
         "meaning": "banana",
         "alternatives": ""
       }
@@ -2979,6 +3214,7 @@
         "plural": false,
         "phrase": "an apple",
         "sentence": "I eat an apple every day.",
+        "sentenceMeaning": "我每天吃一个苹果。",
         "meaning": "苹果",
         "alternatives": ""
       },
@@ -2991,6 +3227,7 @@
         "phrasePinyin": "yí gè píngguǒ",
         "sentence": "我每天吃一个苹果。",
         "sentencePinyin": "Wǒ měitiān chī yí gè píngguǒ.",
+        "sentenceMeaning": "I eat an apple every day.",
         "meaning": "apple"
       },
       "es": {
@@ -3001,6 +3238,7 @@
         "plural": false,
         "phrase": "una manzana",
         "sentence": "Como una manzana todos los días.",
+        "sentenceMeaning": "I eat an apple every day.",
         "meaning": "apple",
         "alternatives": ""
       },
@@ -3012,6 +3250,7 @@
         "plural": false,
         "phrase": "une pomme",
         "sentence": "Je mange une pomme chaque jour.",
+        "sentenceMeaning": "I eat an apple every day.",
         "meaning": "apple",
         "alternatives": ""
       },
@@ -3023,6 +3262,7 @@
         "plural": false,
         "phrase": "ein Apfel",
         "sentence": "Ich esse jeden Tag einen Apfel.",
+        "sentenceMeaning": "I eat an apple every day.",
         "meaning": "apple",
         "alternatives": ""
       }
@@ -3042,6 +3282,7 @@
         "plural": false,
         "phrase": "a sandwich",
         "sentence": "I'm making a sandwich.",
+        "sentenceMeaning": "我在做三明治。",
         "meaning": "三明治",
         "alternatives": ""
       },
@@ -3054,6 +3295,7 @@
         "phrasePinyin": "yí gè sānmíngzhì",
         "sentence": "我在做三明治。",
         "sentencePinyin": "Wǒ zài zuò sānmíngzhì.",
+        "sentenceMeaning": "I'm making a sandwich.",
         "meaning": "sandwich"
       },
       "es": {
@@ -3064,6 +3306,7 @@
         "plural": false,
         "phrase": "un sándwich",
         "sentence": "Estoy haciendo un sándwich.",
+        "sentenceMeaning": "I'm making a sandwich.",
         "meaning": "sandwich",
         "alternatives": ""
       },
@@ -3075,6 +3318,7 @@
         "plural": false,
         "phrase": "un sandwich",
         "sentence": "Je prépare un sandwich.",
+        "sentenceMeaning": "I'm making a sandwich.",
         "meaning": "sandwich",
         "alternatives": ""
       },
@@ -3086,6 +3330,7 @@
         "plural": false,
         "phrase": "ein Sandwich",
         "sentence": "Ich mache ein Sandwich.",
+        "sentenceMeaning": "I'm making a sandwich.",
         "meaning": "sandwich",
         "alternatives": ""
       }
@@ -3105,6 +3350,7 @@
         "plural": false,
         "phrase": "an orange",
         "sentence": "I peel the orange.",
+        "sentenceMeaning": "我在剥橙子。",
         "meaning": "橙子",
         "alternatives": ""
       },
@@ -3117,6 +3363,7 @@
         "phrasePinyin": "yí gè chéngzi",
         "sentence": "我在剥橙子。",
         "sentencePinyin": "Wǒ zài bāo chéngzi.",
+        "sentenceMeaning": "I'm peeling the orange.",
         "meaning": "orange"
       },
       "es": {
@@ -3127,6 +3374,7 @@
         "plural": false,
         "phrase": "una naranja",
         "sentence": "Pelo la naranja.",
+        "sentenceMeaning": "I peel the orange.",
         "meaning": "orange",
         "alternatives": ""
       },
@@ -3138,6 +3386,7 @@
         "plural": false,
         "phrase": "une orange",
         "sentence": "J'épluche l'orange.",
+        "sentenceMeaning": "I peel the orange.",
         "meaning": "orange",
         "alternatives": ""
       },
@@ -3149,6 +3398,7 @@
         "plural": false,
         "phrase": "eine Orange",
         "sentence": "Ich schäle die Orange.",
+        "sentenceMeaning": "I peel the orange.",
         "meaning": "orange",
         "alternatives": ""
       }
@@ -3168,6 +3418,7 @@
         "plural": false,
         "phrase": "a broccoli",
         "sentence": "Broccoli is good for you.",
+        "sentenceMeaning": "西兰花对身体有好处。",
         "meaning": "西兰花",
         "alternatives": ""
       },
@@ -3180,6 +3431,7 @@
         "phrasePinyin": "yì kē xīlánhuā",
         "sentence": "西兰花很健康。",
         "sentencePinyin": "Xīlánhuā hěn jiànkāng.",
+        "sentenceMeaning": "Broccoli is healthy.",
         "meaning": "broccoli"
       },
       "es": {
@@ -3190,6 +3442,7 @@
         "plural": false,
         "phrase": "un brócoli",
         "sentence": "El brócoli es saludable.",
+        "sentenceMeaning": "Broccoli is healthy.",
         "meaning": "broccoli",
         "alternatives": ""
       },
@@ -3201,6 +3454,7 @@
         "plural": false,
         "phrase": "un brocoli",
         "sentence": "Le brocoli est bon pour la santé.",
+        "sentenceMeaning": "Broccoli is good for your health.",
         "meaning": "broccoli",
         "alternatives": ""
       },
@@ -3212,6 +3466,7 @@
         "plural": false,
         "phrase": "ein Brokkoli",
         "sentence": "Brokkoli ist gesund.",
+        "sentenceMeaning": "Broccoli is healthy.",
         "meaning": "broccoli",
         "alternatives": ""
       }
@@ -3231,6 +3486,7 @@
         "plural": false,
         "phrase": "a carrot",
         "sentence": "The rabbit eats a carrot.",
+        "sentenceMeaning": "兔子在吃胡萝卜。",
         "meaning": "胡萝卜",
         "alternatives": ""
       },
@@ -3243,6 +3499,7 @@
         "phrasePinyin": "yì gēn húluóbo",
         "sentence": "兔子在吃胡萝卜。",
         "sentencePinyin": "Tùzi zài chī húluóbo.",
+        "sentenceMeaning": "The rabbit is eating a carrot.",
         "meaning": "carrot"
       },
       "es": {
@@ -3253,6 +3510,7 @@
         "plural": false,
         "phrase": "una zanahoria",
         "sentence": "El conejo come una zanahoria.",
+        "sentenceMeaning": "The rabbit eats a carrot.",
         "meaning": "carrot",
         "alternatives": ""
       },
@@ -3264,6 +3522,7 @@
         "plural": false,
         "phrase": "une carotte",
         "sentence": "Le lapin mange une carotte.",
+        "sentenceMeaning": "The rabbit eats a carrot.",
         "meaning": "carrot",
         "alternatives": ""
       },
@@ -3275,6 +3534,7 @@
         "plural": false,
         "phrase": "eine Karotte",
         "sentence": "Der Hase frisst eine Karotte.",
+        "sentenceMeaning": "The rabbit eats a carrot.",
         "meaning": "carrot",
         "alternatives": ""
       }
@@ -3294,6 +3554,7 @@
         "plural": false,
         "phrase": "a hot dog",
         "sentence": "A hot dog, please.",
+        "sentenceMeaning": "请给我一个热狗。",
         "meaning": "热狗",
         "alternatives": ""
       },
@@ -3306,6 +3567,7 @@
         "phrasePinyin": "yí gè règǒu",
         "sentence": "请给我一个热狗。",
         "sentencePinyin": "Qǐng gěi wǒ yí gè règǒu.",
+        "sentenceMeaning": "A hot dog for me, please.",
         "meaning": "hot dog"
       },
       "es": {
@@ -3316,6 +3578,7 @@
         "plural": false,
         "phrase": "un hot dog",
         "sentence": "Un hot dog, por favor.",
+        "sentenceMeaning": "A hot dog, please.",
         "meaning": "hot dog",
         "alternatives": "el perrito caliente"
       },
@@ -3327,6 +3590,7 @@
         "plural": false,
         "phrase": "un hot-dog",
         "sentence": "Un hot-dog, s'il vous plaît.",
+        "sentenceMeaning": "A hot dog, please.",
         "meaning": "hot dog",
         "alternatives": ""
       },
@@ -3338,6 +3602,7 @@
         "plural": false,
         "phrase": "ein Hotdog",
         "sentence": "Einen Hotdog, bitte.",
+        "sentenceMeaning": "A hot dog, please.",
         "meaning": "hot dog",
         "alternatives": ""
       }
@@ -3357,6 +3622,7 @@
         "plural": false,
         "phrase": "a pizza",
         "sentence": "Let's order a pizza tonight.",
+        "sentenceMeaning": "今晚我们点披萨吧。",
         "meaning": "披萨",
         "alternatives": ""
       },
@@ -3369,6 +3635,7 @@
         "phrasePinyin": "yí kuài pīsà",
         "sentence": "今晚我们点披萨吧。",
         "sentencePinyin": "Jīnwǎn wǒmen diǎn pīsà ba.",
+        "sentenceMeaning": "Let's order pizza tonight.",
         "meaning": "pizza"
       },
       "es": {
@@ -3379,6 +3646,7 @@
         "plural": false,
         "phrase": "una pizza",
         "sentence": "Pidamos una pizza esta noche.",
+        "sentenceMeaning": "Let's order a pizza tonight.",
         "meaning": "pizza",
         "alternatives": ""
       },
@@ -3390,6 +3658,7 @@
         "plural": false,
         "phrase": "une pizza",
         "sentence": "Commandons une pizza ce soir.",
+        "sentenceMeaning": "Let's order a pizza tonight.",
         "meaning": "pizza",
         "alternatives": ""
       },
@@ -3401,6 +3670,7 @@
         "plural": false,
         "phrase": "eine Pizza",
         "sentence": "Bestellen wir heute eine Pizza.",
+        "sentenceMeaning": "Let's order a pizza today.",
         "meaning": "pizza",
         "alternatives": ""
       }
@@ -3420,6 +3690,7 @@
         "plural": false,
         "phrase": "a donut",
         "sentence": "This donut is very sweet.",
+        "sentenceMeaning": "这个甜甜圈很甜。",
         "meaning": "甜甜圈",
         "alternatives": ""
       },
@@ -3432,6 +3703,7 @@
         "phrasePinyin": "yí gè tiántiánquān",
         "sentence": "这个甜甜圈很甜。",
         "sentencePinyin": "Zhège tiántiánquān hěn tián.",
+        "sentenceMeaning": "This donut is very sweet.",
         "meaning": "donut"
       },
       "es": {
@@ -3442,6 +3714,7 @@
         "plural": false,
         "phrase": "una dona",
         "sentence": "Esta dona es muy dulce.",
+        "sentenceMeaning": "This donut is very sweet.",
         "meaning": "donut",
         "alternatives": "el dónut"
       },
@@ -3453,6 +3726,7 @@
         "plural": false,
         "phrase": "un beignet",
         "sentence": "Ce beignet est très sucré.",
+        "sentenceMeaning": "This donut is very sweet.",
         "meaning": "donut",
         "alternatives": ""
       },
@@ -3464,6 +3738,7 @@
         "plural": false,
         "phrase": "ein Donut",
         "sentence": "Dieser Donut ist sehr süß.",
+        "sentenceMeaning": "This donut is very sweet.",
         "meaning": "donut",
         "alternatives": ""
       }
@@ -3483,6 +3758,7 @@
         "plural": false,
         "phrase": "a cake",
         "sentence": "I baked a cake.",
+        "sentenceMeaning": "我烤了一个蛋糕。",
         "meaning": "蛋糕",
         "alternatives": ""
       },
@@ -3495,6 +3771,7 @@
         "phrasePinyin": "yí kuài dàngāo",
         "sentence": "我烤了一个蛋糕。",
         "sentencePinyin": "Wǒ kǎo le yí gè dàngāo.",
+        "sentenceMeaning": "I baked a cake.",
         "meaning": "cake"
       },
       "es": {
@@ -3505,6 +3782,7 @@
         "plural": false,
         "phrase": "un pastel",
         "sentence": "Hice un pastel.",
+        "sentenceMeaning": "I made a cake.",
         "meaning": "cake",
         "alternatives": ""
       },
@@ -3516,6 +3794,7 @@
         "plural": false,
         "phrase": "un gâteau",
         "sentence": "J'ai fait un gâteau.",
+        "sentenceMeaning": "I made a cake.",
         "meaning": "cake",
         "alternatives": ""
       },
@@ -3527,6 +3806,7 @@
         "plural": false,
         "phrase": "ein Kuchen",
         "sentence": "Ich habe einen Kuchen gebacken.",
+        "sentenceMeaning": "I baked a cake.",
         "meaning": "cake",
         "alternatives": ""
       }
@@ -3546,6 +3826,7 @@
         "plural": false,
         "phrase": "a chair",
         "sentence": "Please sit on the chair.",
+        "sentenceMeaning": "请坐在椅子上。",
         "meaning": "椅子",
         "alternatives": ""
       },
@@ -3558,6 +3839,7 @@
         "phrasePinyin": "yì bǎ yǐzi",
         "sentence": "请坐在椅子上。",
         "sentencePinyin": "Qǐng zuò zài yǐzi shàng.",
+        "sentenceMeaning": "Please sit on the chair.",
         "meaning": "chair"
       },
       "es": {
@@ -3568,6 +3850,7 @@
         "plural": false,
         "phrase": "una silla",
         "sentence": "Siéntate en la silla, por favor.",
+        "sentenceMeaning": "Sit on the chair, please.",
         "meaning": "chair",
         "alternatives": ""
       },
@@ -3579,6 +3862,7 @@
         "plural": false,
         "phrase": "une chaise",
         "sentence": "Assieds-toi sur la chaise.",
+        "sentenceMeaning": "Sit down on the chair.",
         "meaning": "chair",
         "alternatives": ""
       },
@@ -3590,6 +3874,7 @@
         "plural": false,
         "phrase": "ein Stuhl",
         "sentence": "Setz dich auf den Stuhl.",
+        "sentenceMeaning": "Sit on the chair.",
         "meaning": "chair",
         "alternatives": ""
       }
@@ -3609,6 +3894,7 @@
         "plural": false,
         "phrase": "a couch",
         "sentence": "I relax on the couch.",
+        "sentenceMeaning": "我在沙发上放松。",
         "meaning": "沙发",
         "alternatives": ""
       },
@@ -3621,6 +3907,7 @@
         "phrasePinyin": "yì zhāng shāfā",
         "sentence": "我在沙发上休息。",
         "sentencePinyin": "Wǒ zài shāfā shàng xiūxi.",
+        "sentenceMeaning": "I'm resting on the couch.",
         "meaning": "couch"
       },
       "es": {
@@ -3631,6 +3918,7 @@
         "plural": false,
         "phrase": "un sofá",
         "sentence": "Descanso en el sofá.",
+        "sentenceMeaning": "I rest on the couch.",
         "meaning": "couch",
         "alternatives": ""
       },
@@ -3642,6 +3930,7 @@
         "plural": false,
         "phrase": "un canapé",
         "sentence": "Je me repose sur le canapé.",
+        "sentenceMeaning": "I rest on the couch.",
         "meaning": "couch",
         "alternatives": ""
       },
@@ -3653,6 +3942,7 @@
         "plural": false,
         "phrase": "ein Sofa",
         "sentence": "Ich entspanne mich auf dem Sofa.",
+        "sentenceMeaning": "I relax on the couch.",
         "meaning": "couch",
         "alternatives": ""
       }
@@ -3672,6 +3962,7 @@
         "plural": false,
         "phrase": "a plant",
         "sentence": "Water the plant every week.",
+        "sentenceMeaning": "每周给植物浇水。",
         "meaning": "盆栽",
         "alternatives": ""
       },
@@ -3684,6 +3975,7 @@
         "phrasePinyin": "yì pén pénzāi",
         "sentence": "每周给盆栽浇水。",
         "sentencePinyin": "Měi zhōu gěi pénzāi jiāo shuǐ.",
+        "sentenceMeaning": "Water the potted plant every week.",
         "meaning": "plant"
       },
       "es": {
@@ -3694,6 +3986,7 @@
         "plural": false,
         "phrase": "una planta",
         "sentence": "Riega la planta cada semana.",
+        "sentenceMeaning": "Water the plant every week.",
         "meaning": "plant",
         "alternatives": ""
       },
@@ -3705,6 +3998,7 @@
         "plural": false,
         "phrase": "une plante en pot",
         "sentence": "Arrose la plante en pot.",
+        "sentenceMeaning": "Water the potted plant.",
         "meaning": "plant",
         "alternatives": ""
       },
@@ -3716,6 +4010,7 @@
         "plural": false,
         "phrase": "eine Topfpflanze",
         "sentence": "Gieß die Topfpflanze jede Woche.",
+        "sentenceMeaning": "Water the potted plant every week.",
         "meaning": "plant",
         "alternatives": ""
       }
@@ -3735,6 +4030,7 @@
         "plural": false,
         "phrase": "a bed",
         "sentence": "My bed is very comfortable.",
+        "sentenceMeaning": "我的床很舒服。",
         "meaning": "床",
         "alternatives": ""
       },
@@ -3747,6 +4043,7 @@
         "phrasePinyin": "yì zhāng chuáng",
         "sentence": "我的床很舒服。",
         "sentencePinyin": "Wǒ de chuáng hěn shūfu.",
+        "sentenceMeaning": "My bed is very comfortable.",
         "meaning": "bed"
       },
       "es": {
@@ -3757,6 +4054,7 @@
         "plural": false,
         "phrase": "una cama",
         "sentence": "Mi cama es muy cómoda.",
+        "sentenceMeaning": "My bed is very comfortable.",
         "meaning": "bed",
         "alternatives": ""
       },
@@ -3768,6 +4066,7 @@
         "plural": false,
         "phrase": "un lit",
         "sentence": "Mon lit est très confortable.",
+        "sentenceMeaning": "My bed is very comfortable.",
         "meaning": "bed",
         "alternatives": ""
       },
@@ -3779,6 +4078,7 @@
         "plural": false,
         "phrase": "ein Bett",
         "sentence": "Mein Bett ist sehr bequem.",
+        "sentenceMeaning": "My bed is very comfortable.",
         "meaning": "bed",
         "alternatives": ""
       }
@@ -3798,6 +4098,7 @@
         "plural": false,
         "phrase": "a table",
         "sentence": "Dinner is on the table.",
+        "sentenceMeaning": "晚饭在桌子上。",
         "meaning": "桌子",
         "alternatives": ""
       },
@@ -3810,6 +4111,7 @@
         "phrasePinyin": "yì zhāng zhuōzi",
         "sentence": "饭菜在桌子上。",
         "sentencePinyin": "Fàncài zài zhuōzi shàng.",
+        "sentenceMeaning": "The food is on the table.",
         "meaning": "table"
       },
       "es": {
@@ -3820,6 +4122,7 @@
         "plural": false,
         "phrase": "una mesa",
         "sentence": "La cena está en la mesa.",
+        "sentenceMeaning": "Dinner is on the table.",
         "meaning": "table",
         "alternatives": ""
       },
@@ -3831,6 +4134,7 @@
         "plural": false,
         "phrase": "une table",
         "sentence": "Le dîner est sur la table.",
+        "sentenceMeaning": "Dinner is on the table.",
         "meaning": "table",
         "alternatives": ""
       },
@@ -3842,6 +4146,7 @@
         "plural": false,
         "phrase": "ein Tisch",
         "sentence": "Das Essen steht auf dem Tisch.",
+        "sentenceMeaning": "The food is on the table.",
         "meaning": "table",
         "alternatives": ""
       }
@@ -3861,6 +4166,7 @@
         "plural": false,
         "phrase": "a toilet",
         "sentence": "Where is the toilet?",
+        "sentenceMeaning": "厕所在哪儿？",
         "meaning": "马桶",
         "alternatives": ""
       },
@@ -3873,6 +4179,7 @@
         "phrasePinyin": "yí gè mǎtǒng",
         "sentence": "马桶在卫生间里。",
         "sentencePinyin": "Mǎtǒng zài wèishēngjiān lǐ.",
+        "sentenceMeaning": "The toilet is in the bathroom.",
         "meaning": "toilet"
       },
       "es": {
@@ -3883,6 +4190,7 @@
         "plural": false,
         "phrase": "un inodoro",
         "sentence": "El inodoro está en el baño.",
+        "sentenceMeaning": "The toilet is in the bathroom.",
         "meaning": "toilet",
         "alternatives": ""
       },
@@ -3894,6 +4202,7 @@
         "plural": true,
         "phrase": "des toilettes",
         "sentence": "Où sont les toilettes ?",
+        "sentenceMeaning": "Where is the toilet?",
         "meaning": "toilet",
         "alternatives": ""
       },
@@ -3905,6 +4214,7 @@
         "plural": false,
         "phrase": "eine Toilette",
         "sentence": "Wo ist die Toilette?",
+        "sentenceMeaning": "Where is the toilet?",
         "meaning": "toilet",
         "alternatives": ""
       }
@@ -3924,6 +4234,7 @@
         "plural": false,
         "phrase": "a TV",
         "sentence": "The TV is on.",
+        "sentenceMeaning": "电视开着。",
         "meaning": "电视",
         "alternatives": ""
       },
@@ -3936,6 +4247,7 @@
         "phrasePinyin": "yì tái diànshì",
         "sentence": "电视开着。",
         "sentencePinyin": "Diànshì kāizhe.",
+        "sentenceMeaning": "The TV is on.",
         "meaning": "TV"
       },
       "es": {
@@ -3946,6 +4258,7 @@
         "plural": false,
         "phrase": "una televisión",
         "sentence": "La televisión está prendida.",
+        "sentenceMeaning": "The TV is on.",
         "meaning": "TV",
         "alternatives": ""
       },
@@ -3957,6 +4270,7 @@
         "plural": false,
         "phrase": "une télévision",
         "sentence": "La télévision est allumée.",
+        "sentenceMeaning": "The TV is on.",
         "meaning": "TV",
         "alternatives": ""
       },
@@ -3968,6 +4282,7 @@
         "plural": false,
         "phrase": "ein Fernseher",
         "sentence": "Der Fernseher ist an.",
+        "sentenceMeaning": "The TV is on.",
         "meaning": "TV",
         "alternatives": ""
       }
@@ -3987,6 +4302,7 @@
         "plural": false,
         "phrase": "a laptop",
         "sentence": "I work on my laptop.",
+        "sentenceMeaning": "我用笔记本电脑工作。",
         "meaning": "笔记本电脑",
         "alternatives": ""
       },
@@ -3999,6 +4315,7 @@
         "phrasePinyin": "yì tái bǐjìběn diànnǎo",
         "sentence": "我用笔记本电脑工作。",
         "sentencePinyin": "Wǒ yòng bǐjìběn diànnǎo gōngzuò.",
+        "sentenceMeaning": "I work on my laptop.",
         "meaning": "laptop"
       },
       "es": {
@@ -4009,6 +4326,7 @@
         "plural": false,
         "phrase": "una laptop",
         "sentence": "Trabajo en mi laptop.",
+        "sentenceMeaning": "I work on my laptop.",
         "meaning": "laptop",
         "alternatives": "el portátil"
       },
@@ -4020,6 +4338,7 @@
         "plural": false,
         "phrase": "un ordinateur portable",
         "sentence": "J'utilise mon ordinateur portable.",
+        "sentenceMeaning": "I'm using my laptop.",
         "meaning": "laptop",
         "alternatives": ""
       },
@@ -4031,6 +4350,7 @@
         "plural": false,
         "phrase": "ein Laptop",
         "sentence": "Ich arbeite am Laptop.",
+        "sentenceMeaning": "I work on the laptop.",
         "meaning": "laptop",
         "alternatives": ""
       }
@@ -4050,6 +4370,7 @@
         "plural": false,
         "phrase": "a mouse",
         "sentence": "Click with the mouse.",
+        "sentenceMeaning": "用鼠标点击。",
         "meaning": "鼠标",
         "alternatives": ""
       },
@@ -4062,6 +4383,7 @@
         "phrasePinyin": "yí gè shǔbiāo",
         "sentence": "用鼠标点击。",
         "sentencePinyin": "Yòng shǔbiāo diǎnjī.",
+        "sentenceMeaning": "Click with the mouse.",
         "meaning": "mouse"
       },
       "es": {
@@ -4072,6 +4394,7 @@
         "plural": false,
         "phrase": "un mouse",
         "sentence": "Haz clic con el mouse.",
+        "sentenceMeaning": "Click with the mouse.",
         "meaning": "mouse",
         "alternatives": "el ratón"
       },
@@ -4083,6 +4406,7 @@
         "plural": false,
         "phrase": "une souris",
         "sentence": "Clique avec la souris.",
+        "sentenceMeaning": "Click with the mouse.",
         "meaning": "mouse",
         "alternatives": ""
       },
@@ -4094,6 +4418,7 @@
         "plural": false,
         "phrase": "eine Maus",
         "sentence": "Klick mit der Maus.",
+        "sentenceMeaning": "Click with the mouse.",
         "meaning": "mouse",
         "alternatives": ""
       }
@@ -4113,6 +4438,7 @@
         "plural": false,
         "phrase": "a remote",
         "sentence": "Where is the remote?",
+        "sentenceMeaning": "遥控器在哪儿？",
         "meaning": "遥控器",
         "alternatives": ""
       },
@@ -4125,6 +4451,7 @@
         "phrasePinyin": "yí gè yáokòngqì",
         "sentence": "遥控器在哪儿？",
         "sentencePinyin": "Yáokòngqì zài nǎr?",
+        "sentenceMeaning": "Where is the remote?",
         "meaning": "remote"
       },
       "es": {
@@ -4135,6 +4462,7 @@
         "plural": false,
         "phrase": "un control remoto",
         "sentence": "¿Dónde está el control remoto?",
+        "sentenceMeaning": "Where is the remote control?",
         "meaning": "remote",
         "alternatives": "el mando a distancia"
       },
@@ -4146,6 +4474,7 @@
         "plural": false,
         "phrase": "une télécommande",
         "sentence": "Où est la télécommande ?",
+        "sentenceMeaning": "Where is the remote?",
         "meaning": "remote",
         "alternatives": ""
       },
@@ -4157,6 +4486,7 @@
         "plural": false,
         "phrase": "eine Fernbedienung",
         "sentence": "Wo ist die Fernbedienung?",
+        "sentenceMeaning": "Where is the remote?",
         "meaning": "remote",
         "alternatives": ""
       }
@@ -4176,6 +4506,7 @@
         "plural": false,
         "phrase": "a keyboard",
         "sentence": "I type on the keyboard.",
+        "sentenceMeaning": "我在键盘上打字。",
         "meaning": "键盘",
         "alternatives": ""
       },
@@ -4188,6 +4519,7 @@
         "phrasePinyin": "yí gè jiànpán",
         "sentence": "我在键盘上打字。",
         "sentencePinyin": "Wǒ zài jiànpán shàng dǎzì.",
+        "sentenceMeaning": "I'm typing on the keyboard.",
         "meaning": "keyboard"
       },
       "es": {
@@ -4198,6 +4530,7 @@
         "plural": false,
         "phrase": "un teclado",
         "sentence": "Escribo en el teclado.",
+        "sentenceMeaning": "I type on the keyboard.",
         "meaning": "keyboard",
         "alternatives": ""
       },
@@ -4209,6 +4542,7 @@
         "plural": false,
         "phrase": "un clavier",
         "sentence": "Je tape sur le clavier.",
+        "sentenceMeaning": "I type on the keyboard.",
         "meaning": "keyboard",
         "alternatives": ""
       },
@@ -4220,6 +4554,7 @@
         "plural": false,
         "phrase": "eine Tastatur",
         "sentence": "Ich tippe auf der Tastatur.",
+        "sentenceMeaning": "I type on the keyboard.",
         "meaning": "keyboard",
         "alternatives": ""
       }
@@ -4239,6 +4574,7 @@
         "plural": false,
         "phrase": "a phone",
         "sentence": "My phone is ringing!",
+        "sentenceMeaning": "我的手机响了！",
         "meaning": "手机",
         "alternatives": ""
       },
@@ -4251,6 +4587,7 @@
         "phrasePinyin": "yí bù shǒujī",
         "sentence": "我的手机响了！",
         "sentencePinyin": "Wǒ de shǒujī xiǎng le!",
+        "sentenceMeaning": "My phone is ringing!",
         "meaning": "phone"
       },
       "es": {
@@ -4261,6 +4598,7 @@
         "plural": false,
         "phrase": "un celular",
         "sentence": "¡Mi celular está sonando!",
+        "sentenceMeaning": "My cell phone is ringing!",
         "meaning": "phone",
         "alternatives": "el móvil"
       },
@@ -4272,6 +4610,7 @@
         "plural": false,
         "phrase": "un téléphone portable",
         "sentence": "Mon téléphone portable sonne !",
+        "sentenceMeaning": "My cell phone is ringing!",
         "meaning": "phone",
         "alternatives": ""
       },
@@ -4283,6 +4622,7 @@
         "plural": false,
         "phrase": "ein Handy",
         "sentence": "Mein Handy klingelt!",
+        "sentenceMeaning": "My phone is ringing!",
         "meaning": "phone",
         "alternatives": ""
       }
@@ -4302,6 +4642,7 @@
         "plural": false,
         "phrase": "a microwave",
         "sentence": "Heat the food in the microwave.",
+        "sentenceMeaning": "用微波炉热饭。",
         "meaning": "微波炉",
         "alternatives": ""
       },
@@ -4314,6 +4655,7 @@
         "phrasePinyin": "yì tái wēibōlú",
         "sentence": "用微波炉热饭。",
         "sentencePinyin": "Yòng wēibōlú rè fàn.",
+        "sentenceMeaning": "Heat the food in the microwave.",
         "meaning": "microwave"
       },
       "es": {
@@ -4324,6 +4666,7 @@
         "plural": false,
         "phrase": "un microondas",
         "sentence": "Calienta la comida en el microondas.",
+        "sentenceMeaning": "Heat the food in the microwave.",
         "meaning": "microwave",
         "alternatives": ""
       },
@@ -4335,6 +4678,7 @@
         "plural": false,
         "phrase": "un micro-ondes",
         "sentence": "Réchauffe le repas au micro-ondes.",
+        "sentenceMeaning": "Heat up the meal in the microwave.",
         "meaning": "microwave",
         "alternatives": ""
       },
@@ -4346,6 +4690,7 @@
         "plural": false,
         "phrase": "eine Mikrowelle",
         "sentence": "Wärme das Essen in der Mikrowelle.",
+        "sentenceMeaning": "Heat the food in the microwave.",
         "meaning": "microwave",
         "alternatives": ""
       }
@@ -4365,6 +4710,7 @@
         "plural": false,
         "phrase": "an oven",
         "sentence": "The pizza is in the oven.",
+        "sentenceMeaning": "披萨在烤箱里。",
         "meaning": "烤箱",
         "alternatives": ""
       },
@@ -4377,6 +4723,7 @@
         "phrasePinyin": "yì tái kǎoxiāng",
         "sentence": "披萨在烤箱里。",
         "sentencePinyin": "Pīsà zài kǎoxiāng lǐ.",
+        "sentenceMeaning": "The pizza is in the oven.",
         "meaning": "oven"
       },
       "es": {
@@ -4387,6 +4734,7 @@
         "plural": false,
         "phrase": "un horno",
         "sentence": "La pizza está en el horno.",
+        "sentenceMeaning": "The pizza is in the oven.",
         "meaning": "oven",
         "alternatives": ""
       },
@@ -4398,6 +4746,7 @@
         "plural": false,
         "phrase": "un four",
         "sentence": "La pizza est au four.",
+        "sentenceMeaning": "The pizza is in the oven.",
         "meaning": "oven",
         "alternatives": ""
       },
@@ -4409,6 +4758,7 @@
         "plural": false,
         "phrase": "ein Backofen",
         "sentence": "Die Pizza ist im Backofen.",
+        "sentenceMeaning": "The pizza is in the oven.",
         "meaning": "oven",
         "alternatives": ""
       }
@@ -4428,6 +4778,7 @@
         "plural": false,
         "phrase": "a toaster",
         "sentence": "I put bread in the toaster.",
+        "sentenceMeaning": "我把面包放进烤面包机。",
         "meaning": "烤面包机",
         "alternatives": ""
       },
@@ -4440,6 +4791,7 @@
         "phrasePinyin": "yì tái kǎo miànbāo jī",
         "sentence": "我把面包放进烤面包机。",
         "sentencePinyin": "Wǒ bǎ miànbāo fàng jìn kǎo miànbāo jī.",
+        "sentenceMeaning": "I put bread in the toaster.",
         "meaning": "toaster"
       },
       "es": {
@@ -4450,6 +4802,7 @@
         "plural": false,
         "phrase": "un tostador",
         "sentence": "Pongo pan en el tostador.",
+        "sentenceMeaning": "I put bread in the toaster.",
         "meaning": "toaster",
         "alternatives": "la tostadora"
       },
@@ -4461,6 +4814,7 @@
         "plural": false,
         "phrase": "un grille-pain",
         "sentence": "Je mets du pain dans le grille-pain.",
+        "sentenceMeaning": "I put bread in the toaster.",
         "meaning": "toaster",
         "alternatives": ""
       },
@@ -4472,6 +4826,7 @@
         "plural": false,
         "phrase": "ein Toaster",
         "sentence": "Ich stecke Brot in den Toaster.",
+        "sentenceMeaning": "I put bread in the toaster.",
         "meaning": "toaster",
         "alternatives": ""
       }
@@ -4491,6 +4846,7 @@
         "plural": false,
         "phrase": "a sink",
         "sentence": "Wash the dishes in the sink.",
+        "sentenceMeaning": "在水槽里洗碗。",
         "meaning": "水槽",
         "alternatives": ""
       },
@@ -4503,6 +4859,7 @@
         "phrasePinyin": "yí gè shuǐcáo",
         "sentence": "在水槽里洗碗。",
         "sentencePinyin": "Zài shuǐcáo lǐ xǐ wǎn.",
+        "sentenceMeaning": "Wash the dishes in the sink.",
         "meaning": "sink"
       },
       "es": {
@@ -4513,6 +4870,7 @@
         "plural": false,
         "phrase": "un fregadero",
         "sentence": "Lava los platos en el fregadero.",
+        "sentenceMeaning": "Wash the dishes in the sink.",
         "meaning": "sink",
         "alternatives": ""
       },
@@ -4524,6 +4882,7 @@
         "plural": false,
         "phrase": "un évier",
         "sentence": "Lave la vaisselle dans l'évier.",
+        "sentenceMeaning": "Wash the dishes in the sink.",
         "meaning": "sink",
         "alternatives": ""
       },
@@ -4535,6 +4894,7 @@
         "plural": false,
         "phrase": "eine Spüle",
         "sentence": "Spül das Geschirr in der Spüle.",
+        "sentenceMeaning": "Wash the dishes in the sink.",
         "meaning": "sink",
         "alternatives": ""
       }
@@ -4554,6 +4914,7 @@
         "plural": false,
         "phrase": "a refrigerator",
         "sentence": "The milk is in the refrigerator.",
+        "sentenceMeaning": "牛奶在冰箱里。",
         "meaning": "冰箱",
         "alternatives": ""
       },
@@ -4566,6 +4927,7 @@
         "phrasePinyin": "yì tái bīngxiāng",
         "sentence": "牛奶在冰箱里。",
         "sentencePinyin": "Niúnǎi zài bīngxiāng lǐ.",
+        "sentenceMeaning": "The milk is in the refrigerator.",
         "meaning": "refrigerator"
       },
       "es": {
@@ -4576,6 +4938,7 @@
         "plural": false,
         "phrase": "un refrigerador",
         "sentence": "La leche está en el refrigerador.",
+        "sentenceMeaning": "The milk is in the refrigerator.",
         "meaning": "refrigerator",
         "alternatives": "la nevera"
       },
@@ -4587,6 +4950,7 @@
         "plural": false,
         "phrase": "un réfrigérateur",
         "sentence": "Le lait est dans le réfrigérateur.",
+        "sentenceMeaning": "The milk is in the refrigerator.",
         "meaning": "refrigerator",
         "alternatives": ""
       },
@@ -4598,6 +4962,7 @@
         "plural": false,
         "phrase": "ein Kühlschrank",
         "sentence": "Die Milch ist im Kühlschrank.",
+        "sentenceMeaning": "The milk is in the refrigerator.",
         "meaning": "refrigerator",
         "alternatives": ""
       }
@@ -4617,6 +4982,7 @@
         "plural": false,
         "phrase": "a book",
         "sentence": "I'm reading a good book.",
+        "sentenceMeaning": "我在看一本好书。",
         "meaning": "书",
         "alternatives": ""
       },
@@ -4629,6 +4995,7 @@
         "phrasePinyin": "yì běn shū",
         "sentence": "我在看一本好书。",
         "sentencePinyin": "Wǒ zài kàn yì běn hǎo shū.",
+        "sentenceMeaning": "I'm reading a good book.",
         "meaning": "book"
       },
       "es": {
@@ -4639,6 +5006,7 @@
         "plural": false,
         "phrase": "un libro",
         "sentence": "Estoy leyendo un buen libro.",
+        "sentenceMeaning": "I'm reading a good book.",
         "meaning": "book",
         "alternatives": ""
       },
@@ -4650,6 +5018,7 @@
         "plural": false,
         "phrase": "un livre",
         "sentence": "Je lis un bon livre.",
+        "sentenceMeaning": "I'm reading a good book.",
         "meaning": "book",
         "alternatives": ""
       },
@@ -4661,6 +5030,7 @@
         "plural": false,
         "phrase": "ein Buch",
         "sentence": "Ich lese ein gutes Buch.",
+        "sentenceMeaning": "I'm reading a good book.",
         "meaning": "book",
         "alternatives": ""
       }
@@ -4680,6 +5050,7 @@
         "plural": false,
         "phrase": "a clock",
         "sentence": "Look at the clock. It's late.",
+        "sentenceMeaning": "看看钟，已经很晚了。",
         "meaning": "钟",
         "alternatives": ""
       },
@@ -4692,6 +5063,7 @@
         "phrasePinyin": "yí gè zhōng",
         "sentence": "看看钟，已经很晚了。",
         "sentencePinyin": "Kànkan zhōng, yǐjīng hěn wǎn le.",
+        "sentenceMeaning": "Look at the clock, it's already late.",
         "meaning": "clock"
       },
       "es": {
@@ -4702,6 +5074,7 @@
         "plural": false,
         "phrase": "un reloj",
         "sentence": "Mira el reloj. Es tarde.",
+        "sentenceMeaning": "Look at the clock. It's late.",
         "meaning": "clock",
         "alternatives": ""
       },
@@ -4713,6 +5086,7 @@
         "plural": false,
         "phrase": "une horloge",
         "sentence": "Regarde l'horloge. Il est tard.",
+        "sentenceMeaning": "Look at the clock. It's late.",
         "meaning": "clock",
         "alternatives": ""
       },
@@ -4724,6 +5098,7 @@
         "plural": false,
         "phrase": "eine Uhr",
         "sentence": "Schau auf die Uhr. Es ist spät.",
+        "sentenceMeaning": "Look at the clock. It's late.",
         "meaning": "clock",
         "alternatives": ""
       }
@@ -4743,6 +5118,7 @@
         "plural": false,
         "phrase": "a vase",
         "sentence": "Put the flowers in the vase.",
+        "sentenceMeaning": "把花放进花瓶里。",
         "meaning": "花瓶",
         "alternatives": ""
       },
@@ -4755,6 +5131,7 @@
         "phrasePinyin": "yí gè huāpíng",
         "sentence": "把花放进花瓶里。",
         "sentencePinyin": "Bǎ huā fàng jìn huāpíng lǐ.",
+        "sentenceMeaning": "Put the flowers in the vase.",
         "meaning": "vase"
       },
       "es": {
@@ -4765,6 +5142,7 @@
         "plural": false,
         "phrase": "un florero",
         "sentence": "Pon las flores en el florero.",
+        "sentenceMeaning": "Put the flowers in the vase.",
         "meaning": "vase",
         "alternatives": "el jarrón"
       },
@@ -4776,6 +5154,7 @@
         "plural": false,
         "phrase": "un vase",
         "sentence": "Mets les fleurs dans le vase.",
+        "sentenceMeaning": "Put the flowers in the vase.",
         "meaning": "vase",
         "alternatives": ""
       },
@@ -4787,6 +5166,7 @@
         "plural": false,
         "phrase": "eine Vase",
         "sentence": "Stell die Blumen in die Vase.",
+        "sentenceMeaning": "Put the flowers in the vase.",
         "meaning": "vase",
         "alternatives": ""
       }
@@ -4806,6 +5186,7 @@
         "plural": true,
         "phrase": "a pair of scissors",
         "sentence": "Cut the paper with scissors.",
+        "sentenceMeaning": "用剪刀剪纸。",
         "meaning": "剪刀",
         "alternatives": ""
       },
@@ -4818,6 +5199,7 @@
         "phrasePinyin": "yì bǎ jiǎndāo",
         "sentence": "用剪刀剪纸。",
         "sentencePinyin": "Yòng jiǎndāo jiǎn zhǐ.",
+        "sentenceMeaning": "Cut the paper with scissors.",
         "meaning": "scissors"
       },
       "es": {
@@ -4828,6 +5210,7 @@
         "plural": true,
         "phrase": "unas tijeras",
         "sentence": "Corta el papel con las tijeras.",
+        "sentenceMeaning": "Cut the paper with the scissors.",
         "meaning": "scissors",
         "alternatives": ""
       },
@@ -4839,6 +5222,7 @@
         "plural": true,
         "phrase": "des ciseaux",
         "sentence": "Coupe le papier avec les ciseaux.",
+        "sentenceMeaning": "Cut the paper with the scissors.",
         "meaning": "scissors",
         "alternatives": ""
       },
@@ -4850,6 +5234,7 @@
         "plural": false,
         "phrase": "eine Schere",
         "sentence": "Schneid das Papier mit der Schere.",
+        "sentenceMeaning": "Cut the paper with the scissors.",
         "meaning": "scissors",
         "alternatives": ""
       }
@@ -4869,6 +5254,7 @@
         "plural": false,
         "phrase": "a teddy bear",
         "sentence": "The baby hugs the teddy bear.",
+        "sentenceMeaning": "宝宝抱着泰迪熊。",
         "meaning": "泰迪熊",
         "alternatives": ""
       },
@@ -4881,6 +5267,7 @@
         "phrasePinyin": "yì zhī tàidí xióng",
         "sentence": "宝宝抱着泰迪熊。",
         "sentencePinyin": "Bǎobao bàozhe tàidí xióng.",
+        "sentenceMeaning": "The baby is hugging the teddy bear.",
         "meaning": "teddy bear"
       },
       "es": {
@@ -4891,6 +5278,7 @@
         "plural": false,
         "phrase": "un osito de peluche",
         "sentence": "El bebé abraza el osito de peluche.",
+        "sentenceMeaning": "The baby hugs the teddy bear.",
         "meaning": "teddy bear",
         "alternatives": ""
       },
@@ -4902,6 +5290,7 @@
         "plural": false,
         "phrase": "un ours en peluche",
         "sentence": "Le bébé serre l'ours en peluche.",
+        "sentenceMeaning": "The baby hugs the teddy bear.",
         "meaning": "teddy bear",
         "alternatives": ""
       },
@@ -4913,6 +5302,7 @@
         "plural": false,
         "phrase": "ein Teddybär",
         "sentence": "Das Baby umarmt den Teddybären.",
+        "sentenceMeaning": "The baby hugs the teddy bear.",
         "meaning": "teddy bear",
         "alternatives": ""
       }
@@ -4932,6 +5322,7 @@
         "plural": false,
         "phrase": "a hair dryer",
         "sentence": "The hair dryer is hot.",
+        "sentenceMeaning": "吹风机很热。",
         "meaning": "吹风机",
         "alternatives": ""
       },
@@ -4944,6 +5335,7 @@
         "phrasePinyin": "yí gè chuīfēngjī",
         "sentence": "吹风机很热。",
         "sentencePinyin": "Chuīfēngjī hěn rè.",
+        "sentenceMeaning": "The hair dryer is hot.",
         "meaning": "hair dryer"
       },
       "es": {
@@ -4954,6 +5346,7 @@
         "plural": false,
         "phrase": "una secadora de pelo",
         "sentence": "La secadora de pelo está caliente.",
+        "sentenceMeaning": "The hair dryer is hot.",
         "meaning": "hair dryer",
         "alternatives": "el secador de pelo"
       },
@@ -4965,6 +5358,7 @@
         "plural": false,
         "phrase": "un sèche-cheveux",
         "sentence": "Le sèche-cheveux est chaud.",
+        "sentenceMeaning": "The hair dryer is hot.",
         "meaning": "hair dryer",
         "alternatives": ""
       },
@@ -4976,6 +5370,7 @@
         "plural": false,
         "phrase": "ein Föhn",
         "sentence": "Der Föhn ist heiß.",
+        "sentenceMeaning": "The hair dryer is hot.",
         "meaning": "hair dryer",
         "alternatives": ""
       }
@@ -4995,6 +5390,7 @@
         "plural": false,
         "phrase": "a toothbrush",
         "sentence": "I need a new toothbrush.",
+        "sentenceMeaning": "我需要一支新牙刷。",
         "meaning": "牙刷",
         "alternatives": ""
       },
@@ -5007,6 +5403,7 @@
         "phrasePinyin": "yì zhī yáshuā",
         "sentence": "我需要一支新牙刷。",
         "sentencePinyin": "Wǒ xūyào yì zhī xīn yáshuā.",
+        "sentenceMeaning": "I need a new toothbrush.",
         "meaning": "toothbrush"
       },
       "es": {
@@ -5017,6 +5414,7 @@
         "plural": false,
         "phrase": "un cepillo de dientes",
         "sentence": "Necesito un cepillo de dientes nuevo.",
+        "sentenceMeaning": "I need a new toothbrush.",
         "meaning": "toothbrush",
         "alternatives": ""
       },
@@ -5028,6 +5426,7 @@
         "plural": false,
         "phrase": "une brosse à dents",
         "sentence": "Il me faut une brosse à dents.",
+        "sentenceMeaning": "I need a toothbrush.",
         "meaning": "toothbrush",
         "alternatives": ""
       },
@@ -5039,6 +5438,7 @@
         "plural": false,
         "phrase": "eine Zahnbürste",
         "sentence": "Ich brauche eine neue Zahnbürste.",
+        "sentenceMeaning": "I need a new toothbrush.",
         "meaning": "toothbrush",
         "alternatives": ""
       }

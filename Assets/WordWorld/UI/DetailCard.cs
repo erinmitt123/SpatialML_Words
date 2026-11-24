@@ -12,7 +12,8 @@ namespace WordWorld.UI
 {
     /// <summary>
     /// Detail card (DESIGN.md section 4): tap a label to see the word, its meaning in the interface
-    /// language, a grammar row (article and gender, or measure word) and an example sentence. Opens
+    /// language, a grammar row (article and gender, or measure word), an example sentence and what
+    /// that sentence means in the learner's own language. Opens
     /// next to the label, slightly toward the user, and closes on the close button or after 20 s.
     /// Opening collects the word into the Word Bank and says the word aloud (Sound on All).
     /// </summary>
@@ -26,6 +27,8 @@ namespace WordWorld.UI
         [SerializeField] private ObjectLabels m_labels;
         [SerializeField] private TrackingManager m_tracking;
         [SerializeField] private WordWorldTheme m_theme;
+        [Tooltip("Confirms on the dock that a wrongly recognised object's label was hidden.")]
+        [SerializeField] private StatusChip m_status;
 
         [SerializeField] private GameObject m_card;
         [SerializeField] private SpatialAdapterNativeText m_header;
@@ -137,13 +140,16 @@ namespace WordWorld.UI
             RefreshSaveButton();
         }
 
-        // Hides that label for the session and logs nothing else.
+        // "Wrong object? Hide it": the recogniser named the wrong thing, so its label is hidden for
+        // the session. The dock says so, since a label silently vanishing read as a bug (Nov 23 review:
+        // the old "Not right?" did not say what it would do).
         private void NotRight()
         {
             if (m_track == null) return;
             TrackedObject track = m_track;
             Close();
             m_labels.HideForSession(track);
+            if (m_status != null) m_status.Flash("detail.hidden", 4f);
         }
 
         private void OnObjectRemoved(TrackedObject track)
@@ -171,6 +177,7 @@ namespace WordWorld.UI
                     .Append(S("detail.measure_word", ui)).Append("   ").Append(zh.phrase).Append("  ").Append(zh.phrasePinyin).Append('\n')
                     .Append(S("detail.example", ui)).Append("   ").Append(zh.sentence).Append('\n')
                     .Append(zh.sentencePinyin);
+                AppendMeaning(b, zh.sentenceMeaning, ui);
             }
             else
             {
@@ -190,6 +197,7 @@ namespace WordWorld.UI
                         .Append(" · ").Append(S("detail.article", ui)).Append(": ").Append(latin.article)
                         .Append(" · ").Append(S("detail.plural", ui)).Append(": ").Append(S(latin.plural ? "common.yes" : "common.no", ui));
                 b.Append('\n').Append(S("detail.example", ui)).Append("   ").Append(Vocabulary.Wrap(latin.sentence, 34, 2));
+                AppendMeaning(b, latin.sentenceMeaning, ui);
             }
             m_body.SetFitted(b.ToString());
 
@@ -232,6 +240,14 @@ namespace WordWorld.UI
             m_saveButton.SetLabel(S(saved ? "detail.saved" : "detail.save", m_settings.InterfaceLanguage));
             m_saveButton.Text.TextColor = m_theme.Ink;
             m_saveButton.Background = saved ? m_theme.AccentSoft : m_theme.Button;
+        }
+
+        // The example in the learner's own language (Nov 19 review: the sentence alone could not be
+        // understood). Written in the vocabulary sheet; skipped where a row has none yet.
+        private void AppendMeaning(StringBuilder b, string meaning, string ui)
+        {
+            if (string.IsNullOrEmpty(meaning)) return;
+            b.Append('\n').Append(S("detail.means", ui)).Append("   ").Append(meaning);
         }
 
         private static string GenderKey(string gender) =>

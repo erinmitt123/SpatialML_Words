@@ -23,6 +23,8 @@ namespace WordWorld.Data
             public bool plural;
             public string phrase;
             public string sentence;
+            /// <summary>The example in the learner's own language (Chinese for the English entry).</summary>
+            public string sentenceMeaning;
             public string meaning;
             public string alternatives;
         }
@@ -38,6 +40,8 @@ namespace WordWorld.Data
             public string phrasePinyin;
             public string sentence;
             public string sentencePinyin;
+            /// <summary>The example sentence in English.</summary>
+            public string sentenceMeaning;
             public string meaning;
         }
 

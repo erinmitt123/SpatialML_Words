@@ -19,7 +19,7 @@ namespace WordWorld.Labels
     /// pushed when they change. The leader and dot are text backgrounds with no text.
     /// </summary>
     [AddComponentMenu("Word World/Label View")]
-    public sealed class LabelView : MonoBehaviour, IPointerClickHandler
+    public sealed class LabelView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         // DESIGN.md: card padding 8 mm horizontal, 5 mm vertical.
         private const float PadX = 0.008f;
@@ -28,6 +28,14 @@ namespace WordWorld.Labels
         private const float GlossScale = 0.6f;
         private const float LeaderWidth = 0.001f;
         private const float DotSize = 0.006f;
+        // Noto Sans draws a line about 1.36 em tall (ascender + descender). Sizing lines at 1.2 em
+        // left two-line sentences taller than their card, so descenders were cut off (Nov 19 review).
+        private const float LineHeight = 1.36f;
+        // Hover (eye gaze, hand ray or controller): an accent ring this wide appears around the card
+        // and the card leans toward mint, so it is clear the label is targeted and a pinch will open
+        // it (Nov 23 review: no way to tell whether gaze had landed on a label).
+        private const float HoverRing = 0.005f;
+        private const float HoverTint = 0.6f;
 
         [SerializeField] private SpatialAdapterNativeText m_text;
         [SerializeField] private SpatialAdapterNativeText m_ruby;
@@ -35,6 +43,8 @@ namespace WordWorld.Labels
         [SerializeField] private SpatialAdapterNativeText m_gloss;
         [Tooltip("Background-only panel behind the word and its meaning.")]
         [SerializeField] private SpatialAdapterNativeText m_backing;
+        [Tooltip("Empty text behind the card; its background is the hover ring.")]
+        [SerializeField] private SpatialAdapterNativeText m_ring;
         [SerializeField] private SpatialAdapterNativeText m_leader;
         [SerializeField] private SpatialAdapterNativeText m_dot;
         [SerializeField] private BoxCollider m_collider;
@@ -60,6 +70,7 @@ namespace WordWorld.Labels
         private string m_pickText = "";
         // Card width only grows while one word is shown, so changing digits never resize it.
         private float m_cardEms;
+        private bool m_hovered;
 
         /// <summary>Raised when the label is poked or pinched.</summary>
         public event Action<LabelView> Tapped;
@@ -72,8 +83,9 @@ namespace WordWorld.Labels
 
         public void Bind(SpatialAdapterNativeText text, SpatialAdapterNativeText ruby, SpatialAdapterNativeText gloss,
             SpatialAdapterNativeText backing, SpatialAdapterNativeText leader, SpatialAdapterNativeText dot,
-            BoxCollider collider, Transform bounds, WordWorldTheme theme)
+            BoxCollider collider, Transform bounds, WordWorldTheme theme, SpatialAdapterNativeText ring = null)
         {
+            m_ring = ring;
             m_gloss = gloss;
             m_backing = backing;
             m_bounds = bounds;
@@ -94,6 +106,21 @@ namespace WordWorld.Labels
         public void OnPointerClick(PointerEventData eventData)
         {
             if (WordWorld.Spatial.ClickGate.Allow(gameObject, eventData)) Tapped?.Invoke(this);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData) => SetHovered(true);
+        public void OnPointerExit(PointerEventData eventData) => SetHovered(false);
+
+        // Pooled labels must not come back still lit.
+        private void OnDisable() => SetHovered(false);
+
+        private void SetHovered(bool hovered)
+        {
+            if (hovered == m_hovered) return;
+            m_hovered = hovered;
+            if (hovered) WordWorld.Audio.Sfx.Hover(transform.position);
+            ApplyColours();
+            Layout();
         }
 
         /// <summary>
@@ -209,13 +236,15 @@ namespace WordWorld.Labels
             float card = Mathf.Clamp01(a / 0.3f);
             float ink = Mathf.Lerp(0.3f, 1f, a);
             Color surface = Color.Lerp(m_pick ? m_theme.Button : m_theme.Card, m_theme.Correct, m_glow * 0.75f);
+            if (m_hovered) surface = Color.Lerp(surface, m_theme.AccentSoft, HoverTint);
             m_text.TextColor = Dim(m_accent && !m_pick ? m_theme.Accent : m_theme.Ink, ink, card);
             m_text.BackgroundColor = Fade(surface, card);
             if (m_backing != null) m_backing.BackgroundColor = Fade(surface, card);
+            if (m_ring != null) m_ring.BackgroundColor = m_hovered ? Fade(m_theme.Accent, card) : Color.clear;
             if (m_gloss != null)
             {
                 m_gloss.TextColor = Dim(m_theme.InkMuted, ink, card);
-                m_gloss.BackgroundColor = Fade(m_theme.Card, card);
+                m_gloss.BackgroundColor = Fade(m_hovered ? surface : m_theme.Card, card);
             }
             if (m_ruby != null)
             {
@@ -244,7 +273,7 @@ namespace WordWorld.Labels
             float ems = TextFit.WidestLineEms(m_pick ? m_pickText : CurrentText, out int lines);
             ems = Mathf.Max(m_pick ? 0f : m_cardEms, ems, 1f);
             float metresPerEm = m_points * TextFit.MetresPerPoint;
-            float mainHeight = lines * metresPerEm * 1.2f + 2f * PadY;
+            float mainHeight = lines * metresPerEm * LineHeight + 2f * PadY;
             float width = ems * metresPerEm;
 
             // The meaning sits under the word, inside the same card.
@@ -253,7 +282,7 @@ namespace WordWorld.Labels
             {
                 float glossEm = metresPerEm * GlossScale;
                 float glossWidth = TextFit.WidestLineEms(glossText, out int glossLines) * glossEm;
-                m_glossHeight = glossLines * glossEm * 1.2f + PadY;
+                m_glossHeight = glossLines * glossEm * LineHeight + PadY;
                 width = Mathf.Max(width, glossWidth);
             }
             m_card = new Vector2(width + 2f * PadX, mainHeight + m_glossHeight);
@@ -268,12 +297,13 @@ namespace WordWorld.Labels
             m_text.BackgroundSize = new Vector2(m_card.x, mainHeight);
             if (m_glossHeight > 0f)
             {
-                // Both parts have rounded corners. The meaning's background reaches up under the
-                // word's by one radius and sits in front, hiding the word's lower corners, so the
-                // two read as one rounded card with no notches at the seam.
-                float r = m_theme != null ? m_theme.LabelCornerRadius : 0.008f;
-                m_gloss.BackgroundSize = new Vector2(m_card.x, m_glossHeight + r);
-                m_gloss.transform.localPosition = new Vector3(0f, -(mainHeight + m_glossHeight) * 0.5f + r * 0.5f, -0.001f);
+                // Flush under the word, not overlapping it: the meaning used to reach up one corner
+                // radius in front of the word to hide its rounded lower corners, and that strip
+                // covered the word's descenders ("p" in "por favor", Nov 19 review). The backing
+                // behind both, in the same colour, already fills the notches at the seam. Kept 1 mm in
+                // front of the backing, so the hover ring behind it only shows around the edge.
+                m_gloss.BackgroundSize = new Vector2(m_card.x, m_glossHeight);
+                m_gloss.transform.localPosition = new Vector3(0f, -(mainHeight + m_glossHeight) * 0.5f, -0.001f);
             }
             float centreY = -m_glossHeight * 0.5f;
             if (m_backing != null)
@@ -281,6 +311,12 @@ namespace WordWorld.Labels
                 // One panel behind the word and the meaning.
                 m_backing.BackgroundSize = m_card;
                 m_backing.transform.localPosition = new Vector3(0f, centreY, 0.001f);
+            }
+            if (m_ring != null)
+            {
+                // Just behind the backing and a little larger, so only its edge shows.
+                m_ring.BackgroundSize = m_card + new Vector2(2f * HoverRing, 2f * HoverRing);
+                m_ring.transform.localPosition = new Vector3(0f, centreY, 0.002f);
             }
             if (m_collider != null)
             {

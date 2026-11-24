@@ -31,10 +31,25 @@ namespace WordWorld.Spatial
             return s_lastOk;
         }
 
+#if UNITY_EDITOR
+        /// <summary>
+        /// Editor only: a head pose for play mode without a headset (tools/verification). Ignored
+        /// in builds, and while a real head is tracked.
+        /// </summary>
+        public static Pose? EditorOverride { get; set; }
+#endif
+
         private static bool Read(out Pose pose)
         {
             pose = default;
             InputDevice head = InputDevices.GetDeviceAtXRNode(XRNode.Head);
+#if UNITY_EDITOR
+            if (!head.isValid && EditorOverride.HasValue)
+            {
+                pose = EditorOverride.Value;
+                return true;
+            }
+#endif
             bool tracked = head.isValid &&
                 (!head.TryGetFeatureValue(CommonUsages.isTracked, out bool isTracked) || isTracked) &&
                 head.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position) &&

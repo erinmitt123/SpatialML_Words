@@ -33,7 +33,6 @@ namespace WordWorld.UI
         [SerializeField] private SpatialAdapterNativeText m_veilText;
         [SerializeField] private GameObject m_titleCard;
         [SerializeField] private SpatialAdapterNativeText m_titleName;
-        [SerializeField] private SpatialAdapterNativeText m_titleNameZh;
         [SerializeField] private SpatialAdapterNativeText m_titleTagline;
         [SerializeField] private Vector3 m_titleOffset = new Vector3(0f, -0.02f, 1.0f);
         [SerializeField] private Vector3 m_veilOffset = new Vector3(0f, 0f, 1.4f);
@@ -48,8 +47,6 @@ namespace WordWorld.UI
         [Header("Onboarding window: 1 your language, 2 what to learn, 3 start (V3 review)")]
         [SerializeField] private GameObject m_languageWindow;
         [SerializeField] private SpatialAdapterNativeText m_languageTitle;
-        [Tooltip("Step 1 asks in both languages, one line each, the Chinese line in the accent colour.")]
-        [SerializeField] private SpatialAdapterNativeText m_languageTitleZh;
         [Tooltip("One button per language; values are language codes, reused for both questions.")]
         [SerializeField] private SpatialButton[] m_languageButtons = System.Array.Empty<SpatialButton>();
         [Tooltip("The breadcrumb: one chip per step; finished steps can be tapped to go back.")]
@@ -88,7 +85,8 @@ namespace WordWorld.UI
         private SpatialAdapterNativeText[] m_titleEdge;
         private Color[] m_titleEdgeColors;
         private float m_showcaseUntil = -1f;
-        // The language the learner speaks (step 1): the interface language.
+        // The language the learner speaks (step 1): the interface language. Starts as the
+        // headset's language, so the first question is already answered for most learners.
         private string m_speak = "en";
 
         private void Awake()
@@ -159,7 +157,7 @@ namespace WordWorld.UI
 
         private void ShowLanguageWindow()
         {
-            if (m_settings.HasLanguage) m_speak = m_settings.InterfaceLanguage;
+            m_speak = m_settings.HasLanguage ? m_settings.InterfaceLanguage : LearnerSettings.SystemLanguage;
             PlaceInFront(m_languageWindow, m_windowOffset);
             m_languageWindow.SetActive(true);
             Sfx.Appear(m_languageWindow.transform.position);
@@ -170,17 +168,15 @@ namespace WordWorld.UI
         {
             m_step = step;
             int current = StepIndex(step);
-            // Step 1 is asked before the interface language is known, so it is asked in both.
-            bool both = step == Step.Speak;
+            // One language at a time (Nov 19 review: English and Chinese side by side was
+            // distracting). Step 1 is asked in the headset's language, which is also pre-selected.
             string ui = m_speak;
 
             for (int i = 0; i < m_crumbs.Length; i++)
             {
                 string key = i == 0 ? "onboarding.step_speak" : i == 1 ? "onboarding.step_learn" : "onboarding.step_start";
                 SpatialButton crumb = m_crumbs[i];
-                // Both languages share the step number: "1 You speak 你的语言".
-                string zh = m_strings.Get(key, "zh");
-                crumb.SetLabel(both ? $"{m_strings.Get(key, "en")} {zh.Substring(zh.IndexOf(' ') + 1)}" : m_strings.Get(key, ui));
+                crumb.SetLabel(m_strings.Get(key, ui));
                 // Current step: mint. Done: a button (tap to go back). Still to come: muted.
                 crumb.Text.TextColor = i > current ? m_theme.InkMuted : m_theme.Ink;
                 crumb.Background = i == current ? m_theme.AccentSoft : i < current ? m_theme.Button : m_theme.Card;
@@ -188,31 +184,15 @@ namespace WordWorld.UI
                 crumb.Interactable = i < current;
             }
 
-            string title = step == Step.Speak ? m_strings.Get("onboarding.speak_title", "en")
+            string title = step == Step.Speak ? m_strings.Get("onboarding.speak_title", ui)
                 : step == Step.Learn ? m_strings.Get("picker.title", ui)
                 : m_strings.Get("intro.body", ui);
-            // Step 1: "What language do you speak?" on one line and 你说哪种语言？ under it, in
-            // slightly different colours, so either reader finds their question at a glance.
-            Vector2 box = both ? HalfTitleBox : TitleBox;
-            Vector3 tp = m_languageTitle.transform.localPosition;
-            m_languageTitle.transform.localPosition = new Vector3(tp.x, both ? TitleY + 0.025f : TitleY, tp.z);
-            m_languageTitle.BackgroundSize = box;
+            m_languageTitle.BackgroundSize = TitleBox;
             m_languageTitle.Text = title;
             m_languageTitle.TextColor = m_theme.Ink;
             // The Start step's two-line sentence is wider than the questions; shrink it to the box
             // rather than let it spill toward the breadcrumb.
-            m_languageTitle.TextSize = TextFit.ToNative(TextFit.FitPoints(title, TitlePoints, box));
-            if (m_languageTitleZh != null)
-            {
-                m_languageTitleZh.gameObject.SetActive(both);
-                if (both)
-                {
-                    string zh = m_strings.Get("onboarding.speak_title", "zh");
-                    m_languageTitleZh.Text = zh;
-                    m_languageTitleZh.TextColor = m_theme.Accent;
-                    m_languageTitleZh.TextSize = TextFit.ToNative(TextFit.FitPoints(zh, TitlePoints, HalfTitleBox));
-                }
-            }
+            m_languageTitle.TextSize = TextFit.ToNative(TextFit.FitPoints(title, TitlePoints, TitleBox));
 
             // Step 2 lists every language; the one they speak is greyed out, and so are those this
             // interface can't teach yet (Chinese speakers learn English: meanings and grammar notes
@@ -221,21 +201,22 @@ namespace WordWorld.UI
                 : step == Step.Learn ? LearnerSettings.TargetLanguages
                 : System.Array.Empty<string>();
             string[] teachable = m_speak == "zh" ? s_forChinese : s_forEnglish;
-            int shown = 0;
             foreach (SpatialButton button in m_languageButtons)
             {
-                bool visible = System.Array.IndexOf(options, button.Value) >= 0;
+                int slot = SlotOf(step, button.Value, options);
+                bool visible = slot >= 0;
                 button.gameObject.SetActive(visible);
                 if (!visible) continue;
                 Vector3 p = button.transform.localPosition;
-                button.transform.localPosition = new Vector3(p.x, m_optionsTop - shown++ * m_optionsStep, p.z);
-                // Step 1 names each language in itself; step 2 adds its name in the learner's language.
-                string endonym = m_strings.Get($"lang.{button.Value}.endonym", ui);
-                button.SetLabel(step == Step.Speak ? endonym : $"{endonym} · {m_strings.Get($"lang.{button.Value}", ui)}");
+                button.transform.localPosition = new Vector3(p.x, m_optionsTop - slot * m_optionsStep, p.z);
+                // Every language is named in the language on screen; the headset's own language
+                // is marked "(System)" on the first question.
+                button.SetLabel(step == Step.Speak ? SpokenName(button.Value, ui) : m_strings.Get($"lang.{button.Value}", ui));
                 bool usable = step == Step.Speak || System.Array.IndexOf(teachable, button.Value) >= 0;
                 button.Interactable = usable;
                 button.Text.TextColor = usable ? m_theme.Ink : m_theme.InkMuted;
-                bool selected = step == Step.Speak ? button.Value == m_speak && m_settings.HasLanguage
+                // Step 1: the system language (or last time's answer) is already chosen; one tap confirms.
+                bool selected = step == Step.Speak ? button.Value == m_speak
                     : usable && button.Value == m_settings.TargetLanguage;
                 button.Background = !usable ? m_theme.Card : selected ? m_theme.AccentSoft : m_theme.Button;
             }
@@ -249,12 +230,28 @@ namespace WordWorld.UI
             }
         }
 
-        // As authored by the scene builder (40 pt scaled 1.5x for windows, in a 40 x 10 cm box at
-        // y 0.195); step 1 splits it into two 5 cm lines.
+        // As authored by the scene builder (40 pt scaled 1.5x for windows, in a 40 x 10 cm box).
         private const float TitlePoints = 60f;
-        private const float TitleY = 0.195f;
         private static readonly Vector2 TitleBox = new Vector2(0.4f, 0.1f);
-        private static readonly Vector2 HalfTitleBox = new Vector2(0.4f, 0.05f);
+
+        // Where an option goes in the list, or -1 if it is not offered. Step 1 puts the headset's
+        // own language first (Nov 23 review: the likely answer should be the top option).
+        private static int SlotOf(Step step, string code, string[] options)
+        {
+            int index = System.Array.IndexOf(options, code);
+            if (index < 0 || step != Step.Speak) return index;
+            string system = LearnerSettings.SystemLanguage;
+            if (code == system) return 0;
+            int systemIndex = System.Array.IndexOf(options, system);
+            return systemIndex >= 0 && index < systemIndex ? index + 1 : index;
+        }
+
+        // "English (System)" for the headset's language, plain "Chinese" otherwise.
+        private string SpokenName(string code, string ui)
+        {
+            string name = m_strings.Get(code == "zh" ? "settings.ui_zh" : "settings.ui_en", ui);
+            return code == LearnerSettings.SystemLanguage ? string.Format(m_strings.Get("onboarding.system_option", ui), name) : name;
+        }
 
         private static int StepIndex(Step step) => step == Step.Speak ? 0 : step == Step.Learn ? 1 : 2;
 
@@ -361,13 +358,10 @@ namespace WordWorld.UI
                 ShowLanguageWindow();
                 return;
             }
-            bool known = m_settings.HasLanguage;
-            string ui = known ? m_settings.InterfaceLanguage : "en";
-            m_titleName.Text = m_strings.Get("title.name", "en");
-            m_titleNameZh.Text = m_strings.Get("title.name", "zh");
-            // The interface language is unknown on first launch, so the purpose is given in both.
-            m_titleTagline.SetFitted(known ? m_strings.Get("title.tagline", ui)
-                : $"{m_strings.Get("title.tagline", "en")}\n{m_strings.Get("title.tagline", "zh")}");
+            // Before the first question the interface language is unknown: use the headset's.
+            string ui = m_settings.HasLanguage ? m_settings.InterfaceLanguage : LearnerSettings.SystemLanguage;
+            m_titleName.Text = m_strings.Get("title.name", ui);
+            m_titleTagline.SetFitted(m_strings.Get("title.tagline", ui));
             PlaceInFront(m_veil, m_veilOffset);
             PlaceInFront(m_titleCard, m_titleOffset);
             ApplyTitle(1f, 0f, 0f);
@@ -403,8 +397,6 @@ namespace WordWorld.UI
             m_titleCard.GetComponent<SpatialAdapterNativeText>().BackgroundColor = WithAlpha(card, name);
             m_titleName.TextColor = WithAlpha(m_theme.Ink, name);
             m_titleName.BackgroundColor = WithAlpha(card, name);
-            m_titleNameZh.TextColor = WithAlpha(m_theme.Accent, name);
-            m_titleNameZh.BackgroundColor = WithAlpha(card, name);
             m_titleTagline.TextColor = WithAlpha(m_theme.InkMuted, tagline);
             m_titleTagline.BackgroundColor = WithAlpha(card, name);
             if (m_titleEdge == null) FindTitleEdge();
@@ -453,7 +445,7 @@ namespace WordWorld.UI
                 string code = LearnerSettings.TargetLanguages[i];
                 bool target = code == m_settings.TargetLanguage;
                 SpatialAdapterNativeText row = m_showcaseRows[i];
-                row.SetFitted($"{m_strings.Get($"lang.{code}.endonym", ui)}   {WordFor(entry, code)}");
+                row.SetFitted($"{m_strings.Get($"lang.{code}", ui)}   {WordFor(entry, code)}");
                 row.TextColor = target ? m_theme.Accent : m_theme.Ink;
                 row.BackgroundColor = target ? m_theme.AccentSoft : m_theme.Card;
             }

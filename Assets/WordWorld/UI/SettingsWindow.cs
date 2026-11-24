@@ -31,6 +31,8 @@ namespace WordWorld.UI
         [SerializeField] private SpatialAdapterNativeText m_learningRow;
         [SerializeField] private SpatialAdapterNativeText m_interfaceRow;
         [SerializeField] private SpatialAdapterNativeText m_levelRow;
+        [Tooltip("Under Reading level: what the three levels change (Nov 19 review: it was unclear).")]
+        [SerializeField] private SpatialAdapterNativeText m_levelHint;
         [SerializeField] private SpatialAdapterNativeText m_preview;
         [SerializeField] private SpatialAdapterNativeText m_sizeRow;
         [SerializeField] private SpatialAdapterNativeText m_confidenceRow;
@@ -124,6 +126,8 @@ namespace WordWorld.UI
             Set(m_learningRow, S("settings.learning"), m_theme.InkMuted);
             Set(m_interfaceRow, S("settings.interface"), m_theme.InkMuted);
             Set(m_levelRow, S("settings.level"), m_theme.InkMuted);
+            // Mandarin levels change the script (pinyin, then characters); the others add words.
+            Set(m_levelHint, S(m_settings.TargetLanguage == "zh" ? "settings.level_hint_zh" : "settings.level_hint"), m_theme.InkMuted);
             Set(m_sizeRow, S("settings.label_size"), m_theme.InkMuted);
             Set(m_confidenceRow, $"{S("settings.confidence")}   {Mathf.RoundToInt(m_settings.ConfidenceThreshold * 100f)}%", m_theme.InkMuted);
             Set(m_privacy, S("settings.privacy"), m_theme.InkMuted);
@@ -144,7 +148,7 @@ namespace WordWorld.UI
                 {
                     string lang = value.Substring(5);
                     selected = lang == m_settings.TargetLanguage;
-                    text = m_strings.Get($"lang.{lang}.endonym", ui);
+                    text = m_strings.Get($"lang.{lang}", ui);
                 }
                 else if (value.StartsWith("ui:"))
                 {

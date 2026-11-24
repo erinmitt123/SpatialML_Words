@@ -76,7 +76,8 @@ Gender color coding (optional, toggle in Settings, off by default): masculine `#
 - Card floats **15 cm above** the hit point on the object, with a thin leader line down to a small dot on the object's surface.
 - Always **billboarded** to face the user (rotate on Y only, so text never tilts).
 - **Size:** main text height ≈ 1.2° of visual angle (about 2 cm at 1 m, 6 cm at 3 m). Clamp: minimum 1.5 cm, maximum 8 cm.
-- Card padding 8 mm horizontal, 5 mm vertical. Width fits the text.
+- Card padding 8 mm horizontal, 5 mm vertical. Width fits the text. Lines are sized at 1.36 em (Noto Sans' ascender to descender); at 1.2 em two-line sentences lost the bottoms of their descenders (Nov 19 review).
+- The meaning line sits flush under the word, never overlapping it; the backing panel behind both fills the rounded corners at the seam.
 
 ### What the label shows
 | Level | Spanish/French/German/English | Mandarin |
@@ -92,7 +93,7 @@ Text comes from `Vocabulary.TryGetLabel()`, which reads `Assets/Data/vocabulary.
 |---|---|
 | **Scanning** (object seen, not yet confirmed) | Small pulsing dot on the object only, no text. |
 | **Confirmed** | Card fades in over 0.25 s and scales from 90% to 100%. |
-| **Hover** (hand ray or gaze over it) | Background turns `AccentSoft`, card scales to 105%. |
+| **Hover** (gaze, hand ray or controller over it) | A 5 mm `Accent` ring appears around the card and the card leans toward `AccentSoft`, with the hover tick. Labels are the main thing people pinch, so this is how a learner knows gaze has landed and a pinch will open it (Nov 23 review). |
 | **Selected** | Detail card opens (section 4). Other labels dim to 60% opacity. |
 | **Lost** (object out of view) | Stays in place at 40% opacity for 10 s, then fades out. |
 | **Quiz mode** | Words hide; each label becomes a **This one** button over its dot (see section 6). |
@@ -119,16 +120,18 @@ Opens 60 cm from the user on the line to the object (in front of it, within poke
 │  Measure word   一把椅子  yì bǎ yǐzi │  ← grammar row (article/gender for es/fr/de)
 │  Example        这是我的椅子。       │
 │                 Zhè shì wǒ de yǐzi. │
+│  Means          This is my chair.   │  ← the example in the learner's language
 │ ───────────────────────────────── │
-│  [Save]  [Hear example] [Not right?]│
+│  [Save]  [Hear example] [Wrong object? Hide it]│
 └───────────────────────────────────┘
 ```
 - **Spanish/French/German grammar row:** "Gender: feminine · Article: la · Plural: no". Spanish is Mexican Spanish; when Spain uses a different word, show it under the word (*Spain: el coche*).
 - **English (Chinese interface):** meaning in Chinese, all row titles in Chinese.
+- **Means:** what the example sentence says, in the learner's own language (`sentenceMeaning` in the vocabulary sheet; Nov 19 review: the example alone could not be understood). The card is 36 × 28 cm to fit it.
 - **Listen** plays the label's own line (word, phrase or sentence at the reading level; Mandarin: the word) from the object. **Hear example** plays the example sentence. Both only appear if audio is on and a clip exists, and only ever play on a tap.
 - **Say it** (lavender) opens the Say It card for this word (section 5.5). It only appears where speech can be checked for the word.
 - **Save** adds the word to the Word Bank (words are also auto-collected on first tap).
-- **Not right?** hides that label for the session and logs nothing else.
+- **Wrong object? Hide it** (was "Not right?", which did not say what it did, Nov 23 review) hides that label for the session; the dock's pill confirms "Label hidden for this session" for 4 s. Nothing else is logged.
 - Closes on ✕, tapping elsewhere, or after 20 s without interaction.
 
 ---
@@ -163,7 +166,7 @@ Separate windows through the spatial adapter, but **only one is open at a time**
 - Under those, the **Sound** row: **Off**, **Alerts only**, **All** (the selected one is mint). See section 9.
 - A brand-new learner skips the menu and starts the Journey, so the first thing they do is read labels. Later launches open the menu.
 
-Window sizes: Menu 42 × 62 cm, Word Bank 45 × 55 cm, Progress 35 × 40 cm, Settings 42 × 66 cm (label size and confidence buttons 7 × 5 cm), Journey card 34 × 17 cm, Find It results 40 × 24 cm, Say It card 40 × 34 cm.
+Window sizes: Menu 42 × 62 cm, Word Bank 45 × 55 cm, Progress 35 × 40 cm, Settings 42 × 72 cm (label size and confidence buttons 7 × 5 cm), Journey card 34 × 17 cm, Find It results 40 × 24 cm, Say It card 40 × 34 cm.
 
 ### 5.1 Word Bank
 - Header: "Word Bank" + count ("23 words").
@@ -204,8 +207,8 @@ Details in `docs/audio-plan.md`.
 
 ### 5.4 Settings
 - **I'm learning:** Mandarin / Spanish / French / German / English.
-- **Interface language:** English / 简体中文 (auto-set to Chinese when learning English, can be changed).
-- **Reading level:** 1 / 2 / 3 with a live preview of the chair label.
+- **Interface language:** English / Chinese, named in the interface language (auto-set to Chinese when learning English, can be changed).
+- **Reading level:** 1 / 2 / 3 with a live preview of the chair label, and a line under the title saying what the levels change: "1 the word, 2 a short phrase, 3 a full sentence", or for Mandarin "1 pinyin only, 2 characters with pinyin, 3 characters only".
 - **Show pinyin** (Mandarin only), **Gender colors**, **Sound** (Off / Alerts only / All, same as the menu row; Say It still works with it off), **Label size** (S / M / L).
 - **Advanced:** detection confidence slider, "Show room mesh" (debug, hidden in release).
 - **Privacy note** (always visible at the bottom): "Object recognition runs on your headset. Word World never saves or sends camera images."
@@ -228,10 +231,10 @@ Details in `docs/audio-plan.md`.
 
 ## 7. First-time experience (under 30 seconds)
 
-0. **Title** (about 7 s): black, then the room fades in, then a card with "Word World / 单词世界" and the purpose, "Learn another language by seeing the names of objects around you." (both languages, since the interface language is not known yet). A soft ripple as the name appears.
+0. **Title** (about 7 s): black, then the room fades in, then a card with the name and the purpose, "Learn another language by seeing the names of objects around you.", in the headset's system language (Chinese if the system is Chinese, otherwise English). A soft ripple as the name appears.
 1–2. **Two questions, one at a time, in one window with a breadcrumb** across the top: **1 You speak › 2 Learn › 3 Start**. The current step is mint, finished steps can be tapped to go back, and later steps are greyed. The V3 review showed why: with a single "What do you want to learn?" list, a tester tapped English meaning "I speak English".
-   1. **"What language do you speak?"** on one line (ink) and **你说哪种语言？** under it (accent green), since the interface language is not known yet: English, 中文.
-   2. **"What do you want to learn?"** in the language just chosen, listing all five languages ("endonym · name"). The language they speak is greyed out and can't be chosen; so are Spanish, French and German for Chinese speakers, since meanings and grammar notes exist in Chinese only for the English path. The choice sets both the target and the interface language.
+   1. **"What language do you speak?"** in the headset's system language, with that language already selected, marked and listed first (Nov 23 review): **English (System)** / **Chinese**, or **英文** / **中文（系统）**. One tap confirms it. Until Nov 19 the question was shown in both languages at once, which was distracting.
+   2. **"What do you want to learn?"** in the language just chosen, listing all five languages by their name in that language. The language they speak is greyed out and can't be chosen; so are Spanish, French and German for Chinese speakers, since meanings and grammar notes exist in Chinese only for the English path. The choice sets both the target and the interface language.
 3. **Start:** "Look around your room. Objects you can learn will get labels." **Got it** starts scanning.
 3. **Scanning hint:** while no objects are confirmed, a small floating line gives a concrete task: "Look at a chair, a cup or a book near you." Disappears when the first label appears.
 4. **First label moment:** the first confirmed object gets a slightly larger label with a "Tap me" tooltip. Beside it, within reach, a card shows that word in all five languages with the learner's language highlighted; it closes when they tap the label (or after 20 s).
@@ -242,7 +245,7 @@ Steps 3–5 apply only when the guided tour is unavailable; normally **Got it** 
 On later launches skip the title, intro and steps 3–5, but still ask both questions, with last time's answers highlighted in mint (one tap each to confirm); picking the language goes straight on to the tour and menu.
 
 ### 7a. Guided tour
-Nine short steps. Each points at one part of the app with a pulsing green halo behind it, a caption card beside it (with a tooltip tail toward it, a step count, **Skip** and **Next**), and a spoken line in the interface language (English or Mandarin; Sound must be All, otherwise captions only). Caption and narration are the same text (`tour.*` in ui_strings.json); `tools/generate_tour_audio.py` speaks them with the same Piper voices and hand-written pinyin as the vocabulary.
+Nine short steps. Each points at one part of the app with a pulsing green halo behind it, a caption card beside it (with a tooltip tail toward it, a step count, **Skip** and **Next**), and a spoken line in the interface language (English or Mandarin; Sound must be All, otherwise captions only). Caption and narration are the same text (`tour.*` in ui_strings.json); `tools/generate_tour_audio.py` speaks them with Kokoro-82M (open, Apache-2.0, generated offline): the "af_heart" voice for English and the Mandarin-tuned v1.1-zh model for Mandarin. The Piper narration sounded stiff (Nov 23 review); vocabulary clips still use Piper with hand-written pinyin. Kokoro reads the Mandarin characters itself; its tones were checked against the pinyin table (only the expected third-tone changes differ).
 
 | # | Points at | Says | Moves on when |
 |---|---|---|---|
@@ -258,7 +261,7 @@ Plays on **every launch**, right after the language questions on the first one (
 
 **Only what the step is about can be used.** While the tour runs:
 - Labels stay visible, but can be tapped only on step 2, and the word is not spoken (the narration explains the card next).
-- The word card shows only its meaning and the close button (no Listen, Say it, Save or Not right).
+- The word card shows only its meaning and the close button (no Listen, Say it, Save or Wrong object).
 - The dock appears at step 4; only the recognition pill works at step 4 and only Home at step 5.
 - The menu appears for steps 6–9 to be pointed at; none of its buttons can be hovered, heard or pressed, and the controller's X does not open it.
 - The recognition notice waits until the tour ends.
@@ -271,7 +274,7 @@ Plays on **every launch**, right after the language questions on the first one (
 
 ## 8. Status and system feedback
 
-- **Dock:** to the left of the windows (40 cm left, 20 cm below the eyes, 85 cm away, clear of every window, the quiz prompt and the scanning hint), two things only: the recognition pill and a **Home** button 3 cm under it. It sat directly under the windows until the Nov 7 recording showed low-hand rays pausing recognition three times.
+- **Dock:** to the left of the windows (40 cm left, 20 cm below the eyes, 85 cm away, clear of every window, the quiz prompt and the scanning hint), the recognition pill with **Home** and **Move** side by side 3 cm under it. **Move** makes the dock follow the centre of the view ("Turn to where you want this, then tap it", Move becomes **Done**); tapping any part of it places it there. The spot is kept relative to the way the learner faces (within 34° of straight ahead, from waist to just above eye height) and saved, so re-centring brings it back to the same place. Move is locked during the tour. The dock always turns to face the learner's eyes (eased, like a label), so it stays readable from any position; a turn that would make it cross an open window or card (as seen from the eyes, which also rules out cutting through one) is held back and the dock slides clear first. It sat directly under the windows until the Nov 7 recording showed low-hand rays pausing recognition three times.
 - **Recognition pill:** "● Recognizing objects" on mint. Tapping it pauses recognition ("Paused" on the plain surface). This doubles as the privacy indicator.
 - **Microphone:** while Say It is listening the pill reads "● Microphone on" on lavender; tapping it stops listening. The microphone is never on without this.
 - **Not enough light / nothing found for 20 s:** "Having trouble seeing. Try turning on a light or moving closer."
@@ -309,7 +312,7 @@ Settings → **Practice objects: On** places five 3D models (CC0, Poly Haven: ch
 - **Finger ray:** in spatial mode the system targets with eye gaze and draws no hand ray, so the app draws one from each tracked index fingertip, always while the hand is tracked (`FingerRay`, Nov 16 review). It is a thin white line 60 cm long that turns green and ends in a green dot when it lands on something tappable, gives that thing the same hover highlight, and taps it on an index pinch. One pinch is one tap: whichever of the ray, a gaze-pinch or a poke delivers it first wins, and while a ray is on something a gaze-pinch elsewhere is ignored (`ClickGate`).
 - **Text stays inside its background.** Native text never wraps by itself, so every runtime string goes through `SetFitted` (or `SpatialButton.SetLabel`): it breaks onto more lines at spaces (between any two characters in Chinese) and shrinks only if the lines still don't fit. Width estimates carry Swan's measured 13% extra width. Each text's box is recorded at build time (`TextBox`).
 - Minimum button size 3 × 3 cm; minimum spacing 1 cm.
-- Hover state on everything interactive; light haptic on controllers for press. Buttons: while gazed at or pointed at, the background leans 28% toward `Accent` and the button scales to 106% (`SpatialButton`; set button colours through `SpatialButton.Background` so the hover can restore them).
+- Hover state on everything interactive; light haptic on controllers for press. Buttons: while gazed at or pointed at, the background leans 40% toward `Accent`, a solid `Accent` ring appears 6 mm around it and the button scales to 108% (`SpatialButton`; the Nov 19 review found the old 28% tint and 6% growth too faint to tell where the gaze was; set button colours through `SpatialButton.Background` so the hover can restore them).
 - No artificial movement of the user. Windows never follow the head; the user moves them.
 - Nothing appears closer than 40 cm to the user's eyes.
 
@@ -318,6 +321,7 @@ Settings → **Practice objects: On** places five 3D models (CC0, Poly Haven: ch
 ## 11. Bilingual UI
 
 - All interface text comes from `ui_strings.json` (`en` and `zh`). No hard-coded strings.
+- **One language at a time.** Panels show only the interface language, never English and Chinese side by side (Nov 19 review). Before the learner has chosen, that is the headset's system language.
 - Chinese text is usually shorter; English can be 2× longer. Design layouts for the English length and check Chinese doesn't look empty.
 - When the interface is Chinese, the target-language word still uses its own script (English learner sees "chair", with meaning 椅子).
 

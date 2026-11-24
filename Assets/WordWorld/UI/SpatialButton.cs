@@ -26,8 +26,12 @@ namespace WordWorld.UI
         [SerializeField] private Color m_background = Color.white;
         [Tooltip("Colour the background leans toward while the button is looked at or pointed at.")]
         [SerializeField] private Color m_hoverTint = new Color32(0x1E, 0x6E, 0x58, 0xFF);
-        [Range(0f, 1f)] [SerializeField] private float m_hoverAmount = 0.28f;
-        [SerializeField] private float m_hoverScale = 1.06f;
+        // A 28% tint and 6% growth were too faint to tell where the gaze was (Nov 19 review), so
+        // the tint is stronger and a solid ring in the tint colour appears around the button.
+        [Range(0f, 1f)] [SerializeField] private float m_hoverAmount = 0.4f;
+        [SerializeField] private float m_hoverScale = 1.08f;
+        [Tooltip("A slightly larger, empty native text just behind the button; its background is the hover ring.")]
+        [SerializeField] private SpatialAdapterNativeText m_ring;
 
         private bool m_warnedSmall;
         private bool m_hovered;
@@ -71,7 +75,7 @@ namespace WordWorld.UI
         }
 
         public void Bind(string value, SpatialAdapterNativeText text, float points, Vector2 size,
-            Color background, Color hoverTint)
+            Color background, Color hoverTint, SpatialAdapterNativeText ring = null)
         {
             m_value = value;
             m_text = text;
@@ -79,9 +83,17 @@ namespace WordWorld.UI
             m_size = size;
             m_background = background;
             m_hoverTint = hoverTint;
+            m_ring = ring;
         }
 
-        private void Awake() => m_restScale = transform.localScale;
+        /// <summary>True while looked at or pointed at.</summary>
+        public bool Hovered => m_hovered;
+
+        private void Awake()
+        {
+            m_restScale = transform.localScale;
+            if (m_ring != null) m_ring.BackgroundColor = Color.clear;
+        }
 
         // A window closing under the gaze sends no exit event, so it must not reopen still lit.
         private void OnDisable() => SetHovered(false);
@@ -116,6 +128,7 @@ namespace WordWorld.UI
             if (m_hovered == hovered) return;
             m_hovered = hovered;
             if (m_text != null) m_text.BackgroundColor = hovered ? HoverColor() : m_background;
+            if (m_ring != null) m_ring.BackgroundColor = hovered ? m_hoverTint : Color.clear;
             transform.localScale = hovered ? m_restScale * m_hoverScale : m_restScale;
         }
 

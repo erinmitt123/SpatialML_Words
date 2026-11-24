@@ -41,6 +41,10 @@ namespace WordWorld.App
             public int journeyStep;
             // Total label taps when the current read step began.
             public int journeyBaseTaps;
+            // Where the learner moved the dock, relative to the direction they face (metres:
+            // right, up, forward). Unset until they move it.
+            public bool dockMoved;
+            public Vector3 dockOffset;
         }
 
         private SaveData m_data = new SaveData();
@@ -80,6 +84,33 @@ namespace WordWorld.App
 
         /// <summary>English learners get a Chinese interface; everyone else gets English.</summary>
         public static string InterfaceFor(string target) => target == "en" ? "zh" : "en";
+
+        /// <summary>
+        /// The headset's language as an interface language: zh for any Chinese system language,
+        /// otherwise en (the only two interfaces). Pre-selects "You speak" on the first question.
+        /// </summary>
+        public static string SystemLanguage => SystemLanguageOverride ??
+            (Application.systemLanguage == UnityEngine.SystemLanguage.Chinese ||
+             Application.systemLanguage == UnityEngine.SystemLanguage.ChineseSimplified ||
+             Application.systemLanguage == UnityEngine.SystemLanguage.ChineseTraditional ? "zh" : "en");
+
+        /// <summary>For editor checks: stands in for the headset language when set.</summary>
+        public static string SystemLanguageOverride { get; set; }
+
+        /// <summary>Where the learner put the dock, relative to the way they face; false until moved.</summary>
+        public bool TryGetDockOffset(out Vector3 offset)
+        {
+            offset = m_data.dockOffset;
+            return m_data.dockMoved;
+        }
+
+        // Saved without raising Changed: nothing else depends on where the dock sits.
+        public void SetDockOffset(Vector3 offset)
+        {
+            m_data.dockMoved = true;
+            m_data.dockOffset = offset;
+            Save();
+        }
 
         private static string SavePath => Path.Combine(Application.persistentDataPath, "settings.json");
 
